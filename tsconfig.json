@@ -16,6 +16,13 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/lib/connectDB.js",
+    "pages/api/products/products.ts",
+    "models/user.ts"
+  ],
   "exclude": ["node_modules"]
 }
