@@ -20,8 +20,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/lib/connectDB.js",
-    "pages/api/products/products.ts",
+    "pages/lib/connectDB.ts",
+    "pages/api/products.ts",
     "models/user.ts"
   ],
   "exclude": ["node_modules"]
