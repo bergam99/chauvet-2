@@ -1,16 +1,10 @@
+//  @/products
+import { IProduct } from "@/types/product";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import React from "react";
-
-export interface Product {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-}
 
 interface ProductsProps {
-  products: Product[];
+  products: IProduct[];
 }
 
 const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
@@ -22,7 +16,7 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
           <li key={product._id}>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p>${product.price}</p>
+            <p>{product.price}</p>
             <Link href={`/products/${product._id}`}>
               <button>Details</button>
             </Link>
