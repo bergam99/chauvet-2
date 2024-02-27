@@ -1,7 +1,8 @@
 import { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import React from "react";
 
-interface Product {
+export interface Product {
   _id: string;
   name: string;
   description: string;
@@ -22,6 +23,9 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>${product.price}</p>
+            <Link href={`/products/${product._id}`}>
+              <button>Details</button>
+            </Link>
           </li>
         ))}
       </ul>

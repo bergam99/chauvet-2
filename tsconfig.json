@@ -22,7 +22,8 @@
     "**/*.tsx",
     "pages/lib/connectDB.ts",
     "pages/api/products.ts",
-    "models/user.ts"
+    "models/user.ts",
+    "pages/products/[pid].jsx"
   ],
   "exclude": ["node_modules"]
 }
