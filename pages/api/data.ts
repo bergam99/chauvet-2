@@ -1,3 +1,4 @@
+// /api/data
 import user from "@/models/user";
 import connectDB from "../lib/connectDB";
 import { NextApiRequest, NextApiResponse } from "next";
