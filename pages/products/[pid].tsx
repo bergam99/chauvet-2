@@ -44,7 +44,7 @@ const ProductDetailPage: NextPage<ProductDetailPageProps> = ({ detail }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const pid = context.params?.pid;
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const apiUrl = process.env.next_public_api_url;
   const res = await fetch(`${apiUrl}/api/products`);
   const { products } = await res.json();
 

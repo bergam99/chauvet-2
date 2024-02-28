@@ -3,11 +3,12 @@ import { IProduct } from "@/types/product";
 import { MongoClient, Db } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+const DATABASE_URL = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.vxm2yn0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 interface ApiResponse {
   message: string;
   products?: IProduct[];
 }
-const client = new MongoClient(process.env.DATABASE_URL as string);
+const client = new MongoClient(DATABASE_URL);
 let db: Db | null = null;
 
 export default async function handler(
