@@ -1,19 +1,10 @@
 // /api/products
 import { IProduct } from "@/types/product";
-import { MongoClient, Db, ObjectId } from "mongodb";
+import { MongoClient, Db } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const client = new MongoClient(process.env.DATABASE_URL as string);
 let db: Db | null = null;
-
-// interface Product {
-//   _id: ObjectId;
-//   name: string;
-//   price: number;
-//   description: string;
-//   stock: number;
-//   images: { url: string }[];
-// }
 
 interface ApiResponse {
   message: string;
