@@ -32,7 +32,7 @@ module.exports = (phase, { defaultConfig }) => {
       mongodb_username: "jiyun",
       mongodb_password: "1VBQWdxngYJTxg1P",
       mongodb_clustername: "cluster0",
-      next_public_api_url: `http://localhost:3000`,
+      next_public_api_url: `https://chauvet-2.vercel.app`,
     },
   };
 };
