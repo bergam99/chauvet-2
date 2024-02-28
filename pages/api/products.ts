@@ -3,7 +3,7 @@ import { IProduct } from "@/types/product";
 import { MongoClient, Db } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const DATABASE_URL = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.vxm2yn0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const DATABASE_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER_NAME}.vxm2yn0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 interface ApiResponse {
   message: string;
   products?: IProduct[];

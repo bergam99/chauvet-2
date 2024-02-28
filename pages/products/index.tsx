@@ -34,7 +34,7 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const apiUrl = process.env.next_public_api_url;
+  const apiUrl = process.env.DB_HOST;
   const res = await fetch(`${apiUrl}/api/products`);
   const { products } = await res.json();
 
