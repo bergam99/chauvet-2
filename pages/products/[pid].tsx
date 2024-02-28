@@ -21,7 +21,12 @@ const ProductDetailPage: NextPage<ProductDetailPageProps> = ({ detail }) => {
       <h1>{detail.name}</h1>
       <p>{detail.description}</p>
       <p>{detail.price}</p>
-      <p>{detail?.stock < 0 && "stock épuisé"}</p>
+
+      <button type="button" disabled={detail.stock <= 0}>
+        Ajouter au panier
+      </button>
+
+      <p>{detail?.stock <= 0 && "stock épuisé"}</p>
 
       {detail?.images?.map((img) => (
         <Image
