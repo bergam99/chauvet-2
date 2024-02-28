@@ -3,13 +3,12 @@ import { IProduct } from "@/types/product";
 import { MongoClient, Db } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const client = new MongoClient(process.env.DATABASE_URL as string);
-let db: Db | null = null;
-
 interface ApiResponse {
   message: string;
   products?: IProduct[];
 }
+const client = new MongoClient(process.env.DATABASE_URL as string);
+let db: Db | null = null;
 
 export default async function handler(
   req: NextApiRequest,
