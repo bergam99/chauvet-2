@@ -1,6 +1,7 @@
 //  @products/:[pid]
 import { GetServerSideProps, NextPage } from "next";
 import { IProduct } from "@/types/product";
+import Image from "next/image";
 
 type ProductDetailPageProps = {
   detail?: IProduct;
@@ -11,9 +12,31 @@ const ProductDetailPage: NextPage<ProductDetailPageProps> = ({ detail }) => {
 
   return (
     <div>
+      <Image
+        src={detail?.images[0]?.url}
+        alt={detail?.name}
+        width={100}
+        height={100}
+      />
       <h1>{detail.name}</h1>
       <p>{detail.description}</p>
       <p>{detail.price}</p>
+
+      <button type="button" disabled={detail.stock <= 0}>
+        Ajouter au panier
+      </button>
+
+      <p>{detail?.stock <= 0 && "stock épuisé"}</p>
+
+      {detail?.images?.map((img) => (
+        <Image
+          src={img?.url}
+          alt={img?.url}
+          key={img.url}
+          width={100}
+          height={100}
+        />
+      ))}
     </div>
   );
 };
