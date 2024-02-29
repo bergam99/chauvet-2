@@ -5,6 +5,7 @@ import Image from "next/image";
 import { NextPageWithLayout } from "@/types/next";
 import NestedLayout from "@/components/layout/nestedLayout";
 import { ReactElement } from "react";
+import { useRouter } from "next/router";
 
 type ProductDetailPageProps = {
   detail?: IProduct;
@@ -13,10 +14,16 @@ type ProductDetailPageProps = {
 const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
   detail,
 }) => {
+  const router = useRouter();
+
   if (!detail) return <div>detail not found</div>;
 
   return (
-    <div>
+    <>
+      <button type="button" onClick={() => router.back()}>
+        retour
+      </button>
+      <br />
       <Image
         src={detail?.images[0]?.url}
         alt={detail?.name}
@@ -32,7 +39,7 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
       </button>
 
       <p>{detail?.stock <= 0 && "stock épuisé"}</p>
-
+      <p>{detail?.description}</p>
       {detail?.images?.map((img) => (
         <Image
           src={img?.url}
@@ -42,7 +49,7 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
           height={100}
         />
       ))}
-    </div>
+    </>
   );
 };
 
