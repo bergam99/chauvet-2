@@ -2,12 +2,17 @@
 import { GetServerSideProps, NextPage } from "next";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
+import { NextPageWithLayout } from "@/types/next";
+import NestedLayout from "@/components/layout/nestedLayout";
+import { ReactElement } from "react";
 
 type ProductDetailPageProps = {
   detail?: IProduct;
 };
 
-const ProductDetailPage: NextPage<ProductDetailPageProps> = ({ detail }) => {
+const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
+  detail,
+}) => {
   if (!detail) return <div>detail not found</div>;
 
   return (
@@ -50,9 +55,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const detail = products.find((product: IProduct) => product._id === pid);
 
+  if (detail.length === 0) {
+    return { notFound: true };
+  }
+
   return {
     props: { detail: detail || null },
   };
 };
+
+ProductDetailPage.getLayout = (page: ReactElement) => (
+  <NestedLayout>{page}</NestedLayout>
+);
 
 export default ProductDetailPage;
