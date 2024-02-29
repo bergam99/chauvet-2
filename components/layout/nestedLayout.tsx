@@ -1,5 +1,4 @@
-import type { NextPageWithLayout } from "@/pages/_app";
-
+import classes from "./nestedLayout.module.css";
 interface Props {
   children: React.ReactNode;
 }
@@ -7,7 +6,17 @@ interface Props {
 const NestedLayout = ({ children }: Props) => {
   return (
     <>
-      <p>nested layout</p>
+      <button className={classes.dropbtn}>PanierIcon</button>
+
+      <div className={classes.dropdown}>
+        <button className={classes.dropbtn}>UserIcon</button>
+        <div className={classes.dropdownContent}>
+          <a href="#">Profile</a>
+          <a href="#">Commandes</a>
+          {/* panier si mobile */}
+          <a href="#">Déconnexion</a>
+        </div>
+      </div>
       <main>{children}</main>
     </>
   );
