@@ -1,12 +1,7 @@
 import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
-import { NextPage } from "next";
+import { NextPageWithLayout } from "@/types/next";
 import type { AppProps } from "next/app";
-import { ReactElement, ReactNode } from "react";
-
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
