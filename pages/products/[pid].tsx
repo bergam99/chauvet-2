@@ -20,7 +20,7 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
 
   return (
     <>
-      <button type="button" onClick={() => router.back()}>
+      <button className="Link" type="button" onClick={() => router.back()}>
         retour
       </button>
       <br />

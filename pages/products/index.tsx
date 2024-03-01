@@ -14,7 +14,7 @@ interface ProductsProps {
 const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
   return (
     <div>
-      <h1>Products</h1>
+      <h3 className="Heading">Shop</h3>
       <ul>
         {products?.map((product) => (
           <li key={product?._id}>
@@ -28,7 +28,7 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
             <p>{product?.description}</p>
             <p>{product?.price}</p>
             <Link href={`/products/${product._id}`}>
-              <button>Details</button>
+              <button className="DefaultButton">Voir plus</button>
             </Link>
           </li>
         ))}

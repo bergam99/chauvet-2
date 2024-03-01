@@ -13,7 +13,7 @@ const NestedLayout = ({ children }: Props) => {
         <div className={classes.dropdownContent}>
           <a href="#">Profile</a>
           <a href="#">Commandes</a>
-          {/* panier si mobile */}
+          {/* + panier si mobile */}
           <a href="#">Déconnexion</a>
         </div>
       </div>
