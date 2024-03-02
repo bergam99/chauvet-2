@@ -1,3 +1,4 @@
+import Link from "next/link";
 import classes from "./nestedLayout.module.css";
 interface Props {
   children: React.ReactNode;
@@ -11,10 +12,11 @@ const NestedLayout = ({ children }: Props) => {
       <div className={classes.dropdown}>
         <button className={classes.dropbtn}>UserIcon</button>
         <div className={classes.dropdownContent}>
-          <a href="#">Profile</a>
-          <a href="#">Commandes</a>
+          <Link href="/auth">Login</Link>
+          <Link href="/profile">Profile</Link>
+          <Link href="#">Commandes</Link>
           {/* + panier si mobile */}
-          <a href="#">Déconnexion</a>
+          <Link href="#">Déconnexion</Link>
         </div>
       </div>
       <main>{children}</main>
@@ -23,3 +25,7 @@ const NestedLayout = ({ children }: Props) => {
 };
 
 export default NestedLayout;
+
+// Login && (profile, commandes, panier<mobile only, icon en desktop>, /Deconnexion)
+
+// !Login && (Profile, Commandes, Panier<mobile only, icon en desktop> /Connexion)

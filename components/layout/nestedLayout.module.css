@@ -29,10 +29,10 @@
     text-decoration: none;
     display: block;
 }
-.dropdownContent a:nth-child(2) {
+.dropdownContent a:nth-child(3) {
     border-bottom: 1px solid black;
 }
-.dropdownContent a:nth-child(3) {
+.dropdownContent a:nth-child(4) {
 color: red;
 }
 
