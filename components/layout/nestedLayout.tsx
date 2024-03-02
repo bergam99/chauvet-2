@@ -1,10 +1,23 @@
 import Link from "next/link";
 import classes from "./nestedLayout.module.css";
-interface Props {
-  children: React.ReactNode;
-}
+import { useSession, signIn, signOut } from "next-auth/react";
 
-const NestedLayout = ({ children }: Props) => {
+// interface Props {
+//   children: React.ReactNode;
+// }
+
+// const handleSignin = (e: { preventDefault: () => void }) => {
+//   e.preventDefault();
+//   signIn();
+// };
+const handleSignout = (e: { preventDefault: () => void }) => {
+  e.preventDefault();
+  signOut();
+};
+
+// { children }: Props
+const NestedLayout = () => {
+  const { data: session } = useSession();
   return (
     <>
       <button className={classes.dropbtn}>PanierIcon</button>
@@ -16,10 +29,22 @@ const NestedLayout = ({ children }: Props) => {
           <Link href="/profile">Profile</Link>
           <Link href="#">Commandes</Link>
           {/* + panier si mobile */}
-          <Link href="#">Déconnexion</Link>
+          {/* next auth */}
+          {session ? (
+            <Link href="#" onClick={handleSignout} className="btn-signin">
+              Sign out
+            </Link>
+          ) : (
+            // <Link href="#" onClick={handleSignin} className="btn-signin">
+            //   Sign in
+            // </Link>
+            <button onClick={() => signIn("facebook")}>
+              Sign in with Facebook
+            </button>
+          )}
         </div>
       </div>
-      <main>{children}</main>
+      {/* <main>{children}</main> */}
     </>
   );
 };

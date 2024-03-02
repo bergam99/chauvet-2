@@ -1,11 +1,16 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { NextPage } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home: NextPage = () => {
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
+
   return (
     <>
       <Head>
@@ -15,6 +20,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Link href="/products">go to products page</Link>
+      <main>
+        <div>
+          {loading && <div>Loading...</div>}
+          {session ? (
+            <>
+              <p>Welcome, {session.user?.name ?? session.user?.email}</p>
+              <br />
+            </>
+          ) : (
+            <p>Please Sign in</p>
+          )}
+        </div>
+      </main>
     </>
   );
-}
+};
+
+export default Home;
