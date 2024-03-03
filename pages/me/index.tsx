@@ -19,7 +19,7 @@ const AuthPage = () => {
         </button>
       )}
 
-      {!session && (
+      {!session && status === "unauthenticated" && (
         <button className="DefaultButton" onClick={() => signIn("facebook")}>
           Connexion via facebook
         </button>

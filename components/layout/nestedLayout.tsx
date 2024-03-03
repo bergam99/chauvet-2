@@ -4,7 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import { handleSignout } from "@/pages/me";
 
 const NestedLayout = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   return (
     <>
       <div className={classes.dropdown}>
@@ -12,9 +12,9 @@ const NestedLayout = () => {
           <p>menu icon</p>
         </button>
         <div className={classes.dropdownContent}>
-          {!session && (
+          {!session && status === "unauthenticated" && (
             <>
-              <Link href="/auth">Login</Link>
+              <Link href="/me">Login</Link>
             </>
           )}
 
