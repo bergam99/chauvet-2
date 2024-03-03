@@ -1,11 +1,8 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { NextPage } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <>
       <Head>
@@ -17,4 +14,6 @@ export default function Home() {
       <Link href="/products">go to products page</Link>
     </>
   );
-}
+};
+
+export default Home;
