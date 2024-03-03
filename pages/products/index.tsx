@@ -51,8 +51,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-ProductsPage.getLayout = (page: ReactElement) => (
-  <NestedLayout>{page}</NestedLayout>
-);
+// ProductsPage.getLayout = (page: ReactElement) => (
+//   <NestedLayout>{page}</NestedLayout>
+// );
 
 export default ProductsPage;
