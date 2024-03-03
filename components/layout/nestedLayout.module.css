@@ -33,7 +33,7 @@
     border-bottom: 1px solid black;
 }
 .dropdownContent a:nth-child(4) {
-color: red;
+    color: red;
 }
 
 /* hover effect for links */
