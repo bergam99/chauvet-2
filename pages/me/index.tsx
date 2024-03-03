@@ -20,11 +20,15 @@ const AuthPage = () => {
       )}
 
       {!session && status === "unauthenticated" && (
-        <button className="DefaultButton" onClick={() => signIn("facebook")}>
-          Connexion via facebook
-        </button>
+        <>
+          <button className="DefaultButton" onClick={() => signIn("facebook")}>
+            Connexion via Facebook
+          </button>
 
-        // google here
+          <button className="DefaultButton" onClick={() => signIn("google")}>
+            Connexion via Google
+          </button>
+        </>
       )}
 
       <div>
