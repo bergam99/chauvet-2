@@ -12,9 +12,9 @@ export default async function handler(
   res: NextApiResponse<ApiResponse>
 ): Promise<void> {
   try {
-    const db = await connectDB(); // Get the db instance
+    const db = await connectDB();
     const products = await db
-      .collection<IProduct>("products") // Now you're calling .collection on the db instance
+      .collection<IProduct>("products")
       .find({})
       .toArray();
     res.status(200).json({ message: "api/products:ok ", products });
