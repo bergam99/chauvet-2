@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { connectDB } from "../../../utils/connectDB";
 
 export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -21,6 +22,24 @@ export const options: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      const { email, name } = user;
+      const db = await connectDB();
+      const userCollection = db.collection("users");
+      const existingUser = await userCollection.findOne({ email, name });
+
+      if (existingUser) {
+        await userCollection.updateOne({ email }, { $set: { name: name } }); // Update the name in case it has changed
+      } else {
+        await userCollection.insertOne({
+          email,
+          name,
+        });
+      }
+      return true; // Return true to proceed with the sign in
+    },
+  },
 };
 
 const nextauth = (req: NextApiRequest, res: NextApiResponse) =>
