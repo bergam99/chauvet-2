@@ -35,6 +35,8 @@ const AuthPage = () => {
         {loading && <div>Loading...</div>}
         {session ? (
           <>
+            {/* si session vide interdit, (server) *** (partie api) session.user.id=>collection order */}
+            {/* server => front */}
             <p>welcome, {session.user?.name ?? session.user?.email}</p>
             <br />
           </>

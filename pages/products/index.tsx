@@ -3,9 +3,8 @@ import { IProduct } from "@/types/product";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import NestedLayout from "@/components/layout/nestedLayout";
-import { ReactElement } from "react";
 import { NextPageWithLayout } from "@/types/next";
+import { connectDB } from "@/utils/connectDB";
 
 interface ProductsProps {
   products: IProduct[];
@@ -38,10 +37,20 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const apiUrl = process.env.DB_HOST;
-  const res = await fetch(`${apiUrl}/api/products`);
-  const { products } = await res.json();
+  // const apiUrl = process.env.DB_HOST;
+  // const res = await fetch(`${apiUrl}/api/products`);
+  // const { products } = await res.json();
 
+  //try catch
+  // try {
+
+  // } catch (error) {
+
+  // }
+
+  const db = await connectDB();
+
+  const products = await db.collection<IProduct>("products").find({}).toArray();
   if (products.length === 0) {
     return { notFound: true };
   }
@@ -50,9 +59,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: { products },
   };
 };
-
-// ProductsPage.getLayout = (page: ReactElement) => (
-//   <NestedLayout>{page}</NestedLayout>
-// );
 
 export default ProductsPage;

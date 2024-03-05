@@ -5,10 +5,24 @@ const DATABASE_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS
 const client = new MongoClient(DATABASE_URL);
 let db: Db | null = null;
 
+// export const connectDB = async (): Promise<Db> => {
+//  if (!db) {
+//     await client.connect();
+//     db = client.db("Chauvet");
+//   }
+//   return db;
+// };
+
 export const connectDB = async (): Promise<Db> => {
-  if (!db) {
-    await client.connect();
-    db = client.db("Chauvet");
+  try {
+    if (!db) {
+      await client.connect();
+      db = client.db("Chauvet");
+      console.log("Successfully connected to MongoDB.");
+    }
+    return db;
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+    throw error;
   }
-  return db;
 };
