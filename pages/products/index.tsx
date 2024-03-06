@@ -1,6 +1,5 @@
 import { IProduct } from "@/types/product";
-import { GetServerSideProps } from "next";
-import { NextPageWithLayout } from "@/types/next";
+import { GetServerSideProps, NextPage } from "next";
 import { getProducts } from "@/utils/rendering";
 import ProductsItem from "@/components/Products/productsItem/productsItem";
 
@@ -8,7 +7,7 @@ interface ProductsProps {
   products: IProduct[];
 }
 
-const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
+const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
   return (
     <div>
       <h3 className="Heading">Shop</h3>

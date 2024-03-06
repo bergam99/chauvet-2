@@ -7,7 +7,7 @@ interface ProductImage {
 interface ProductInfoProps {
   name: string;
   description: string;
-  price: string; // Adjust type if necessary
+  price: string;
   img: ProductImage[];
   stock: number;
 }
