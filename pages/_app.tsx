@@ -1,11 +1,11 @@
 import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
-import { NextPageWithLayout } from "@/types/next";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
+import { NextPage } from "next";
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
+  Component: NextPage;
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
