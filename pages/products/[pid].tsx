@@ -5,6 +5,8 @@ import Image from "next/image";
 import { NextPageWithLayout } from "@/types/next";
 import { useRouter } from "next/router";
 import { connectDB } from "@/utils/connectDB";
+import { ObjectId } from "mongodb";
+import { serializeMongoObjectId } from "@/utils/parse";
 
 type ProductDetailPageProps = {
   product?: IProduct;
@@ -53,41 +55,40 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const pid = parseInt(context.params?.pid?.toString() ?? "", 10);
+  const pid = context.params?.pid?.toString();
 
   if (!pid) {
     return { notFound: true };
   }
-  // try
-  // extract method
-  //
-  const db = await connectDB();
-  const product = await db
-    .collection<IProduct>("products")
-    .findOne({ _id: pid });
-  // const apiUrl = process.env.DB_HOST;
-  // const res = await fetch(`${apiUrl}/api/products`);
-  // const { products } = await res.json();
 
-  // const detail = products.find((product: IProduct) => product._id === pid);
+  try {
+    const db = await connectDB();
+    const product = await db
+      .collection<IProduct>("products")
+      .findOne({ _id: new ObjectId(pid) });
 
-  if (!product) {
-    return { notFound: true };
+    if (!product) {
+      return { notFound: true };
+    }
+
+    const serializedProduct = serializeMongoObjectId(product);
+
+    return {
+      props: { product: serializedProduct },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: "Product fetch failed",
+      },
+    };
   }
-
-  return {
-    props: { product },
-  };
 };
-
-// ProductDetailPage.getLayout = (page: ReactElement) => (
-//   <NestedLayout>{page}</NestedLayout>
-// );
 
 export default ProductDetailPage;
 
 // créer stock table. qui prend les produits en array.
 // product details page ne pas fetcher
-// uml avec "s" image"s"
+// mcd avec "s" image"s"
 // getProduct, getproducts ... faire des fonctions dans ts page et appeler
 // post page
