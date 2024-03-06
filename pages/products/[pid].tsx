@@ -1,22 +1,23 @@
 //  @products/:[pid]
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps } from "next";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
 import { NextPageWithLayout } from "@/types/next";
-import NestedLayout from "@/components/layout/nestedLayout";
-import { ReactElement } from "react";
 import { useRouter } from "next/router";
+import { connectDB } from "@/utils/connectDB";
+import { ObjectId } from "mongodb";
+import { serializeMongoObjectId } from "@/utils/parse";
 
 type ProductDetailPageProps = {
-  detail?: IProduct;
+  product?: IProduct;
 };
 
 const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
-  detail,
+  product,
 }) => {
   const router = useRouter();
 
-  if (!detail) return <div>detail not found</div>;
+  if (!product) return <div>product not found</div>;
 
   return (
     <>
@@ -25,22 +26,22 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
       </button>
       <br />
       <Image
-        src={detail?.images[0]?.url}
-        alt={detail?.name}
+        src={product?.images[0]?.url}
+        alt={product?.name}
         width={100}
         height={100}
       />
-      <h1>{detail.name}</h1>
-      <p>{detail.description}</p>
-      <p>{detail.price}</p>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      <p>{product.price}</p>
 
-      <button type="button" disabled={detail.stock <= 0}>
+      <button type="button" disabled={product.stock <= 0}>
         Ajouter au panier
       </button>
 
-      <p>{detail?.stock <= 0 && "stock épuisé"}</p>
-      <p>{detail?.description}</p>
-      {detail?.images?.map((img) => (
+      <p>{product?.stock <= 0 && "stock épuisé"}</p>
+      <p>{product?.description}</p>
+      {product?.images?.map((img) => (
         <Image
           src={img?.url}
           alt={img?.url}
@@ -54,25 +55,40 @@ const ProductDetailPage: NextPageWithLayout<ProductDetailPageProps> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const pid = context.params?.pid;
+  const pid = context.params?.pid?.toString();
 
-  const apiUrl = process.env.DB_HOST;
-  const res = await fetch(`${apiUrl}/api/products`);
-  const { products } = await res.json();
-
-  const detail = products.find((product: IProduct) => product._id === pid);
-
-  if (detail.length === 0) {
+  if (!pid) {
     return { notFound: true };
   }
 
-  return {
-    props: { detail: detail || null },
-  };
+  try {
+    const db = await connectDB();
+    const product = await db
+      .collection<IProduct>("products")
+      .findOne({ _id: new ObjectId(pid) });
+
+    if (!product) {
+      return { notFound: true };
+    }
+
+    const serializedProduct = serializeMongoObjectId(product);
+
+    return {
+      props: { product: serializedProduct },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: "Product fetch failed",
+      },
+    };
+  }
 };
 
-// ProductDetailPage.getLayout = (page: ReactElement) => (
-//   <NestedLayout>{page}</NestedLayout>
-// );
-
 export default ProductDetailPage;
+
+// créer stock table. qui prend les produits en array.
+// product details page ne pas fetcher
+// mcd avec "s" image"s"
+// getProduct, getproducts ... faire des fonctions dans ts page et appeler
+// post page

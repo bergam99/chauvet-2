@@ -3,9 +3,9 @@ import { IProduct } from "@/types/product";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import NestedLayout from "@/components/layout/nestedLayout";
-import { ReactElement } from "react";
 import { NextPageWithLayout } from "@/types/next";
+import { connectDB } from "@/utils/connectDB";
+import { serializeMongoObjectId } from "@/utils/parse";
 
 interface ProductsProps {
   products: IProduct[];
@@ -16,8 +16,8 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
     <div>
       <h3 className="Heading">Shop</h3>
       <ul>
-        {products?.map((product) => (
-          <li key={product?._id}>
+        {products?.map((product, index) => (
+          <li key={index}>
             <Image
               src={product?.images[0]?.url}
               alt={product?.name}
@@ -28,6 +28,7 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
             <p>{product?.description}</p>
             <p>{product?.price}</p>
             <Link href={`/products/${product._id}`}>
+              {/* to string? */}
               <button className="DefaultButton">Voir plus</button>
             </Link>
           </li>
@@ -38,21 +39,18 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const apiUrl = process.env.DB_HOST;
-  const res = await fetch(`${apiUrl}/api/products`);
-  const { products } = await res.json();
+  //try catch
+  const db = await connectDB();
 
+  const products = await db.collection<IProduct>("products").find({}).toArray();
   if (products.length === 0) {
     return { notFound: true };
   }
+  const convertedProducts = serializeMongoObjectId(products);
 
   return {
-    props: { products },
+    props: { products: convertedProducts },
   };
 };
-
-// ProductsPage.getLayout = (page: ReactElement) => (
-//   <NestedLayout>{page}</NestedLayout>
-// );
 
 export default ProductsPage;
