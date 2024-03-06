@@ -1,7 +1,5 @@
-//  @products/:[pid]
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { IProduct } from "@/types/product";
-import { NextPageWithLayout } from "@/types/next";
 import { getProduct } from "@/utils/rendering";
 import ProductInfo from "@/components/Products/productItem/productInfo/productInfo";
 import ProductDescription from "@/components/Products/productItem/productDescription/productDescription";
@@ -11,7 +9,7 @@ type ProductPageProps = {
   product?: IProduct;
 };
 
-const ProductPage: NextPageWithLayout<ProductPageProps> = ({ product }) => {
+const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   if (!product) return <div>product not found</div>;
 
   return (
@@ -47,9 +45,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default ProductPage;
-
-// todos---
-// créer stock table. qui prend les produits en array.
-// product details page ne pas fetcher
-// getProduct, getproducts ... faire des fonctions dans ts page et appeler
-// post page
