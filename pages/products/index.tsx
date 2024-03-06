@@ -1,11 +1,8 @@
-//  @/products
 import { IProduct } from "@/types/product";
-import { GetServerSideProps, NextPage } from "next";
-import Link from "next/link";
-import Image from "next/image";
+import { GetServerSideProps } from "next";
 import { NextPageWithLayout } from "@/types/next";
-import { connectDB } from "@/utils/connectDB";
-import { serializeMongoObjectId } from "@/utils/parse";
+import { getProducts } from "@/utils/rendering";
+import ProductsItem from "@/components/Products/productsItem/productsItem";
 
 interface ProductsProps {
   products: IProduct[];
@@ -16,22 +13,8 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
     <div>
       <h3 className="Heading">Shop</h3>
       <ul>
-        {products?.map((product, index) => (
-          <li key={index}>
-            <Image
-              src={product?.images[0]?.url}
-              alt={product?.name}
-              width={100}
-              height={100}
-            />
-            <h2>{product?.name}</h2>
-            <p>{product?.description}</p>
-            <p>{product?.price}</p>
-            <Link href={`/products/${product._id}`}>
-              {/* to string? */}
-              <button className="DefaultButton">Voir plus</button>
-            </Link>
-          </li>
+        {products?.map((product) => (
+          <ProductsItem key={product._id.toString()} product={product} />
         ))}
       </ul>
     </div>
@@ -39,18 +22,13 @@ const ProductsPage: NextPageWithLayout<ProductsProps> = ({ products }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  //try catch
-  const db = await connectDB();
-
-  const products = await db.collection<IProduct>("products").find({}).toArray();
-  if (products.length === 0) {
+  try {
+    const products = await getProducts();
+    return {
+      props: { products },
+    };
+  } catch (error) {
     return { notFound: true };
   }
-  const convertedProducts = serializeMongoObjectId(products);
-
-  return {
-    props: { products: convertedProducts },
-  };
 };
-
 export default ProductsPage;
