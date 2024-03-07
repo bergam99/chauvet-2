@@ -23,7 +23,7 @@
     "pages/lib/connectDB.ts",
     "pages/api/products.ts",
     "types/user.ts",
-    "pages/products/[pid].tsx",
+    "pages/products/[productId].tsx",
     "pages/api/auth/[...nextauth].ts"
   ],
   "exclude": ["node_modules"]
