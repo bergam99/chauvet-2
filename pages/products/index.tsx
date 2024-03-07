@@ -1,6 +1,6 @@
-import { IProduct } from "@/types/product";
+import { IProduct } from "@/types/products";
 import { GetServerSideProps, NextPage } from "next";
-import { getProducts } from "@/utils/rendering";
+import { getProducts } from "@/utils/extract";
 import ProductsItem from "@/components/Products/productsItem/productsItem";
 
 interface ProductsProps {

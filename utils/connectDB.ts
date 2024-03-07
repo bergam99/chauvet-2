@@ -14,7 +14,6 @@ export const connectDB = async (): Promise<Db> => {
     }
     return db;
   } catch (error) {
-    console.error("Failed to connect to MongoDB:", error);
-    throw error;
+    throw new Error("Failed to connect to MongoDB:");
   }
 };

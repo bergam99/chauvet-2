@@ -1,8 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
+import PostsPage from "@/components/posts/posts";
 
-const Home: NextPage = () => {
+import { IPosts } from "@/types/posts";
+import { getPosts } from "@/utils/extract";
+
+interface PostsPageProps {
+  posts: IPosts[];
+}
+
+const Home: NextPage<PostsPageProps> = ({ posts }) => {
   return (
     <>
       <Head>
@@ -11,9 +19,22 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/products">go to products page</Link>
+      <Link href="/products">shopIcon</Link>
+
+      <PostsPage posts={posts} />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const posts = await getPosts();
+    return {
+      props: { posts },
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 };
 
 export default Home;

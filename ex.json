@@ -1,0 +1,79 @@
+{
+  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "thema": "A Journey Through the Land of Fire and Ice",
+  "title": "Unveiling Iceland",
+  "author": "Elin Björnsdóttir",
+  "template": [
+    {
+      "templateKey": "templateA",
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802457/posts/theme1-iceland/uxdtcgvceibl16wynh3n.jpg",
+          "size": "Horizontal_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709803289/posts/theme1-iceland/kti4cnjccke7mjvznccg.jpg",
+          "size": "Vertical_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802549/posts/theme1-iceland/z78vjuyxhr8tuavsns66.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802459/posts/theme1-iceland/c72t0a6qpampmls7nltk.png",
+          "size": "Horizontal_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802534/posts/theme1-iceland/s4z8i8c8iiy0n7t9wx3v.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Endless Days, Timeless Nights: The Magic of Iceland's Midnight Sun Illuminating the Fjords"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802481/posts/theme1-iceland/fcgyuzobx3phbmka5zha.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802509/posts/theme1-iceland/skynamerno1auad49vpk.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "The Blue Lagoon's Warm Waters Offering Rejuvenation Amidst a Lunar Landscape"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802350/posts/theme1-iceland/xqcurz99pio2ckhkhc2n.jpg",
+          "size": "Horizontal_Medium"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709803291/posts/theme1-iceland/rbklmipiniv6w8aj2wne.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Exploring the Raw and Untamed Beauty Where Volcanic Fire Clashes with Glacial Ice"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709803351/posts/theme1-iceland/zkx1gn2seork70ikismb.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "A Journey Through Iceland's Pristine and Rugged Wilderness, Unmarked by Time"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802674/posts/theme1-iceland/wxcy6pykqi5xm0g7bwah.png",
+          "size": "Horizontal_Medium",
+          "connected_txt": "The Magic of Iceland's Midnight Sun Illuminating the Fjords"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709802741/posts/theme1-iceland/vevjx99lcjooqx1syaoe.jpg",
+          "size": "Vertical_Small",
+          "connected_txt": "The Strokkur Geyser's Spectacular Display of Earth's Geothermal Power"
+        }
+      ],
+      "content": [
+        [
+          "Iceland, a country where the forces of nature have sculpted a landscape of stark contrasts and breathtaking beauty, invites adventurers and nature lovers to explore its many wonders. From the dancing auroras to the midnight sun, Iceland is a destination that promises unforgettable experiences. This article will guide you through some of the most mesmerizing sights and activities that Iceland has to offer.",
+          "One of Iceland's most iconic attractions, the Aurora Borealis, or Northern Lights, illuminates the night sky with its ethereal glow. The best time to witness this natural phenomenon is from September to April.",
+          "For the ultimate experience, head to the remote Westfjords or the tranquil shores of Lake Mývatn, where light pollution is minimal, and the skies are clear.",
+          "Iceland sits atop a volcanic hotspot, giving rise to geothermal wonders like geysers, hot springs, and mud pools.",
+          "The Great Geysir, although less active now, has a neighbor, Strokkur, which erupts every few minutes, shooting water up to 30 meters into the air.",
+          "The Blue Lagoon and the Secret Lagoon offer a more relaxing experience, allowing visitors to soak in mineral-rich waters amidst stunning scenery.",
+          "Iceland's landscape is adorned with countless waterfalls, each with its own charm. Skógafoss, with its 60-meter drop and rainbows forming in the mist, is a photographer's dream.",
+          "Seljalandsfoss allows visitors to walk behind its cascading waters, offering a unique perspective. Dettifoss, known as Europe's most powerful waterfall, presents the raw power of nature in the untamed highlands of Iceland."
+        ]
+      ]
+    }
+  ]
+}
