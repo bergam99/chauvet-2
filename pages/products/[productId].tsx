@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
-import { IProduct } from "@/types/product";
+import { IProduct } from "@/types/products";
 import { getProduct } from "@/utils/extract";
 import ProductInfo from "@/components/Products/productItem/productInfo/productInfo";
 import ProductDescription from "@/components/Products/productItem/productDescription/productDescription";
