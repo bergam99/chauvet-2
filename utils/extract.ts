@@ -21,9 +21,9 @@ export const getProducts = async (): Promise<IProduct[]> => {
   }
 };
 
-// ===== @/products/:[pid] =====
-export async function getProduct(pid: string | undefined) {
-  if (!pid) {
+// ===== @/products/:[productId] =====
+export async function getProduct(productId: string | undefined) {
+  if (!productId) {
     throw new Error("Product ID not provided");
   }
 
@@ -31,7 +31,7 @@ export async function getProduct(pid: string | undefined) {
     const db = await connectDB();
     const product = await db
       .collection<IProduct>("products")
-      .findOne({ _id: new ObjectId(pid) });
+      .findOne({ _id: new ObjectId(productId) });
 
     if (!product) {
       throw new Error("Product not found");
