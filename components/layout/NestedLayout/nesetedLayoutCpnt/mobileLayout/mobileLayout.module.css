@@ -1,4 +1,12 @@
-/* components/DropdownMenu.module.css */
+
+@media (max-width: 768px) {
+
+    .mobileDisplay {
+        display: none;
+    }
+}
+
+/* ===== dropdown ===== */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -9,7 +17,6 @@
     padding: 16px;
     border: none;
     cursor: pointer;
-    border: 1px solid black;
 }
 
 /* Single column layout */
@@ -29,9 +36,11 @@
     text-decoration: none;
     display: block;
 }
+
 .dropdownContent a:nth-child(3) {
     border-bottom: 1px solid black;
 }
+
 .dropdownContent a:nth-child(4) {
     color: red;
 }
