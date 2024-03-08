@@ -1,0 +1,75 @@
+{
+  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "thema": "Journey Through Switzerland's Enchanted Forests",
+  "title": "Whispers of the Wild",
+  "author": "Oliver Townsend",
+  "template": [
+    {
+      "templateKey": "templateA",
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886128/posts/theme6/pftqlqnjt8k2huxoz4le.jpg",
+          "size": "Horizontal_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886609/posts/theme6/mwsgchh4szmu8scwcwcn.jpg",
+          "size": "Vertical_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886108/posts/theme6/kjei5zcy070tild1p38z.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886128/posts/theme6/pftqlqnjt8k2huxoz4le.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886080/posts/theme6/g1mzuqxfbe91bdxpy1ga.jpg",
+          "size": "Horizontal_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886591/posts/theme6/j0rztbdjvpigv19hky2v.jpg",
+          "size": "Vertical_Medium"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886127/posts/theme6/tbl3nv6qg0beaaxhfk2k.jpg",
+          "size": "Vertical_Medium"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886945/posts/theme6/aywbdfbcc52kwbscasn3.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Crisp, cool air whispers through the trees, carrying the rustle of fallen leaves that carpet the forest floor in a mosaic of autumn hues."
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886958/posts/theme6/thstaqatrscuiq4zqj3v.jpg",
+          "size": "Horizontal_Medium"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886960/posts/theme6/gtt9erwqqzqeijueewmj.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Berries and nuts abound, providing a feast for the forest's inhabitants, as they prepare for the winter ahead in the cycle of life."
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886108/posts/theme6/kel5daj8k1rvrkc8f8we.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Gentle ripples on the water's surface catch the glow of the projected film"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709886116/posts/theme6/dhdmvhiytsmsq4nbnuxh.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "In the quietude of the forest, one can sense the slow but sure transition of seasons, as nature adorns itself in its final burst of color before the winter's rest."
+        }
+      ],
+      "content": [
+        [
+          "Nestled amidst the majestic Alps, Switzerland is a tapestry woven with verdant valleys, sparkling lakes, and towering peaks. However, it's the ancient forests that truly capture the essence of Swiss natural beauty—a realm where nature's whispers carry tales of the past and beckon adventurers to explore their hidden depths. This journey takes us into the heart of Switzerland's enchanted forests, a sanctuary of tranquility and mystery.",
+          "Our voyage begins in the Swiss National Park, the oldest in the Alps. Spanning over 170 square kilometers, this protected area is a treasure trove of biodiversity, where forests blend seamlessly with meadows and rugged mountains.",
+          "The park's dense woods are home to a rich tapestry of flora and fauna, including red deer, ibex, and marmots, which roam freely beneath the canopy.",
+          "Whether you're a seasoned hiker seeking challenging treks or a casual walker looking for leisurely strolls, Swiss forests cater to all. Well-marked trails crisscross the country, leading hikers through landscapes that seem untouched by time.",
+          "Each season paints the Swiss forests in a new light, offering hikers a different experience throughout the year. Spring brings the bloom of wildflowers, carpeting the forest floor in vibrant colors. Summer offers lush foliage and pleasant temperatures, perfect for exploring the shaded woods.",
+          " Autumn transforms the landscape into a tapestry of golds and reds, a spectacle that attracts photographers and nature enthusiasts alike."
+        ]
+      ]
+    }
+  ]
+}
