@@ -1,8 +1,8 @@
 // Global Layout
 import Footer from "../../footer/footer";
-import Header from "../../header/header";
+import Logo from "../../logo/logo";
 import NestedLayout from "../NestedLayout/nestedLayout";
-
+import classes from "./layout.module.css";
 interface Props {
   children: React.ReactNode;
 }
@@ -10,10 +10,22 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
-      <NestedLayout />
-      <main>{children}</main>
-      <Footer />
+      <main className={classes.Layout}>
+        {/* header */}
+        <section className={classes.Layout_Section}>
+          <div className={classes.headerContainer}>
+            <div className={classes.Logo}>
+              <Logo />
+            </div>
+            <div className={classes.NestedLayout}>
+              <NestedLayout />
+            </div>
+          </div>
+          <div>{children}</div>
+        </section>
+        {/*  */}
+        <Footer />
+      </main>
     </>
   );
 };

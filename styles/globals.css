@@ -18,7 +18,7 @@
     --ff-body2: "Noto Sans", sans-serif;
 
     /* font-size */
-    --fs-xl: clamp(1rem, 3vw + 1rem, 2rem);
+    --fs-xl: clamp(0.4rem, .9vw + 1rem, 1.7rem);
     --fs-600: 2rem;
     --fs-500: 1.1rem;
     --fs-400: 1rem;
@@ -30,7 +30,10 @@
 
     /* letter-spacing */
     --ls-light: .1rem;
-    --ls-medium: .3rem;
+    --ls-medium: .2rem;
+
+    /* line-height */
+    /* --lh-m:clamp(0.4rem, .9vh + 1rem, 2rem); */
 }
 
 /* === normalize === */
@@ -43,7 +46,6 @@ body {
     font-weight: var(--fw-light);
     color: var(--color-heavy-gray);
     letter-spacing: var(--ls-light);
-    /* font-size: var(--fs-500); */
 }
 
 button {
@@ -85,9 +87,14 @@ a {
     border-bottom: 1px solid var(--color-heavy-gray);
 }
 
+.Thema{
+    font-size: var(--fs-300);
+    /* padding-bottom: 2em; */
+}
+
 .Logo{
     font-family: var(--ff-title);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-xl); 
     letter-spacing: var(--ls-medium);
 }
 
