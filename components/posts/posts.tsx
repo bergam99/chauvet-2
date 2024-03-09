@@ -28,8 +28,8 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
                   src={post.template[0].cards[0].url}
                   alt={post.title}
                   layout="responsive"
-                  width={6}
-                  height={4}
+                  width={0}
+                  height={0}
                   className={classes.img}
                 />
               </Link>

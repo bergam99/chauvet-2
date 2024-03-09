@@ -16,8 +16,8 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           src={posts[0].template[0]?.cards[0].url}
           alt={posts[0].title}
           layout="responsive"
-          width={6}
-          height={4} // aspect ratio
+          width={0}
+          height={0} // aspect ratio
           className={classes.img}
         />
         <p className={classes.intro}>

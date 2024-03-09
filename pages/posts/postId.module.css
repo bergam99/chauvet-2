@@ -1,0 +1,46 @@
+.section{
+    width: min(1100px, 90%);
+    margin: auto;
+    border: 1px solid black;
+}
+
+.heading{
+    font-family: var(--ff-heading);
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+}
+
+.thema{
+    font-size: clamp(0.7rem, 3vw, 1.2rem);
+    margin: 2em;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connectedTxt{
+    font-family: var(--ff-link);
+}
+
+
+.horizontal-full{
+    max-width: 100%;
+}
+
+.vertical-full{
+    max-width: 400px;
+}
+
+.horizontal-small{
+    max-width: 400px;
+}
+
+.horizontal-medium{
+    max-width: 500px;
+}
+
+.vertical-small{
+    max-width: 200px;
+}
