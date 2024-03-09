@@ -42,9 +42,9 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
             )}
             <Link
               href={`/posts/${post._id.toString()}`}
-              className={classes.detail}
+              className={`${classes.detail} Link`}
             >
-              Voir post
+              VOIR PLUS
             </Link>
           </div>
         ))}

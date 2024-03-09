@@ -25,14 +25,8 @@
 
 .gridItem {
     /* border: 1px solid #ccc; */
-    padding: 1rem;
+    /* padding: 1rem; */
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-}
-
-.detail{
-    text-align: right;
 }
 
 .intro{
@@ -41,6 +35,13 @@
 
 .title{
     padding: clamp(8px, 2vw, 16px) 0px;
+}
+
+.detail{
+    font-family: var(--ff-body2);
+    font-weight: var(--fw-light);
+    font-size: clamp(8px, 1.3vw, 11px);
+    letter-spacing: var(--ls-medium);
 }
 
 @media (max-width: 768px) {
