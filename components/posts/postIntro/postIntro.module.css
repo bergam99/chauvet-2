@@ -1,0 +1,16 @@
+.mainContainer {
+    width: 70%;
+    margin: 0 auto 3rem;
+    padding: 2em;
+    background-color: var(--color-gray);
+}
+
+.img {
+    margin-bottom: .5em;
+}
+
+.intro {
+    padding: clamp(0.5em, 4vw, 3em) 0px;
+    font-size: var(--fs-intro);
+    line-height: clamp(160%, 4vw, 200%);
+}

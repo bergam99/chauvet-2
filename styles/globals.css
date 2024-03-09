@@ -18,12 +18,11 @@
     --ff-body2: "Noto Sans", sans-serif;
 
     /* font-size */
-    --fs-xl: clamp(0.4rem, .9vw + 1rem, 1.7rem);
-    --fs-600: 2rem;
-    --fs-500: 1.1rem;
-    --fs-400: 1rem;
-    --fs-300: .8rem;
-
+    --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem);
+    --fs-intro: clamp(0.7rem, 3.3vw, 1rem);
+    --fs-title: clamp(1rem, 3.3vw, 1.3rem);
+    --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
+    --fs-detail: clamp(.6rem, 1.3vw, .8rem);
     /* font-weight */
     --fw-light: 300;
     --fw-medium: 400;
@@ -32,8 +31,6 @@
     --ls-light: .1rem;
     --ls-medium: .2rem;
 
-    /* line-height */
-    /* --lh-m:clamp(0.4rem, .9vh + 1rem, 2rem); */
 }
 
 /* === normalize === */
@@ -87,14 +84,9 @@ a {
     border-bottom: 1px solid var(--color-heavy-gray);
 }
 
-.Thema{
-    font-size: var(--fs-300);
-    /* padding-bottom: 2em; */
-}
-
 .Logo{
     font-family: var(--ff-title);
-    font-size: var(--fs-xl); 
+    font-size: var(--fs-logo); 
     letter-spacing: var(--ls-medium);
 }
 

@@ -3,6 +3,8 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import classes from "./posts.module.css";
+import arrow from "@/public/icon/right-arrow.png";
+import PostIntro from "./postIntro/postIntro";
 interface PostsPageProps {
   posts: IPosts[];
 }
@@ -10,42 +12,45 @@ interface PostsPageProps {
 const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
   return (
     <>
-      <div className={classes.mainContainer}>
-        <Image
-          src={posts[0].template[0]?.images[0].url}
-          alt={posts[0].title}
-          layout="responsive"
-          width={600}
-          height={400} // aspect ratio
-        />
-        <p className={classes.intro}>
-          Ce magazine Chauvet, inspiré par le documentaire “La Grotte des rêves
-          perdus” de Werner Herzog, il vous offrira la même expérience que quand
-          les spéléologues ont découvert la grotte en vous partageant les
-          magnifiques endroits cachés dans le monde.
-        </p>
-      </div>
+      <PostIntro posts={posts} />
 
+      {/* articles */}
       <div className={classes.gridContainer}>
         {posts.map((post) => (
-          <div key={post._id.toString()} className={classes.gridItem}>
-            <i className="Thema">{post.thema}</i>
-            <h3 className={classes.title}>{post.title}</h3>
-            {post.template[0]?.images[0] && (
-              <Image
-                src={post.template[0].images[0].url}
-                alt={post.title}
-                layout="responsive"
-                width={600}
-                height={400}
-              />
-            )}
-            <Link
-              href={`/posts/${post._id.toString()}`}
-              className={`${classes.detail} Link`}
-            >
-              VOIR PLUS
+          <div key={post._id.toString()}>
+            <i className={classes.thema}>{post.thema}</i>
+            <Link href={`/posts/${post._id.toString()}`}>
+              <h3 className={classes.title}>{post.title}</h3>
             </Link>
+            {post.template[0]?.images[0] && (
+              <Link href={`/posts/${post._id.toString()}`}>
+                <Image
+                  src={post.template[0].images[0].url}
+                  alt={post.title}
+                  layout="responsive"
+                  width={6}
+                  height={4}
+                  className={classes.img}
+                />
+              </Link>
+            )}
+            <div className={`${classes.detailContainer} Link`}>
+              <Link
+                href={`/posts/${post._id.toString()}`}
+                className={classes.detail}
+              >
+                VOIR PLUS
+              </Link>
+
+              <Image
+                src={arrow}
+                alt="->"
+                layout="responsive"
+                width={1}
+                height={1}
+                className={classes.arrow}
+              />
+            </div>
           </div>
         ))}
       </div>
