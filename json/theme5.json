@@ -1,15 +1,18 @@
 {
-  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "_id": { "$oid": "65ec87b49c1d09ea969d06c7" },
   "thema": "A Journey Through the Alpine Wonderland",
   "title": "Soaring Heights and Snowy Delights",
   "author": "Amelia Harwood",
   "template": [
     {
       "templateKey": "templateA",
-      "images": [
+      "cards": [
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841689/posts/theme5/vfenfiqdlxjir6cj3kwd.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Nestled between the enchanting realms of France and Italy lies an Alpine paradise, a realm where majestic mountains crowned with pristine snow invite adventurers and dreamers alike. This journey takes us into the heart of the Alps, where the thrill of exploration meets the serenity of nature's grandeur. From the ground to the skies, experience the unparalleled beauty of this region, where every turn reveals a postcard-perfect landscape and the opportunity to soar above the peaks."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841697/posts/theme5/ujuqmifcz93c2m1vacby.jpg",
@@ -25,29 +28,40 @@
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841743/posts/theme5/ls4a3s9305yvhyggoa9f.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Our adventure begins at the foot of the Mont Blanc Massif, the highest peak in Western Europe, straddling the border between France and Italy. Here, the mountains stand as sentinels over the valleys, their snow-capped summits gleaming under the sun.",
+            "The massif is not just a mountain; it's a canvas of natural wonder, with glaciers carving through its flanks and alpine meadows blooming in vibrant colors come spring."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841680/posts/theme5/zakaya4bcmawuth51w9x.jpg",
-          "size": "Vertical_Medium"
+          "size": "Vertical_Medium",
+          "txt": [
+            "On the Italian side, Courmayeur beckons with its charming cobblestone streets and cozy mountain chalets, offering a warm welcome to those who venture into the Alps. Meanwhile, Chamonix, its French counterpart, serves as a legendary hub for mountaineers and skiers, known for its vibrant energy and breathtaking vistas."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841677/posts/theme5/vcdaz6v3dcmf8vyjl36e.jpg",
-          "size": "Vertical_Medium"
+          "size": "Vertical_Medium",
+          "txt": [
+            "Both towns are not just gateways to alpine adventures but also to an extraordinary experience: flying over the Alps. Here, one can embark on a scenic flight, taking off into the skies to witness the awe-inspiring beauty of the mountains from an eagle's perspective."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841698/posts/theme5/x1wrb91q9qsvpffjlfcx.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "Mountain ranges rise abruptly from the flatlands, their jagged peaks piercing the sky, a testament to nature's grandeur as seen from above."
-        },
-        {
-          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709839131/posts/theme3/zfu74tkfz2na8llmehkb.jpg",
-          "size": "Horizontal_Small",
-          "connected_txt": "The tranquil chorus of the countryside, from the gentle babble of brooks to the soft whisper of grasses, composes nature's own symphony."
+          "connected_txt": "Mountain ranges rise abruptly from the flatlands, their jagged peaks piercing the sky, a testament to nature's grandeur as seen from above.",
+          "txt": [
+            "Climbing aboard a small airplane, adventurers can take to the air, leaving the confines of the earth behind."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841752/posts/theme5/i5v0aqbabsxjptkqjq4q.jpg",
-          "size": "Horizontal_Medium"
+          "size": "Horizontal_Medium",
+          "txt": [
+            "Flying over the Mont Blanc Massif is a surreal experience. The summit, often shrouded in clouds, reveals itself in all its glory, a towering monument of snow and rock. Below, the Mer de Glace glacier winds its way through the landscape, a testament to the timeless forces of nature."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841737/posts/theme5/xm6qa6kxbwtumcdy4kft.jpg",
@@ -61,21 +75,12 @@
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709841750/posts/theme5/bjf5iiq6kbra9knrof9z.jpg",
-          "size": "Vertical_Small",
-          "connected_txt": "Clouds drift lazily across the sky, ethereal formations of white and gray that dance with the winds."
+          "size": "Horizontal_Small",
+          "connected_txt": "Clouds drift lazily across the sky, ethereal formations of white and gray that dance with the winds.",
+          "txt": [
+            "Whether on the ground or in the air, the Alpine wonderland between France and Italy is a destination that promises to captivate, inspire, and transform all who venture into its embrace."
+          ]
         }
-      ],
-      "content": [
-        [
-          "Nestled between the enchanting realms of France and Italy lies an Alpine paradise, a realm where majestic mountains crowned with pristine snow invite adventurers and dreamers alike. This journey takes us into the heart of the Alps, where the thrill of exploration meets the serenity of nature's grandeur. From the ground to the skies, experience the unparalleled beauty of this region, where every turn reveals a postcard-perfect landscape and the opportunity to soar above the peaks.",
-          "Our adventure begins at the foot of the Mont Blanc Massif, the highest peak in Western Europe, straddling the border between France and Italy. Here, the mountains stand as sentinels over the valleys, their snow-capped summits gleaming under the sun.",
-          "The massif is not just a mountain; it's a canvas of natural wonder, with glaciers carving through its flanks and alpine meadows blooming in vibrant colors come spring.",
-          "On the Italian side, Courmayeur beckons with its charming cobblestone streets and cozy mountain chalets, offering a warm welcome to those who venture into the Alps. Meanwhile, Chamonix, its French counterpart, serves as a legendary hub for mountaineers and skiers, known for its vibrant energy and breathtaking vistas.",
-          "Both towns are not just gateways to alpine adventures but also to an extraordinary experience: flying over the Alps. Here, one can embark on a scenic flight, taking off into the skies to witness the awe-inspiring beauty of the mountains from an eagle's perspective.",
-          "Climbing aboard a small airplane, adventurers can take to the air, leaving the confines of the earth behind.",
-          "Flying over the Mont Blanc Massif is a surreal experience. The summit, often shrouded in clouds, reveals itself in all its glory, a towering monument of snow and rock. Below, the Mer de Glace glacier winds its way through the landscape, a testament to the timeless forces of nature.",
-          "Whether on the ground or in the air, the Alpine wonderland between France and Italy is a destination that promises to captivate, inspire, and transform all who venture into its embrace."
-        ]
       ]
     }
   ]

@@ -13,7 +13,7 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
       {/* intro */}
       <div className={classes.mainContainer}>
         <Image
-          src={posts[0].template[0]?.images[0].url}
+          src={posts[0].template[0]?.cards[0].url}
           alt={posts[0].title}
           layout="responsive"
           width={6}

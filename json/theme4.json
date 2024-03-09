@@ -1,15 +1,18 @@
 {
-  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "_id": { "$oid": "65ec87919c1d09ea969d06c6" },
   "thema": "A Voyage Among Rocky Islands",
   "title": "Navigating the Azure",
   "author": "Oliver Townsend",
   "template": [
     {
       "templateKey": "templateC",
-      "images": [
+      "cards": [
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840201/posts/theme4/kr7xl2twm33vy6yocuwn.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Nestled within the embrace of the cerulean sea lies a hidden realm where rocky islands rise majestically from the depths, creating a landscape of unparalleled beauty. This journey takes us to a world where the vibrant blue of the ocean meets the rugged allure of the islands, offering an escape into nature's most mesmerizing creations."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840204/posts/theme4/vufdiq44hp7q0azn32yu.jpg",
@@ -21,50 +24,62 @@
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840272/posts/theme4/rvrce6how5eif6nsvrl7.jpg",
-          "size": "Horizontal_Medium"
+          "size": "Horizontal_Medium",
+          "txt": [
+            "Our adventure begins as we set sail towards the enigmatic archipelago, where each island boasts its own unique character shaped by centuries of wind and waves. These islands, scattered like jewels upon the sea, are havens of biodiversity and geological marvels, with cliffs that tell tales of the earth's ancient past."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840233/posts/theme4/hntesat7wfche0u04abq.jpg",
-          "size": "Vertical_Medium"
+          "size": "Vertical_Medium",
+          "txt": [
+            "As we navigate closer, the contrast between the azure waters and the verdant foliage clinging to the rocky outcrops becomes more pronounced. The air carries the scent of salt and pine, invigorating the senses and promising discoveries at every turn."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840231/posts/theme4/ddexjw6us7tyxaxdg0dh.jpg",
-          "size": "Horizontal_Small"
+          "size": "Horizontal_Small",
+          "txt": [
+            "The islands' secluded beaches, accessible only by boat, offer pristine sands and crystal-clear waters, ideal for moments of solitude or snorkeling adventures that reveal vibrant underwater ecosystems teeming with life."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840283/posts/theme4/vno4z8pn1zddeyiaijut.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "The sun dipped below the horizon, painting the sky in a palette of fiery oranges and serene purples, casting a warm glow over the undulating hills."
+          "connected_txt": "The sun dipped below the horizon, painting the sky in a palette of fiery oranges and serene purples, casting a warm glow over the undulating hills.",
+          "txt": [
+            "Beyond their natural beauty, these rocky islands are steeped in history and culture. Ancient ruins perched atop cliffs whisper stories of civilizations long gone, inviting explorers to wander through time."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840265/posts/theme4/rgh0dc0jkinnrlootwuz.jpg",
-          "size": "Horizontal_Small"
+          "size": "Horizontal_Small",
+          "txt": [
+            "Quaint villages, with their stone houses and winding streets, reflect the resilience and warmth of the islanders, whose lives are inextricably linked with the sea."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840263/posts/theme4/vytpldcdmuhcm5cldhtu.jpg",
-          "size": "Horizontal_Medium"
+          "size": "Horizontal_Medium",
+          "txt": [
+            "As the sun sets, painting the sky in hues of orange and purple, the islands and the surrounding sea bask in the ethereal glow of twilight. It's a moment of reflection, a reminder of the world's untouched beauty and the transient nature of our presence within it."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840287/posts/theme4/syq8zflupqukedmyv77s.jpg",
-          "size": "Horizontal_Small"
+          "size": "Horizontal_Small",
+          "txt": [
+            "A tranquil river meandered through the valley, its waters reflecting the fluffy clouds and creating a peaceful symphony with the soft burble of its flow."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709840274/posts/theme4/uc6f21ojg9vdabl1wbbq.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "The rugged coastline faced the relentless assault of the waves, creating dramatic cliffs and secluded beaches that whispered tales of the sea's timeless journey"
+          "connected_txt": "The rugged coastline faced the relentless assault of the waves, creating dramatic cliffs and secluded beaches that whispered tales of the sea's timeless journey",
+          "txt": [
+            "Traveling among the rocky islands with the blue sea as a constant companion is more than a journey through landscapes; it's an immersion into the essence of the natural world."
+          ]
         }
-      ],
-      "content": [
-        [
-          "Nestled within the embrace of the cerulean sea lies a hidden realm where rocky islands rise majestically from the depths, creating a landscape of unparalleled beauty. This journey takes us to a world where the vibrant blue of the ocean meets the rugged allure of the islands, offering an escape into nature's most mesmerizing creations.",
-          "Our adventure begins as we set sail towards the enigmatic archipelago, where each island boasts its own unique character shaped by centuries of wind and waves. These islands, scattered like jewels upon the sea, are havens of biodiversity and geological marvels, with cliffs that tell tales of the earth's ancient past.",
-          "As we navigate closer, the contrast between the azure waters and the verdant foliage clinging to the rocky outcrops becomes more pronounced. The air carries the scent of salt and pine, invigorating the senses and promising discoveries at every turn.",
-          "The islands' secluded beaches, accessible only by boat, offer pristine sands and crystal-clear waters, ideal for moments of solitude or snorkeling adventures that reveal vibrant underwater ecosystems teeming with life.",
-          "Beyond their natural beauty, these rocky islands are steeped in history and culture. Ancient ruins perched atop cliffs whisper stories of civilizations long gone, inviting explorers to wander through time.",
-          "Quaint villages, with their stone houses and winding streets, reflect the resilience and warmth of the islanders, whose lives are inextricably linked with the sea.",
-          "As the sun sets, painting the sky in hues of orange and purple, the islands and the surrounding sea bask in the ethereal glow of twilight. It's a moment of reflection, a reminder of the world's untouched beauty and the transient nature of our presence within it.",
-          "Traveling among the rocky islands with the blue sea as a constant companion is more than a journey through landscapes; it's an immersion into the essence of the natural world."
-        ]
       ]
     }
   ]

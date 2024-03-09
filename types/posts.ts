@@ -7,7 +7,7 @@ export interface IPosts {
   author: string;
   template: {
     templateKey: string;
-    images: {
+    cards: {
       url: string;
       size:
         | "Horizontal_Full"
@@ -16,7 +16,7 @@ export interface IPosts {
         | "Horizontal_Medium"
         | "Vertical_Small";
       connected_txt?: string;
+      txt?: string[];
     }[]; // array of objects
-    content: string[][]; //  array of string arrays
   }[];
 }

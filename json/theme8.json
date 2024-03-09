@@ -1,15 +1,18 @@
 {
-  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "_id": { "$oid": "65ec88299c1d09ea969d06ca" },
   "thema": "Discovering the Serene Oasis of Praia da Luz",
   "title": "Whispers of the Sea",
   "author": "Amelia Harwood",
   "template": [
     {
       "templateKey": "templateA",
-      "images": [
+      "cards": [
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888753/posts/theme8/bue7fatkxg0abewif647.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Nestled along the stunning coastline of the Algarve, in the southernmost region of Portugal, lies the quaint and serene village of Praia da Luz. This hidden gem, with its picturesque yard of vibrant green grass that stretches towards the azure embrace of the Atlantic Ocean, offers a unique blend of natural beauty and tranquil living."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888787/posts/theme8/lmixtqlcvj5qavqowe1r.jpg",
@@ -25,24 +28,40 @@
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888784/posts/theme8/p9gp20frrmuylpxphaqg.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Praia da Luz, or 'Beach of Light,' is a destination where the whispers of the sea, the softness of the grass underfoot, and the gentle sway of the waves combine to create a haven of peace and relaxation.",
+            "At the heart of Praia da Luz is a lush, green yard that serves as the village's communal gathering place. Fringed by palm trees and adorned with colorful flowers, this verdant space is where locals and visitors alike come to bask in the warm Portuguese sun, enjoy picnics, or simply lie back and lose themselves in a good book."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888779/posts/theme8/sqqnwkvfyxdedcrv7xkp.jpg",
-          "size": "Horizontal_Small"
+          "size": "Horizontal_Small",
+          "txt": [
+            "Here, the sea's waves gently caress the shore, creating a soothing soundtrack that complements the tranquil atmosphere."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888792/posts/theme8/bbeioqwjjw1oi0ozllkw.jpg",
-          "size": "Horizontal_Small"
+          "size": "Horizontal_Small",
+          "txt": [
+            "Whether you're a sun worshipper, a lover of water sports, or someone who finds solace in the r9hythmic dance of the waves, Praia da Luz's beach offers something for everyone."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888794/posts/theme8/qpd5jtpyio1peoml69tz.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "A tapestry of vibrant green and azure unfolds, where lush grass meets the endless embrace of the ocean."
+          "connected_txt": "A tapestry of vibrant green and azure unfolds, where lush grass meets the endless embrace of the ocean.",
+          "txt": [
+            "Praia da Luz is a destination that captivates the heart and soothes the soul. It's a place where the yard's greenery, the sea's azure hues, and the village's warm hospitality merge to create an unforgettable travel experience."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888839/posts/theme8/azbydb2lpjusxc7gcqqv.jpg",
-          "size": "Horizontal_Medium"
+          "size": "Horizontal_Medium",
+          "txt": [
+            "Whether you're seeking a peaceful retreat from the hustle and bustle of everyday life or an opportunity to connect with nature and culture, Praia da Luz offers a sanctuary where the whispers of the sea speak to the essence of tranquility."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888822/posts/theme8/klalajpgf4gbeataxmru.jpg",
@@ -57,20 +76,11 @@
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888852/posts/theme8/nenvqjzgmcgqboif0xvd.jpg",
           "size": "Vertical_Small",
-          "connected_txt": "The air is tinged with the scent of salt and blooming flowers, a harmonious blend that captivates the senses."
+          "connected_txt": "The air is tinged with the scent of salt and blooming flowers, a harmonious blend that captivates the senses.",
+          "txt": [
+            "In this picturesque corner of the Algarve, every moment is an invitation to unwind, explore, and cherish the simple joys of life by the sea."
+          ]
         }
-      ],
-      "content": [
-        [
-          "Nestled along the stunning coastline of the Algarve, in the southernmost region of Portugal, lies the quaint and serene village of Praia da Luz. This hidden gem, with its picturesque yard of vibrant green grass that stretches towards the azure embrace of the Atlantic Ocean, offers a unique blend of natural beauty and tranquil living.",
-          "Praia da Luz, or 'Beach of Light,' is a destination where the whispers of the sea, the softness of the grass underfoot, and the gentle sway of the waves combine to create a haven of peace and relaxation.",
-          "At the heart of Praia da Luz is a lush, green yard that serves as the village's communal gathering place. Fringed by palm trees and adorned with colorful flowers, this verdant space is where locals and visitors alike come to bask in the warm Portuguese sun, enjoy picnics, or simply lie back and lose themselves in a good book.",
-          "Here, the sea's waves gently caress the shore, creating a soothing soundtrack that complements the tranquil atmosphere.",
-          "Whether you're a sun worshipper, a lover of water sports, or someone who finds solace in the r9hythmic dance of the waves, Praia da Luz's beach offers something for everyone.",
-          "Praia da Luz is a destination that captivates the heart and soothes the soul. It's a place where the yard's greenery, the sea's azure hues, and the village's warm hospitality merge to create an unforgettable travel experience.",
-          "Whether you're seeking a peaceful retreat from the hustle and bustle of everyday life or an opportunity to connect with nature and culture, Praia da Luz offers a sanctuary where the whispers of the sea speak to the essence of tranquility.",
-          "In this picturesque corner of the Algarve, every moment is an invitation to unwind, explore, and cherish the simple joys of life by the sea."
-        ]
       ]
     }
   ]

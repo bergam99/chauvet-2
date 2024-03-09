@@ -22,10 +22,10 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
             <Link href={`/posts/${post._id.toString()}`}>
               <h3 className={classes.title}>{post.title}</h3>
             </Link>
-            {post.template[0]?.images[0] && (
+            {post.template[0]?.cards[0] && (
               <Link href={`/posts/${post._id.toString()}`}>
                 <Image
-                  src={post.template[0].images[0].url}
+                  src={post.template[0].cards[0].url}
                   alt={post.title}
                   layout="responsive"
                   width={6}

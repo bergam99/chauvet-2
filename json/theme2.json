@@ -1,15 +1,18 @@
 {
-  "_id": { "$oid": "65e9ae36b7a6be5bb4db2a64" },
+  "_id": { "$oid": "65ec7eeede2b8805915073c1" },
   "thema": "Lancashire’s Historic Hues",
   "title": "England's Red-Roofed Villages",
   "author": "Oliver Townsend",
   "template": [
     {
       "templateKey": "templateA",
-      "images": [
+      "cards": [
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836567/posts/theme2/ivbeuqlay5czb0nzi8fx.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "As the festive season approaches, there’s a particular charm that envelops England, transforming its landscapes into scenes straight out of a classic Christmas card. Among these picturesque settings, the villages with their distinctive red-roofed houses stand out, offering a unique backdrop for a holiday journey that promises warmth, tradition, and a touch of magic."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836441/posts/theme2/upgszn02zoetz5sk5f7t.jpg",
@@ -20,26 +23,46 @@
           "size": "Horizontal_Small"
         },
         {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836484/posts/theme2/wvtwo06ym1m2kpnb7q3v.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836595/posts/theme2/ekvwtwb2xyngtfwc8p5f.jpg",
-          "size": "Horizontal_Full"
+          "size": "Horizontal_Full",
+          "txt": [
+            "Our journey begins in the heart of the Cotswolds, where honey-colored stone cottages topped with vibrant red tiles nestle amidst rolling hills and lush greenery.",
+            "This area, known for its quaint villages and breathtaking scenery, becomes even more enchanting during the Christmas season."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836466/posts/theme2/bmia1nq7nag3e5ty7qn6.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "The Cotswolds’ red-roofed homes, dusted with a light snowfall, create a captivating contrast against the winter landscape, making it an ideal setting for a Christmas getaway."
+          "connected_txt": "The Cotswolds’ red-roofed homes, dusted with a light snowfall, create a captivating contrast against the winter landscape, making it an ideal setting for a Christmas getaway.",
+          "txt": [
+            "This area, known for its quaint villages and breathtaking scenery, becomes even more enchanting during the Christmas season."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836586/posts/theme2/ewv5u2uise8vnzs2sruk.jpg",
-          "size": "Vertical_Small"
+          "size": "Vertical_Small",
+          "txt": [
+            "Venturing north, the historic county of Lancashire presents another opportunity to immerse oneself in the beauty of red-roofed architecture.  The village of Downham, untouched by modern signage and wires, offers a glimpse into the past, with its beautifully preserved houses and public buildings."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836540/posts/theme2/k6yayfdbyzdsy0mw121k.jpg",
           "size": "Horizontal_Small",
-          "connected_txt": "In the heart of the village, a sleek tabby cat moves with quiet grace, its green eyes shimmering like emeralds against the backdrop of quaint cottages and cobblestone paths, embodying the serene spirit of rural life."
+          "connected_txt": "In the heart of the village, a sleek tabby cat moves with quiet grace, its green eyes shimmering like emeralds against the backdrop of quaint cottages and cobblestone paths, embodying the serene spirit of rural life.",
+          "txt": [
+            "During Christmas, the village comes alive with traditional decorations, carol singing, and the warmth of community spirit."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836697/posts/theme2/wnhcexwt5sejbsvseglv.jpg",
-          "size": "Horizontal_Medium"
+          "size": "Horizontal_Medium",
+          "txt": [
+            "Here, the red roofs seem to glow even brighter against the backdrop of festive lights, creating a cozy atmosphere that embodies the essence of an English Christmas."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836595/posts/theme2/szpetoqw5avpuynvmksf.jpg",
@@ -54,20 +77,11 @@
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709836617/posts/theme2/qniyan7znveljs9lgn17.jpg",
           "size": "Vertical_Small",
-          "connected_txt": "Summer's end brings a bountiful harvest, with the scent of ripe fruits permeating the air and a golden light enveloping the tranquil village"
+          "connected_txt": "Summer's end brings a bountiful harvest, with the scent of ripe fruits permeating the air and a golden light enveloping the tranquil village",
+          "txt": [
+            " As you wander through these villages, each red roof not only adds color to the scenery but also weaves into the tapestry of memories that will last a lifetime."
+          ]
         }
-      ],
-      "content": [
-        [
-          "As the festive season approaches, there’s a particular charm that envelops England, transforming its landscapes into scenes straight out of a classic Christmas card. Among these picturesque settings, the villages with their distinctive red-roofed houses stand out, offering a unique backdrop for a holiday journey that promises warmth, tradition, and a touch of magic.",
-          "Our journey begins in the heart of the Cotswolds, where honey-colored stone cottages topped with vibrant red tiles nestle amidst rolling hills and lush greenery.",
-          "This area, known for its quaint villages and breathtaking scenery, becomes even more enchanting during the Christmas season.",
-          "This area, known for its quaint villages and breathtaking scenery, becomes even more enchanting during the Christmas season.",
-          "Venturing north, the historic county of Lancashire presents another opportunity to immerse oneself in the beauty of red-roofed architecture.  The village of Downham, untouched by modern signage and wires, offers a glimpse into the past, with its beautifully preserved houses and public buildings.",
-          "During Christmas, the village comes alive with traditional decorations, carol singing, and the warmth of community spirit.",
-          "Here, the red roofs seem to glow even brighter against the backdrop of festive lights, creating a cozy atmosphere that embodies the essence of an English Christmas.",
-          " As you wander through these villages, each red roof not only adds color to the scenery but also weaves into the tapestry of memories that will last a lifetime."
-        ]
       ]
     }
   ]
