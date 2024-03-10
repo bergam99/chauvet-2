@@ -1,0 +1,29 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /* creates two columns where the first column is 20% and the second is 80% of the row's width */
+    grid-template-rows: auto auto;
+    /* creates two rows based on content size */
+    gap: 2em;
+}
+
+.a {
+    grid-column: 1 / -1;
+    /* Spans from the first to the last column */
+    grid-row: 1;
+    /* Occupies the first row */
+}
+
+.b {
+    grid-column: 1 / 2;
+    /* Occupies the first column in the second row, taking 20% of the row */
+    grid-row: 2;
+    /* Positions it in the second row */
+}
+
+.c {
+    grid-column: 2 / 3;
+    /* Occupies the second column in the second row, taking the remaining 80% of the row */
+    grid-row: 2;
+    /* Positions it in the second row */
+}

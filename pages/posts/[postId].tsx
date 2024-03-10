@@ -1,28 +1,14 @@
 import { GetServerSideProps, NextPage } from "next";
 import { getPost } from "@/utils/extract";
 import { IPosts } from "@/types/posts";
-import Image from "next/image";
 import classes from "./postId.module.css";
+import TemplateA from "@/components/templates/templateA/templateA";
+import TemplateB from "@/components/templates/templateB/templateB";
+import TemplateC from "@/components/templates/templateC/templateC";
+
 type PostPageProps = {
   post?: IPosts;
 };
-
-function getImageAttributes(size: string) {
-  switch (size) {
-    case "Horizontal_Full":
-      return { className: "horizontal-full", height: 0, width: 0 };
-    case "Vertical_Full":
-      return { className: "vertical-full", height: 0, width: 0 };
-    case "Horizontal_Small":
-      return { className: "horizontal-small", height: 0, width: 0 };
-    case "Horizontal_Medium":
-      return { className: "horizontal-medium", height: 0, width: 0 };
-    case "Vertical_Small":
-      return { className: "vertical-small", height: 0, width: 0 };
-    default:
-      return { className: "", height: 0, width: 0 };
-  }
-}
 
 const PostPage: NextPage<PostPageProps> = ({ post }) => {
   if (!post) return <div>product not found</div>;
@@ -35,26 +21,19 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
           <h1 className={classes.heading}>{post.title}</h1>
         </div>
         <div>
-          {/* {post.author && <p>{post.author}</p>} */}
-          {post.template[0]?.cards.map((card, index) => {
-            const { className, height, width } = getImageAttributes(card.size);
-            return (
-              <div key={index} className={classes[className]}>
-                <Image
-                  src={card.url}
-                  alt={post.title}
-                  height={height}
-                  width={width}
-                  priority={index === 0}
-                  layout="responsive"
-                />
-                {card.connected_txt && (
-                  <p className={classes.connectedTxt}>{card.connected_txt}</p>
-                )}
-                {card.txt && <p>{card.txt}</p>}
-              </div>
-            );
-          })}
+          {post.template.map((template, index) => (
+            <div key={index}>
+              {template.templateKey === "templateA" && (
+                <TemplateA post={post} />
+              )}
+              {template.templateKey === "templateB" && (
+                <TemplateB post={post} />
+              )}
+              {template.templateKey === "templateC" && (
+                <TemplateC post={post} />
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </>

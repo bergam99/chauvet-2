@@ -90,3 +90,26 @@ a {
     letter-spacing: var(--ls-medium);
 }
 
+
+
+/* Image classes */
+
+.horizontal-full {
+    max-width: 100%;
+}
+
+.vertical-full {
+    max-width: 400px;
+}
+
+.horizontal-small {
+    max-width: 400px;
+}
+
+.horizontal-medium {
+    max-width: 500px;
+}
+
+.vertical-small {
+    max-width: 200px;
+}
