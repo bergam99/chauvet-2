@@ -9,7 +9,6 @@ interface TemplateLayout2Props {
 }
 
 const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
-  console.log({ size });
   return (
     <>
       <div className={size[0]}>

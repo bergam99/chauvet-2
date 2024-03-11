@@ -13,7 +13,6 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
   size,
   txt,
 }) => {
-  console.log({ size }, { txt });
   return (
     <>
       <div>

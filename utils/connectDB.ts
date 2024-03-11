@@ -10,7 +10,6 @@ export const connectDB = async (): Promise<Db> => {
     if (!db) {
       await client.connect();
       db = client.db("Chauvet");
-      console.log("Successfully connected to MongoDB.");
     }
     return db;
   } catch (error) {
