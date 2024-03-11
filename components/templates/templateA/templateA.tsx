@@ -5,6 +5,8 @@ import TemplateLayout2 from "../templateLayouts/templateLayout2/templateLayout2"
 import classes from "./templateA.module.css";
 import TemplateLayout3 from "../templateLayouts/TemplateLayout3/TemplateLayout3";
 import TemplateLayout4 from "../templateLayouts/TemplateLayout4/TemplateLayout4";
+import TemplateLayout5 from "../templateLayouts/TemplateLayout5/TemplateLayout5";
+import TL4b from "../templateLayouts/TemplateLayout4/TL/TL4b/TL4b";
 
 interface TemplateAProps {
   post: IPosts;
@@ -38,7 +40,7 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
     size: cards[0]?.size,
   };
 
-  // ==== Layout ====
+  // ==== Layout 2 ====
   const templateLayout2Props = extractCardProps(cards, 1, 4);
 
   // ==== Layout 3 ====
@@ -52,12 +54,36 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
   // ==== Layout 4 ====
   const templateLayout4Props = extractCardProps(cards, 5, 8);
 
+  // ==== Layout 3_1 ====
+  // For a single card, similar to Layout 1
+  const templateLayout3_1Props = {
+    img: cards[8]?.url,
+    size: cards[8]?.size,
+    txt: cards[8]?.txt,
+  };
+
+  // ==== Layout 5 ====
+  // For a single card, similar to Layout 1
+  const templateLayout5Props = extractCardProps(cards, 9, 11);
+  console.log(templateLayout5Props);
+
+  const TL4bProps = {
+    img: cards[11]?.url,
+    size: cards[11]?.size,
+    txt: cards[11]?.txt,
+    connectedTxt: cards[11]?.connected_txt,
+  };
+  console.log(TL4bProps);
+
   return (
     <>
       <TemplateLayout1 {...templateLayout1Props} />
       <TemplateLayout2 {...templateLayout2Props} />
       <TemplateLayout3 {...templateLayout3Props} />
       <TemplateLayout4 {...templateLayout4Props} />
+      <TemplateLayout3 {...templateLayout3_1Props} />
+      <TemplateLayout5 {...templateLayout5Props} />
+      <TL4b {...TL4bProps} />
     </>
   );
 };
