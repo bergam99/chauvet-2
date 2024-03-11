@@ -90,26 +90,24 @@ a {
     letter-spacing: var(--ls-medium);
 }
 
-
-
 /* Image classes */
 
-.horizontal-full {
+.Horizontal_Full {
     max-width: 100%;
 }
 
-.vertical-full {
-    max-width: 400px;
+.Vertical_Full {
+    max-width: 30%;
 }
 
-.horizontal-small {
-    max-width: 400px;
+.Horizontal_Small {
+    max-width: 30%;
 }
 
-.horizontal-medium {
-    max-width: 500px;
+.Horizontal-Medium {
+    max-width: 50%;
 }
 
-.vertical-small {
-    max-width: 200px;
+.Vertical-Small {
+    max-width: 20%;
 }

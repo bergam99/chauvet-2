@@ -7,21 +7,21 @@
     gap: 2em;
 }
 
-.a {
+.img {
     grid-column: 1 / -1;
     /* Spans from the first to the last column */
     grid-row: 1;
     /* Occupies the first row */
 }
 
-.b {
+.author {
     grid-column: 1 / 2;
     /* Occupies the first column in the second row, taking 20% of the row */
     grid-row: 2;
     /* Positions it in the second row */
 }
 
-.c {
+.txt {
     grid-column: 2 / 3;
     /* Occupies the second column in the second row, taking the remaining 80% of the row */
     grid-row: 2;
