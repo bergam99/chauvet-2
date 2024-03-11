@@ -1,7 +1,7 @@
 import { IPosts } from "@/types/posts";
 import { NextPage } from "next";
 import Image from "next/image";
-// import classes from "./templateLayout2.module.css";
+import classes from "./templateLayout2.module.css";
 
 interface TemplateLayout2Props {
   img: string[];
@@ -11,34 +11,35 @@ interface TemplateLayout2Props {
 const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
   return (
     <>
-      <div className={size[0]}>
-        <Image
-          src={img[0]}
-          alt="img"
-          height={1}
-          width={1}
-          layout="responsive"
-        />
+      <div className={classes.gridContainer}>
+        <div className={`${size[0]} ${classes.verticalImg}`}>
+          <Image
+            src={img[0]}
+            alt="img"
+            height={1}
+            width={1}
+            layout="responsive"
+          />
+        </div>
+        <div className={`${size[1]} ${classes.smallImg1}`}>
+          <Image
+            src={img[1]}
+            alt="img"
+            height={1}
+            width={1}
+            layout="responsive"
+          />
+        </div>
+        <div className={`${size[2]} ${classes.smallImg2}`}>
+          <Image
+            src={img[2]}
+            alt="img"
+            height={1}
+            width={1}
+            layout="responsive"
+          />
+        </div>
       </div>
-      <div className={size[1]}>
-        <Image
-          src={img[1]}
-          alt="img"
-          height={1}
-          width={1}
-          layout="responsive"
-        />
-      </div>
-      <div className={size[2]}>
-        <Image
-          src={img[2]}
-          alt="img"
-          height={1}
-          width={1}
-          layout="responsive"
-        />
-      </div>
-      {/* {txt && txt.map((t: any, index: any) => <p key={index}>{t}</p>)} */}
     </>
   );
 };

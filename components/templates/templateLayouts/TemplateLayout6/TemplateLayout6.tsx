@@ -43,8 +43,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
             layout="responsive"
           />
         </div>
-        {txt?.[0]}
-        {txt?.[1]}
+        {txt && txt.map((t: any, index: any) => <p key={index}>{t}</p>)}
       </div>
     </>
   );
