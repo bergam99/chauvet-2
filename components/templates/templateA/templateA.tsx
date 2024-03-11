@@ -12,22 +12,22 @@ interface TemplateAProps {
   post: IPosts;
 }
 
-const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
-  // extract common properties
-  const extractCardProps = (
-    cards: any,
-    startIndex?: number,
-    endIndex?: number
-  ) => {
-    const slice = cards.slice(startIndex, endIndex);
-    return {
-      img: slice.map((card: any) => card.url),
-      size: slice.map((card: any) => card.size),
-      txt: slice.map((card: any) => card.txt),
-      connectedTxt: slice.map((card: any) => card.connected_txt),
-    };
+// extract common properties
+export const extractCardProps = (
+  cards: any,
+  startIndex?: number,
+  endIndex?: number
+) => {
+  const slice = cards.slice(startIndex, endIndex);
+  return {
+    img: slice.map((card: any) => card.url),
+    size: slice.map((card: any) => card.size),
+    txt: slice.map((card: any) => card.txt),
+    connectedTxt: slice.map((card: any) => card.connected_txt),
   };
+};
 
+const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
   // Destructure for easier access to the first template cards
   const { cards } = post.template[0];
 
@@ -56,7 +56,7 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
 
   // ==== Layout 3_1 ====
   // For a single card, similar to Layout 1
-  const templateLayout3_1Props = {
+  const templateLayout3Props_1 = {
     img: cards[8]?.url,
     size: cards[8]?.size,
     txt: cards[8]?.txt,
@@ -65,7 +65,6 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
   // ==== Layout 5 ====
   // For a single card, similar to Layout 1
   const templateLayout5Props = extractCardProps(cards, 9, 11);
-  console.log(templateLayout5Props);
 
   const TL4bProps = {
     img: cards[11]?.url,
@@ -81,7 +80,7 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
       <TemplateLayout2 {...templateLayout2Props} />
       <TemplateLayout3 {...templateLayout3Props} />
       <TemplateLayout4 {...templateLayout4Props} />
-      <TemplateLayout3 {...templateLayout3_1Props} />
+      <TemplateLayout3 {...templateLayout3Props_1} />
       <TemplateLayout5 {...templateLayout5Props} />
       <TL4b {...TL4bProps} />
     </>

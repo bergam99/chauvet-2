@@ -18,9 +18,23 @@ const TemplateLayout4: NextPage<TemplateLayout4Props> = ({
   txt,
   connectedTxt,
 }) => {
-  return (
-    <>
-      <TL4a
+  const ComponentMappings = [TL4a, TL4b, TL4c];
+  const templateLayout4Components = ComponentMappings.map(
+    (Component, index) => (
+      <Component
+        key={index}
+        size={size[index]}
+        img={img[index]}
+        txt={txt[index]}
+        connectedTxt={connectedTxt[index]}
+      />
+    )
+  );
+
+  return <>{templateLayout4Components}</>;
+};
+
+/* <TL4a
         size={size[0]}
         img={img[0]}
         txt={txt[0]}
@@ -37,10 +51,7 @@ const TemplateLayout4: NextPage<TemplateLayout4Props> = ({
         img={img[2]}
         txt={txt[2]}
         connectedTxt={connectedTxt[2]}
-      />
-    </>
-  );
-};
+      /> */
 
 export default TemplateLayout4;
 

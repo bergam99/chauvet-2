@@ -96,16 +96,20 @@ a {
     max-width: 100%;
 }
 
-.Vertical_Full {
-    max-width: 30%;
+.Horizontal_Medium {
+    max-width: 50%;
 }
 
 .Horizontal_Small {
     max-width: 30%;
 }
 
-.Horizontal_Medium {
-    max-width: 50%;
+.Vertical_Full {
+    max-width: 40%;
+}
+
+.Vertical_Medium{
+    max-width: 30%;
 }
 
 .Vertical_Small {

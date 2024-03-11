@@ -10,16 +10,18 @@ interface TL4aProps {
 }
 
 const TL4a: NextPage<TL4aProps> = ({ img, size, txt, connectedTxt }) => {
+  // console.log({ connectedTxt });
   return (
     <>
-      <div>
-        <div className={size}>
-          <Image src={img} alt="img" height={1} width={1} layout="responsive" />
-        </div>
+      <section className={size}>
+        <Image src={img} alt="img" height={1} width={1} layout="responsive" />
+
         {connectedTxt}
         <br />
-        {txt}
-      </div>
+        {/* {txt?.[0]}
+        {txt?.[1]} */}
+        {txt && txt.map((t: any, index: any) => <p key={index}>{t}</p>)}
+      </section>
     </>
   );
 };
