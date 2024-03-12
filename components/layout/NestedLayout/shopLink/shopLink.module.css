@@ -1,5 +1,5 @@
 .iconContainer .icon {
-    width: clamp(20px, 3vw, 28px);
+    width: var(--icon);
     height: auto;
     /* maintain aspect ratio */
 }

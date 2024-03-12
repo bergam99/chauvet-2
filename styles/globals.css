@@ -18,12 +18,19 @@
     --ff-body2: "Noto Sans", sans-serif;
 
     /* font-size */
-    --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem);
+    --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem); 
+    /* intro in posts page card */
     --fs-intro: clamp(0.7rem, 3.3vw, 1rem);
+    /* in products page cards */
     --fs-title: clamp(1rem, 3.3vw, 1.3rem);
+    /* posts page */
     --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
+    /* 'voir plus' button */
     --fs-detail: clamp(.6rem, 1.3vw, .8rem);
+
+
     /* font-weight */
+    /* 'voir plus' button */
     --fw-light: 300;
     --fw-medium: 400;
 
@@ -31,6 +38,18 @@
     --ls-light: .1rem;
     --ls-medium: .2rem;
 
+    /* padding */
+    --pd-card-title :clamp(8px, 2vw, 16px) 0px;
+    --pd-posts-intro:clamp(0.5em, 4vw, 3em) 0px;
+    /* 'voir plus' arrow */
+    --arr: clamp(6px, 2vw, 12px);
+
+    /* line-height */
+    /* intro in card */
+    --lh: clamp(160%, 4vw, 200%);
+
+    /* icon */
+    --icon:clamp(20px, 3vw, 28px);
 }
 
 /* === normalize === */

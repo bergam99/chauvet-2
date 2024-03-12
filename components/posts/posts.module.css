@@ -15,7 +15,7 @@
 }
 
 .title{
-    padding: clamp(8px, 2vw, 16px) 0px;
+    padding: var(--pd-card-title);
     font-size: var(--fs-title);
 }
 
@@ -41,8 +41,9 @@
 }
 
 .arrow{
-    width: clamp(6px, 2vw, 12px) !important;
+    width: var(--arr) !important;
 }
+
 @media (max-width: 768px) {
     .gridContainer {
         grid-template-columns: 1fr;

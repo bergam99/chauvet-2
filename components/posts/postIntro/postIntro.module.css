@@ -10,7 +10,7 @@
 }
 
 .intro {
-    padding: clamp(0.5em, 4vw, 3em) 0px;
+    padding: var(--pd-posts-intro);
     font-size: var(--fs-intro);
-    line-height: clamp(160%, 4vw, 200%);
+    line-height: var(--lh);
 }
