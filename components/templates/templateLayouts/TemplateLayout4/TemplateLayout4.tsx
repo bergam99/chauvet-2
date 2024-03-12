@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import Image from "next/image";
 import TL4a from "./TL/TL4a/TL4a";
 import TL4b from "./TL/TL4b/TL4b";
-import TL4c from "./TL/TL4c/TL4c";
 // import classes from "./templateLayout4.module.css";
 
 interface TemplateLayout4Props {
@@ -18,7 +17,7 @@ const TemplateLayout4: NextPage<TemplateLayout4Props> = ({
   txt,
   connectedTxt,
 }) => {
-  const ComponentMappings = [TL4a, TL4b, TL4c];
+  const ComponentMappings = [TL4a, TL4b, TL4a];
   const templateLayout4Components = ComponentMappings.map(
     (Component, index) => (
       <Component

@@ -8,8 +8,8 @@ import TemplateLayout4 from "../templateLayouts/TemplateLayout4/TemplateLayout4"
 import TemplateLayout5 from "../templateLayouts/TemplateLayout5/TemplateLayout5";
 import TL4b from "../templateLayouts/TemplateLayout4/TL/TL4b/TL4b";
 import { extractCardProps } from "../templateA/templateA";
-import TL4c from "../templateLayouts/TemplateLayout4/TL/TL4c/TL4c";
 import TemplateLayout6 from "../templateLayouts/TemplateLayout6/TemplateLayout6";
+import TL4a from "../templateLayouts/TemplateLayout4/TL/TL4a/TL4a";
 
 interface TemplateCProps {
   post: IPosts;
@@ -44,7 +44,7 @@ const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
     txt: cards[8]?.txt,
   };
 
-  const TL4cProps = {
+  const TL4aProps = {
     img: cards[9]?.url,
     size: cards[9]?.size,
     txt: cards[9]?.txt,
@@ -65,7 +65,7 @@ const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
       <TemplateLayout4 {...templateLayout4Props} />
       <TL4b {...TL4bProps} />
       <TemplateLayout3 {...templateLayout3Props} />
-      <TL4c {...TL4cProps} />
+      <TL4a {...TL4aProps} />
       <TL4b {...TL4bProps_1} />
     </>
   );

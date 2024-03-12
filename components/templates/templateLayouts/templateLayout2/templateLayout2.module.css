@@ -1,0 +1,29 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    padding: 1em;
+
+}
+
+.img0{
+    aspect-ratio: 2.9 / 4;
+    object-fit: cover;
+}
+.verticalImg {
+    grid-area: 1 / 1 / 3 / 2;
+    max-width: unset;
+}
+
+.smallImg1 {
+    grid-area: 1 / 2 / 2 / 3;
+    max-width: unset;
+}
+
+.smallImg2 {
+    grid-area: 2 / 2 / 3 / 3;
+    max-width: unset;
+    /* aspect-ratio: 3 / 2; */
+    /* object-fit: contain; */
+}

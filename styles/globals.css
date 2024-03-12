@@ -97,21 +97,21 @@ a {
 }
 
 .Horizontal_Medium {
-    max-width: 50%;
+    max-width: 70%;
 }
 
-.Horizontal_Small {
-    max-width: 30%;
-}
+/* .Horizontal_Small {
+    max-width: 20rem;
+} */
 
 .Vertical_Full {
     max-width: 40%;
 }
 
 .Vertical_Medium{
-    max-width: 30%;
+    max-width: 18rem;
 }
 
 .Vertical_Small {
-    max-width: 20%;
+    max-width: 14rem;
 }

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-// import classes from "./templateLayout4bmodule.css";
+import classes from "./TL4b.module.css";
 
 interface TL4bProps {
   img: string;
@@ -12,14 +12,14 @@ interface TL4bProps {
 const TL4b: NextPage<TL4bProps> = ({ img, size, txt, connectedTxt }) => {
   return (
     <>
-      <div>
-        {txt}
-        {/* {txt?.[1]} */}
-        <div className={size}>
+      <section className={classes.gridContainer}>
+        <p className={classes.left}>{txt}</p>
+        <div className={`${size} ${classes.right}`}>
           <Image src={img} alt="img" height={1} width={1} layout="responsive" />
+
+          <p>{connectedTxt}</p>
         </div>
-        <p>{connectedTxt}</p>
-      </div>
+      </section>
     </>
   );
 };

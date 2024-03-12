@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import Image from "next/image";
-// import classes from "./templateLayout3.module.css";
+import classes from "./templateLayout3.module.css";
 
 interface TemplateLayout3Props {
   img: string;
   size: string;
-  txt?: string[];
+  txt?: any;
 }
 
 const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
@@ -16,7 +16,7 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
   return (
     <>
       <div>
-        <div className={size}>
+        <div className={`${size} ${classes.img}`}>
           <Image
             src={img}
             alt="mainImg"
@@ -25,9 +25,10 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
             layout="responsive"
           />
         </div>
-        {txt?.[0]}
-        <br />
-        {txt?.[1]}
+
+        <div className={classes.txt}>
+          {txt[0] && txt[0]} {txt[1] && txt[1]}
+        </div>
       </div>
     </>
   );

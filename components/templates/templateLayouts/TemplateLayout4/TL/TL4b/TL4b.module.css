@@ -1,0 +1,13 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+    margin: auto;
+    text-align: right;
+}
+
+.right {
+    margin:auto;
+}

@@ -19,6 +19,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             height={1}
             width={1}
             layout="responsive"
+            className={classes.img0}
           />
         </div>
         <div className={`${size[1]} ${classes.smallImg1}`}>
