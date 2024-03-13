@@ -3,8 +3,6 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-gap: 1em;
-    padding: 1em;
-
 }
 
 .img0{
@@ -27,3 +25,9 @@
     /* aspect-ratio: 3 / 2; */
     /* object-fit: contain; */
 }
+
+/* @media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: 1fr;
+    }
+} */

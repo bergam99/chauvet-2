@@ -11,6 +11,6 @@
 
 .intro {
     padding: var(--pd-posts-intro);
-    font-size: var(--fs-intro);
+    font-size: var(--fs-content);
     line-height: var(--lh);
 }

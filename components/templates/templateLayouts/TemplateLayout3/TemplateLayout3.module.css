@@ -2,6 +2,13 @@
     margin: auto;
 }
 
-/* .txt:nth-child(0) {
-    padding-bottom: 1em;
-} */
+.txt{
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+}
+
+@media (max-width: 768px) {
+    .img{
+        max-width: unset; 
+    }
+}

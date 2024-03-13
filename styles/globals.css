@@ -19,14 +19,19 @@
 
     /* font-size */
     --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem); 
-    /* intro in posts page card */
-    --fs-intro: clamp(0.7rem, 3.3vw, 1rem);
+    /* contents of posts */
+    --fs-content: clamp(0.7rem, 3.3vw, 1rem);
     /* in products page cards */
     --fs-title: clamp(1rem, 3.3vw, 1.3rem);
     /* posts page */
     --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
+    /* fs in [postId] page */
+    --fs-themaId: clamp(0.7rem, 3vw, 1.2rem);
     /* 'voir plus' button */
     --fs-detail: clamp(.6rem, 1.3vw, .8rem);
+
+    /* title in [postId] or shop title */
+    --fs-heading:clamp(1.5rem, 4vw, 2.8rem);
 
 
     /* font-weight */

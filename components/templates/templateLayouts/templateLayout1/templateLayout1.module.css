@@ -1,29 +1,54 @@
 .gridContainer {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    /* creates two columns where the first column is 20% and the second is 80% of the row's width */
     grid-template-rows: auto auto;
-    /* creates two rows based on content size */
     gap: 2em;
 }
 
 .img {
     grid-column: 1 / -1;
-    /* Spans from the first to the last column */
     grid-row: 1;
-    /* Occupies the first row */
 }
 
 .author {
     grid-column: 1 / 2;
-    /* Occupies the first column in the second row, taking 20% of the row */
     grid-row: 2;
-    /* Positions it in the second row */
+    font-size: var(--fs-content);
 }
 
 .txt {
     grid-column: 2 / 3;
-    /* Occupies the second column in the second row, taking the remaining 80% of the row */
     grid-row: 2;
-    /* Positions it in the second row */
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: 1fr;
+        /* Change to a single column layout */
+        grid-template-areas:
+            "img"
+            "author"
+            "txt";
+    }
+
+    .img {
+        grid-area: img;
+        /* Assign the .img element to the img area */
+    }
+
+    .author {
+        grid-area: author;
+        /* Assign the .author element to the author area */
+        grid-column: 1;
+        /* Span across the new single column */
+    }
+
+    .txt {
+        grid-area: txt;
+        /* Assign the .txt elements to the txt area */
+        grid-column: 1;
+        /* Span across the new single column */
+    }
 }

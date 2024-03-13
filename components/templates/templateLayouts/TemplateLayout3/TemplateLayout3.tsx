@@ -26,9 +26,9 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
           />
         </div>
 
-        <div className={classes.txt}>
+        <p className={classes.txt}>
           {txt[0] && txt[0]} {txt[1] && txt[1]}
-        </div>
+        </p>
       </div>
     </>
   );

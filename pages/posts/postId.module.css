@@ -2,16 +2,17 @@
     width: min(1100px, 90%);
     margin: auto;
     border: 1px solid black;
+    padding: 0.8em;
 }
 
 .heading{
     font-family: var(--ff-heading);
-    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    font-size: var(--fs-heading);
 }
 
 .thema{
-    font-size: clamp(0.7rem, 3vw, 1.2rem);
-    margin: 2em;
+    font-size: var(--fs-themaId);
+    margin-bottom: 1em;
 }
 
 .title{
@@ -20,8 +21,5 @@
     align-items: center;
 }
 
-.connectedTxt{
-    font-family: var(--ff-link);
-}
 
 
