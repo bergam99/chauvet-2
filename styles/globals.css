@@ -26,12 +26,12 @@
     /* posts page */
     --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
     /* fs in [postId] page */
-    --fs-themaId: clamp(0.7rem, 3vw, 1.2rem);
-    /* 'voir plus' button */
+    --fs-themaId: clamp(0.7rem, 2vw, 1.2rem);
+    /* 'voir plus' button & connectedTxt*/
     --fs-detail: clamp(.6rem, 1.3vw, .8rem);
 
     /* title in [postId] or shop title */
-    --fs-heading:clamp(1.5rem, 4vw, 2.8rem);
+    --fs-heading:clamp(1rem, 4vw, 2.8rem);
 
 
     /* font-weight */
@@ -46,6 +46,11 @@
     /* padding */
     --pd-card-title :clamp(8px, 2vw, 16px) 0px;
     --pd-posts-intro:clamp(0.5em, 4vw, 3em) 0px;
+    --pd-postId-heading: clamp(.5rem, 3vw, 2rem);
+
+    --pd-grid-card-s: clamp(.5rem, 1vw, 1rem);
+    --pd-grid-card-m: clamp(.7rem, 2vw, 2rem);
+
     /* 'voir plus' arrow */
     --arr: clamp(6px, 2vw, 12px);
 
@@ -76,7 +81,6 @@ button {
 
 img {
     display: block;
-    max-width: 100%;
 }
 
 a {
@@ -105,7 +109,7 @@ a {
 }
 
 .Link {
-    border-bottom: 1px solid var(--color-heavy-gray);
+    border-bottom: .5px solid var(--color-heavy-gray);
 }
 
 .Logo{
@@ -114,28 +118,38 @@ a {
     letter-spacing: var(--ls-medium);
 }
 
+.txtContent {
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+}
+
+.connectedTxt {
+    font-family: var(--ff-link);
+    font-size: var(--fs-detail);
+}
+
 /* Image classes */
 
-.Horizontal_Full {
-    max-width: 100%;
+/* .Horizontal_Full {
+    aspect-ratio: 3/2;
 }
 
 .Horizontal_Medium {
-    max-width: 70%;
+    aspect-ratio: 3/2;
 }
 
-/* .Horizontal_Small {
-    max-width: 20rem;
-} */
+.Horizontal_Small {
+    aspect-ratio: 3/2;
+}
 
 .Vertical_Full {
-    max-width: 40%;
+    aspect-ratio: 2/3;
 }
 
 .Vertical_Medium{
-    max-width: 18rem;
+    aspect-ratio: 2/3;
 }
 
 .Vertical_Small {
-    max-width: 14rem;
-}
+    aspect-ratio: 2/3;
+} */

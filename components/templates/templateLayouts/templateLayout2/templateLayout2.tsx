@@ -19,16 +19,17 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             height={1}
             width={1}
             layout="responsive"
-            className={classes.img0}
+            className={classes.img}
           />
         </div>
         <div className={`${size[1]} ${classes.smallImg1}`}>
           <Image
             src={img[1]}
             alt="img"
-            height={1}
-            width={1}
+            height={0}
+            width={0}
             layout="responsive"
+            className={classes.img}
           />
         </div>
         <div className={`${size[2]} ${classes.smallImg2}`}>
@@ -38,6 +39,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             height={1}
             width={1}
             layout="responsive"
+            className={classes.img}
           />
         </div>
       </div>

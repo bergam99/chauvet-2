@@ -25,10 +25,8 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
             layout="responsive"
           />
         </div>
-
-        <p className={classes.txt}>
-          {txt[0] && txt[0]} {txt[1] && txt[1]}
-        </p>
+        {txt[0] && <p className={classes.txt}>{txt[0]}</p>}
+        {txt[1] && <p className={classes.txt}>{txt[1]}</p>}
       </div>
     </>
   );

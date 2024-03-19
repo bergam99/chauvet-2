@@ -1,18 +1,18 @@
 .section{
     width: min(1100px, 90%);
     margin: auto;
-    border: 1px solid black;
     padding: 0.8em;
 }
 
 .heading{
     font-family: var(--ff-heading);
     font-size: var(--fs-heading);
+    padding-bottom: var(--pd-postId-heading);
 }
 
 .thema{
     font-size: var(--fs-themaId);
-    margin-bottom: 1em;
+    padding: var(--pd-grid-card-m);
 }
 
 .title{

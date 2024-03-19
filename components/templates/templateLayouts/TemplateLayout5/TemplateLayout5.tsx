@@ -16,27 +16,29 @@ const TemplateLayout5: NextPage<TemplateLayout5Props> = ({
   return (
     <>
       <section className={classes.gridContainer}>
-        <div className={`${size[0]} ${classes.left}`}>
+        <div className={`${size[0]} ${classes.img0}`}>
           <Image
             src={img[0]}
             alt="mainImg"
             height={1}
             width={1}
             layout="responsive"
+            className={classes.img}
           />
-          {connectedTxt?.[0]}
         </div>
+        <p className={classes.connectedTxt0}>{connectedTxt?.[0]}</p>
 
-        <div className={`${size[1]} ${classes.right}`}>
+        <div className={`${size[1]} ${classes.img1}`}>
           <Image
             src={img[1]}
             alt="mainImg"
             height={1}
             width={1}
             layout="responsive"
+            className={classes.img}
           />
-          {connectedTxt?.[1]}
         </div>
+        <p className={classes.connectedTxt1}>{connectedTxt?.[1]}</p>
       </section>
     </>
   );

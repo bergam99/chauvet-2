@@ -27,7 +27,10 @@ const TemplateLayout1: NextPage<TemplateLayout1Props> = ({
             layout="responsive"
           />
         </div>
-        <p className={classes.author}>{author}</p>
+        <p className={classes.author}>
+          article by <br />
+          {author}
+        </p>
 
         {txt &&
           txt.map((t, index) => (

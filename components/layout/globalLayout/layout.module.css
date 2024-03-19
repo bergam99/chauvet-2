@@ -12,7 +12,7 @@
 .headerContainer{
     display: flex;
     align-items: center;
-    width: min(1100px, 95%);
+    width: min(1100px, 90%);
     margin: 2em auto;
 }
 

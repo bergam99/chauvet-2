@@ -13,12 +13,11 @@ const TL4b: NextPage<TL4bProps> = ({ img, size, txt, connectedTxt }) => {
   return (
     <>
       <section className={classes.gridContainer}>
-        <p className={classes.left}>{txt}</p>
-        <div className={`${size} ${classes.right}`}>
+        <p className={classes.txt}>{txt}</p>
+        <div className={classes.img}>
           <Image src={img} alt="img" height={1} width={1} layout="responsive" />
-
-          <p>{connectedTxt}</p>
         </div>
+        {connectedTxt && <p className={classes.connectedTxt}>{connectedTxt}</p>}
       </section>
     </>
   );

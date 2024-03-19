@@ -13,21 +13,14 @@ const TL4a: NextPage<TL4aProps> = ({ img, size, txt, connectedTxt }) => {
   return (
     <>
       <section className={classes.gridContainer}>
-        <div className={classes.left}>
-          <div className={`${size} ${classes.img}`}>
-            <Image
-              src={img}
-              alt="img"
-              height={1}
-              width={1}
-              layout="responsive"
-            />
-          </div>
-          <p className={classes.connectedTxt}>{connectedTxt}</p>
+        <div className={classes.img}>
+          <Image src={img} alt="img" height={1} width={1} layout="responsive" />
         </div>
+        <p className={classes.connectedTxt}>{connectedTxt}</p>
 
-        <div className={classes.right}>
-          {txt[0] && txt[0]} {txt[1] && txt[1]}
+        <div className={classes.txt}>
+          <p>{txt[0] && txt[0]} </p>
+          <p>{txt[1] && txt[1]}</p>
         </div>
       </section>
     </>

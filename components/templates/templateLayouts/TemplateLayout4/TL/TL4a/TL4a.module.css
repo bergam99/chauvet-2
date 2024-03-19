@@ -1,12 +1,40 @@
 .gridContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "img txt"
+        "connectedTxt .";
 }
 
-.left {
-    margin: auto;
+.txt {
+    grid-area: txt;
+    align-self: center;
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+    padding: var(--pd-grid-card-m);
 }
 
-.right {
-    margin: auto;
+.img {
+    grid-area: img;
+}
+
+.connectedTxt {
+    grid-area: connectedTxt;
+    font-family: var(--ff-link);
+    font-size: var(--fs-detail);
+    padding: var(--pd-grid-card-s) 0;
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-areas: "img img"
+            "connectedTxt connectedTxt"
+            "txt txt"
+    }
+
+    .txt {
+        padding: var(--pd-grid-card-m) 0;
+    }
+    
+    .connectedTxt{
+        text-align: center;
+    }
 }
