@@ -1,0 +1,72 @@
+{
+  "_id": { "$oid": "65ec88069c1d09ea969d06c9" },
+  "thema": "Exploring the Historic Charm of Bath, England",
+  "title": "A Stroll Through Time",
+  "author": "Eleanor Fitzpatrick",
+  "template": [
+    {
+      "templateKey": "templateC",
+      "cards": [
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888022/posts/theme7/ezfdggokieex1pjgrp69.jpg",
+          "size": "Horizontal_Full",
+          "txt": [
+            "Nestled in the rolling hills of Somerset, the city of Bath stands as a beacon of history and culture, inviting travelers to step back into a bygone era. Renowned for its Roman baths, stunning Georgian architecture, and the tranquil River Avon that meanders through its heart, Bath offers a journey through time, making it a must-visit destination for anyone exploring England."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888037/posts/theme7/ah9a6scvmrnlugo26wgs.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888061/posts/theme7/fg10ufwao1bjghib3clu.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888016/posts/theme7/ycrshu02bmmz5wg7fsea.jpg",
+          "size": "Horizontal_Small",
+          "txt": [
+            "The story of Bath is intrinsically linked to its thermal springs, which have attracted visitors for millennia. The Romans were the first to harness these waters, building the magnificent Roman Baths that still captivate visitors today."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888038/posts/theme7/asclexiqya8jsxens8wa.jpg",
+          "size": "Vertical_Small",
+          "txt": [
+            "A tour of these ancient baths not only reveals the ingenuity of Roman engineering but also offers a glimpse into daily life in Roman Britain. The steamy waters and intricate mosaics evoke a sense of continuity, connecting the present with the past."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888033/posts/theme7/q2esmzlpc7clcwfujth7.jpg",
+          "size": "Horizontal_Small",
+          "txt": [
+            "As you wander through the city's cobbled streets, the elegance of Bath's Georgian architecture unfolds before your eyes."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709887958/posts/theme7/dcfonxf6jekxwfyqp1re.jpg",
+          "size": "Horizontal_Small",
+          "txt": [
+            "The Royal Crescent, a sweeping arc of 30 terraced houses, and the nearby Circus, with its circular layout, are masterpieces of urban design and a testament to the city's prosperity in the 18th century."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888040/posts/theme7/mbt2sxectfudm3tlx2nj.jpg",
+          "size": "Horizontal_Medium",
+          "txt": "The annual Bath Literature Festival and the Bath International Music Festival are highlights of the cultural calendar, drawing artists and audiences from around the world."
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888048/posts/theme7/c6nt51n3jgpo0pelhruv.jpg",
+          "size": "Horizontal_Small",
+          "txt": "Whether you're soaking in the Roman Baths, strolling along the Royal Crescent, or exploring the vibrant arts scene, Bath invites you to embark on a timeless journe"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888059/posts/theme7/q15n7cqto54fjangm8q6.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "a journey that captures the essence of England's heritage and the enduring allure of its landscapes.",
+          "txt": "For those seeking relaxation, the Thermae Bath Spa provides a contemporary counterpart to the ancient baths."
+        }
+      ]
+    }
+  ]
+}

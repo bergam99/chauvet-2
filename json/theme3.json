@@ -1,0 +1,85 @@
+{
+  "_id": { "$oid": "65ec87319c1d09ea969d06c5" },
+  "thema": "A Journey Among Sea and Horses",
+  "title": "Exploring England's Coastal Charm",
+  "author": "Amelia Harwood",
+  "template": [
+    {
+      "templateKey": "templateB",
+      "cards": [
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838558/posts/theme3/o5lvq3cmomx6vcaiavnm.jpg",
+          "size": "Horizontal_Full",
+          "txt": [
+            "Nestled within the heart of England's breathtaking landscapes lies a unique blend of natural beauty and serene tranquility, where the majesty of the sea meets the elegance of horses. This journey takes us to some of England's most picturesque coastal regions, where the crashing waves and the gentle trot of horses create a symphony of nature's finest melodies."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838678/posts/theme3/gg1hxrtyiiljmo1mmxr3.jpg",
+          "size": "Vertical_Full"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838552/posts/theme3/lvazojmfmqhdmrpwm20l.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838659/posts/theme3/zuoqckx89klbcte32tie.jpg",
+          "size": "Horizontal_Small"
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838785/posts/theme3/oqouacdovdejmgi8eazw.jpg",
+          "size": "Vertical_Medium",
+          "txt": [
+            "Our adventure begins in the rugged, windswept coastlines of Devon, where the Atlantic Ocean's powerful presence shapes the land. Here, amid the towering cliffs and expansive sandy beaches, a special breed of native ponies roams freely.",
+            "The Dartmoor and Exmoor ponies, with their sturdy frames and gentle demeanors, embody the untamed spirit of the region."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838674/posts/theme3/db6iuzt9pordkopjnilf.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Rolling hills dip gently into the vibrant emerald sea, creating a breathtaking tapestry of natural splendor",
+          "txt": [
+            "Visitors can embark on guided horseback rides along the coastal trails, offering a unique vantage point to witness the awe-inspiring sunsets that paint the sky in hues of gold and crimson."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838803/posts/theme3/duh5xcbasbusr1toetcs.jpg",
+          "size": "Vertical_Medium",
+          "txt": [
+            "Venturing eastwards, Sussex unveils its rich equestrian heritage against the backdrop of its scenic coast. The iconic white chalk cliffs of the Seven Sisters and the vast pebble beaches serve as a testament to England's geological wonders. In the countryside nearby, historic estates and traditional stud farms offer glimpses into the country's long-standing relationship with horses."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709838816/posts/theme3/b7ifnvt9vhubgt0aqtcf.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "Misty mornings envelop the landscape in a serene shroud, revealing the countryside's mystical charm",
+          "txt": [
+            "Here, one can indulge in the quintessential English experience—afternoon tea followed by a horse-drawn carriage ride, offering a step back in time to a bygone era of elegance and grace."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709839051/posts/theme3/nydmwlj4xqxzfacjraby.jpg",
+          "size": "Horizontal_Medium",
+          "txt": [
+            "Our journey concludes in the serene shores of Norfolk, where the North Sea's calm waters meet the vast skies in an endless horizon. The Norfolk Broads, a network of navigable rivers and lakes, presents a tranquil setting for horse riding adventures amidst the wetlands and marshes."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709839148/posts/theme3/bjpzbubvb0dcogtbcdsm.jpg",
+          "size": "Vertical_Small",
+          "txt": [
+            "It is a place where time slows down, allowing visitors to connect with nature on a profound level. The sight of wild horses grazing along the waterways, with the gentle sound of waves in the distance, encapsulates the peaceful coexistence of land and sea."
+          ]
+        },
+        {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709839131/posts/theme3/zfu74tkfz2na8llmehkb.jpg",
+          "size": "Horizontal_Small",
+          "connected_txt": "The tranquil chorus of the countryside, from the gentle babble of brooks to the soft whisper of grasses, composes nature's own symphony.",
+          "txt": [
+            "England's coast, with its blend of natural beauty and equestrian culture, invites travelers to embark on an adventure that captures the essence of freedom and connection to the earth."
+          ]
+        }
+      ]
+    }
+  ]
+}

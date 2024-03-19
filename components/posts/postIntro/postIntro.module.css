@@ -1,0 +1,16 @@
+.mainContainer {
+    width: 70%;
+    margin: 0 auto 3rem;
+    padding: 2em;
+    background-color: var(--color-gray);
+}
+
+.img {
+    margin-bottom: .5em;
+}
+
+.intro {
+    padding: var(--pd-posts-intro);
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+}

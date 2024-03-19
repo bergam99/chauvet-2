@@ -1,0 +1,33 @@
+.gridContainer {
+    display: grid;
+    grid-template-areas: "img img"
+                          "author txt";
+    grid-gap: var(--pd-grid-card-s);
+    padding-bottom: var(--pd-grid-card-s);
+}
+
+.img {
+    grid-area: img;
+}
+
+.author {
+    grid-area: author;
+    line-height: var(--lh);
+    font-family: var(--ff-link);
+    font-size: var(--fs-detail);
+    padding-right: var(--pd-grid-card-m);
+}
+
+.txt {
+    grid-area: txt;
+    font-size: var(--fs-content);
+    line-height: var(--lh);
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-areas: "img img"
+                             "author ."
+                             "txt txt";
+    }
+}
