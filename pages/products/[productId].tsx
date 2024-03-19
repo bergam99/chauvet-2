@@ -1,9 +1,10 @@
 import { GetServerSideProps, NextPage } from "next";
 import { IProduct } from "@/types/products";
 import { getProduct } from "@/utils/extract";
-import ProductInfo from "@/components/products/productItem/productInfo/productInfo";
+// import ProductInfo from "@/components/products/productItem/productInfo/productInfo";
 import ProductDescription from "@/components/products/productItem/productDescription/productDescription";
 import GoBack from "@/components/buttons/goBack/goBack";
+import ProductInfo from "./../../components/products/productItem/productInfo/productInfo";
 
 type ProductPageProps = {
   product?: IProduct;
