@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import classes from "./templateLayout3.module.css";
+import classes from "./TemplateLayout3.module.css";
 
 interface TemplateLayout3Props {
   img: string;

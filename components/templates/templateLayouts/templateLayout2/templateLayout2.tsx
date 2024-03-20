@@ -1,4 +1,3 @@
-import { IPosts } from "@/types/posts";
 import { NextPage } from "next";
 import Image from "next/image";
 import classes from "./templateLayout2.module.css";
