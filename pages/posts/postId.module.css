@@ -1,0 +1,25 @@
+.section{
+    width: min(1100px, 90%);
+    margin: auto;
+    padding: 0.8em;
+}
+
+.heading{
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading);
+    padding-bottom: var(--pd-postId-heading);
+}
+
+.thema{
+    font-size: var(--fs-themaId);
+    padding: var(--pd-grid-card-m);
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+

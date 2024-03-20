@@ -1,0 +1,18 @@
+
+/* ===== desktop layout ===== */
+/* Hide NestedLayout__Mobile by default (assuming desktop-first approach) */
+.NestedLayout__Mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .NestedLayout__Desktop {
+        display: none;
+    }
+
+    .NestedLayout__Mobile {
+        display: block;
+       
+    }
+}
+

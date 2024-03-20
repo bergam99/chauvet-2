@@ -1,7 +1,7 @@
 import { IProduct } from "@/types/products";
 import { GetServerSideProps, NextPage } from "next";
 import { getProducts } from "@/utils/extract";
-import ProductsItem from "@/components/Products/productsItem/productsItem";
+import ProductsItem from "@/components/products/productsItem";
 
 interface ProductsProps {
   products: IProduct[];

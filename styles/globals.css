@@ -18,19 +18,48 @@
     --ff-body2: "Noto Sans", sans-serif;
 
     /* font-size */
-    --fs-xl: clamp(1rem, 3vw + 1rem, 2rem);
-    --fs-600: 2rem;
-    --fs-500: 1.1rem;
-    --fs-400: 1rem;
-    --fs-300: .8rem;
+    --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem); 
+    /* contents of posts */
+    --fs-content: clamp(0.7rem, 3.3vw, 1rem);
+    /* in products page cards */
+    --fs-title: clamp(1rem, 3.3vw, 1.3rem);
+    /* posts page */
+    --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
+    /* fs in [postId] page */
+    --fs-themaId: clamp(0.7rem, 2vw, 1.2rem);
+    /* 'voir plus' button & connectedTxt*/
+    --fs-detail: clamp(.6rem, 1.3vw, .8rem);
+
+    /* title in [postId] or shop title */
+    --fs-heading:clamp(1rem, 4vw, 2.8rem);
+
 
     /* font-weight */
+    /* 'voir plus' button */
     --fw-light: 300;
     --fw-medium: 400;
 
     /* letter-spacing */
     --ls-light: .1rem;
-    --ls-medium: .3rem;
+    --ls-medium: .2rem;
+
+    /* padding */
+    --pd-card-title :clamp(8px, 2vw, 16px) 0px;
+    --pd-posts-intro:clamp(0.5em, 4vw, 3em) 0px;
+    --pd-postId-heading: clamp(.5rem, 3vw, 2rem);
+
+    --pd-grid-card-s: clamp(.5rem, 1vw, 1rem);
+    --pd-grid-card-m: clamp(.7rem, 2vw, 2rem);
+
+    /* 'voir plus' arrow */
+    --arr: clamp(6px, 2vw, 12px);
+
+    /* line-height */
+    /* intro in card */
+    --lh: clamp(160%, 4vw, 200%);
+
+    /* icon */
+    --icon:clamp(20px, 3vw, 28px);
 }
 
 /* === normalize === */
@@ -43,7 +72,6 @@ body {
     font-weight: var(--fw-light);
     color: var(--color-heavy-gray);
     letter-spacing: var(--ls-light);
-    /* font-size: var(--fs-500); */
 }
 
 button {
@@ -53,7 +81,6 @@ button {
 
 img {
     display: block;
-    max-width: 100%;
 }
 
 a {
@@ -82,16 +109,47 @@ a {
 }
 
 .Link {
-    border-bottom: 1px solid var(--color-heavy-gray);
+    border-bottom: .5px solid var(--color-heavy-gray);
 }
 
 .Logo{
     font-family: var(--ff-title);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-logo); 
     letter-spacing: var(--ls-medium);
 }
 
-.Heading{
-    font-family: var(--ff-heading);
-    font-size: var(--fs-xl);
+.txtContent {
+    font-size: var(--fs-content);
+    line-height: var(--lh);
 }
+
+.connectedTxt {
+    font-family: var(--ff-link);
+    font-size: var(--fs-detail);
+}
+
+/* Image classes */
+
+/* .Horizontal_Full {
+    aspect-ratio: 3/2;
+}
+
+.Horizontal_Medium {
+    aspect-ratio: 3/2;
+}
+
+.Horizontal_Small {
+    aspect-ratio: 3/2;
+}
+
+.Vertical_Full {
+    aspect-ratio: 2/3;
+}
+
+.Vertical_Medium{
+    aspect-ratio: 2/3;
+}
+
+.Vertical_Small {
+    aspect-ratio: 2/3;
+} */
