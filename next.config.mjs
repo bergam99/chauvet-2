@@ -6,6 +6,7 @@
 //       {
 //         protocol: "https",
 //         hostname: "res.cloudinary.com",
+
 //       },
 //     ],
 //   },

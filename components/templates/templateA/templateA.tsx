@@ -72,7 +72,6 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
     txt: cards[11]?.txt,
     connectedTxt: cards[11]?.connected_txt,
   };
-  console.log(TL4bProps);
 
   return (
     <>

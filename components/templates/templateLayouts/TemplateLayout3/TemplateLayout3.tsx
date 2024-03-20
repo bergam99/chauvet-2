@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import classes from "./TemplateLayout3.module.css";
+import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout3Props {
   img: string;
@@ -20,9 +21,9 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
           <Image
             src={img}
             alt="mainImg"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={736}
+            width={542}
+            style={imageStyle}
           />
         </div>
         {txt[0] && <p className={classes.txt}>{txt[0]}</p>}

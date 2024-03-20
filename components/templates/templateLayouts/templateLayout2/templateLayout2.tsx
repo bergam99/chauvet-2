@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import classes from "./templateLayout2.module.css";
+import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout2Props {
   img: string[];
@@ -15,30 +16,28 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
           <Image
             src={img[0]}
             alt="img"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={641}
+            width={474}
             className={classes.img}
+            style={imageStyle}
           />
         </div>
         <div className={`${size[1]} ${classes.smallImg1}`}>
           <Image
             src={img[1]}
             alt="img"
-            height={0}
-            width={0}
-            layout="responsive"
-            className={classes.img}
+            height={319}
+            width={473}
+            style={imageStyle}
           />
         </div>
         <div className={`${size[2]} ${classes.smallImg2}`}>
           <Image
             src={img[2]}
             alt="img"
-            height={1}
-            width={1}
-            layout="responsive"
-            className={classes.img}
+            height={319}
+            width={473}
+            style={imageStyle}
           />
         </div>
       </div>
