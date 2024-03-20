@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import { IProduct } from "@/types/products";
 import { getProduct } from "@/utils/extract";
-import GoBack from "@/components/buttons/goBack/goBack";
+import GoBack from "@/components/buttons/goBack";
 import ProductInfo from "@/components/products/productInfo";
 import ProductDescription from "@/components/products/productDescription";
 
