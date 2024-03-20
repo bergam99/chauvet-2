@@ -2,6 +2,7 @@ import { IPosts } from "@/types/posts";
 import { NextPage } from "next";
 import Image from "next/image";
 import classes from "./postIntro.module.css";
+import { imageStyle } from "@/utils/imageStyle";
 
 interface PostsPageProps {
   posts: IPosts[];
@@ -15,10 +16,10 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
         <Image
           src={posts[0].template[0]?.cards[0].url}
           alt={posts[0].title}
-          layout="responsive"
-          width={0}
-          height={0} // aspect ratio
+          width={727}
+          height={484} // aspect ratio
           className={classes.img}
+          style={imageStyle}
         />
         <p className={classes.intro}>
           Ce magazine Chauvet, inspiré par le documentaire “La Grotte des rêves

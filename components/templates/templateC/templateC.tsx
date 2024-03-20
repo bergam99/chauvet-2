@@ -18,8 +18,6 @@ interface TemplateCProps {
 const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
   const { cards } = post.template[0];
 
-  console.log(cards);
-
   const templateLayout1Props = {
     img: cards[0]?.url,
     author: post.author,

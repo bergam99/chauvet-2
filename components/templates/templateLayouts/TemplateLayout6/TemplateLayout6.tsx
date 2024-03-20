@@ -1,6 +1,7 @@
+import { imageStyle } from "@/utils/imageStyle";
 import { NextPage } from "next";
 import Image from "next/image";
-// import classes from "./templateLayout6.module.css";
+import classes from "./TemplateLayout6.module.css";
 
 interface TemplateLayout6Props {
   img: string;
@@ -20,30 +21,30 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
           <Image
             src={img[0]}
             alt="img"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={621}
+            width={934}
+            style={imageStyle}
           />
         </div>
         <div className={size[1]}>
           <Image
             src={img[1]}
             alt="img"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={621}
+            width={934}
+            style={imageStyle}
           />
         </div>
         <div className={size[2]}>
           <Image
             src={img[2]}
             alt="img"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={621}
+            width={934}
+            style={imageStyle}
           />
         </div>
-        {txt && txt.map((t: any, index: any) => <p key={index}>{t}</p>)}
+        {txt && <p className={classes.txt}>{txt}</p>}
       </div>
     </>
   );
