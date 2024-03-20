@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import classes from "./templateLayout5.module.css";
+import classes from "./TemplateLayout5.module.css";
 
 interface TemplateLayout5Props {
   img: string;
