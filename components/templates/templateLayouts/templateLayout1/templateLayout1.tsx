@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import classes from "./templateLayout1.module.css";
+import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout1Props {
   img: string;
@@ -22,9 +23,9 @@ const TemplateLayout1: NextPage<TemplateLayout1Props> = ({
           <Image
             src={img}
             alt="mainImg"
-            height={1}
-            width={1}
-            layout="responsive"
+            height={639}
+            width={959}
+            style={imageStyle}
           />
         </div>
         <p className={classes.author}>

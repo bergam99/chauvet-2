@@ -8,6 +8,7 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-heading);
     padding-bottom: var(--pd-postId-heading);
+    text-align: center;
 }
 
 .thema{
