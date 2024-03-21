@@ -7,10 +7,9 @@
 .txt {
     align-self: center;
     grid-area: txt;
-    font-size: var(--fs-content);
-    line-height: var(--lh);
+    line-height: var(--lh-m);
     grid-area: txt;
-    padding: var(--pd-grid-card-m);
+    padding: var(--pd-xl);
 }
 
 .img {
@@ -20,8 +19,8 @@
 .connectedTxt {
     grid-area: connectedTxt;
     font-family: var(--ff-link);
-    font-size: var(--fs-detail);
-    padding: var(--pd-grid-card-s) 0;
+    font-size: var(--fs-xs);
+    padding: var(--pd-m) 0;
 }
 
 @media (max-width: 768px) {
@@ -32,6 +31,6 @@
     }
 
     .connectedTxt {
-        padding: var(--pd-grid-card-m) 0;
+        padding: var(--pd-xl) 0;
     }
 }

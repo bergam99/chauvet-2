@@ -2,8 +2,8 @@
     display: grid;
     grid-template-areas: "img img"
                           "author txt";
-    grid-gap: var(--pd-grid-card-s);
-    padding-bottom: var(--pd-grid-card-s);
+    grid-gap: var(--pd-m);
+    padding-bottom: var(--pd-m);
 }
 
 .img {
@@ -12,16 +12,15 @@
 
 .author {
     grid-area: author;
-    line-height: var(--lh);
+    line-height: var(--lh-m);
     font-family: var(--ff-link);
-    font-size: var(--fs-detail);
-    padding-right: var(--pd-grid-card-m);
+    font-size: var(--fs-xs);
+    padding-right: var(--pd-xl);
 }
 
 .txt {
     grid-area: txt;
-    font-size: var(--fs-content);
-    line-height: var(--lh);
+    line-height: var(--lh-m);
 }
 
 @media (max-width: 768px) {

@@ -6,5 +6,5 @@
 
 .iconContainer{
     display: flex;
-    gap: var(--pd-grid-card-s);
+    gap: var(--pd-m);
 }

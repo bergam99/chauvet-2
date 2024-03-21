@@ -1,8 +1,8 @@
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--pd-grid-card-m);
-    padding: var(--pd-grid-card-m) 0;
+    grid-gap: var(--pd-xl);
+    padding: var(--pd-xl) 0;
 }
 
 .mainProductContainer{
@@ -22,7 +22,7 @@
 .mainBottom{
     display: flex;
     align-items: center;
-    gap: var(--pd-grid-card-m);
+    gap: var(--pd-xl);
     position: absolute;
     top: 95%;
     left: 50%;
@@ -32,7 +32,7 @@
 
 .bottomTxt{
     font-family: var(--ff-heading);
-    font-size: var(--fs-bottomTxt);
+    font-size: var(--fs-2xs);
 }
 
 @media (max-width: 768px) {

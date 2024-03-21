@@ -5,8 +5,7 @@
 }
 
 .name{
-    font-size: var(--fs-content);
-    line-height: var(--lh);
+    line-height: var(--lh-m);
 }
 
 .description{
@@ -16,5 +15,5 @@
 }
 
 .name{
-    padding: var(--pd-grid-card-s);
+    padding: var(--pd-m);
 }
