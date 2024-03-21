@@ -13,7 +13,7 @@
 .headerContainer{
     display: flex;
     align-items: center;
-    padding: var(--pd-l);
+    padding: var(--pd-2xl) 0;
 }
 
 .logo{

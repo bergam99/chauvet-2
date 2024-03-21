@@ -6,12 +6,12 @@
 }
 
 .title{
-    padding: var(--pd-card-title);
-    font-size: var(--fs-title);
+    padding: var(--pd-s) 0;
+    font-size: var(--fs-2xl);
 }
 
 .thema{
-    font-size: var(--fs-thema);
+    font-size: var(--fs-s);
 }
 .img{
     margin-bottom: .5em;
@@ -26,8 +26,8 @@
 .detail{
     font-family: var(--ff-body2);
     font-weight: var(--fw-light);
-    font-size: var(--fs-detail);
-    letter-spacing: var(--ls-medium);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-m);
     padding-right: 2px;
 }
 

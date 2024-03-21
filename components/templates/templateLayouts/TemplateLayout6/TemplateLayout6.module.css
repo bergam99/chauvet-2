@@ -1,4 +1,4 @@
 .txt {
     line-height: var(--lh);
-    padding: var(--pd-grid-card-m) 0;
+    padding: var(--pd-xl) 0;
 }
