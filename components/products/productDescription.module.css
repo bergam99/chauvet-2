@@ -1,0 +1,24 @@
+.img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4%;
+}
+
+.imageListContainer {
+    display: flex;
+    overflow-x: auto; /* active horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* improve scroll function on mobile */
+    scrollbar-width: none; /* hide scroll bar on firefox */
+}
+
+.imageListContainer::-webkit-scrollbar {
+    display: none; /* hide scroll bar for webkit based browser */
+}
+
+.imageListItem {
+    flex: 0 0 auto; /* let item size depends on flex-basis */
+    margin: var(--pd-l) var(--pd-m) var(--pd-l) 0;
+    height: 100%;    
+    width: 100%;
+}

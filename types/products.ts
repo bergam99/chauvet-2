@@ -7,6 +7,7 @@ export interface IProduct {
   description: string;
   stock: number;
   images: { url: string }[];
+  createdAt: string;
 }
 
 // import { ObjectId } from "mongodb";

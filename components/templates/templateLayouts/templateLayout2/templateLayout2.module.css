@@ -2,8 +2,8 @@
     display: grid;
     grid-template-areas: "verticalImg smallImg1"
                          "verticalImg smallImg2";
-    grid-gap: var(--pd-grid-card-s);
-    padding-bottom :var(--pd-grid-card-s);
+    grid-gap: var(--pd-m);
+    padding-bottom :var(--pd-m);
 }
 
 .verticalImg{

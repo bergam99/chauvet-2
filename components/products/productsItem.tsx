@@ -1,7 +1,7 @@
 import { IProduct } from "@/types/products";
 import Image from "next/image";
 import Link from "next/link";
-
+import classes from "./productsItem.module.css";
 interface ProductsItemProps {
   product: IProduct;
 }
@@ -9,18 +9,23 @@ interface ProductsItemProps {
 const ProductsItem = ({ product }: ProductsItemProps) => {
   return (
     <li>
-      <Image
-        src={product.images[0]?.url}
-        alt={product.name}
-        width={100}
-        height={100}
-      />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <Link href={`/products/${product._id}`}>
-        <button className="DefaultButton">Voir plus</button>
-      </Link>
+      <div>
+        <div className={classes.img}>
+          <Image
+            src={product.images[0]?.url}
+            alt={product.name}
+            width={300}
+            height={200}
+            className={classes.img}
+          />
+        </div>
+        <div className={classes.description}>
+          <h2 className={classes.name}>{product.name}</h2>
+          <Link href={`/products/${product._id}`} className={classes.button}>
+            <button className="DefaultButton">Voir plus</button>
+          </Link>
+        </div>
+      </div>
     </li>
   );
 };

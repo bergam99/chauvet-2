@@ -1,19 +1,17 @@
 .section{
-    width: min(1100px, 90%);
-    margin: auto;
     padding: 0.8em;
 }
 
 .heading{
     font-family: var(--ff-heading);
-    font-size: var(--fs-heading);
-    padding-bottom: var(--pd-postId-heading);
+    font-size: var(--fs-3xl);
+    padding-bottom: var(--pd-l);
     text-align: center;
 }
 
 .thema{
-    font-size: var(--fs-themaId);
-    padding: var(--pd-grid-card-m);
+    font-size: var(--fs-l);
+    padding: var(--pd-xl);
 }
 
 .title{
@@ -21,6 +19,3 @@
     flex-direction: column;
     align-items: center;
 }
-
-
-

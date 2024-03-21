@@ -1,0 +1,46 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--pd-xl);
+    padding: var(--pd-xl) 0;
+}
+
+.mainProductContainer{
+    position: relative;
+    display: block;
+}
+
+ .heading {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.mainBottom{
+    display: flex;
+    align-items: center;
+    gap: var(--pd-xl);
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.bottomTxt{
+    font-family: var(--ff-heading);
+    font-size: var(--fs-2xs);
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .mainBottom{
+        display: none;
+    }
+
+}

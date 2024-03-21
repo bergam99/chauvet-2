@@ -1,27 +1,26 @@
-.Layout{
+.layout{
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-.Layout_Section{
+.section{
+    width: min(1100px, 90%);
+    margin: auto;
     flex: 1;
-
 }
 
 .headerContainer{
     display: flex;
     align-items: center;
-    width: min(1100px, 90%);
-    margin: 2em auto;
+    padding: var(--pd-2xl) 0;
 }
 
-.Logo{
+.logo{
     flex: 1;
     text-align: left;
 }
 
-.NestedLayout {
+.nestedLayout {
     margin-left: auto;
 }
-

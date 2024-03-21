@@ -1,0 +1,10 @@
+.iconContainer .icon {
+    width: var(--icon);
+    height: auto;
+    /* maintain aspect ratio */
+}
+
+.iconContainer{
+    display: flex;
+    gap: var(--pd-m);
+}

@@ -1,4 +1,15 @@
+.iconContainer .icon {
+    width: var(--icon);
+    height: auto;
+    /* maintain aspect ratio */
+}
 
+.iconContainer {
+    display: flex;
+    gap: var(--pd-m);
+}
+
+/* ===== media ===== */
 @media (max-width: 768px) {
 
     .mobileDisplay {
@@ -13,8 +24,6 @@
 }
 
 .dropbtn {
-    background-color: white;
-    padding: 16px;
     border: none;
     cursor: pointer;
 }

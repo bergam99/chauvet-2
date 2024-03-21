@@ -1,68 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    /* colors */
+
+    /* ===== colors ===== */
     --color-white: #FFFFFF;
     --color-black: #000000;
     --color-heavy-gray: #202D2E;
     --color-gray: #F3F3F3;
     --color-pink: #F6F0F0;
-    --color-alert: #F22929;
+    --color-red: #F22929;
     --color-disabled: #808080;
 
-    /* font-family */
+    /* ===== font-family ===== */
     --ff-title: "Libre Caslon Text", serif;
     --ff-heading: "Comfortaa", sans-serif;
     --ff-link: "Courier Prime", monospace;
-    --ff-body:"Baskervville", serif;
+    --ff-body: "Baskervville", serif;
     --ff-body2: "Noto Sans", sans-serif;
 
-    /* font-size */
-    --fs-logo: clamp(0.4rem, .9vw + 1rem, 1.7rem); 
-    /* contents of posts */
-    --fs-content: clamp(0.7rem, 3.3vw, 1rem);
-    /* in products page cards */
-    --fs-title: clamp(1rem, 3.3vw, 1.3rem);
-    /* posts page */
-    --fs-thema: clamp(0.5rem, 3vw, 0.9rem);
-    /* fs in [postId] page */
-    --fs-themaId: clamp(0.7rem, 2vw, 1.2rem);
-    /* 'voir plus' button & connectedTxt*/
-    --fs-detail: clamp(.6rem, 1.3vw, .8rem);
+    /* ===== font-size ===== */
 
     /* title in [postId] or shop title */
-    --fs-heading:clamp(1rem, 4vw, 2.8rem);
+    --fs-3xl: clamp(1rem, 4vw, 2.8rem);
 
+    /* in products page cards */
+    --fs-2xl: clamp(1rem, 3.3vw, 1.3rem);
 
-    /* font-weight */
-    /* 'voir plus' button */
+    /* logo */
+    --fs-xl: clamp(.6rem, 3.3vw, 1.3rem);
+
+    /* fs in [postId] page */
+    --fs-l: clamp(0.7rem, 2vw, 1.2rem);
+
+    /* contents of posts */
+    --fs-m: clamp(0.7rem, 3.3vw, 1rem);
+
+    /* posts page */
+    --fs-s: clamp(0.5rem, 3vw, 0.9rem);
+
+    /* 'voir plus' button & connectedTxt*/
+    --fs-xs: clamp(.6rem, 1.3vw, .8rem);
+
+    /* in products page, mainProduct container*/
+    --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
+
+    /* ===== font-weight ===== */
     --fw-light: 300;
-    --fw-medium: 400;
 
-    /* letter-spacing */
-    --ls-light: .1rem;
-    --ls-medium: .2rem;
+    /* ===== letter-spacing ===== */
+    --ls-s: .1rem;
+    --ls-m: .2rem;
 
-    /* padding */
-    --pd-card-title :clamp(8px, 2vw, 16px) 0px;
-    --pd-posts-intro:clamp(0.5em, 4vw, 3em) 0px;
-    --pd-postId-heading: clamp(.5rem, 3vw, 2rem);
+    /* ===== padding ===== */
+    --pd-xs: clamp(.3em, 1vw, .5em);
+    --pd-s: clamp(8px, 2vw, 16px);
+    --pd-m: clamp(.5em, 1vw, 1em);
+    --pd-l: clamp(.5em, 3vw, 2em);
+    --pd-xl: clamp(.7em, 2vw, 2em);
+    --pd-2xl: clamp(1em, 4vw, 5em);
 
-    --pd-grid-card-s: clamp(.5rem, 1vw, 1rem);
-    --pd-grid-card-m: clamp(.7rem, 2vw, 2rem);
 
-    /* 'voir plus' arrow */
+    /* ===== arrow ===== */
     --arr: clamp(6px, 2vw, 12px);
 
-    /* line-height */
+    /* ===== line-height ===== */
     /* intro in card */
-    --lh: clamp(160%, 4vw, 200%);
+    --lh-s :clamp(131%, 2vw, 142%);
+    --lh-m: clamp(160%, 4vw, 200%);
 
-    /* icon */
-    --icon:clamp(20px, 3vw, 28px);
+    /* ===== icon ===== */
+    --icon: clamp(18px, 3vw, 24px);
 }
 
-/* === normalize === */
+
+/* ===== normalize ===== */
 *,
 body {
     padding: 0;
@@ -70,8 +81,10 @@ body {
     list-style: none;
     font-family: var(--ff-body);
     font-weight: var(--fw-light);
+    font-size: var(--fs-m);
     color: var(--color-heavy-gray);
-    letter-spacing: var(--ls-light);
+    letter-spacing: var(--ls-s);
+    line-height: var(--lh-s);
 }
 
 button {
@@ -90,21 +103,21 @@ a {
 }
 
 /* === custum === */
-.DefaultButton{
+.DefaultButton {
     padding: .8em 1.8em;
     font-family: var(--ff-body2);
-    border: 1px solid var(--color-heavy-gray);
-    font-size:var(--fs-300);
+    border: .6px solid var(--color-heavy-gray);
+    background-color: var(--color-white);
+    font-size: var(--fs-xs);
     cursor: pointer;
 }
 
-.DefaultButtonDark{
+.DefaultButtonDark {
     padding: .8em 1.8em;
     font-family: var(--ff-body2);
     background-color: var(--color-heavy-gray);
-    border: 1px solid var(--color-heavy-gray);
     color: var(--color-white);
-    font-size: var(--fs-300);
+    font-size: var(--fs-xs);
     cursor: pointer;
 }
 
@@ -112,20 +125,16 @@ a {
     border-bottom: .5px solid var(--color-heavy-gray);
 }
 
-.Logo{
+.Logo {
     font-family: var(--ff-title);
-    font-size: var(--fs-logo); 
-    letter-spacing: var(--ls-medium);
+    font-size: var(--fs-xl);
+    letter-spacing: var(--ls-m);
 }
 
-.txtContent {
-    font-size: var(--fs-content);
-    line-height: var(--lh);
-}
+.Heading {
+    font-size: var(--fs-3xl);
+    font-family: var(--ff-heading);
 
-.connectedTxt {
-    font-family: var(--ff-link);
-    font-size: var(--fs-detail);
 }
 
 /* Image classes */
