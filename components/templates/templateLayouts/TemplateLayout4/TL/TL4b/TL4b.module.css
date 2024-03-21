@@ -7,7 +7,6 @@
 .txt {
     align-self: center;
     grid-area: txt;
-    font-size: var(--fs-content);
     line-height: var(--lh);
     grid-area: txt;
     padding: var(--pd-grid-card-m);

@@ -1,5 +1,4 @@
 .txt {
-    font-size: var(--fs-content);
     line-height: var(--lh);
     padding: var(--pd-grid-card-m) 0;
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import classes from "./productInfo.module.css";
 interface ProductImage {
   url: string;
 }
@@ -20,17 +20,29 @@ const ProductInfo = ({
   stock,
 }: ProductInfoProps) => {
   return (
-    <>
-      <Image src={img[0]?.url} alt={name} width={100} height={100} />
-      <h1>{name}</h1>
-      <p>{description}</p>
-      <p>{price}</p>
-      <button type="button" disabled={stock <= 0}>
-        Ajouter au panier
-      </button>
-
-      <p>{stock <= 0 && "stock épuisé"}</p>
-    </>
+    <section className={classes.infoContainer}>
+      <Image
+        src={img[0]?.url}
+        alt={name}
+        width={400}
+        height={300}
+        className={classes.img}
+      />
+      <div className={classes.mainInfo}>
+        <h2 className={`${classes.title} Link`}>{name}</h2>
+        <p className={classes.des}>{description}</p>
+        <p className={classes.price}>{price} €</p>
+        <div className={classes.gap}></div>
+        <p className={classes.stock}>{stock <= 0 && "stock épuisé"}</p>
+        <button
+          type="button"
+          disabled={stock <= 0}
+          className={`${classes.btn} DefaultButton`}
+        >
+          Ajouter au panier
+        </button>
+      </div>
+    </section>
   );
 };
 

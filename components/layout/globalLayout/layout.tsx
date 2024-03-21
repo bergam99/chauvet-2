@@ -21,6 +21,7 @@ const Layout = ({ children }: Props) => {
               <NestedLayout />
             </div>
           </div>
+
           <div>{children}</div>
         </section>
         <Footer />

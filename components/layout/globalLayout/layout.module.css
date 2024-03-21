@@ -1,19 +1,19 @@
 .layout{
     display: flex;
     flex-direction: column;
-
+    height: 100vh;
 }
 
 .section{
-    flex: 1;
     width: min(1100px, 90%);
     margin: auto;
+    flex: 1;
 }
 
 .headerContainer{
     display: flex;
     align-items: center;
-    margin: 2em auto;
+    padding: var(--pd-l);
 }
 
 .logo{
