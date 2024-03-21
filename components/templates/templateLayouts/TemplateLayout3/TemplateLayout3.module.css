@@ -1,4 +1,4 @@
 .txt {
-    line-height: var(--lh);
+    line-height: var(--lh-m);
     padding: var(--pd-xl) 0;
 }

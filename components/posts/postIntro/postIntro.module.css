@@ -10,6 +10,6 @@
 }
 
 .intro {
-    padding: var(--pd-posts-intro) 0;
-    line-height: var(--lh);
+    padding: var(--pd-l) 0;
+    line-height: var(--lh-m);
 }

@@ -34,6 +34,7 @@ const ProductInfo = ({
         <p className={classes.price}>{price} €</p>
         <div className={classes.gap}></div>
         <p className={classes.stock}>{stock <= 0 && "stock épuisé"}</p>
+        {/* add disabled color className from global.css when 0 stock */}
         <button
           type="button"
           disabled={stock <= 0}

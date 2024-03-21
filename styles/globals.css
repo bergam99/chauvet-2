@@ -65,10 +65,11 @@
 
     /* ===== line-height ===== */
     /* intro in card */
-    --lh: clamp(160%, 4vw, 200%);
+    --lh-s :clamp(131%, 2vw, 142%);
+    --lh-m: clamp(160%, 4vw, 200%);
 
     /* ===== icon ===== */
-    --icon: clamp(20px, 3vw, 28px);
+    --icon: clamp(18px, 3vw, 24px);
 }
 
 
@@ -83,6 +84,7 @@ body {
     font-size: var(--fs-m);
     color: var(--color-heavy-gray);
     letter-spacing: var(--ls-s);
+    line-height: var(--lh-s);
 }
 
 button {

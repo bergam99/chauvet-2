@@ -12,7 +12,7 @@
 
 .author {
     grid-area: author;
-    line-height: var(--lh);
+    line-height: var(--lh-m);
     font-family: var(--ff-link);
     font-size: var(--fs-xs);
     padding-right: var(--pd-xl);
@@ -20,7 +20,7 @@
 
 .txt {
     grid-area: txt;
-    line-height: var(--lh);
+    line-height: var(--lh-m);
 }
 
 @media (max-width: 768px) {

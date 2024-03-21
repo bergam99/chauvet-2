@@ -1,7 +1,6 @@
 .img {
     width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
 .infoContainer{
@@ -57,6 +56,6 @@
         display: block;
     }
     .mainInfo{
-        padding: var(--pd-posts-intro) 0;
+        padding: var(--pd-l) 0;
     }
 }

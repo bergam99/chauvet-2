@@ -5,7 +5,7 @@
 }
 
 .name{
-    line-height: var(--lh);
+    line-height: var(--lh-m);
 }
 
 .description{
