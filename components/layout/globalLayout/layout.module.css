@@ -1,12 +1,10 @@
-.Layout{
+.layout{
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
-.Layout_Section{
+.section{
     flex: 1;
-
 }
 
 .headerContainer{
@@ -16,12 +14,12 @@
     margin: 2em auto;
 }
 
-.Logo{
+.logo{
     flex: 1;
     text-align: left;
 }
 
-.NestedLayout {
+.nestedLayout {
     margin-left: auto;
 }
 

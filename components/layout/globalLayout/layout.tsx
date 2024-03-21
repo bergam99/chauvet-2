@@ -10,20 +10,19 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <main className={classes.Layout}>
+      <main className={classes.layout}>
         {/* header */}
-        <section className={classes.Layout_Section}>
+        <section className={classes.section}>
           <div className={classes.headerContainer}>
-            <div className={classes.Logo}>
+            <div className={classes.logo}>
               <Logo />
             </div>
-            <div className={classes.NestedLayout}>
+            <div className={classes.nestedLayout}>
               <NestedLayout />
             </div>
           </div>
           <div>{children}</div>
         </section>
-        {/*  */}
         <Footer />
       </main>
     </>

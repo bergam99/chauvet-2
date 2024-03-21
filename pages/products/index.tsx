@@ -2,16 +2,38 @@ import { IProduct } from "@/types/products";
 import { GetServerSideProps, NextPage } from "next";
 import { getProducts } from "@/utils/extract";
 import ProductsItem from "@/components/products/productsItem";
-
+import classes from "./products.module.css";
+import { getLatestProduct } from "@/utils/getLatestProduct";
+import Image from "next/image";
+import { imageStyle } from "@/utils/imageStyle";
 interface ProductsProps {
   products: IProduct[];
 }
 
 const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
+  const mainProduct = getLatestProduct(products);
+  const mainPdImg = mainProduct?.images[0]?.url || "";
+  const mainPdAlt = mainProduct?.name || "";
+
   return (
-    <div>
-      <h3 className="Heading">Shop</h3>
-      <ul>
+    <div className={classes.main}>
+      <div className={classes.mainProductContainer}>
+        <Image
+          src={mainPdImg}
+          alt={mainPdAlt}
+          width={1170}
+          height={840}
+          style={imageStyle}
+          priority={true}
+        />
+        <h2 className={`${classes.heading} Heading`}>Shop</h2>
+        <p className={classes.bottomTxt}>
+          Commandez nos magazines et ayez des idées pour partir ou voyagez dans
+          votre chambre au chaud ..
+        </p>
+      </div>
+
+      <ul className={classes.gridContainer}>
         {products?.map((product) => (
           <ProductsItem key={product._id.toString()} product={product} />
         ))}

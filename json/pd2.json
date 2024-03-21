@@ -1,0 +1,22 @@
+{
+  "_id": { "$oid": "65fb2e76c736c3a1953835fa" },
+  "name": "Magazine le mois de Juillet",
+  "price": { "$numberInt": "10" },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "stock": { "$numberInt": "10" },
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711026828/mainp/qiyqs2nvdocjv2grzlu7.png"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707841403/41a6c974249405.5c286115a5ce2_axycjy.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707841404/c6104474249405.5c286115a756a_w2dbz3.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707841404/67743974249405.5c286115a5546_y0ahbw.jpg"
+    }
+  ],
+  "createdAt": "2024-07-01T08:24:14-05:00"
+}
