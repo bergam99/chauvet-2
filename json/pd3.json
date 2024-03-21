@@ -1,0 +1,22 @@
+{
+  "_id": { "$oid": "65fb2ee3c736c3a1953835fb" },
+  "name": "Magazine le mois de mai",
+  "price": { "$numberInt": "30" },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "stock": { "$numberInt": "0" },
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711026828/mainp/coblzalsduwgqv1evncf.png"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707903610/sarah-dorweiler-Sy8dsVyiPgs-unsplash_j50xmu.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707903616/thought-catalog-IjpqsMP6RzY-unsplash_09.01.05_hvdc0m.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707903618/redd-f-eY7ETwocMyU-unsplash_coq5fo.jpg"
+    }
+  ],
+  "createdAt": "2024-05-01T08:24:14-05:00"
+}
