@@ -6,17 +6,18 @@ import classes from "./products.module.css";
 import { getLatestProduct } from "@/utils/getLatestProduct";
 import Image from "next/image";
 import { imageStyle } from "@/utils/imageStyle";
+import Link from "next/link";
 interface ProductsProps {
   products: IProduct[];
 }
 
 const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
   const mainProduct = getLatestProduct(products);
-  const mainPdImg = mainProduct?.images[0]?.url || "";
+  const mainPdImg = mainProduct?.images[1]?.url || "";
   const mainPdAlt = mainProduct?.name || "";
 
   return (
-    <div className={classes.main}>
+    <>
       <div className={classes.mainProductContainer}>
         <Image
           src={mainPdImg}
@@ -27,10 +28,18 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
           priority={true}
         />
         <h2 className={`${classes.heading} Heading`}>Shop</h2>
-        <p className={classes.bottomTxt}>
-          Commandez nos magazines et ayez des idées pour partir ou voyagez dans
-          votre chambre au chaud ..
-        </p>
+        <div className={classes.mainBottom}>
+          <p className={classes.bottomTxt}>
+            Commandez nos magazines et ayez des idées pour partir ou voyagez
+            dans votre chambre au chaud ..
+          </p>
+          <Link
+            href={`/products/${mainProduct?._id}`}
+            className={classes.button}
+          >
+            <button className="DefaultButton">Voir plus</button>
+          </Link>
+        </div>
       </div>
 
       <ul className={classes.gridContainer}>
@@ -38,7 +47,7 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
           <ProductsItem key={product._id.toString()} product={product} />
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
