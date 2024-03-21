@@ -1,8 +1,3 @@
-.main {
-    width: min(1100px, 90%);
-    margin: auto;
-}
-
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -24,14 +19,18 @@
     text-align: center;
 }
 
-.bottomTxt{
+.mainBottom{
+    display: flex;
+    align-items: center;
+    gap: var(--pd-grid-card-m);
     position: absolute;
     top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--color-white);
     white-space: nowrap;
-    text-align: center;
+}
+
+.bottomTxt{
     font-family: var(--ff-heading);
     font-size: var(--fs-bottomTxt);
 }
@@ -40,7 +39,7 @@
     .gridContainer {
         grid-template-columns: repeat(1, 1fr);
     }
-    .bottomTxt{
+    .mainBottom{
         display: none;
     }
 
