@@ -19,6 +19,6 @@
 .imageListItem {
     flex: 0 0 auto; /* let item size depends on flex-basis */
     margin: var(--pd-l) var(--pd-m) var(--pd-l) 0;
-    height: 100%;    
-    width: 100%;
+    /* height: 100%;     */
+    /* width: 100%; */
 }
