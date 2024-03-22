@@ -1,7 +1,7 @@
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--pd-xl);
+    grid-gap: var(--pd-4xl);
     padding: var(--pd-xl) 0;
 }
 
@@ -35,6 +35,7 @@
     font-size: var(--fs-2xs);
 }
 
+
 @media (max-width: 768px) {
     .gridContainer {
         grid-template-columns: repeat(1, 1fr);
@@ -42,5 +43,4 @@
     .mainBottom{
         display: none;
     }
-
 }

@@ -35,9 +35,9 @@ const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
           </p>
           <Link
             href={`/products/${mainProduct?._id}`}
-            className={classes.button}
+            className={`${classes.button} DefaultButton`}
           >
-            <button className="DefaultButton">Voir plus</button>
+            <button>Voir plus</button>
           </Link>
         </div>
       </div>
