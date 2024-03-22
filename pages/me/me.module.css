@@ -22,6 +22,8 @@
     font-family: Arial, Helvetica, sans-serif;
     color: var(--color-white);
     font-weight: bold;
+    font-size: var(--fs-s);
+    letter-spacing: 0;
 }
 
 .facebook > img{
@@ -31,7 +33,6 @@
 .google {
     display: flex;
     align-items: center;
-    height: 40px;
     border-width: 0;
     background: white;
     border-radius: 5px;
@@ -58,8 +59,10 @@
     font-family: "Roboto", sans-serif;
     font-weight: var(--fw-regular);
     color: hsla(0, 0%, 0%, 0.46);
+    font-size: var(--fs-s);
+    letter-spacing: 0;
 }
 
 .google > img {
-    padding-right: 0.5em;
+    padding-right: var(--pd-xs);
 }
