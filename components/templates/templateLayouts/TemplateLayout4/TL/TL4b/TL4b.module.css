@@ -2,6 +2,7 @@
     display: grid;
     grid-template-areas: "txt img"
         ". connectedTxt";
+    padding: var(--pd-l) 0;
 }
 
 .txt {
@@ -9,7 +10,7 @@
     grid-area: txt;
     line-height: var(--lh-m);
     grid-area: txt;
-    padding: var(--pd-xl);
+    padding-right: var(--pd-xl);
 }
 
 .img {
@@ -31,6 +32,9 @@
     }
 
     .connectedTxt {
+        padding: var(--pd-xl) 0;
+    }
+    .txt{
         padding: var(--pd-xl) 0;
     }
 }

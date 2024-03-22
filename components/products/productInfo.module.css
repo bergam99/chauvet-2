@@ -58,4 +58,8 @@
     .mainInfo{
         padding: var(--pd-l) 0;
     }
+    .btn{
+        width: auto;
+        text-align: center;
+    }
 }

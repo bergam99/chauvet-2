@@ -2,8 +2,8 @@
     display: grid;
     grid-template-areas: "img img"
                           "author txt";
-    grid-gap: var(--pd-m);
-    padding-bottom: var(--pd-m);
+    grid-gap: var(--pd-l);
+    padding-bottom: var(--pd-l);
 }
 
 .img {
