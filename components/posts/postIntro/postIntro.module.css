@@ -10,6 +10,7 @@
 }
 
 .intro {
-    padding: var(--pd-l) 0;
-    line-height: var(--lh-s);
+    padding: var(--pd-s) 0;
+    line-height: var(--lh-m);
+    font-size: var(--fs-s);
 }
