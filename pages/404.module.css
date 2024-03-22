@@ -1,0 +1,8 @@
+.txt{
+    margin: 3em 0 3em 3em;
+    font-family: var(--ff-body2);
+}
+
+.btn{
+    margin-left: 10em;
+}

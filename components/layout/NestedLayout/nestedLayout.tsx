@@ -3,14 +3,20 @@ import { useRouter } from "next/router";
 import ShopLink from "./shopLink/shopLink";
 import DesktopLayout from "./nesetedLayoutCpnt/desktopLayout/desktopLayout";
 import MobileLayout from "./nesetedLayoutCpnt/mobileLayout/mobileLayout";
+import { useEffect, useState } from "react";
 
 const NestedLayout = () => {
   const router = useRouter();
-  const path = router?.asPath; // URL from router.
+  const [currentPath, setCurrentPath] = useState("");
 
-  if (path === "/" || path.includes("posts")) {
+  // client side useEffect
+  useEffect(() => {
+    setCurrentPath(router.asPath);
+  }, [router.asPath]);
+
+  if (currentPath === "/" || currentPath.includes("posts")) {
     return <ShopLink />;
-  } else if (path.includes("/products") || path.includes("/me")) {
+  } else if (currentPath.includes("/products") || currentPath.includes("/me")) {
     return (
       <>
         <div className={classes.NestedLayout__Desktop}>
@@ -23,6 +29,8 @@ const NestedLayout = () => {
       </>
     );
   }
+
+  return null;
 };
 
 export default NestedLayout;
