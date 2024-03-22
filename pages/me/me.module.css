@@ -66,3 +66,8 @@
 .google > img {
     padding-right: var(--pd-xs);
 }
+
+.link {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}

@@ -24,7 +24,7 @@ const AuthPage = () => {
             {/* server => front */}
             <p>welcome, {session.user?.name ?? session.user?.email}</p>
             <br />
-            <button className="DefaultButton" onClick={handleSignout}>
+            <button className={`${classes.link} Link`} onClick={handleSignout}>
               Déconnexion
             </button>
           </div>

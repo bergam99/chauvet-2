@@ -9,6 +9,8 @@ interface PostsPageProps {
 }
 
 const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
+  const main =
+    "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711131591/wgklmn9obbtyualcincc.jpg";
   return (
     <>
       {/* intro */}
@@ -22,9 +24,7 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           style={imageStyle}
         /> */}
         <Image
-          src={
-            "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711131591/wgklmn9obbtyualcincc.jpg"
-          }
+          src={main}
           alt={posts[0].title}
           width={727}
           height={484}
