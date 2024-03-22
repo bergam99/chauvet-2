@@ -58,10 +58,13 @@
     --pd-l: clamp(.5em, 3vw, 2em);
     --pd-xl: clamp(.7em, 2vw, 2em);
     --pd-2xl: clamp(1em, 4vw, 5em);
-
+    /* layout6 */
+    --pd-4xl: clamp(2em, 6vw, 5em);
+    --pd-5xl: clamp(3em, 16vw, 13em);
 
     /* ===== arrow ===== */
     --arr: clamp(6px, 2vw, 12px);
+    --arr-back: clamp(.8rem, 2vw, 1rem);
 
     /* ===== line-height ===== */
     /* intro in card */
