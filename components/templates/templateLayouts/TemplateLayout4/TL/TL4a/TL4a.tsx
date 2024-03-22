@@ -26,8 +26,8 @@ const TL4a: NextPage<TL4aProps> = ({ img, size, txt, connectedTxt }) => {
         <p className={classes.connectedTxt}>{connectedTxt}</p>
 
         <div className={classes.txt}>
-          <p>{txt[0] && txt[0]} </p>
-          <p>{txt[1] && txt[1]}</p>
+          {txt[0] && <p className={classes.txtStyle}>{txt[0]}</p>}
+          {txt[1] && <p className={classes.txtStyle}>{txt[1]}</p>}
         </div>
       </section>
     </>

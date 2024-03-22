@@ -18,6 +18,13 @@
     grid-area: smallImg2;
 }
 
-/* .img{
-    object-fit: cover;
+
+/* @media (max-width: 768px) {
+    .gridContainer {
+        grid-column-gap: 0;
+        grid-template-areas:
+            "verticalImg ."
+            "smallImg1 ."
+            "smallImg2 .";
+    }
 } */

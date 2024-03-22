@@ -6,6 +6,7 @@
 
 .name{
     line-height: var(--lh-m);
+    font-size: var(--fs-s);
 }
 
 .description{
