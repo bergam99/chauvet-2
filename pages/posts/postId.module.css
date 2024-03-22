@@ -12,6 +12,7 @@
 .thema{
     font-size: var(--fs-l);
     padding: var(--pd-xl);
+    text-align: center;
 }
 
 .title{
