@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { GetServerSideProps, NextPage } from "next";
 import PostsPage from "@/components/posts/posts";
 

@@ -9,23 +9,31 @@ interface PostsPageProps {
 }
 
 const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
+  const main =
+    "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711131591/wgklmn9obbtyualcincc.jpg";
   return (
     <>
       {/* intro */}
       <div className={classes.mainContainer}>
-        <Image
+        {/* <Image
           src={posts[0].template[0]?.cards[0].url}
           alt={posts[0].title}
           width={727}
           height={484} // aspect ratio
           className={classes.img}
           style={imageStyle}
+        /> */}
+        <Image
+          src={main}
+          alt={posts[0].title}
+          width={727}
+          height={484}
+          className={classes.img}
+          style={imageStyle}
         />
         <p className={classes.intro}>
-          Nos ésprits vient de la grotte “Chauvet” daté d&apos;il y a 36 000 ans
-          et qui était seulement découverte en 1994. Surtout on était inspiré
-          par le film documentaire de Werner Herzog, contenant les processus de
-          découverte de cette grotte avec les impréssions vives des géographes.
+          Devenez explorateur, géographe, découvrez la grotte chauvet partout
+          dans le monde avec notre magazine Chauvet.
         </p>
       </div>
     </>
