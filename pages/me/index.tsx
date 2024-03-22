@@ -1,4 +1,9 @@
 import { signIn, useSession, signOut } from "next-auth/react";
+import classes from "./me.module.css";
+import Image from "next/image";
+import facebookLogo from "@/public/icon/logo-fb.png";
+import googleLogo from "@/public/icon/logo-google.png";
+import GoBack from "@/components/buttons/goBack";
 
 export const handleSignout = (e: { preventDefault: () => void }) => {
   e.preventDefault();
@@ -11,39 +16,53 @@ const AuthPage = () => {
 
   return (
     <>
-      <div>AuthPage</div>
-
-      {session && (
-        <button className="DefaultButton" onClick={handleSignout}>
-          Déconnexion
-        </button>
-      )}
-
-      {!session && status === "unauthenticated" && (
-        <>
-          <button className="DefaultButton" onClick={() => signIn("facebook")}>
-            Connexion via Facebook
-          </button>
-
-          <button className="DefaultButton" onClick={() => signIn("google")}>
-            Connexion via Google
-          </button>
-        </>
-      )}
-
       <div>
         {loading && <div>Loading...</div>}
         {session ? (
-          <>
+          <div className={classes.loginContainer}>
             {/* si session vide interdit, (server) *** (partie api) session.user.id=>collection order */}
             {/* server => front */}
             <p>welcome, {session.user?.name ?? session.user?.email}</p>
             <br />
-          </>
+            <button className="DefaultButton" onClick={handleSignout}>
+              Déconnexion
+            </button>
+          </div>
         ) : (
-          <p>Please Sign in</p>
+          ""
         )}
       </div>
+
+      {!session && status === "unauthenticated" && (
+        <>
+          <GoBack />
+          <div className={classes.loginContainer}>
+            <p className={classes.login}>Login</p>
+            <button
+              className={classes.facebook}
+              onClick={() => signIn("facebook")}
+            >
+              <Image
+                src={facebookLogo}
+                alt="login with facebook"
+                width={20}
+                height={20}
+              />
+              <p>Continue with Facebook</p>
+            </button>
+
+            <button className={classes.google} onClick={() => signIn("google")}>
+              <Image
+                src={googleLogo}
+                alt="login with facebook"
+                width={20}
+                height={20}
+              />
+              <p>Continue with Google</p>
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

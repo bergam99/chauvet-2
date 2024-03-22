@@ -19,19 +19,32 @@ export default function MobileLayout() {
           <Image src={Menu} alt="menu" width={20} height={20} />
         </button>
         <div className={classes.dropdownContent}>
-          {!session && status === "unauthenticated" && (
+          {!session && (
             <>
-              <Link href="/me">Login</Link>
+              <Link href="/me" className={classes.login}>
+                Login
+              </Link>
             </>
           )}
 
-          {session && <Link href="/me">Me</Link>}
-          <Link href="#">Panier</Link>
+          {session && (
+            <Link href="/me" className={classes.me}>
+              Me
+            </Link>
+          )}
+
+          <Link href="#" className={classes.cart}>
+            Panier
+          </Link>
 
           {session && (
             <>
-              <Link href="#">Commandes</Link>
-              <a onClick={handleSignout}>Déconnexion</a>
+              <Link href="#" className={classes.order}>
+                Commandes
+              </Link>
+              <a onClick={handleSignout} className={classes.signOut}>
+                Déconnexion
+              </a>
             </>
           )}
         </div>

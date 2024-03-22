@@ -51,20 +51,33 @@
           ]
         },
         {
+          "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888053/posts/theme7/s3rp3qkgk912xbmsac2k.jpg",
+          "size": "Horizontal_Small",
+          "txt": [
+            "Beyond its historical and architectural treasures, Bath is a vibrant cultural hub. The city boasts a lively arts scene, with galleries, theaters, and live music venues offering a rich tapestry of entertainment."
+          ]
+        },
+        {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888040/posts/theme7/mbt2sxectfudm3tlx2nj.jpg",
           "size": "Horizontal_Medium",
-          "txt": "The annual Bath Literature Festival and the Bath International Music Festival are highlights of the cultural calendar, drawing artists and audiences from around the world."
+          "txt": [
+            "The annual Bath Literature Festival and the Bath International Music Festival are highlights of the cultural calendar, drawing artists and audiences from around the world."
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888048/posts/theme7/c6nt51n3jgpo0pelhruv.jpg",
           "size": "Horizontal_Small",
-          "txt": "Whether you're soaking in the Roman Baths, strolling along the Royal Crescent, or exploring the vibrant arts scene, Bath invites you to embark on a timeless journe"
+          "txt": [
+            "Whether you're soaking in the Roman Baths, strolling along the Royal Crescent, or exploring the vibrant arts scene, Bath invites you to embark on a timeless journe"
+          ]
         },
         {
           "url": "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1709888059/posts/theme7/q15n7cqto54fjangm8q6.jpg",
           "size": "Horizontal_Small",
           "connected_txt": "a journey that captures the essence of England's heritage and the enduring allure of its landscapes.",
-          "txt": "For those seeking relaxation, the Thermae Bath Spa provides a contemporary counterpart to the ancient baths."
+          "txt": [
+            "For those seeking relaxation, the Thermae Bath Spa provides a contemporary counterpart to the ancient baths."
+          ]
         }
       ]
     }
