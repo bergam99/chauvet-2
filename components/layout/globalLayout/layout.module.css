@@ -16,11 +16,6 @@
     padding: var(--pd-2xl) 0;
 }
 
-.logo{
-    flex: 1;
-    text-align: left;
-}
-
 .nestedLayout {
     margin-left: auto;
 }

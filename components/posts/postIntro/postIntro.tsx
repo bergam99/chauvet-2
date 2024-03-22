@@ -22,10 +22,10 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           style={imageStyle}
         />
         <p className={classes.intro}>
-          Ce magazine Chauvet, inspiré par le documentaire “La Grotte des rêves
-          perdus” de Werner Herzog, il vous offrira la même expérience que quand
-          les spéléologues ont découvert la grotte en vous partageant les
-          magnifiques endroits cachés dans le monde.
+          Nos ésprits vient de la grotte “Chauvet” daté d&apos;il y a 36 000 ans
+          et qui était seulement découverte en 1994. Surtout on était inspiré
+          par le film documentaire de Werner Herzog, contenant les processus de
+          découverte de cette grotte avec les impréssions vives des géographes.
         </p>
       </div>
     </>

@@ -2,3 +2,16 @@
     line-height: var(--lh-m);
     padding: var(--pd-xl) 0;
 }
+
+.img0, .img2{
+    padding-bottom: var(--pd-xl);
+    padding-left: var(--pd-5xl);
+    padding-right: var(--pd-4xl);
+}
+
+.img1{
+    padding-bottom: var(--pd-xl);
+    padding-right: var(--pd-5xl);
+    padding-left: var(--pd-4xl);
+}
+
