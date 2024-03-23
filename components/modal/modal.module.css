@@ -1,6 +1,4 @@
 .modal {
-    /* display: flex;
-    flex-direction: column; */
     margin: auto;
     padding: var(--pd-2xl);
     border: none;
@@ -12,12 +10,27 @@
 }
 
 .txt{
-    font-size: var(--fs-s);
+    font-size: var(--fs-m);
     padding: var(--pd-xl) 0;
     
 }
 
 .x{
+    width: 100%;
     display: flex;
-    align-self: end;
+    justify-content: flex-end;
+    width: var(--icon);
+}
+
+/* .icon{
+    width: var(--icon);
+} */
+
+@media (max-width: 768px) {
+    .btnContainer {
+        flex-direction: column;
+    }
+    .btnContainer .btn{
+        width: auto
+    }
 }

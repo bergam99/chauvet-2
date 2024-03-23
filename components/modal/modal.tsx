@@ -38,22 +38,18 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
     ? createPortal(
         <dialog ref={dialog} className={classes.modal}>
           <form method="dialog">
-            <button className={classes.x}>
-              <Image
-                src={x}
-                alt="close"
-                width={20}
-                height={20}
-                className={classes.img}
-              />
-            </button>
+            <div className={classes.x}>
+              <button>
+                <Image src={x} alt="close" width={20} height={20} />
+              </button>
+            </div>
           </form>
 
-          <p>1 {} a été ajouté dans votre panier.</p>
+          <p className={classes.txt}>1 {} a été ajouté dans votre panier.</p>
 
           <div className={classes.btnContainer}>
-            <form method="dialog">
-              <button className="DefaultButton">Continuer mes achats</button>
+            <form method="dialog" className="DefaultButton">
+              <button>Continuer mes achats</button>
             </form>
             <Link href="/cart" className="DefaultButtonDark">
               <button>Voir mon panier</button>
@@ -68,17 +64,3 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
 Modal.displayName = "Modal";
 
 export default Modal;
-
-//  <dialog ref={dialog} className={classes.modal}>
-//   <form method="dialog">
-//     <button>x</button>
-//   </form>
-//   <p>1 {} a été ajouté dans votre panier.</p>
-
-//   <form method="dialog">
-//     <button>Continuer mes achats</button>
-//   </form>
-
-//   <button>Voir mon panier</button>
-// </dialog>,
-// document.getElementById("modal") as HTMLElement
