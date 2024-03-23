@@ -13,4 +13,5 @@
     padding: var(--pd-s) 0;
     line-height: var(--lh-m);
     font-size: var(--fs-s);
+    text-align: center;
 }

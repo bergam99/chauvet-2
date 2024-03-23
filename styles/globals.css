@@ -39,7 +39,7 @@
     --fs-s: clamp(0.8rem, 3vw, 0.9rem);
 
     /* 'voir plus' button & connectedTxt*/
-    --fs-xs: clamp(.7rem, 1.3vw, .8rem);
+    --fs-xs: clamp(.8rem, 1.3vw, .8rem);
 
     /* in products page, mainProduct container*/
     --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
@@ -70,6 +70,7 @@
 
     /* ===== icon ===== */
     --icon: clamp(20px, 3vw, 24px);
+    --icon-m: clamp(22px, 3vw, 28px);
 
     /* ===== arrow ===== */
     --arr: clamp(6px, 2vw, 12px);

@@ -13,10 +13,10 @@ export default function MobileLayout() {
     <>
       <div className={classes.dropdown}>
         <button className={`${classes.dropbtn} ${classes.mobileDisplay}`}>
-          <Image src={User} alt="menu" width={20} height={20} />
+          <Image src={User} alt="userIcon" width={20} height={20} />
         </button>
         <button className={classes.dropbtn}>
-          <Image src={Menu} alt="menu" width={20} height={20} />
+          <Image src={Menu} alt="menuIcon" width={28} height={28} />
         </button>
         <div className={classes.dropdownContent}>
           {!session && (
