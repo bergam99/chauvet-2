@@ -107,6 +107,14 @@ a {
 }
 
 /* === custum === */
+.bgColor-default {
+    background-color: transparent;
+}
+
+.bgColor-404 {
+    background-color: var(--color-pink);
+}
+
 .DefaultButton {
     padding: .6em 1.8em;
     font-family: var(--ff-body2);
