@@ -63,10 +63,6 @@
     --pd-4xl: clamp(2em, 6vw, 5em);
     --pd-5xl: clamp(3em, 16vw, 13em);
 
-    /* ===== arrow ===== */
-    --arr: clamp(6px, 2vw, 12px);
-    --arr-back: clamp(.8rem, 2vw, 1rem);
-
     /* ===== line-height ===== */
     /* intro in card */
     --lh-s :clamp(131%, 2vw, 142%);
@@ -74,6 +70,10 @@
 
     /* ===== icon ===== */
     --icon: clamp(20px, 3vw, 24px);
+
+    /* ===== arrow ===== */
+    --arr: clamp(6px, 2vw, 12px);
+    --arr-back: clamp(.8rem, 2vw, 1rem);
 }
 
 
@@ -107,22 +107,33 @@ a {
 }
 
 /* === custum === */
+.bgColor-default {
+    background-color: transparent;
+}
+
+.bgColor-404 {
+    background-color: var(--color-pink);
+}
+
 .DefaultButton {
-    padding: .6em 1.8em;
+    padding: .8em 1.8em;
     font-family: var(--ff-body2);
     border: .6px solid var(--color-heavy-gray);
     background-color: var(--color-white);
     font-size: var(--fs-xs);
     cursor: pointer;
+    text-align: center;
 }
 
 .DefaultButtonDark {
-    padding: .8em 1.8em;
+    padding: 1em 1.8em;
     font-family: var(--ff-body2);
+    border: .6px solid var(--color-heavy-gray);
     background-color: var(--color-heavy-gray);
     color: var(--color-white);
     font-size: var(--fs-xs);
     cursor: pointer;
+    text-align: center;
 }
 
 .Link {

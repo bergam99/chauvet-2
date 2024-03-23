@@ -31,6 +31,7 @@
 .des{
     font-family: var(--ff-body2);
     font-size: var(--fs-xs);
+    line-height: var(--lh-m);
 }
 
 .price{
@@ -38,11 +39,7 @@
     font-size: var(--fs-xs);
     padding: var(--pd-2xl) 0;
 }
-.img{
-    height: auto;
-    width: 100%;
-    object-fit: "cover"
-}
+
 
 .stock{
     color: var(--color-red);

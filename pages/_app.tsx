@@ -12,18 +12,18 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
-  const [pageBackground, setPageBackground] = useState("");
+  const [backgroundClass, setBackgroundClass] = useState("bgColor-default");
 
+  // Change background class when on 404 page
   useEffect(() => {
-    // change background-color when 404
-    const backgroundColor =
-      router.pathname === "/404" ? "var(--color-pink)" : "";
-    setPageBackground(backgroundColor);
+    const className =
+      router.pathname === "/404" ? "bgColor-404" : "bgColor-default";
+    setBackgroundClass(className);
   }, [router.pathname]);
 
   return (
     <SessionProvider session={pageProps.session}>
-      <div style={{ backgroundColor: pageBackground }}>
+      <div className={backgroundClass}>
         <Layout>
           <Component {...pageProps} />
         </Layout>

@@ -1,0 +1,30 @@
+.modal {
+    margin: auto;
+    padding: var(--pd-2xl);
+    border: none;
+}
+
+.btnContainer{
+    display: flex;
+    gap: var(--pd-xl);
+}
+
+.txt{
+    font-size: var(--fs-m);
+    padding: var(--pd-xl) 0;
+    text-align: center;
+}
+
+.x{
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .btnContainer {
+        flex-direction: column;
+    }
+    .btnContainer .btn{
+        width: auto
+    }
+}

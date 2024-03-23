@@ -1,0 +1,16 @@
+.txt{
+    margin: 3em 0 3em 3em;
+}
+
+.btn{
+    margin-left: 10em;
+}
+
+@media (max-width: 768px) {
+    .btn{
+        margin-left: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+}

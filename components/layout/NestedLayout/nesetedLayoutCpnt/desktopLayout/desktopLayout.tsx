@@ -17,7 +17,7 @@ export default function DesktopLayout() {
             className={classes.icon}
           />
         </Link>
-        <Link href="/">
+        <Link href="/cart">
           <Image
             src={Cart}
             alt="Cart"
