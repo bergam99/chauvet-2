@@ -1,0 +1,22 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: var(--pd-2xl);
+    border: none;
+}
+
+.btnContainer{
+    display: flex;
+    gap: var(--pd-xl);
+}
+
+.txt{
+    font-size: var(--fs-s);
+    padding: var(--pd-xl) 0;
+    
+}
+
+.x{
+    align-self: end;
+}
