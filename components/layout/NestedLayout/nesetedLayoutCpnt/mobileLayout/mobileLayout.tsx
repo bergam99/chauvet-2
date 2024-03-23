@@ -33,7 +33,7 @@ export default function MobileLayout() {
             </Link>
           )}
 
-          <Link href="#" className={classes.cart}>
+          <Link href="/cart" className={classes.cart}>
             Panier
           </Link>
 
