@@ -1,5 +1,12 @@
-.iconContainer .icon {
-    width: var(--icon);
-    height: auto;
-    /* maintain aspect ratio */
+
+
+
+.imageWrapper {
+    width: var(--icon-m);
+    height:var(--icon-m);
+    position: relative;
+}
+
+.icon {
+    object-fit: cover;
 }
