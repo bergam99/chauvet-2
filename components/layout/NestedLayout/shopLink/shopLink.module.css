@@ -1,12 +1,5 @@
-
-
-
 .imageWrapper {
     width: var(--icon-m);
     height:var(--icon-m);
     position: relative;
-}
-
-.icon {
-    object-fit: cover;
 }

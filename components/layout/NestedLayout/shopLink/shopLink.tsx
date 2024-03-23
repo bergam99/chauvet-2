@@ -5,19 +5,6 @@ import classes from "./shopLink.module.css";
 
 export default function ShopLink() {
   return (
-    // <div className={classes.iconContainer}>
-    //   <Link href="/products">
-    //     <div className={classes.imageWrapper}>
-    //       <Image
-    //         src={Book}
-    //         alt="Book-shop"
-    //         layout="fill"
-    //         objectFit="contain"
-    //         className={classes.icon}
-    //       />
-    //     </div>
-    //   </Link>
-    // </div>
     <div className={classes.iconContainer}>
       <Link href="/products">
         <div className={classes.imageWrapper}>
@@ -25,8 +12,7 @@ export default function ShopLink() {
             src={Book}
             alt="Book-shop"
             layout="fill"
-            objectFit="contain"
-            className={classes.icon}
+            style={{ objectFit: "contain" }}
           />
         </div>
       </Link>
