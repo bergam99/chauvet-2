@@ -38,7 +38,7 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
     ? createPortal(
         <dialog ref={dialog} className={classes.modal}>
           <form method="dialog">
-            <button>
+            <button className={classes.x}>
               <Image
                 src={x}
                 alt="close"

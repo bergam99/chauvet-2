@@ -1,6 +1,6 @@
 .modal {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     margin: auto;
     padding: var(--pd-2xl);
     border: none;
@@ -18,5 +18,6 @@
 }
 
 .x{
+    display: flex;
     align-self: end;
 }
