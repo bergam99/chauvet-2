@@ -40,7 +40,7 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
           <form method="dialog">
             <div className={classes.x}>
               <button>
-                <Image src={x} alt="close" width={20} height={20} />
+                <Image src={x} alt="close" width={15} height={15} />
               </button>
             </div>
           </form>

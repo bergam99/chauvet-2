@@ -12,19 +12,13 @@
 .txt{
     font-size: var(--fs-m);
     padding: var(--pd-xl) 0;
-    
+    text-align: center;
 }
 
 .x{
-    width: 100%;
     display: flex;
     justify-content: flex-end;
-    width: var(--icon);
 }
-
-/* .icon{
-    width: var(--icon);
-} */
 
 @media (max-width: 768px) {
     .btnContainer {
