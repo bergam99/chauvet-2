@@ -26,7 +26,7 @@
 .detail{
     font-family: var(--ff-body2);
     font-weight: var(--fw-light);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-xs-a);
     letter-spacing: var(--ls-m);
     padding-right: 2px;
 }

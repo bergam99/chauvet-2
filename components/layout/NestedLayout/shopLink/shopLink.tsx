@@ -7,13 +7,14 @@ export default function ShopLink() {
   return (
     <div className={classes.iconContainer}>
       <Link href="/products">
-        <Image
-          src={Book}
-          alt="Book-shop"
-          width={20}
-          height={20}
-          className={classes.icon}
-        />
+        <div className={classes.imageWrapper}>
+          <Image
+            src={Book}
+            alt="Book-shop"
+            layout="fill"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
       </Link>
     </div>
   );
