@@ -29,7 +29,7 @@ const AuthPage = () => {
             </button>
           </div>
         ) : (
-          ""
+          "" // please sign in.. maybe?
         )}
       </div>
 

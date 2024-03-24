@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { handleSignout } from "@/pages/me";
-import User from "@/public/icon/user.png";
 import Menu from "@/public/icon/menu.png";
 import Image from "next/image";
 import classes from "./mobileLayout.module.css";
@@ -12,9 +11,6 @@ export default function MobileLayout() {
   return (
     <>
       <div className={classes.dropdown}>
-        <button className={`${classes.dropbtn} ${classes.mobileDisplay}`}>
-          <Image src={User} alt="userIcon" width={20} height={20} />
-        </button>
         <button className={classes.dropbtn}>
           <Image src={Menu} alt="menuIcon" width={28} height={28} />
         </button>

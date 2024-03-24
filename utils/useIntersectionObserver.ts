@@ -10,7 +10,7 @@ const useIntersectionObserver = (): void => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 } // when 30% of the target is visible, the callback is invoked.
     );
 
     const fadeElements = document.querySelectorAll(".fadeInFromBottom");
