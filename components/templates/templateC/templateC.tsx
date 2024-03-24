@@ -10,12 +10,14 @@ import TL4b from "../templateLayouts/TemplateLayout4/TL/TL4b/TL4b";
 import { extractCardProps } from "../templateA/templateA";
 import TemplateLayout6 from "../templateLayouts/TemplateLayout6/TemplateLayout6";
 import TL4a from "../templateLayouts/TemplateLayout4/TL/TL4a/TL4a";
+import useIntersectionObserver from "@/utils/useIntersectionObserver";
 
 interface TemplateCProps {
   post: IPosts;
 }
 
 const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
+  useIntersectionObserver();
   const { cards } = post.template[0];
 
   const templateLayout1Props = {

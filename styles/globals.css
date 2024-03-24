@@ -185,3 +185,29 @@ a {
 .Vertical_Small {
     aspect-ratio: 2/3;
 } */
+
+/* ===== animation ===== */
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(20px);  /* start from */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* initial status */
+.fadeInFromBottom {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+}
+
+/* when elememt inside of viewport, add .isVisible & execute animation */
+.fadeInFromBottom.isVisible {
+    animation: fadeInFromBottom 0.6s ease-out forwards; /* after animation maintain keyframe style */
+    visibility: visible;
+}

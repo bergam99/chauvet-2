@@ -12,7 +12,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
   return (
     <>
       <div className={classes.gridContainer}>
-        <div className={`${size[0]} ${classes.verticalImg}`}>
+        <div className={`${size[0]} ${classes.verticalImg} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="img"
@@ -22,7 +22,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             style={imageStyle}
           />
         </div>
-        <div className={`${size[1]} ${classes.smallImg1}`}>
+        <div className={`${size[1]} ${classes.smallImg1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="img"
@@ -31,7 +31,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             style={imageStyle}
           />
         </div>
-        <div className={`${size[2]} ${classes.smallImg2}`}>
+        <div className={`${size[2]} ${classes.smallImg2} fadeInFromBottom`}>
           <Image
             src={img[2]}
             alt="img"

@@ -19,7 +19,7 @@ const TemplateLayout1: NextPage<TemplateLayout1Props> = ({
   return (
     <>
       <div className={classes.gridContainer}>
-        <div className={`${size} ${classes.img}`}>
+        <div className={`${size} ${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="mainImg"
