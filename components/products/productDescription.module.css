@@ -22,3 +22,7 @@
     /* height: 100%;     */
     /* width: 100%; */
 }
+
+.des{
+    padding: var(--pd-l) 0 var(--pd-2xl) 0;
+}

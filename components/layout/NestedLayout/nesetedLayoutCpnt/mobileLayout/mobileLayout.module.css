@@ -9,12 +9,6 @@
     gap: var(--pd-m);
 }
 
-@media (max-width: 768px) {
-
-    .mobileDisplay {
-        display: none;
-    }
-}     
 
 /* ===== dropdown ===== */
 .dropdown {
