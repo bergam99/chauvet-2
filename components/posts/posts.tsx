@@ -25,18 +25,17 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
               <h3 className={classes.title}>{post.title}</h3>
             </Link>
             {post.template[0]?.cards[0] && (
-              <Link
-                href={`/posts/${post._id.toString()}`}
-                className="fadeInFromBottom"
-              >
-                <Image
-                  src={post.template[0].cards[0].url}
-                  alt={post.title}
-                  layout="responsive"
-                  width={1}
-                  height={1}
-                  className={classes.img}
-                />
+              <Link href={`/posts/${post._id.toString()}`}>
+                <div className="fadeInFromBottom">
+                  <Image
+                    src={post.template[0].cards[0].url}
+                    alt={post.title}
+                    layout="responsive"
+                    width={1}
+                    height={1}
+                    className={classes.img}
+                  />
+                </div>
               </Link>
             )}
             <div className={`${classes.detailContainer} Link`}>
