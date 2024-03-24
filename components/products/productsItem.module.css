@@ -6,7 +6,8 @@
 
 .name{
     line-height: var(--lh-m);
-    font-size: var(--fs-s);
+    font-size: var(--fs-s-a);
+    padding: var(--pd-m);
 }
 
 .description{
@@ -17,9 +18,6 @@
    margin: auto;
 }
 
-.name{
-    padding: var(--pd-m);
-}
 
 @media (max-width: 768px) {
     .description{
