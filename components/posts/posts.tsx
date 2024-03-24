@@ -19,13 +19,16 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
       {/* articles */}
       <div className={classes.gridContainer}>
         {posts.map((post) => (
-          <div key={post._id.toString()} className="fadeInFromBottom">
+          <div key={post._id.toString()}>
             <i className={classes.thema}>{post.thema}</i>
             <Link href={`/posts/${post._id.toString()}`}>
               <h3 className={classes.title}>{post.title}</h3>
             </Link>
             {post.template[0]?.cards[0] && (
-              <Link href={`/posts/${post._id.toString()}`}>
+              <Link
+                href={`/posts/${post._id.toString()}`}
+                className="fadeInFromBottom"
+              >
                 <Image
                   src={post.template[0].cards[0].url}
                   alt={post.title}
