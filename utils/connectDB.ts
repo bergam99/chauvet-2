@@ -13,6 +13,6 @@ export const connectDB = async (): Promise<Db> => {
     }
     return db;
   } catch (error) {
-    throw new Error("Failed to connect to MongoDB:");
+    throw new Error("Failed to connect to MongoDB");
   }
 };

@@ -1,6 +1,6 @@
 
 /* ===== desktop layout ===== */
-/* Hide NestedLayout__Mobile by default (assuming desktop-first approach) */
+/* Hide NestedLayout__Mobile by default */
 .NestedLayout__Mobile {
     display: none;
 }
