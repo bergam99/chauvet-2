@@ -15,7 +15,7 @@ const TL4b: NextPage<TL4bProps> = ({ img, size, txt, connectedTxt }) => {
     <>
       <section className={classes.gridContainer}>
         <p className={classes.txt}>{txt}</p>
-        <div className={classes.img}>
+        <div className={`${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="img"

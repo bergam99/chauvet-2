@@ -17,7 +17,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
   return (
     <>
       <div>
-        <div className={`${size[0]} ${classes.img0}`}>
+        <div className={`${size[0]} ${classes.img0} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="img"
@@ -26,7 +26,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
             style={imageStyle}
           />
         </div>
-        <div className={`${size[1]} ${classes.img1}`}>
+        <div className={`${size[1]} ${classes.img1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="img"
@@ -35,7 +35,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
             style={imageStyle}
           />
         </div>
-        <div className={`${size[2]} ${classes.img2}`}>
+        <div className={`${size[2]} ${classes.img2} fadeInFromBottom`}>
           <Image
             src={img[2]}
             alt="img"

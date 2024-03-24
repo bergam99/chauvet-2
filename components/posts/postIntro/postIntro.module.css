@@ -10,8 +10,13 @@
 }
 
 .intro {
-    padding: var(--pd-s) 0;
+    padding-top: var(--pd-s);
     line-height: var(--lh-m);
     font-size: var(--fs-s);
-    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .intro {
+        text-align: center;
+    }
 }
