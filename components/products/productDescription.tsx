@@ -13,7 +13,6 @@ interface productDescriptionProps {
 const productDescription = ({ img, description }: productDescriptionProps) => {
   return (
     <>
-      <p>{description}</p>
       <ul className={classes.imageListContainer}>
         {img?.map((img) => (
           <li key={img.url} className={classes.imageListItem}>
@@ -27,6 +26,7 @@ const productDescription = ({ img, description }: productDescriptionProps) => {
           </li>
         ))}
       </ul>
+      <p className={classes.des}>{description}</p>
     </>
   );
 };
