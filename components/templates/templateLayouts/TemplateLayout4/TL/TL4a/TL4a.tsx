@@ -14,7 +14,7 @@ const TL4a: NextPage<TL4aProps> = ({ img, size, txt, connectedTxt }) => {
   return (
     <>
       <section className={classes.gridContainer}>
-        <div className={classes.img}>
+        <div className={`${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="img"

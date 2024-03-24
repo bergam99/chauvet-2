@@ -7,6 +7,7 @@ import TemplateLayout3 from "../templateLayouts/TemplateLayout3/TemplateLayout3"
 import TemplateLayout4 from "../templateLayouts/TemplateLayout4/TemplateLayout4";
 import TemplateLayout5 from "../templateLayouts/TemplateLayout5/TemplateLayout5";
 import TL4b from "../templateLayouts/TemplateLayout4/TL/TL4b/TL4b";
+import useIntersectionObserver from "@/utils/useIntersectionObserver";
 
 interface TemplateAProps {
   post: IPosts;
@@ -28,6 +29,8 @@ export const extractCardProps = (
 };
 
 const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
+  useIntersectionObserver();
+
   // Destructure for easier access to the first template cards
   const { cards } = post.template[0];
 

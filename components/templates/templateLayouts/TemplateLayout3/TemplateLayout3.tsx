@@ -17,7 +17,7 @@ const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
   return (
     <>
       <div>
-        <div className={`${size} ${classes.img}`}>
+        <div className={`${size} ${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="mainImg"

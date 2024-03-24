@@ -23,14 +23,16 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           className={classes.img}
           style={imageStyle}
         /> */}
-        <Image
-          src={main}
-          alt={posts[0].title}
-          width={727}
-          height={484}
-          className={classes.img}
-          style={imageStyle}
-        />
+        <div className="fadeInFromBottom">
+          <Image
+            src={main}
+            alt={posts[0].title}
+            width={727}
+            height={484}
+            className={classes.img}
+            style={imageStyle}
+          />
+        </div>
         <p className={classes.intro}>
           Devenez explorateur, découvrez la grotte chauvet partout dans le monde
           avec notre magazine Chauvet.

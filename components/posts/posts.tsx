@@ -5,11 +5,13 @@ import Link from "next/link";
 import classes from "./posts.module.css";
 import arrow from "@/public/icon/right-arrow.png";
 import PostIntro from "./postIntro/postIntro";
+import useIntersectionObserver from "@/utils/useIntersectionObserver";
 interface PostsPageProps {
   posts: IPosts[];
 }
 
 const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
+  useIntersectionObserver();
   return (
     <>
       <PostIntro posts={posts} />
@@ -17,7 +19,7 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
       {/* articles */}
       <div className={classes.gridContainer}>
         {posts.map((post) => (
-          <div key={post._id.toString()}>
+          <div key={post._id.toString()} className="fadeInFromBottom">
             <i className={classes.thema}>{post.thema}</i>
             <Link href={`/posts/${post._id.toString()}`}>
               <h3 className={classes.title}>{post.title}</h3>

@@ -17,7 +17,7 @@ const TemplateLayout5: NextPage<TemplateLayout5Props> = ({
   return (
     <>
       <section className={classes.gridContainer}>
-        <div className={`${size[0]} ${classes.img0}`}>
+        <div className={`${size[0]} ${classes.img0} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="mainImg"
@@ -28,7 +28,7 @@ const TemplateLayout5: NextPage<TemplateLayout5Props> = ({
         </div>
         <p className={classes.connectedTxt0}>{connectedTxt?.[0]}</p>
 
-        <div className={`${size[1]} ${classes.img1}`}>
+        <div className={`${size[1]} ${classes.img1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="mainImg"
