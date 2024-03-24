@@ -32,8 +32,8 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           style={imageStyle}
         />
         <p className={classes.intro}>
-          Devenez explorateur, géographe, découvrez la grotte chauvet partout
-          dans le monde avec notre magazine Chauvet.
+          Devenez explorateur, découvrez la grotte chauvet partout dans le monde
+          avec notre magazine Chauvet.
         </p>
       </div>
     </>

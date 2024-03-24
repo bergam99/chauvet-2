@@ -36,10 +36,16 @@
     --fs-m: clamp(1rem, 3.3vw, 1.1rem);
 
     /* posts page */
+    --fs-s-a: clamp(0.9rem, 3vw, 0.9rem);
+
+    /* posts page */
     --fs-s: clamp(0.8rem, 3vw, 0.9rem);
 
-    /* 'voir plus' button & connectedTxt*/
+    /* 'voir plus' button & connectedTxt in [postId] page */
     --fs-xs: clamp(.8rem, 1.3vw, .8rem);
+
+    /* 'voir plus' link in posts page */
+    --fs-xs-a: clamp(.6rem, 1.3vw, .7rem);
 
     /* in products page, mainProduct container*/
     --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
@@ -64,8 +70,9 @@
     --pd-5xl: clamp(3em, 16vw, 13em);
 
     /* ===== line-height ===== */
-    /* intro in card */
-    --lh-s :clamp(131%, 2vw, 142%);
+    /* intro */
+    --lh-s: clamp(131%, 2vw, 142%);
+    /* global */
     --lh-m: clamp(160%, 4vw, 200%);
 
     /* ===== icon ===== */
