@@ -4,7 +4,7 @@ import { serializeMongoObjectId } from "./convert";
 import { IProduct } from "@/types/products";
 import { ObjectId } from "mongodb";
 
-// ===== @/products =====
+// ===== /products =====
 export const getProducts = async (): Promise<IProduct[]> => {
   try {
     const db = await connectDB();
@@ -22,7 +22,7 @@ export const getProducts = async (): Promise<IProduct[]> => {
   }
 };
 
-// ===== @/products/:[productId] =====
+// ===== /products/:[productId] =====
 export async function getProduct(productId: string | undefined) {
   if (!productId) {
     throw new Error("Product ID not provided");
@@ -45,7 +45,7 @@ export async function getProduct(productId: string | undefined) {
   }
 }
 
-// ===== @/posts =====
+// ===== /posts =====
 export const getPosts = async (): Promise<IPosts[]> => {
   try {
     const db = await connectDB();
@@ -60,7 +60,7 @@ export const getPosts = async (): Promise<IPosts[]> => {
   }
 };
 
-// ===== @/:[productId] =====
+// ===== /:[productId] =====
 export async function getPost(postId: string | undefined) {
   if (!postId) {
     throw new Error("Post ID not provided");
@@ -70,13 +70,13 @@ export async function getPost(postId: string | undefined) {
     const db = await connectDB();
     const post = await db
       .collection<IPosts>("Posts")
-      .findOne({ _id: new ObjectId(postId) });
+      .findOne({ _id: new ObjectId(postId) }); // _id from params -> ObjectId
 
     if (!post) {
       throw new Error("Post not found");
     }
 
-    const convertedPost = serializeMongoObjectId(post);
+    const convertedPost = serializeMongoObjectId(post); // _id -> string
     return convertedPost;
   } catch (error) {
     throw new Error("Failed to fetch post");

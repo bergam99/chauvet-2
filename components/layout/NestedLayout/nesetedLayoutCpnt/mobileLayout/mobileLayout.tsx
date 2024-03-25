@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import { handleSignout } from "@/pages/me";
+import { handleSignout } from "@/components/layout/meLayout/meLayout";
 import Menu from "@/public/icon/menu.png";
 import Image from "next/image";
 import classes from "./mobileLayout.module.css";

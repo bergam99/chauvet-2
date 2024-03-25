@@ -16,7 +16,12 @@ const NestedLayout = () => {
 
   if (currentPath === "/" || currentPath.includes("posts")) {
     return <ShopLink />;
-  } else if (currentPath.includes("/products") || currentPath.includes("/me")) {
+  } else if (
+    currentPath.includes("/products") ||
+    currentPath.includes("/me") ||
+    currentPath.includes("/order") ||
+    currentPath.includes("/cart")
+  ) {
     return (
       <>
         <div className={classes.NestedLayout__Desktop}>
