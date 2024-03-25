@@ -1,0 +1,35 @@
+.authenticatedContainer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-top: 3em;
+    padding: 4em 0;
+}
+
+.desktopMenuContainer {
+    border-right: .6px solid var(--color-heavy-gray);
+    width: 25%;
+    padding-bottom: 7em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pd-m);
+}
+
+.link {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}
+
+.deconnexion {
+    color: var(--color-red);
+}
+
+.children{
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .desktopMenuContainer {
+        display: none;
+    }
+}

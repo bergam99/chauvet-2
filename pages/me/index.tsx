@@ -4,11 +4,7 @@ import Image from "next/image";
 import facebookLogo from "@/public/icon/logo-fb.png";
 import googleLogo from "@/public/icon/logo-google.png";
 import GoBack from "@/components/buttons/goBack";
-
-export const handleSignout = (e: { preventDefault: () => void }) => {
-  e.preventDefault();
-  signOut();
-};
+import MeLayout from "@/components/layout/meLayout/meLayout";
 
 const AuthPage = () => {
   const { data: session, status } = useSession();
@@ -16,27 +12,22 @@ const AuthPage = () => {
 
   return (
     <>
-      <div>
-        {loading && <div>Loading...</div>}
-        {session ? (
-          <div className={classes.loginContainer}>
-            {/* si session vide interdit, (server) *** (partie api) session.user.id=>collection order */}
-            {/* server => front */}
+      {loading && <div>Loading...</div>}
+      {session && (
+        <>
+          <MeLayout>
             <p>welcome, {session.user?.name ?? session.user?.email}</p>
-            <br />
-            <button className={`${classes.link} Link`} onClick={handleSignout}>
-              Déconnexion
-            </button>
-          </div>
-        ) : (
-          "" // please sign in.. maybe?
-        )}
-      </div>
+          </MeLayout>
+
+          {/* si session vide interdit, (server) *** (partie api) session.user.id=>collection order */}
+          {/* server => front */}
+        </>
+      )}
 
       {!session && status === "unauthenticated" && (
         <>
           <GoBack />
-          <div className={classes.loginContainer}>
+          <div className={classes.nonAuthenticatedContainer}>
             <p className={classes.login}>Login</p>
             <button
               className={classes.facebook}
