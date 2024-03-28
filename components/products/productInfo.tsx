@@ -2,39 +2,35 @@ import Image from "next/image";
 import classes from "./productInfo.module.css";
 import { useRef } from "react";
 import Modal from "../modal/modal";
-interface ProductImage {
-  url: string;
-}
+import { useCartStore } from "@/stores/cart";
+import { IProduct } from "@/types/products";
+
 interface ModalHandles {
   open: () => void;
 }
 
 interface ProductInfoProps {
-  name: string;
-  description: string;
-  price: string;
-  img: ProductImage[];
-  stock: number;
+  product: IProduct;
 }
 
-const ProductInfo = ({
-  name,
-  description,
-  price,
-  img,
-  stock,
-}: ProductInfoProps) => {
+const ProductInfo = ({ product }: ProductInfoProps) => {
+  const { name, description, images, stock, price } = product;
+  const src = images[0].url;
+
   const dialog = useRef<ModalHandles>(null);
+
+  const { add: handleAddToCart } = useCartStore();
 
   function openModal() {
     dialog.current?.open();
   }
+
   return (
     <>
       <Modal ref={dialog} />
       <section className={classes.infoContainer}>
         <Image
-          src={img[0]?.url}
+          src={src}
           alt={name}
           width={400}
           height={300}
@@ -47,9 +43,11 @@ const ProductInfo = ({
           <div className={classes.gap}></div>
           <p className={classes.stock}>{stock <= 0 && "stock épuisé"}</p>
           {/* add disabled color className from global.css when 0 stock */}
-
           <button
-            onClick={openModal}
+            onClick={() => {
+              handleAddToCart(product);
+              openModal();
+            }}
             type="button"
             disabled={stock <= 0}
             className={`${classes.btn} DefaultButton`}
