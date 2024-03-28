@@ -15,13 +15,7 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   return (
     <>
       <GoBack />
-      <ProductInfo
-        name={product.name}
-        description={product.description}
-        price={product.price.toString()}
-        img={product.images}
-        stock={product.stock}
-      />
+      <ProductInfo product={product} />
 
       <ProductDescription
         img={product.images}
