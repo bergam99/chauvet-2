@@ -11,11 +11,34 @@ type CartStore = {
   add: (product: IProduct) => void;
   remove: (idProduct: string) => void;
   removeAll: () => void;
+  loadCart: () => void;
+};
+
+// load cart data stored in session storage
+const loadCartFromSessionStorage = (): CartItem[] => {
+  // verify if client side (execution is in browser?)
+  if (typeof window !== "undefined") {
+    const savedCart = sessionStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  }
+  return []; // if not client side return empty array
+};
+
+const saveCartToSessionStorage = (cart: CartItem[]) => {
+  if (typeof window !== "undefined") {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+  }
 };
 
 // create useCartStore. take state param & update callback functions
 export const useCartStore = create<CartStore>((set, get) => ({
-  cart: [],
+  cart: [], // load previous session storage
+
+  loadCart: () => {
+    const cart = loadCartFromSessionStorage(); // Load the cart from sessionStorage
+    set({ cart });
+  },
+
   // count total quandity
   count: () => {
     const { cart } = get(); // get() : bring actual store state.
@@ -28,15 +51,20 @@ export const useCartStore = create<CartStore>((set, get) => ({
     const { cart } = get();
     const updatedCart = updateCart(product, cart);
     set({ cart: updatedCart });
+    saveCartToSessionStorage(updatedCart);
   },
 
   remove: (idProduct: string) => {
     const { cart } = get();
     const updatedCart = removeCart(idProduct, cart);
     set({ cart: updatedCart });
+    saveCartToSessionStorage(updatedCart);
   },
 
-  removeAll: () => set({ cart: [] }),
+  removeAll: () => {
+    set({ cart: [] });
+    saveCartToSessionStorage([]);
+  },
 }));
 
 function updateCart(product: IProduct, cart: CartItem[]): CartItem[] {
