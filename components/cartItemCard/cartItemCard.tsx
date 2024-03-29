@@ -22,7 +22,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
 
       <div className={classes.descriptionContainer}>
         <div className={classes.titleWrapper}>
-          <p>{item.name}</p>
+          <p className={classes.name}>{item.name}</p>
           <p className={classes.quantity}>Quantité : {item.count}</p>
         </div>
         <div className={classes.totalContainer}></div>

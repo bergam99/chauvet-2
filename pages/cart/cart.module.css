@@ -6,9 +6,7 @@
 .totalPrice{
     font-family: var(--ff-body2);
     font-size: var(--fs-s);
-    display: flex;
-    justify-content: flex-end;
-    padding-top: var(--pd-s);
+    margin-left: auto;
 }
 
 .topContainer{
@@ -21,4 +19,22 @@
     font-size: var(--fs-s);
     align-items: center;
     padding-left: var(--pd-s);
+}
+.btn{
+    width: fit-content;
+    margin: var(--pd-l) 0 var(--pd-l) auto;
+   
+}
+.totalWrapper{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--pd-s);
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: auto;
+        margin: var(--pd-l) 0;
+    }
 }
