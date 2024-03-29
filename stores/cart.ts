@@ -16,12 +16,12 @@ type CartStore = {
 
 // load cart data stored in session storage
 const loadCartFromSessionStorage = (): CartItem[] => {
-  // verify if client side (execution is in browser?)
+  // verify if client side (is execution in browser?)
   if (typeof window !== "undefined") {
     const savedCart = sessionStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   }
-  return []; // if not client side return empty array
+  return []; // if not client side return []
 };
 
 const saveCartToSessionStorage = (cart: CartItem[]) => {
@@ -30,7 +30,7 @@ const saveCartToSessionStorage = (cart: CartItem[]) => {
   }
 };
 
-// create useCartStore. take state param & update callback functions
+// create useCartStore. take state param & callback functions for update
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [], // load previous session storage
 

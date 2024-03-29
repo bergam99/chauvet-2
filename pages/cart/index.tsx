@@ -1,3 +1,5 @@
+import Close from "@/components/buttons/close/close";
+import GoBack from "@/components/buttons/goBack";
 import { useCartStore } from "@/stores/cart";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -24,6 +26,7 @@ const Cart = () => {
   return (
     <>
       <section>
+        <GoBack />
         {cart.length ? (
           cart.map((item) => (
             <section key={item._id.toString()}>
@@ -37,22 +40,18 @@ const Cart = () => {
               <p>each price:{item.price}</p>
               <p>quantity:{item.count}</p>
               <p>each total:{item.count * item.price}</p>
-              <hr />
-              <button
+              <Close
                 onClick={() => {
                   remove(item._id.toString());
-                  close();
                 }}
-              >
-                Confirm Delete
-              </button>
+              />
             </section>
           ))
         ) : (
           <p>nothing. . . </p>
         )}
       </section>
-      <p className="totalprice">{totalPrice ? totalPrice : ""}</p>
+      {totalPrice ? <p className="totalprice"> total: {totalPrice}</p> : ""}
       {cart.length ? <button onClick={removeAll}>remove all</button> : ""}
     </>
   );
