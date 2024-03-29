@@ -10,15 +10,13 @@ const ProductsItem = ({ product }: ProductsItemProps) => {
   return (
     <li>
       <div>
-        <div className={classes.img}>
-          <Image
-            src={product.images[0]?.url}
-            alt={product.name}
-            width={300}
-            height={200}
-            className={classes.img}
-          />
-        </div>
+        <Image
+          src={product.images[0]?.url}
+          alt={product.name}
+          width={300}
+          height={200}
+          className={classes.img}
+        />
         <div className={classes.description}>
           <h2 className={classes.name}>{product.name}</h2>
 

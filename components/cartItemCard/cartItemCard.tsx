@@ -17,6 +17,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
         alt={item.name}
         width={400}
         height={300}
+        className={classes.img}
       />
 
       <div className={classes.descriptionContainer}>
@@ -27,11 +28,13 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
         <div className={classes.totalContainer}></div>
         <p className={classes.price}>{item.count * item.price} €</p>
       </div>
-      <Close
-        onClick={() => {
-          remove(item._id.toString());
-        }}
-      />
+      <div className={classes.x}>
+        <Close
+          onClick={() => {
+            remove(item._id.toString());
+          }}
+        />
+      </div>
     </section>
   );
 };

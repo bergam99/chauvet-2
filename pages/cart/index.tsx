@@ -4,9 +4,10 @@ import CartItemCard from "@/components/cartItemCard/cartItemCard";
 import { useCartStore } from "@/stores/cart";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-// import classes from './'
+import classes from "./cart.module.css";
+
 const Cart = () => {
-  const { cart, remove, removeAll, loadCart } = useCartStore();
+  const { cart, loadCart } = useCartStore();
   console.log({ cart });
 
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
@@ -26,8 +27,11 @@ const Cart = () => {
 
   return (
     <>
-      <section>
-        <GoBack />
+      <section className={classes.section}>
+        <div className={classes.topContainer}>
+          <GoBack />
+          <p className={classes.panier}>Panier</p>
+        </div>
         {cart.length ? (
           cart.map((item) => (
             <CartItemCard item={item} key={item._id.toString()} />
@@ -36,8 +40,11 @@ const Cart = () => {
           <p>nothing. . . </p>
         )}
       </section>
-      {totalPrice ? <p> Total : {totalPrice} €</p> : ""}
-      {cart.length ? <button onClick={removeAll}>remove all</button> : ""}
+      {totalPrice ? (
+        <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+      ) : (
+        ""
+      )}
     </>
   );
 };
