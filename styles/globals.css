@@ -5,11 +5,11 @@
     /* ===== colors ===== */
     --color-white: #FFFFFF;
     --color-black: #000000;
-    --color-heavy-gray: #202D2E;
-    --color-gray: #F3F3F3;
     --color-pink: #F6F0F0;
     --color-red: #F22929;
-    --color-disabled: #808080;
+    --color-light-gray: #F3F3F3;
+    --color-gray: #808080;
+    --color-heavy-gray: #202D2E;
 
     /* ===== font-family ===== */
     --ff-title: "Libre Caslon Text", serif;
@@ -124,7 +124,7 @@ a {
 }
 
 .bgColor-cart {
-    background-color: var(--color-gray);
+    background-color: var(--color-light-gray);
 }
 
 .DefaultButton {

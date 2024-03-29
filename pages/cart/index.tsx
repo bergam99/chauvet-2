@@ -1,5 +1,6 @@
 import Close from "@/components/buttons/close/close";
 import GoBack from "@/components/buttons/goBack";
+import CartItemCard from "@/components/cartItemCard/cartItemCard";
 import { useCartStore } from "@/stores/cart";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -29,29 +30,13 @@ const Cart = () => {
         <GoBack />
         {cart.length ? (
           cart.map((item) => (
-            <section key={item._id.toString()}>
-              <Image
-                src={item.images[0]?.url}
-                alt={item.name}
-                width={400}
-                height={300}
-              />
-              <p>name:{item.name}</p>
-              <p>each price:{item.price}</p>
-              <p>quantity:{item.count}</p>
-              <p>each total:{item.count * item.price}</p>
-              <Close
-                onClick={() => {
-                  remove(item._id.toString());
-                }}
-              />
-            </section>
+            <CartItemCard item={item} key={item._id.toString()} />
           ))
         ) : (
           <p>nothing. . . </p>
         )}
       </section>
-      {totalPrice ? <p className="totalprice"> total: {totalPrice}</p> : ""}
+      {totalPrice ? <p> Total : {totalPrice} €</p> : ""}
       {cart.length ? <button onClick={removeAll}>remove all</button> : ""}
     </>
   );

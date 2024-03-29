@@ -1,7 +1,7 @@
 import { IProduct } from "@/types/products";
 import { create } from "zustand";
 
-interface CartItem extends IProduct {
+export interface CartItem extends IProduct {
   count: number;
 }
 
