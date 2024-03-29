@@ -41,7 +41,12 @@ const Cart = () => {
         )}
       </section>
       {totalPrice ? (
-        <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+        <div className={classes.totalWrapper}>
+          <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+          <button className={`${classes.btn} DefaultButton`}>
+            Valider le paiement
+          </button>
+        </div>
       ) : (
         ""
       )}

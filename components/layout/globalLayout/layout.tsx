@@ -11,7 +11,6 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <main className={classes.layout}>
-        {/* header */}
         <section className={classes.section}>
           <div className={classes.headerContainer}>
             <div className={classes.logo}>

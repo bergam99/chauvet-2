@@ -1,5 +1,5 @@
 .cardContainer {
-    background-color: var(--color-white);
+    background-color: var(--color-light-gray);
     display: flex;
     margin-bottom: var(--pd-s);
 }
@@ -19,6 +19,10 @@
     padding: var(--pd-s);
 }
 
+.name{
+    font-size: var(--fs-s);
+}
+
 .quantity, .price {
     font-family: var(--ff-body2);
     font-size: var(--fs-s);
@@ -26,6 +30,7 @@
 
 .quantity{
     color: var(--color-gray);
+    font-size: var(--fs-xs);
 }
 
 .price {
