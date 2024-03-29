@@ -1,9 +1,25 @@
+import Close from "@/components/buttons/close/close";
+import GoBack from "@/components/buttons/goBack";
+import CartItemCard from "@/components/cartItemCard/cartItemCard";
 import { useCartStore } from "@/stores/cart";
 import Image from "next/image";
-// import classes from './'
+import { useEffect, useState } from "react";
+import classes from "./cart.module.css";
+
 const Cart = () => {
-  const { cart, remove, removeAll } = useCartStore();
+  const { cart, loadCart } = useCartStore();
   console.log({ cart });
+
+  const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+
+  useEffect(() => {
+    loadCart();
+    setIsLoading(false);
+  }, [loadCart]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   const totalPrice = cart.reduce((acc, item) => {
     return acc + item.count * item.price;
@@ -11,39 +27,24 @@ const Cart = () => {
 
   return (
     <>
-      <div>
+      <section className={classes.section}>
+        <div className={classes.topContainer}>
+          <GoBack />
+          <p className={classes.panier}>Panier</p>
+        </div>
         {cart.length ? (
           cart.map((item) => (
-            <>
-              <ul key={item._id.toString()}>
-                <Image
-                  src={item.images[0]?.url}
-                  alt={item.name}
-                  width={400}
-                  height={300}
-                />
-                <li>name:{item.name}</li>
-                <li>each price:{item.price}</li>
-                <li>quantity:{item.count}</li>
-                <li>each total:{item.count * item.price}</li>
-                <hr />
-                <button
-                  onClick={() => {
-                    remove(item._id.toString());
-                    close();
-                  }}
-                >
-                  Confirm Delete
-                </button>
-              </ul>
-            </>
+            <CartItemCard item={item} key={item._id.toString()} />
           ))
         ) : (
           <p>nothing. . . </p>
         )}
-      </div>
-      <p className="totalprice">{totalPrice ? totalPrice : ""}</p>
-      {cart.length ? <button onClick={removeAll}>remove all</button> : ""}
+      </section>
+      {totalPrice ? (
+        <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+      ) : (
+        ""
+      )}
     </>
   );
 };

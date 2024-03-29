@@ -1,7 +1,7 @@
 import { IProduct } from "@/types/products";
 import { create } from "zustand";
 
-interface CartItem extends IProduct {
+export interface CartItem extends IProduct {
   count: number;
 }
 
@@ -10,12 +10,35 @@ type CartStore = {
   count: () => number;
   add: (product: IProduct) => void;
   remove: (idProduct: string) => void;
-  removeAll: () => void;
+  // removeAll: () => void;
+  loadCart: () => void;
 };
 
-// create useCartStore. take state param & update callback functions
+// load cart data stored in session storage
+const loadCartFromSessionStorage = (): CartItem[] => {
+  // verify if client side (is execution in browser?)
+  if (typeof window !== "undefined") {
+    const savedCart = sessionStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  }
+  return []; // if not client side return []
+};
+
+const saveCartToSessionStorage = (cart: CartItem[]) => {
+  if (typeof window !== "undefined") {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+  }
+};
+
+// create useCartStore. take state param & callback functions for update
 export const useCartStore = create<CartStore>((set, get) => ({
-  cart: [],
+  cart: [], // load previous session storage
+
+  loadCart: () => {
+    const cart = loadCartFromSessionStorage(); // Load the cart from sessionStorage
+    set({ cart });
+  },
+
   // count total quandity
   count: () => {
     const { cart } = get(); // get() : bring actual store state.
@@ -28,15 +51,20 @@ export const useCartStore = create<CartStore>((set, get) => ({
     const { cart } = get();
     const updatedCart = updateCart(product, cart);
     set({ cart: updatedCart });
+    saveCartToSessionStorage(updatedCart);
   },
 
   remove: (idProduct: string) => {
     const { cart } = get();
     const updatedCart = removeCart(idProduct, cart);
     set({ cart: updatedCart });
+    saveCartToSessionStorage(updatedCart);
   },
 
-  removeAll: () => set({ cart: [] }),
+  // removeAll: () => {
+  //   set({ cart: [] });
+  //   saveCartToSessionStorage([]);
+  // },
 }));
 
 function updateCart(product: IProduct, cart: CartItem[]): CartItem[] {

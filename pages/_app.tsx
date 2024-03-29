@@ -17,7 +17,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // Change background class when on 404 page
   useEffect(() => {
     const className =
-      router.pathname === "/404" ? "bgColor-404" : "bgColor-default";
+      router.pathname === "/404"
+        ? "bgColor-404"
+        : router.pathname === "/cart"
+        ? "bgColor-cart"
+        : "bgColor-default";
     setBackgroundClass(className);
   }, [router.pathname]);
 

@@ -10,6 +10,7 @@ import classes from "./modal.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import x from "@/public/icon/close.png";
+import Close from "../buttons/close/close";
 interface ModalHandles {
   open: () => void;
 }
@@ -39,9 +40,7 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
         <dialog ref={dialog} className={classes.modal}>
           <form method="dialog">
             <div className={classes.x}>
-              <button>
-                <Image src={x} alt="close" width={15} height={15} />
-              </button>
+              <Close />
             </div>
           </form>
 
