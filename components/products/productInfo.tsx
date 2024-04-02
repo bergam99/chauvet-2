@@ -1,13 +1,13 @@
 import Image from "next/image";
 import classes from "./productInfo.module.css";
 import { useRef } from "react";
-import Modal from "../modal/modal";
+import Modal, { ModalHandles } from "../modal/modal";
 import { useCartStore } from "@/stores/cart";
 import { IProduct } from "@/types/products";
 
-interface ModalHandles {
-  open: () => void;
-}
+// interface ModalHandles {
+//   open: () => void;
+// }
 
 interface ProductInfoProps {
   product: IProduct;
@@ -27,7 +27,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
   return (
     <>
-      <Modal ref={dialog} />
+      <Modal ref={dialog} title={name} />
       <section className={classes.infoContainer}>
         <Image
           src={src}
