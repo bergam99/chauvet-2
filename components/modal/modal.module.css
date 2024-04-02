@@ -7,6 +7,7 @@
 .btnContainer{
     display: flex;
     gap: var(--pd-xl);
+    justify-content: center;
 }
 
 .txt{

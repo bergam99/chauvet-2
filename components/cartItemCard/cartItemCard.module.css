@@ -21,6 +21,8 @@
 
 .name{
     font-size: var(--fs-s);
+    font-family: var(--ff-body2);
+    line-height: var(--lh-m);
 }
 
 .quantity, .price {

@@ -8,14 +8,16 @@ import {
 import { createPortal } from "react-dom";
 import classes from "./modal.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import x from "@/public/icon/close.png";
 import Close from "../buttons/close/close";
-interface ModalHandles {
+export interface ModalHandles {
   open: () => void;
 }
 
-const Modal = forwardRef<ModalHandles>((props, ref) => {
+interface ModalProps {
+  title: any;
+}
+
+const Modal = forwardRef<ModalHandles, ModalProps>(({ title }, ref) => {
   const dialog = useRef<HTMLDialogElement>(null);
   const [isBrowser, setIsBrowser] = useState(false);
 
@@ -44,7 +46,9 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
             </div>
           </form>
 
-          <p className={classes.txt}>1 {} a été ajouté dans votre panier.</p>
+          <p className={classes.txt}>
+            1 {title} a été ajouté dans votre panier.
+          </p>
 
           <div className={classes.btnContainer}>
             <form method="dialog" className="DefaultButton">

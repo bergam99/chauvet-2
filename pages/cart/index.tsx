@@ -1,10 +1,8 @@
-import Close from "@/components/buttons/close/close";
-import GoBack from "@/components/buttons/goBack";
 import CartItemCard from "@/components/cartItemCard/cartItemCard";
 import { useCartStore } from "@/stores/cart";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import classes from "./cart.module.css";
+import Link from "next/link";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
@@ -27,28 +25,40 @@ const Cart = () => {
 
   return (
     <>
-      <section className={classes.section}>
+      <section className={classes.cart}>
         <div className={classes.topContainer}>
-          <GoBack />
           <p className={classes.panier}>Panier</p>
         </div>
-        {cart.length ? (
+        {cart.length > 0 ? (
           cart.map((item) => (
             <CartItemCard item={item} key={item._id.toString()} />
           ))
         ) : (
-          <p>nothing. . . </p>
+          <p className={classes.noProduct}>
+            Vous n&apos;avez pas de produit dans votre panier. Cliquez{" "}
+            <Link href="/products" className={classes.link}>
+              ici
+            </Link>{" "}
+            pour continuer vos achats.
+          </p>
         )}
       </section>
-      {totalPrice ? (
-        <div className={classes.totalWrapper}>
-          <p className={classes.totalPrice}> Total : {totalPrice} €</p>
-          <button className={`${classes.btn} DefaultButton`}>
-            Valider le paiement
-          </button>
-        </div>
-      ) : (
-        ""
+      {totalPrice > 0 && (
+        <>
+          <div className={classes.totalWrapper}>
+            <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+          </div>
+
+          <div className={classes.buttonsWrapper}>
+            <Link href="/products" className="DefaultButton">
+              Continuer mes achats
+            </Link>
+
+            <Link href="/products" className="DefaultButtonDark">
+              Valider le paiement
+            </Link>
+          </div>
+        </>
       )}
     </>
   );
