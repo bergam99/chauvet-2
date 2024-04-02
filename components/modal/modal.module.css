@@ -9,10 +9,6 @@
     gap: var(--pd-xl);
 }
 
-.btn1{
-    display: flex;
-}
-
 .txt{
     font-size: var(--fs-m);
     padding: var(--pd-xl) 0;

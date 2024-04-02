@@ -45,7 +45,7 @@ const Modal = forwardRef<ModalHandles>((props, ref) => {
           <p className={classes.txt}>1 {} a été ajouté dans votre panier.</p>
 
           <div className={classes.btnContainer}>
-            <form method="dialog" className={`${classes.btn1} DefaultButton`}>
+            <form method="dialog" className="DefaultButton">
               <button>Continuer mes achats</button>
             </form>
             <Link href="/cart" className="DefaultButtonDark">
