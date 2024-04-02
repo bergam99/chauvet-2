@@ -85,13 +85,5 @@ function updateCart(product: IProduct, cart: CartItem[]): CartItem[] {
 }
 
 function removeCart(idProduct: string, cart: CartItem[]): CartItem[] {
-  return cart
-    .map((item) => {
-      if (item._id === idProduct.toString())
-        return { ...item, count: item.count - 1 };
-      return item;
-    })
-    .filter((item) => {
-      return item.count;
-    });
+  return cart.filter((item) => item._id !== idProduct);
 }
