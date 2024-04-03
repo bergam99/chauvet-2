@@ -4,7 +4,23 @@
     /* maintain aspect ratio */
 }
 
-.iconContainer{
+.iconContainer {
     display: flex;
     gap: var(--pd-m);
+}
+
+.cartContainer {
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    background-color: var(--color-light-gray);
+    left: 11px;
+    top: 12px;
+    border-radius: 50%;
+    min-width: 20px;
+    text-align: center;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-xs);
 }
