@@ -5,10 +5,6 @@ import Modal, { ModalHandles } from "../modal/modal";
 import { useCartStore } from "@/stores/cart";
 import { IProduct } from "@/types/products";
 
-// interface ModalHandles {
-//   open: () => void;
-// }
-
 interface ProductInfoProps {
   product: IProduct;
 }

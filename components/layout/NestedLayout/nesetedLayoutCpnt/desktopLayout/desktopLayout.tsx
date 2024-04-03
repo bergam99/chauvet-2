@@ -3,8 +3,11 @@ import Image from "next/image";
 import Cart from "@/public/icon/cart.png";
 import User from "@/public/icon/user.png";
 import classes from "./desktopLayout.module.css";
+import { useCartStore } from "@/stores/cart";
 
 export default function DesktopLayout() {
+  const count = useCartStore((state) => state.count());
+
   return (
     <>
       <div className={classes.iconContainer}>
@@ -17,7 +20,7 @@ export default function DesktopLayout() {
             className={classes.icon}
           />
         </Link>
-        <Link href="/cart">
+        <Link href="/cart" className={classes.cartContainer}>
           <Image
             src={Cart}
             alt="Cart"
@@ -25,6 +28,7 @@ export default function DesktopLayout() {
             height={20}
             className={classes.icon}
           />
+          <p className={classes.count}>{count}</p>
         </Link>
       </div>
     </>

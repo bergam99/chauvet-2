@@ -127,7 +127,7 @@ a {
 }
 
 .DefaultButton {
-    padding: 1em 1.8em;
+    padding: .8em 1.8em;
     font-family: var(--ff-body2);
     border: .6px solid var(--color-heavy-gray);
     background-color: var(--color-white);
@@ -137,7 +137,7 @@ a {
 }
 
 .DefaultButtonDark {
-    padding: 1em 1.8em;
+    padding: .8em 1.8em;
     font-family: var(--ff-body2);
     border: .6px solid var(--color-heavy-gray);
     background-color: var(--color-heavy-gray);
