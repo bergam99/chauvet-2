@@ -43,12 +43,8 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
                 href={`/posts/${post._id.toString()}`}
                 className={classes.detail}
               >
-                VOIR PLUS
+                VOIR PLUS ➛
               </Link>
-
-              <div className={classes.arrow}>
-                <Image src={arrow} alt="->" layout="responsive" />
-              </div>
             </div>
           </div>
         ))}
