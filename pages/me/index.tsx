@@ -10,6 +10,7 @@ const AuthPage = () => {
   const { data: session, status } = useSession();
   const loading = status === "loading";
 
+  // Q . ? est ce que c'est mieux d'utiliser getServersideProps et getSession et je check coté server ? et if !session et redirect to login page?
   return (
     <>
       {loading && <div>Loading...</div>}

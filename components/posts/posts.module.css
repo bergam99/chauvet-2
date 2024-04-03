@@ -18,17 +18,11 @@
 }
 
 .detailContainer{
-    display: flex;
-    align-items: center;
     width: fit-content;
-    padding-bottom: 3px
-}
-.detail{
+    padding-bottom: 3px;
     font-family: var(--ff-body2);
-    font-weight: var(--fw-light);
     font-size: var(--fs-xs-a);
     letter-spacing: var(--ls-m);
-    padding-right: 2px;
 }
 
 .arrow{
