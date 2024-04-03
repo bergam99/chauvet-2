@@ -28,7 +28,7 @@ export default function DesktopLayout() {
             height={20}
             className={classes.icon}
           />
-          <p className={classes.count}>{count}</p>
+          {count > 0 && <p className={classes.count}>{count}</p>}
         </Link>
       </div>
     </>
