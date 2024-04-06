@@ -3,12 +3,24 @@ import { useCartStore } from "@/stores/cart";
 import { useEffect, useState } from "react";
 import classes from "./cart.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
-  console.log({ cart });
-
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  const handleCheckout = () => {
+    // If there's no session (user not logged in), redirect to login page
+    if (!session) {
+      router.push("/me");
+    } else {
+      // If user is logged in, redirect to checkout page
+      router.push("/checkout");
+    }
+  };
 
   useEffect(() => {
     loadCart();
@@ -54,9 +66,12 @@ const Cart = () => {
               Continuer mes achats
             </Link>
 
-            <Link href="/products" className="DefaultButtonDark">
+            <button
+              className="DefaultButtonDark"
+              // onClick={() => handleCheckout()}
+            >
               Valider le paiement
-            </Link>
+            </button>
           </div>
         </>
       )}
