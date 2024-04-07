@@ -68,7 +68,7 @@ const Cart = () => {
 
             <button
               className="DefaultButtonDark"
-              // onClick={() => handleCheckout()}
+              onClick={() => handleCheckout()}
             >
               Valider le paiement
             </button>

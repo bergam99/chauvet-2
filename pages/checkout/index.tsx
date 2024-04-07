@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 
 function CheckoutPage() {
-  const emailInputRef = useRef();
-  const addressInputRef = useRef();
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
-  function submitFormHandler(event) {
-    event.preventDefault();
+  function submitFormHandler(e: React.FormEvent) {
+    e.preventDefault();
 
     const enteredEmail = emailInputRef?.current?.value;
-    // const enteredAddress = addressInputRef?.current?.value;
+
+    // add client side validation
 
     fetch("/api/checkout", {
       method: "POST",
@@ -33,4 +33,5 @@ function CheckoutPage() {
   );
 }
 
+// getServersideprops => if !session return redirect destination: "/login"
 export default CheckoutPage;
