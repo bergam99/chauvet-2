@@ -37,8 +37,12 @@ export default async function handler(
     //   return; // cancel this function execution
     // }
 
-    const db = await connectDB();
     const userId = token?.sub;
+
+    const db = await connectDB();
+    const userInfosCollection = db.collection("userInfos");
+    const existingUserInfo = await userInfosCollection.findOne({ userId });
+
     const newObject = {
       userId,
       civilite,
@@ -55,9 +59,13 @@ export default async function handler(
       tel2,
     };
 
-    await db.collection("userInfos").insertOne(newObject);
-
-    res.status(201).json({ message: "this works", newObject });
+    if (existingUserInfo) {
+      await userInfosCollection.updateOne({ userId }, { $set: newObject });
+      res.status(201).json({ message: "updated user Info", newObject });
+    } else {
+      await userInfosCollection.insertOne(newObject);
+      res.status(201).json({ message: "created user info", newObject });
+    }
   } else {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
