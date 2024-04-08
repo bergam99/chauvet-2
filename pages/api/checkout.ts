@@ -18,19 +18,19 @@ export default async function handler(
   }
 
   if (req.method === "POST") {
-    const email = req.body.email; //retreive
+    const prenom = req.body.prenom; //retreive
 
     // server side validation
-    if (!email || email.trim() === "" || !email.includes("@")) {
-      res.status(422).json({ message: "invalid email address." });
-      return; // cancel this function execution
-    }
+    // if (!prenom || prenom.trim() === "" || !prenom.includes("@")) {
+    //   res.status(422).json({ message: "invalid prenom address." });
+    //   return; // cancel this function execution
+    // }
 
     const db = await connectDB();
     const userId = token?.sub;
     const newObject = {
       userId,
-      email,
+      prenom,
     };
 
     await db.collection("userInfos").insertOne(newObject);

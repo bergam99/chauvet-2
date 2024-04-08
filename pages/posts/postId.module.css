@@ -1,7 +1,3 @@
-.section{
-    padding: 0.8em;
-}
-
 .heading{
     font-family: var(--ff-heading);
     font-size: var(--fs-3xl);
