@@ -19,6 +19,17 @@ export default async function handler(
 
   if (req.method === "POST") {
     const prenom = req.body.prenom; //retreive
+    const civilite = req.body.civilite;
+    const nom = req.body.nom;
+    const address = req.body.address;
+    const addressSupp = req.body.addressSupp;
+    const codePostal = req.body.codePostal;
+    const city = req.body.city;
+    const region = req.body.region;
+    const country = req.body.country;
+    const additionnalInfo = req.body.additionnalInfo;
+    const tel = req.body.tel;
+    const tel2 = req.body.tel2;
 
     // server side validation
     // if (!prenom || prenom.trim() === "" || !prenom.includes("@")) {
@@ -30,7 +41,18 @@ export default async function handler(
     const userId = token?.sub;
     const newObject = {
       userId,
+      civilite,
       prenom,
+      nom,
+      address,
+      addressSupp,
+      codePostal,
+      city,
+      region,
+      country,
+      additionnalInfo,
+      tel,
+      tel2,
     };
 
     await db.collection("userInfos").insertOne(newObject);
