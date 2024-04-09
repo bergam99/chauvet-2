@@ -42,7 +42,7 @@
     --fs-s: clamp(0.8rem, 3vw, 0.9rem);
 
     /* 'voir plus' button & connectedTxt in [postId] page */
-    --fs-xs: clamp(.8rem, 1.3vw, .8rem);
+    --fs-xs: clamp(.7rem, 1.3vw, .8rem);
 
     /* 'voir plus' link in posts page */
     --fs-xs-a: clamp(.6rem, 1.3vw, .7rem);

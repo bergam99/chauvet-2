@@ -20,10 +20,7 @@ const ProductsItem = ({ product }: ProductsItemProps) => {
         <div className={classes.description}>
           <h2 className={classes.name}>{product.name}</h2>
 
-          <Link
-            href={`/products/${product._id}`}
-            className={`${classes.button} DefaultButton`}
-          >
+          <Link href={`/products/${product._id}`} className="DefaultButton">
             <button>Voir plus</button>
           </Link>
         </div>

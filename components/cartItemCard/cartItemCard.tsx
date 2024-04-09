@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Close from "../buttons/close/close";
+import Close from "../customs/closeButton/closeButton";
 import { CartItem, useCartStore } from "@/stores/cart";
 import classes from "./cartItemCard.module.css";
 

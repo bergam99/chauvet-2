@@ -1,3 +1,42 @@
-/* .font{ */
-    /* font-family: var(--ff-body2); */
-/* } */
+.formContainer{
+    display: flex;
+    gap: 5em;
+    justify-content: space-between;
+}
+
+.formSection{
+    width: 100%;
+}
+
+.recapSection{
+    border: .6px solid var(--color-heavy-gray);
+    width: 40%;
+    margin-top: 7em;
+}
+.civilite {
+    font-size: var(--fs-s);
+    padding-bottom: var(--pd-s);
+}
+
+.radio {
+    display: flex;
+    gap: var(--pd-m);
+}
+
+.title {
+    font-family: var(--ff-body2);
+    padding: var(--pd-l) 0;
+    font-weight: bolder;
+}
+
+.subTitle {
+    font-family: var(--ff-body2);
+    padding: 0 0 var(--pd-l) 0;
+    font-size: var(--fs-s);
+}
+
+@media (max-width: 768px) {
+    .recapSection {
+        display: none;
+    }
+}

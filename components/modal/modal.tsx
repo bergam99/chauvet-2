@@ -8,7 +8,7 @@ import {
 import { createPortal } from "react-dom";
 import classes from "./modal.module.css";
 import Link from "next/link";
-import Close from "../buttons/close/close";
+import Close from "../customs/closeButton/closeButton";
 export interface ModalHandles {
   open: () => void;
 }

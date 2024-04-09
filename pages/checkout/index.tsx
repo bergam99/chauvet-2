@@ -1,5 +1,8 @@
 import { useRef, useState } from "react";
 import classes from "./checkout.module.css";
+import CustomRadioButton from "@/components/customs/custumRadioButton/custumRadioButton";
+import CustomInput from "@/components/customs/customInput/customInput";
+import CustomTextarea from "@/components/customs/customTextarea/customTextarea";
 
 function CheckoutPage() {
   const [civilite, setCivilite] = useState("");
@@ -61,95 +64,109 @@ function CheckoutPage() {
 
   return (
     <>
-      <form onSubmit={submitFormHandler} className={classes.form}>
-        <h2>1. Livraison</h2>
-        <p>Adresse de livraison</p>
+      <form onSubmit={submitFormHandler}>
+        <div className={classes.formContainer}>
+          <div className={classes.formSection}>
+            <h2 className={classes.title}>1. Livraison</h2>
+            <p className={classes.subTitle}>Adresse de livraison</p>
 
-        <div>
-          <p>Civilité</p>
-          <label htmlFor="m">M.</label>
-          <input
-            type="radio"
-            id="m"
-            name="civilite"
-            value="M."
-            onChange={handleCiviliteChange}
-            checked={civilite === "M."}
-          />
-          <label htmlFor="mme">Mme</label>
-          <input
-            type="radio"
-            id="mme"
-            name="civilite"
-            value="Mme"
-            onChange={handleCiviliteChange}
-            checked={civilite === "Mme"}
-          />
+            <p className={classes.civilite}>Civilité</p>
+            <div className={classes.radio}>
+              <CustomRadioButton
+                label="M."
+                name="civilite"
+                value="M."
+                checked={civilite === "M."}
+                onChange={handleCiviliteChange}
+              />
+
+              <CustomRadioButton
+                label="Mme"
+                name="civilite"
+                value="Mme"
+                checked={civilite === "Mme"}
+                onChange={handleCiviliteChange}
+              />
+            </div>
+
+            <CustomInput
+              label="Prénom"
+              name="prenom"
+              ref={prenomInputRef}
+              required={true}
+            />
+
+            <CustomInput
+              label="Nom"
+              name="nom"
+              ref={nomInputRef}
+              required={true}
+            />
+
+            <CustomInput
+              label="Adresse"
+              name="adress"
+              ref={addressInputRef}
+              required={true}
+            />
+
+            <CustomInput
+              label="Adresse supplémentaire"
+              name="supp"
+              ref={addressSuppInputRef}
+            />
+
+            <CustomInput
+              label="Code postal"
+              name="codePostal"
+              ref={codePostalInputRef}
+              required={true}
+            />
+
+            <CustomInput
+              label="Ville"
+              name="ville"
+              ref={cityInputRef}
+              required={true}
+            />
+
+            <CustomInput
+              label="État / Région"
+              name="region"
+              ref={regionInputRef}
+            />
+
+            <CustomInput
+              label="Pays"
+              name="pays"
+              ref={countryInputRef}
+              required={true}
+            />
+
+            <CustomTextarea
+              label="Information additionnelle"
+              name="addition"
+              ref={additionnalInfoInputRef}
+            />
+
+            <CustomInput
+              label="Téléphone"
+              name="tel"
+              ref={telInputRef}
+              required={true}
+              type="tel"
+            />
+            <CustomInput
+              label="Téléphone 2"
+              name="tel2"
+              ref={tel2InputRef}
+              type="tel"
+            />
+          </div>
+          <div className={classes.recapSection}>
+            Votre commande... comming soon
+          </div>
         </div>
-
-        <div>
-          <br />
-          <label htmlFor="prenom">Prénom *</label>
-          <input type="text" id="prenom" required ref={prenomInputRef} />
-
-          <label htmlFor="nom">Nom *</label>
-          <input type="text" id="nom" required ref={nomInputRef} />
-        </div>
-
-        <div>
-          <label htmlFor="adress">Adresse *</label>
-          <input
-            type="text"
-            id="adress"
-            placeholder="indiquez un lieu"
-            required
-            ref={addressInputRef}
-          />
-          <p>Numéro de rue, code postal, npm de l&apos;entreprise</p>
-
-          <label htmlFor="supp">Adresse supplémentaire</label>
-          <input type="text" id="supp" ref={addressSuppInputRef} />
-          <p>Appartement, bloc, étage, etc.</p>
-        </div>
-
-        <div>
-          <label htmlFor="codePostal">Code postal *</label>
-          <input
-            type="text"
-            id="codePostal"
-            required
-            ref={codePostalInputRef}
-          />
-
-          <label htmlFor="ville">Ville *</label>
-          <input type="text" id="ville" required ref={cityInputRef} />
-        </div>
-
-        <div>
-          <label htmlFor="region">État / Région</label>
-          <input type="text" id="region" ref={regionInputRef} />
-
-          <label htmlFor="pays">Pays *</label>
-          <input type="text" id="pays" required ref={countryInputRef} />
-        </div>
-
-        <div>
-          <label htmlFor="addition">Information additionnelle</label>
-          <textarea
-            name="addition"
-            id="addition"
-            ref={additionnalInfoInputRef}
-          ></textarea>
-        </div>
-
-        <div>
-          <label htmlFor="tel">Téléphone *</label>
-          <input type="tel" name="tel" id="tel" required ref={telInputRef} />
-
-          <label htmlFor="tel2">Téléphone 2</label>
-          <input type="tel" name="tel2" id="tel2" ref={tel2InputRef} />
-        </div>
-
         <button className="DefaultButtonDark" type="submit">
           Suivant
         </button>

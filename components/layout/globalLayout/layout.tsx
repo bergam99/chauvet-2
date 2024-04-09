@@ -3,11 +3,11 @@ import Footer from "../../footer/footer";
 import Logo from "../../logo/logo";
 import NestedLayout from "../NestedLayout/nestedLayout";
 import classes from "./layout.module.css";
-interface Props {
+interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <main className={classes.layout}>
