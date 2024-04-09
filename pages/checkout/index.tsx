@@ -17,6 +17,7 @@ function CheckoutPage() {
   const additionnalInfoInputRef = useRef<HTMLTextAreaElement>(null);
   const telInputRef = useRef<HTMLInputElement>(null);
   const tel2InputRef = useRef<HTMLInputElement>(null);
+
   function submitFormHandler(e: React.FormEvent) {
     e.preventDefault();
 
@@ -88,81 +89,90 @@ function CheckoutPage() {
               />
             </div>
 
-            <CustomInput
-              label="Prénom"
-              name="prenom"
-              ref={prenomInputRef}
-              required={true}
-            />
+            <div className={classes.name}>
+              <CustomInput
+                label="Prénom"
+                name="prenom"
+                ref={prenomInputRef}
+                required={true}
+              />
 
-            <CustomInput
-              label="Nom"
-              name="nom"
-              ref={nomInputRef}
-              required={true}
-            />
+              <CustomInput
+                label="Nom"
+                name="nom"
+                ref={nomInputRef}
+                required={true}
+              />
+            </div>
 
-            <CustomInput
-              label="Adresse"
-              name="adress"
-              ref={addressInputRef}
-              required={true}
-            />
+            <div className={classes.address}>
+              <CustomInput
+                label="Adresse"
+                name="adress"
+                ref={addressInputRef}
+                required={true}
+              />
 
-            <CustomInput
-              label="Adresse supplémentaire"
-              name="supp"
-              ref={addressSuppInputRef}
-            />
+              <CustomInput
+                label="Adresse supplémentaire"
+                name="supp"
+                ref={addressSuppInputRef}
+              />
+            </div>
 
-            <CustomInput
-              label="Code postal"
-              name="codePostal"
-              ref={codePostalInputRef}
-              required={true}
-            />
+            <div className={classes.ville}>
+              <CustomInput
+                label="Code postal"
+                name="codePostal"
+                ref={codePostalInputRef}
+                required={true}
+              />
 
-            <CustomInput
-              label="Ville"
-              name="ville"
-              ref={cityInputRef}
-              required={true}
-            />
+              <CustomInput
+                label="Ville"
+                name="ville"
+                ref={cityInputRef}
+                required={true}
+              />
+            </div>
 
-            <CustomInput
-              label="État / Région"
-              name="region"
-              ref={regionInputRef}
-            />
+            <div className={classes.country}>
+              <CustomInput
+                label="État / Région"
+                name="region"
+                ref={regionInputRef}
+              />
 
-            <CustomInput
-              label="Pays"
-              name="pays"
-              ref={countryInputRef}
-              required={true}
-            />
+              <CustomInput
+                label="Pays"
+                name="pays"
+                ref={countryInputRef}
+                required={true}
+              />
+            </div>
 
+            <div className={classes.tel}>
+              <CustomInput
+                label="Téléphone"
+                name="tel"
+                ref={telInputRef}
+                required={true}
+                type="tel"
+              />
+              <CustomInput
+                label="Téléphone 2"
+                name="tel2"
+                ref={tel2InputRef}
+                type="tel"
+              />
+            </div>
             <CustomTextarea
               label="Information additionnelle"
               name="addition"
               ref={additionnalInfoInputRef}
             />
-
-            <CustomInput
-              label="Téléphone"
-              name="tel"
-              ref={telInputRef}
-              required={true}
-              type="tel"
-            />
-            <CustomInput
-              label="Téléphone 2"
-              name="tel2"
-              ref={tel2InputRef}
-              type="tel"
-            />
           </div>
-          <button className="DefaultButtonDark" type="submit">
+          <button className={`${classes.btn} DefaultButtonDark`} type="submit">
             Suivant
           </button>
         </div>

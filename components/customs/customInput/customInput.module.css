@@ -1,19 +1,21 @@
 .inputContainer {
     position: relative;
     margin: 20px 0;
+    width: 100%;
 }
 
 .inputContainer .input {
     width: 100%;
     border: none;
     border-bottom: .6px solid var(--color-heavy-gray);
-    padding: 10px 0;
+    padding: 10px 0 5px;
     font-size: var(--fs-s);
     outline: none;
 }
 
 .required{
     color: var(--color-red);
+    font-size: var(--fs-s);
 }
 
 
