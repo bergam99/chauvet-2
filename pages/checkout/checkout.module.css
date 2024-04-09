@@ -1,16 +1,19 @@
-.formContainer{
+.form{
     display: flex;
     gap: 5em;
-    justify-content: space-between;
 }
 
-.formSection{
+.formContainer{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    margin-bottom: 1em;
 }
+
 
 .recapSection{
     border: .6px solid var(--color-heavy-gray);
-    width: 40%;
+    width: 35%;
     margin-top: 7em;
 }
 .civilite {

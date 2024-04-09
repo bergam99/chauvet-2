@@ -17,7 +17,6 @@ function CheckoutPage() {
   const additionnalInfoInputRef = useRef<HTMLTextAreaElement>(null);
   const telInputRef = useRef<HTMLInputElement>(null);
   const tel2InputRef = useRef<HTMLInputElement>(null);
-
   function submitFormHandler(e: React.FormEvent) {
     e.preventDefault();
 
@@ -64,9 +63,9 @@ function CheckoutPage() {
 
   return (
     <>
-      <form onSubmit={submitFormHandler}>
+      <form onSubmit={submitFormHandler} className={classes.form}>
         <div className={classes.formContainer}>
-          <div className={classes.formSection}>
+          <div>
             <h2 className={classes.title}>1. Livraison</h2>
             <p className={classes.subTitle}>Adresse de livraison</p>
 
@@ -163,13 +162,13 @@ function CheckoutPage() {
               type="tel"
             />
           </div>
-          <div className={classes.recapSection}>
-            Votre commande... comming soon
-          </div>
+          <button className="DefaultButtonDark" type="submit">
+            Suivant
+          </button>
         </div>
-        <button className="DefaultButtonDark" type="submit">
-          Suivant
-        </button>
+        <div className={classes.recapSection}>
+          Votre commande... comming soon
+        </div>
       </form>
     </>
   );
