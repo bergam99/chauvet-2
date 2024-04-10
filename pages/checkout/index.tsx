@@ -56,7 +56,7 @@ function CheckoutPage() {
               <CustomRadioButton
                 label="M."
                 name="gender"
-                value="M." // Set the value to "M."
+                value="M."
                 checked={userAddress.gender === "M."}
                 onChange={handleInputChange}
               />
@@ -64,7 +64,7 @@ function CheckoutPage() {
               <CustomRadioButton
                 label="Mme"
                 name="gender"
-                value="Mme" // Set the value to "Mme"
+                value="Mme"
                 checked={userAddress.gender === "Mme"}
                 onChange={handleInputChange}
               />
