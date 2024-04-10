@@ -3,7 +3,7 @@ import classes from "./me.module.css";
 import Image from "next/image";
 import facebookLogo from "@/public/icon/logo-fb.png";
 import googleLogo from "@/public/icon/logo-google.png";
-import GoBack from "@/components/buttons/goBack";
+import GoBack from "@/components/customs/backButton/goBack";
 import MeLayout from "@/components/layout/meLayout/meLayout";
 
 const AuthPage = () => {

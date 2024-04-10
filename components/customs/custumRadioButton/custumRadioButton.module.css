@@ -1,0 +1,48 @@
+.radioContainer {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+.radioInput {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border: .6px solid var(--color-heavy-gray);
+    position: relative;
+    margin-right: var(--pd-xs);
+}
+
+.label{
+    font-size: var(--fs-s);
+}
+
+.line {
+    position: absolute;
+    background-color:var(--color-heavy-gray);
+}
+
+.line1,
+.line2 {
+    height: 145%;
+    width: .6px;
+}
+
+.line1 {
+    transform: rotate(45deg);
+}
+
+.line2 {
+    transform: rotate(-45deg);
+}
+
+.radioInput:not(:checked)+.checkmark .line {
+    display: none;
+}
