@@ -1,65 +1,46 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import classes from "./checkout.module.css";
 import CustomRadioButton from "@/components/customs/custumRadioButton/custumRadioButton";
 import CustomInput from "@/components/customs/customInput/customInput";
 import CustomTextarea from "@/components/customs/customTextarea/customTextarea";
 
 function CheckoutPage() {
-  const [civilite, setCivilite] = useState("");
-  const prenomInputRef = useRef<HTMLInputElement>(null);
-  const nomInputRef = useRef<HTMLInputElement>(null);
-  const addressInputRef = useRef<HTMLInputElement>(null);
-  const addressSuppInputRef = useRef<HTMLInputElement>(null);
-  const codePostalInputRef = useRef<HTMLInputElement>(null);
-  const cityInputRef = useRef<HTMLInputElement>(null);
-  const regionInputRef = useRef<HTMLInputElement>(null);
-  const countryInputRef = useRef<HTMLInputElement>(null);
-  const additionnalInfoInputRef = useRef<HTMLTextAreaElement>(null);
-  const telInputRef = useRef<HTMLInputElement>(null);
-  const tel2InputRef = useRef<HTMLInputElement>(null);
+  const [userCheckoutInfo, setUserCheckoutInfo] = useState({
+    civilite: "",
+    prenom: "",
+    nom: "",
+    address: "",
+    addressSupp: "",
+    codePostal: "",
+    city: "",
+    region: "",
+    country: "",
+    additionalInfo: "",
+    tel: "",
+    tel2: "",
+  });
 
-  function submitFormHandler(e: React.FormEvent) {
+  // Handles form submission
+  const submitFormHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const enteredPrenom = prenomInputRef?.current?.value;
-    const enteredNom = nomInputRef?.current?.value;
-    const enteredAddress = addressInputRef?.current?.value;
-    const enteredAddressSuppInputRef = addressSuppInputRef?.current?.value;
-    const enteredCodePostalInputRef = codePostalInputRef?.current?.value;
-    const enteredCityInputRef = cityInputRef?.current?.value;
-    const enteredRegionInputRef = regionInputRef?.current?.value;
-    const enteredCountryInputRef = countryInputRef?.current?.value;
-    const enteredAdditionnalInfoInputRef =
-      additionnalInfoInputRef?.current?.value;
-    const enteredTelInputRef = telInputRef?.current?.value;
-    const enteredTel2InputRef = tel2InputRef?.current?.value;
-
-    // add client side validation
-
     fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        civilite,
-        prenom: enteredPrenom,
-        nom: enteredNom,
-        address: enteredAddress,
-        addressSupp: enteredAddressSuppInputRef,
-        codePostal: enteredCodePostalInputRef,
-        city: enteredCityInputRef,
-        region: enteredRegionInputRef,
-        country: enteredCountryInputRef,
-        additionnalInfo: enteredAdditionnalInfoInputRef,
-        tel: enteredTelInputRef,
-        tel2: enteredTel2InputRef,
-      }),
+      body: JSON.stringify(userCheckoutInfo),
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
-  }
+  };
 
-  const handleCiviliteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCivilite(e.target.value);
+  // Update form data as user inputs change
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setUserCheckoutInfo((prevuserCheckoutInfo) => ({
+      ...prevuserCheckoutInfo,
+      [name]: value,
+    }));
   };
 
   return (
@@ -75,17 +56,17 @@ function CheckoutPage() {
               <CustomRadioButton
                 label="M."
                 name="civilite"
-                value="M."
-                checked={civilite === "M."}
-                onChange={handleCiviliteChange}
+                value="M." // Set the value to "M."
+                checked={userCheckoutInfo.civilite === "M."}
+                onChange={handleInputChange}
               />
 
               <CustomRadioButton
                 label="Mme"
                 name="civilite"
-                value="Mme"
-                checked={civilite === "Mme"}
-                onChange={handleCiviliteChange}
+                value="Mme" // Set the value to "Mme"
+                checked={userCheckoutInfo.civilite === "Mme"}
+                onChange={handleInputChange}
               />
             </div>
 
@@ -93,14 +74,14 @@ function CheckoutPage() {
               <CustomInput
                 label="Prénom"
                 name="prenom"
-                ref={prenomInputRef}
                 required={true}
+                onChange={handleInputChange}
               />
 
               <CustomInput
                 label="Nom"
                 name="nom"
-                ref={nomInputRef}
+                onChange={handleInputChange}
                 required={true}
               />
             </div>
@@ -108,15 +89,15 @@ function CheckoutPage() {
             <div className={classes.address}>
               <CustomInput
                 label="Adresse"
-                name="adress"
-                ref={addressInputRef}
+                name="address"
+                onChange={handleInputChange}
                 required={true}
               />
 
               <CustomInput
                 label="Adresse supplémentaire"
-                name="supp"
-                ref={addressSuppInputRef}
+                name="addressSupp"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -124,14 +105,14 @@ function CheckoutPage() {
               <CustomInput
                 label="Code postal"
                 name="codePostal"
-                ref={codePostalInputRef}
+                onChange={handleInputChange}
                 required={true}
               />
 
               <CustomInput
                 label="Ville"
-                name="ville"
-                ref={cityInputRef}
+                name="city"
+                onChange={handleInputChange}
                 required={true}
               />
             </div>
@@ -140,13 +121,13 @@ function CheckoutPage() {
               <CustomInput
                 label="État / Région"
                 name="region"
-                ref={regionInputRef}
+                onChange={handleInputChange}
               />
 
               <CustomInput
                 label="Pays"
-                name="pays"
-                ref={countryInputRef}
+                name="country"
+                onChange={handleInputChange}
                 required={true}
               />
             </div>
@@ -155,21 +136,21 @@ function CheckoutPage() {
               <CustomInput
                 label="Téléphone"
                 name="tel"
-                ref={telInputRef}
+                onChange={handleInputChange}
                 required={true}
                 type="tel"
               />
               <CustomInput
                 label="Téléphone 2"
                 name="tel2"
-                ref={tel2InputRef}
+                onChange={handleInputChange}
                 type="tel"
               />
             </div>
             <CustomTextarea
               label="Information additionnelle"
-              name="addition"
-              ref={additionnalInfoInputRef}
+              name="additionalInfo"
+              onChange={handleInputChange}
             />
           </div>
           <button className={`${classes.btn} DefaultButtonDark`} type="submit">
@@ -177,12 +158,12 @@ function CheckoutPage() {
           </button>
         </div>
         <div className={classes.recapSection}>
-          Votre commande... comming soon
+          Votre commande... coming soon
         </div>
       </form>
     </>
   );
 }
 
-// getServersideprops => if !session return redirect destination: "/login"
+// if !session return redirect destination: "/login"
 export default CheckoutPage;
