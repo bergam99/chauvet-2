@@ -1,22 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
 import { getToken } from "next-auth/jwt";
-
+import serverSideCheckoutFormValidation from "./../../utils/serverSideCheckoutFormValidation";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    // server side validation
-    // if (!prenom || prenom.trim() === "" || !prenom.includes("@")) {
-    //   res.status(422).json({ message: "invalid prenom." });
-    //   return; // cancel this function execution
-    // }
-
     const token = await getToken({ req });
 
     if (!token) {
       return res.status(401).json({ error: "You should login before." });
+    }
+
+    // serverside validation => third party?
+    const SSvalidationError = serverSideCheckoutFormValidation(req.body);
+    if (Object.keys(SSvalidationError).length > 0) {
+      return res.status(422).json({ SSvalidationError });
     }
 
     const user_id = token?.sub;

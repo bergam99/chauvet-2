@@ -10,7 +10,7 @@ function CheckoutPage() {
     firstName: "",
     lastName: "",
     address: "",
-    additionalAddresses: "",
+    additionalAddresse: "",
     zipcode: "",
     city: "",
     region: "",
