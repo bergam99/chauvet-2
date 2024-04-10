@@ -5,13 +5,13 @@ import CustomInput from "@/components/customs/customInput/customInput";
 import CustomTextarea from "@/components/customs/customTextarea/customTextarea";
 
 function CheckoutPage() {
-  const [userCheckoutInfo, setUserCheckoutInfo] = useState({
-    civilite: "",
-    prenom: "",
-    nom: "",
+  const [userAddress, setUserAddress] = useState({
+    gender: "",
+    firstName: "",
+    lastName: "",
     address: "",
-    addressSupp: "",
-    codePostal: "",
+    additionalAddresses: "",
+    zipcode: "",
     city: "",
     region: "",
     country: "",
@@ -26,7 +26,7 @@ function CheckoutPage() {
     fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userCheckoutInfo),
+      body: JSON.stringify(userAddress),
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
@@ -37,8 +37,8 @@ function CheckoutPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setUserCheckoutInfo((prevuserCheckoutInfo) => ({
-      ...prevuserCheckoutInfo,
+    setUserAddress((prevUserAddress) => ({
+      ...prevUserAddress,
       [name]: value,
     }));
   };
@@ -55,17 +55,17 @@ function CheckoutPage() {
             <div className={classes.radio}>
               <CustomRadioButton
                 label="M."
-                name="civilite"
+                name="gender"
                 value="M." // Set the value to "M."
-                checked={userCheckoutInfo.civilite === "M."}
+                checked={userAddress.gender === "M."}
                 onChange={handleInputChange}
               />
 
               <CustomRadioButton
                 label="Mme"
-                name="civilite"
+                name="gender"
                 value="Mme" // Set the value to "Mme"
-                checked={userCheckoutInfo.civilite === "Mme"}
+                checked={userAddress.gender === "Mme"}
                 onChange={handleInputChange}
               />
             </div>
@@ -73,14 +73,14 @@ function CheckoutPage() {
             <div className={classes.name}>
               <CustomInput
                 label="Prénom"
-                name="prenom"
+                name="firstName"
                 required={true}
                 onChange={handleInputChange}
               />
 
               <CustomInput
                 label="Nom"
-                name="nom"
+                name="lastName"
                 onChange={handleInputChange}
                 required={true}
               />
@@ -96,7 +96,7 @@ function CheckoutPage() {
 
               <CustomInput
                 label="Adresse supplémentaire"
-                name="addressSupp"
+                name="additionalAddresses"
                 onChange={handleInputChange}
               />
             </div>
@@ -104,7 +104,7 @@ function CheckoutPage() {
             <div className={classes.ville}>
               <CustomInput
                 label="Code postal"
-                name="codePostal"
+                name="zipcode"
                 onChange={handleInputChange}
                 required={true}
               />

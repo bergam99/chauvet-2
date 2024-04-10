@@ -16,27 +16,33 @@ export default async function handler(
     const token = await getToken({ req });
 
     if (!token) {
-      return res.status(401).json({ error: "You should login." });
+      return res.status(401).json({ error: "You should login before." });
     }
 
-    const userId = token?.sub;
+    const user_id = token?.sub;
 
     const db = await connectDB();
-    const userInfosCollection = db.collection("userInfos");
-    const existingUserInfo = await userInfosCollection.findOne({ userId });
-    const { ...newUserInfos } = req.body;
+    const userAddressCollection = db.collection("UserAddress");
+    const existingUserAddress = await userAddressCollection.findOne({
+      user_id,
+    });
+    const { ...newUserAddress } = req.body;
 
-    if (existingUserInfo) {
-      // Update existing user information
-      await userInfosCollection.updateOne({ userId }, { $set: newUserInfos });
+    if (existingUserAddress) {
+      await userAddressCollection.updateOne(
+        { user_id },
+        { $set: newUserAddress }
+      );
       res
         .status(201)
-        .json({ message: "updated user Info", userId, newUserInfos });
+        .json({ message: "User address updated", user_id, newUserAddress });
     } else {
-      await userInfosCollection.insertOne({ userId, ...newUserInfos });
-      res
-        .status(201)
-        .json({ message: "created user info", userId, newUserInfos });
+      await userAddressCollection.insertOne({ user_id, ...newUserAddress });
+      res.status(201).json({
+        message: "User address created",
+        user_id,
+        newUserAddress,
+      });
     }
   } else {
     res.status(405).end(`Method ${req.method} Not Allowed`);
