@@ -32,14 +32,13 @@ function CheckoutPage() {
       .then((data) => console.log(data));
   };
 
-  // Update form data as user inputs change
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // extract name and value
     setUserAddress((prevUserAddress) => ({
       ...prevUserAddress,
-      [name]: value,
+      [name]: value, // name(key) : value
     }));
   };
 
