@@ -1,0 +1,29 @@
+.civilite {
+    font-size: var(--fs-s);
+    padding-bottom: var(--sp-s);
+}
+
+.radio {
+    display: flex;
+    gap: var(--sp-m);
+}
+
+.name,
+.address,
+.ville,
+.country,
+.tel {
+    display: flex;
+    gap: 2em;
+}
+
+@media (max-width: 768px) {
+
+    .name,
+    .address,
+    .ville,
+    .country,
+    .tel {
+        display: block;
+    }
+}
