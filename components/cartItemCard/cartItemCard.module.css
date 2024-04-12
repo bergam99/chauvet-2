@@ -1,5 +1,12 @@
-.cardContainer {
+.whiteBg{
+    background-color: var(--color-white);
+    border: .6px solid var(--color-heavy-gray);
+}
+.grayBg{
     background-color: var(--color-light-gray);
+}
+
+.cardContainer {
     display: flex;
     margin-bottom: var(--pd-s);
 }

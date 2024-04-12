@@ -10,9 +10,14 @@
 }
 
 .recapSection{
-    border: .6px solid var(--color-heavy-gray);
-    margin-top: var(--pd-5xl);
+    margin-top: var(--pd-2xl);
 }
+
+.recapTitle {
+    font-family: var(--ff-body2);
+    margin-bottom: var(--pd-m);
+}
+
 .civilite {
     font-size: var(--fs-s);
     padding-bottom: var(--pd-s);

@@ -3,8 +3,11 @@ import classes from "./checkout.module.css";
 import CustomRadioButton from "@/components/customs/custumRadioButton/custumRadioButton";
 import CustomInput from "@/components/customs/customInput/customInput";
 import CustomTextarea from "@/components/customs/customTextarea/customTextarea";
+import { useCartStore } from "@/stores/cart";
+import CartItemCard from "@/components/cartItemCard/cartItemCard";
 
 function CheckoutPage() {
+  const { cart, loadCart } = useCartStore();
   const [userAddress, setUserAddress] = useState({
     gender: "",
     firstName: "",
@@ -45,7 +48,7 @@ function CheckoutPage() {
   return (
     <>
       <form onSubmit={submitFormHandler} className={classes.form}>
-        <div className={classes.formContainer}>
+        <section className={classes.formContainer}>
           <div>
             <h2 className={classes.title}>1. Livraison</h2>
             <p className={classes.subTitle}>Adresse de livraison</p>
@@ -155,10 +158,19 @@ function CheckoutPage() {
           <button className={`${classes.btn} DefaultButtonDark`} type="submit">
             Suivant
           </button>
-        </div>
-        <div className={classes.recapSection}>
-          Votre commande... coming soon
-        </div>
+        </section>
+        <section className={classes.recapSection}>
+          <h2 className={classes.recapTitle}>Votre commande</h2>
+          {cart.length > 0 &&
+            cart.map((item) => (
+              <CartItemCard
+                item={item}
+                key={item._id.toString()}
+                removeBtn={false}
+                bgColor="white"
+              />
+            ))}
+        </section>
       </form>
     </>
   );

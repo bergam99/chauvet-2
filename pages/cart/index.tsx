@@ -43,7 +43,7 @@ const Cart = () => {
         </div>
         {cart.length > 0 ? (
           cart.map((item) => (
-            <CartItemCard item={item} key={item._id.toString()} />
+            <CartItemCard item={item} key={item._id.toString()} removeBtn />
           ))
         ) : (
           <p className={classes.noProduct}>

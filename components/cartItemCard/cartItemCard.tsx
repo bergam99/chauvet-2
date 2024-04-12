@@ -5,13 +5,27 @@ import classes from "./cartItemCard.module.css";
 
 interface CartItemCardProps {
   item: CartItem;
+  removeBtn: boolean;
+  bgColor: string;
 }
 
-const CartItemCard = ({ item }: CartItemCardProps) => {
+const CartItemCard = ({
+  item,
+  removeBtn,
+  bgColor = "gray",
+}: CartItemCardProps) => {
   const { remove } = useCartStore();
 
   return (
-    <section className={classes.cardContainer}>
+    <section
+      className={`${
+        bgColor === "white"
+          ? classes.whiteBg
+          : bgColor === "gray"
+          ? classes.grayBg
+          : ""
+      } ${classes.cardContainer}`}
+    >
       <Image
         src={item.images[0]?.url}
         alt={item.name}
@@ -19,7 +33,6 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
         height={300}
         className={classes.img}
       />
-
       <div className={classes.descriptionContainer}>
         <div className={classes.titleWrapper}>
           <p className={classes.name}>{item.name}</p>
@@ -29,11 +42,13 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
         <p className={classes.price}>{item.count * item.price} €</p>
       </div>
       <div className={classes.x}>
-        <Close
-          onClick={() => {
-            remove(item._id.toString());
-          }}
-        />
+        {removeBtn && (
+          <Close
+            onClick={() => {
+              remove(item._id.toString());
+            }}
+          />
+        )}
       </div>
     </section>
   );
