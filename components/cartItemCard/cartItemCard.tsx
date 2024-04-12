@@ -6,7 +6,7 @@ import classes from "./cartItemCard.module.css";
 interface CartItemCardProps {
   item: CartItem;
   removeBtn: boolean;
-  bgColor: string;
+  bgColor?: string;
 }
 
 const CartItemCard = ({
