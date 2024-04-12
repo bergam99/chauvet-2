@@ -6,7 +6,7 @@
 
 .iconContainer {
     display: flex;
-    gap: var(--pd-m);
+    gap: var(--sp-m);
 }
 
 .cartContainer {

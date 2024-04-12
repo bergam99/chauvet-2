@@ -57,16 +57,16 @@
     --ls-s: .1rem;
     --ls-m: .2rem;
 
-    /* ===== padding ===== */
-    --pd-xs: clamp(.3em, 1vw, .5em);
-    --pd-s: clamp(8px, 2vw, 16px);
-    --pd-m: clamp(.5em, 1vw, 1em);
-    --pd-l: clamp(.5em, 3vw, 2em);
-    --pd-xl: clamp(.7em, 2vw, 2em);
-    --pd-2xl: clamp(1em, 4vw, 5em);
+    /* ===== spaces ===== */
+    --sp-xs: clamp(.3em, 1vw, .5em);
+    --sp-s: clamp(8px, 2vw, 16px);
+    --sp-m: clamp(.5em, 1vw, 1em);
+    --sp-l: clamp(.5em, 3vw, 2em);
+    --sp-xl: clamp(.7em, 2vw, 2em);
+    --sp-2xl: clamp(1em, 4vw, 5em);
     /* layout6 */
-    --pd-4xl: clamp(2em, 6vw, 5em);
-    --pd-5xl: clamp(3em, 16vw, 13em);
+    --sp-4xl: clamp(2em, 6vw, 5em);
+    --sp-5xl: clamp(3em, 16vw, 13em);
 
     /* ===== line-height ===== */
     /* intro */

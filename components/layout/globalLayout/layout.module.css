@@ -13,7 +13,7 @@
 .headerContainer{
     display: flex;
     align-items: center;
-    padding: var(--pd-2xl) 0;
+    padding: var(--sp-2xl) 0;
 }
 
 .nestedLayout {

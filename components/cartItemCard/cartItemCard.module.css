@@ -8,7 +8,7 @@
 
 .cardContainer {
     display: flex;
-    margin-bottom: var(--pd-s);
+    margin-bottom: var(--sp-s);
 }
 
 .descriptionContainer {
@@ -21,9 +21,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:var(--pd-s);
+    gap:var(--sp-s);
     flex:1;
-    padding: var(--pd-s);
+    padding: var(--sp-s);
 }
 
 .name{
@@ -43,16 +43,16 @@
 }
 
 .price {
-    padding: var(--pd-s);
+    padding: var(--sp-s);
 }
 
 .x{
-    padding: var(--pd-m);
+    padding: var(--sp-m);
 }
 
 .img {
     width: 25%;
     height: auto;
     object-fit: cover;
-    padding: var(--pd-s);
+    padding: var(--sp-s);
 }

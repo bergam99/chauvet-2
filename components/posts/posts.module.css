@@ -6,7 +6,7 @@
 }
 
 .title{
-    padding: var(--pd-s) 0;
+    padding: var(--sp-s) 0;
     font-size: var(--fs-2xl);
 }
 

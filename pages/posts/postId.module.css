@@ -1,13 +1,13 @@
 .heading{
     font-family: var(--ff-heading);
     font-size: var(--fs-3xl);
-    padding-bottom: var(--pd-l);
+    padding-bottom: var(--sp-l);
     text-align: center;
 }
 
 .thema{
     font-size: var(--fs-l);
-    padding: var(--pd-xl);
+    padding: var(--sp-xl);
     text-align: center;
 }
 

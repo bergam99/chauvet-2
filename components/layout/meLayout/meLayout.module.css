@@ -12,7 +12,7 @@
     padding-bottom: 7em;
     display: flex;
     flex-direction: column;
-    gap: var(--pd-m);
+    gap: var(--sp-m);
 }
 
 .link {
