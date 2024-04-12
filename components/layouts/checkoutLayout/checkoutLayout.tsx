@@ -29,7 +29,6 @@ const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
           <h2 className={classes.title}>{title}</h2>
           <p className={classes.subTitle}>{subTitle}</p>
           {children}
-
           <button className={`${classes.btn} DefaultButtonDark`} type="submit">
             Suivant
           </button>
