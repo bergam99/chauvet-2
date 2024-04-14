@@ -1,6 +1,7 @@
 .textareaContainer {
     display: flex;
     flex-direction: column;
+    margin-top: var(--sp-em-m);
 }
 
 .label{

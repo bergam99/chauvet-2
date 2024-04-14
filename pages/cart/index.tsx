@@ -35,6 +35,8 @@ const Cart = () => {
     return acc + item.count * item.price;
   }, 0);
 
+  console.log({ totalPrice });
+
   return (
     <>
       <section className={classes.cart}>

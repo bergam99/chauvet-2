@@ -1,6 +1,7 @@
 .civilite {
     font-size: var(--fs-s);
     padding-bottom: var(--sp-s);
+    margin-top: var(--sp-em-m);
 }
 
 .radio {

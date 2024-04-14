@@ -67,6 +67,9 @@
     /* layout6 */
     --sp-4xl: clamp(2em, 6vw, 5em);
     --sp-5xl: clamp(3em, 16vw, 13em);
+    /* em */
+    --sp-em-m: 1.6em;
+    
 
     /* ===== line-height ===== */
     /* intro */
