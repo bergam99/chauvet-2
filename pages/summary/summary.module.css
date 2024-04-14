@@ -1,0 +1,24 @@
+.address{
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    color: var(--color-gray);
+}
+
+.addressContainer{
+    border: .6px solid var(--color-gray);
+    border-radius: 7px;
+    padding: var(--sp-l);
+}
+
+.total{
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}
+
+
+@media (min-width: 768px) {
+
+    .total {
+        display: none;
+    }
+}

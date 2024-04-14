@@ -14,9 +14,9 @@ function CheckoutPage() {
     city: "",
     region: "",
     country: "",
-    additionalInfo: "",
     tel: "",
     tel2: "",
+    additionalInfo: "",
   });
 
   const submitFormHandler = async (e: React.FormEvent<HTMLFormElement>) => {
