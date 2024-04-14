@@ -39,7 +39,9 @@ const CartItemCard = ({
           <p className={classes.quantity}>Quantité : {item.count}</p>
         </div>
         <div className={classes.totalContainer}></div>
-        <p className={classes.price}>{item.count * item.price} €</p>
+        <p className={classes.price}>
+          {(item.count * item.price).toFixed(2)} €
+        </p>
       </div>
       <div className={classes.x}>
         {removeBtn && (

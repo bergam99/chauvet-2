@@ -5,13 +5,14 @@ import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { totalPrice } from "@/utils/cartUtils";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
   const { data: session } = useSession();
   const router = useRouter();
-
+  const total = totalPrice(cart);
   const handleCheckout = () => {
     // If there's no session (user not logged in), redirect to login page
     if (!session) {
@@ -30,12 +31,6 @@ const Cart = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-
-  const totalPrice = cart.reduce((acc, item) => {
-    return acc + item.count * item.price;
-  }, 0);
-
-  console.log({ totalPrice });
 
   return (
     <>
@@ -57,10 +52,10 @@ const Cart = () => {
           </p>
         )}
       </section>
-      {totalPrice > 0 && (
+      {total.length > 0 && (
         <>
           <div className={classes.totalWrapper}>
-            <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+            <p className={classes.totalPrice}> Total : {total} €</p>
           </div>
 
           <div className={classes.buttonsWrapper}>

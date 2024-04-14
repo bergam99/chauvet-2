@@ -2,6 +2,7 @@ import CartItemCard from "../../cartItemCard/cartItemCard";
 import { useCartStore } from "@/stores/cart";
 import classes from "./checkoutLayout.module.css";
 import { useEffect, useState } from "react";
+import { totalPrice } from "@/utils/cartUtils";
 
 type CheckoutLayoutProps = {
   title: string;
@@ -12,6 +13,7 @@ type CheckoutLayoutProps = {
 const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
   const { cart, loadCart } = useCartStore();
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+  const total = totalPrice(cart);
 
   useEffect(() => {
     loadCart();
@@ -45,7 +47,9 @@ const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
                 bgColor="white"
               />
             ))}
-          <p>Total :</p>
+          <p className={classes.total}>
+            Total : <span className={classes.totalNb}>{total} €</span>
+          </p>
         </aside>
       </section>
     </>
