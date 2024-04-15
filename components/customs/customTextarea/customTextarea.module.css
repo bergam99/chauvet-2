@@ -13,7 +13,7 @@
     margin: var(--sp-xs) 0;
     border: .6px solid var(--color-gray);
     height: 4rem;
-    border-radius: 7px;
+    border-radius: var(--br-m);
     resize: none;
     font-size: var(--fs-s);
 }

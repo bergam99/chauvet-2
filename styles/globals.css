@@ -68,8 +68,13 @@
     --sp-4xl: clamp(2em, 6vw, 5em);
     --sp-5xl: clamp(3em, 16vw, 13em);
     /* em */
+    --sp-em-s:1em;
     --sp-em-m: 1.6em;
-    
+
+    /* ===== border-radious ===== */
+    --br-m: 7px;
+    --br-l:4%;
+    --br-max: 50%;
 
     /* ===== line-height ===== */
     /* intro */

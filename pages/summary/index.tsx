@@ -31,11 +31,12 @@ const Summary = () => {
 
   return (
     <>
+      {/* <p>1. Livraison</p> */}
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
+        buttonTxt="Payer"
       >
-        <p className={classes.total}>Total de la commande : {total} €</p>
         {loading && <p>Loading...</p>}
         {!loading && userAddresses.length > 0 && (
           <ul className={classes.addressContainer}>
@@ -53,6 +54,7 @@ const Summary = () => {
           </ul>
         )}
         {!loading && userAddresses.length === 0 && <p>No addresse found.</p>}
+        <p className={classes.total}>Total de la commande : {total} €</p>
       </CheckoutLayout>
     </>
   );

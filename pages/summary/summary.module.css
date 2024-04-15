@@ -6,17 +6,18 @@
 
 .addressContainer{
     border: .6px solid var(--color-gray);
-    border-radius: 7px;
+    border-radius: var(--br-m);
     padding: var(--sp-l);
 }
 
 .total{
     font-size: var(--fs-xs);
     font-family: var(--ff-body2);
+    padding-top: var(--sp-4xl);
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1063px) {
 
     .total {
         display: none;

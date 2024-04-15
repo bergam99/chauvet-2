@@ -8,9 +8,15 @@ type CheckoutLayoutProps = {
   title: string;
   subTitle: string;
   children: React.ReactNode;
+  buttonTxt?: string;
 };
 
-const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
+const CheckoutLayout = ({
+  title,
+  subTitle,
+  children,
+  buttonTxt = "Suivant",
+}: CheckoutLayoutProps) => {
   const { cart, loadCart } = useCartStore();
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
   const total = totalPrice(cart);
@@ -32,7 +38,7 @@ const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
           <p className={classes.subTitle}>{subTitle}</p>
           {children}
           <button className={`${classes.btn} DefaultButtonDark`} type="submit">
-            Suivant
+            {buttonTxt}
           </button>
         </div>
 
