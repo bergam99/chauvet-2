@@ -19,7 +19,7 @@ const Cart = () => {
       router.push("/me");
     } else {
       // If user is logged in, redirect to checkout page
-      router.push("/checkout");
+      router.push("/checkout/form");
     }
   };
 

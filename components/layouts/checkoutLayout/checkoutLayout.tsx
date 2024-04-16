@@ -31,7 +31,7 @@ const CheckoutLayout = ({
   }
 
   const payment = async () => {
-    fetch("/api/stripe_payment", {
+    fetch("/api/post_products_to_stripe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ products: cart }),
