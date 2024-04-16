@@ -7,25 +7,28 @@ import { useCartStore } from "@/stores/cart";
 
 const Summary = () => {
   const [userAddresses, setUserAddresses] = useState<IUserAddress[]>([]);
-  const [loading, setLoading] = useState(true); // Default to true, starts loading on mount
+  const [isLoading, setIsLoading] = useState(true);
   const { cart } = useCartStore();
   const total = totalPrice(cart);
 
   useEffect(() => {
-    fetch("/api/summary")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+    fetch("/api/summary", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
         }
-        return response.json();
+        return res.json();
       })
       .then((data) => {
         setUserAddresses(data.userAddress);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Fetching user addresses failed:", error);
-        setLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
@@ -37,8 +40,8 @@ const Summary = () => {
         subTitle="Adresse de livraison"
         buttonTxt="Payer"
       >
-        {loading && <p>Loading...</p>}
-        {!loading && userAddresses.length > 0 && (
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && userAddresses.length > 0 && (
           <ul className={classes.addressContainer}>
             {userAddresses.map((address) => (
               <li key={address._id.toString()} className={classes.address}>
@@ -47,13 +50,15 @@ const Summary = () => {
                 {address.city} {address.zipcode} {address.region} <br />
                 {address.country} <br />
                 Téléphone : {address.tel} <br />
-                Téléphone 2 : {address.tel2} <br />
-                note: {address.additionalInfo}
+                {address?.tel2 && <p>Téléphone 2 : {address.tel2}</p>}
+                {address?.additionalInfo && (
+                  <p>note: {address.additionalInfo}</p>
+                )}
               </li>
             ))}
           </ul>
         )}
-        {!loading && userAddresses.length === 0 && <p>No addresse found.</p>}
+        {!isLoading && userAddresses.length === 0 && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
       </CheckoutLayout>
     </>

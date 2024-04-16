@@ -18,7 +18,7 @@ const CheckoutLayout = ({
   buttonTxt = "Suivant",
 }: CheckoutLayoutProps) => {
   const { cart, loadCart } = useCartStore();
-  const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+  const [isLoading, setIsLoading] = useState(true);
   const total = totalPrice(cart);
 
   useEffect(() => {
@@ -30,6 +30,14 @@ const CheckoutLayout = ({
     return <p>Loading...</p>;
   }
 
+  const payment = async () => {
+    fetch("/api/stripe_payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ products: cart }),
+    }).then((response) => response.json().then((data) => console.log(data)));
+  };
+
   return (
     <>
       <section className={classes.layoutContainer}>
@@ -37,7 +45,11 @@ const CheckoutLayout = ({
           <h2 className={classes.title}>{title}</h2>
           <p className={classes.subTitle}>{subTitle}</p>
           {children}
-          <button className={`${classes.btn} DefaultButtonDark`} type="submit">
+          <button
+            className={`${classes.btn} DefaultButtonDark`}
+            type="submit"
+            onClick={buttonTxt === "Payer" ? payment : undefined}
+          >
             {buttonTxt}
           </button>
         </div>
