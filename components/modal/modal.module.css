@@ -1,18 +1,18 @@
 .modal {
     margin: auto;
-    padding: var(--pd-2xl);
+    padding: var(--sp-2xl);
     border: none;
 }
 
 .btnContainer{
     display: flex;
-    gap: var(--pd-xl);
+    gap: var(--sp-xl);
     justify-content: center;
 }
 
 .txt{
     font-size: var(--fs-m);
-    padding: var(--pd-xl) 0;
+    padding: var(--sp-xl) 0;
     text-align: center;
 }
 

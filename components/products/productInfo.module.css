@@ -5,8 +5,8 @@
 
 .infoContainer {
     display: flex;
-    gap: var(--pd-xl);
-    padding-bottom: var(--pd-l);
+    gap: var(--sp-xl);
+    padding-bottom: var(--sp-l);
 }
 
 .mainInfo {
@@ -24,8 +24,8 @@
 
 .title {
     width: fit-content;
-    margin-bottom: var(--pd-xl);
-    padding-bottom: var(--pd-xs);
+    margin-bottom: var(--sp-xl);
+    padding-bottom: var(--sp-xs);
     font-family: var(--ff-heading);
 }
 
@@ -37,13 +37,13 @@
 .price {
     font-family: var(--ff-body2);
     font-size: var(--fs-xs);
-    padding: var(--pd-2xl) 0;
+    padding: var(--sp-2xl) 0;
 }
 
 
 .stock {
     color: var(--color-red);
-    padding: var(--pd-m) 0;
+    padding: var(--sp-m) 0;
     font-family: var(--ff-heading);
     font-size: var(--fs-xs);
 }
@@ -54,7 +54,7 @@
     }
 
     .mainInfo {
-        padding: var(--pd-l) 0;
+        padding: var(--sp-l) 0;
     }
 
     .btn {

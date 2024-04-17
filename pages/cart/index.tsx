@@ -5,20 +5,21 @@ import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { totalPrice } from "@/utils/cartUtils";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
   const { data: session } = useSession();
   const router = useRouter();
-
+  const total = totalPrice(cart);
   const handleCheckout = () => {
     // If there's no session (user not logged in), redirect to login page
     if (!session) {
       router.push("/me");
     } else {
       // If user is logged in, redirect to checkout page
-      router.push("/checkout");
+      router.push("/checkout/form");
     }
   };
 
@@ -31,10 +32,6 @@ const Cart = () => {
     return <p>Loading...</p>;
   }
 
-  const totalPrice = cart.reduce((acc, item) => {
-    return acc + item.count * item.price;
-  }, 0);
-
   return (
     <>
       <section className={classes.cart}>
@@ -43,7 +40,7 @@ const Cart = () => {
         </div>
         {cart.length > 0 ? (
           cart.map((item) => (
-            <CartItemCard item={item} key={item._id.toString()} />
+            <CartItemCard item={item} key={item._id.toString()} removeBtn />
           ))
         ) : (
           <p className={classes.noProduct}>
@@ -55,10 +52,10 @@ const Cart = () => {
           </p>
         )}
       </section>
-      {totalPrice > 0 && (
+      {total.length > 0 && (
         <>
           <div className={classes.totalWrapper}>
-            <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+            <p className={classes.totalPrice}> Total : {total} €</p>
           </div>
 
           <div className={classes.buttonsWrapper}>
@@ -73,6 +70,7 @@ const Cart = () => {
               Valider le paiement
             </button>
           </div>
+          <p>livraison gratuite à partir de 15 euros</p>
         </>
       )}
     </>

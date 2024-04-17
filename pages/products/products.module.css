@@ -1,8 +1,8 @@
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--pd-4xl);
-    padding: var(--pd-xl) 0;
+    grid-gap: var(--sp-4xl);
+    padding: var(--sp-xl) 0;
 }
 
 .mainProductContainer{
@@ -22,7 +22,7 @@
 .mainBottom{
     display: flex;
     align-items: center;
-    gap: var(--pd-xl);
+    gap: var(--sp-xl);
     position: absolute;
     top: 95%;
     left: 50%;

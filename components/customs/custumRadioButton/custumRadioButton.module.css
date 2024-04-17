@@ -17,7 +17,7 @@
     height: 17px;
     border: .6px solid var(--color-heavy-gray);
     position: relative;
-    margin-right: var(--pd-xs);
+    margin-right: var(--sp-xs);
 }
 
 .label{

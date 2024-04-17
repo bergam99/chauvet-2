@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas: "img0 img1"
         "connectedTxt0 connectedTxt1";
-    grid-column-gap: var(--pd-xl);
+    grid-column-gap: var(--sp-xl);
 }
 
 
@@ -18,7 +18,7 @@
 .connectedTxt1 {
     font-family: var(--ff-link);
     font-size: var(--fs-xs);
-    padding: var(--pd-m) 0;
+    padding: var(--sp-m) 0;
 }
 
 .connectedTxt0 {

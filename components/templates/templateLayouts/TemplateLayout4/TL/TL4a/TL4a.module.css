@@ -7,7 +7,7 @@
 .txt {
     grid-area: txt;
     align-self: center;
-    padding: var(--pd-xl);
+    padding: var(--sp-xl);
 }
 
 .txtStyle{
@@ -22,7 +22,7 @@
     grid-area: connectedTxt;
     font-family: var(--ff-link);
     font-size: var(--fs-xs);
-    padding: var(--pd-m) 0;
+    padding: var(--sp-m) 0;
 }
 
 @media (max-width: 768px) {
@@ -33,7 +33,7 @@
     }
 
     .txt {
-        padding: var(--pd-xl) 0;
+        padding: var(--sp-xl) 0;
     }
     
     .connectedTxt{

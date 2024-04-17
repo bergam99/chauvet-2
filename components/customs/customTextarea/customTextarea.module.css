@@ -1,6 +1,7 @@
 .textareaContainer {
     display: flex;
     flex-direction: column;
+    margin-top: var(--sp-em-m);
 }
 
 .label{
@@ -8,11 +9,11 @@
 }
 
 .textarea{
-    padding: var(--pd-xs);
-    margin: var(--pd-xs) 0;
+    padding: var(--sp-xs);
+    margin: var(--sp-xs) 0;
     border: .6px solid var(--color-gray);
     height: 4rem;
-    border-radius: 7px;
+    border-radius: var(--br-m);
     resize: none;
     font-size: var(--fs-s);
 }
