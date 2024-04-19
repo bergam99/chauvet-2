@@ -47,6 +47,7 @@
     /* 'voir plus' link in posts page */
     --fs-xs-a: clamp(.6rem, 1.3vw, .7rem);
 
+    --fs--7rem: .7rem;
     /* in products page, mainProduct container*/
     --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
 

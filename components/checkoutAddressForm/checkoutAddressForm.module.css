@@ -2,6 +2,7 @@
     font-size: var(--fs-s);
     padding-bottom: var(--sp-s);
     margin-top: var(--sp-em-m);
+    font-family: var(--ff-body2);
 }
 
 .radio {

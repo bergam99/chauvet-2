@@ -11,6 +11,7 @@
     padding: 10px 0 5px;
     font-size: var(--fs-s);
     outline: none;
+    font-family: var(--ff-body2);
 }
 
 .required{
@@ -26,7 +27,8 @@
     transition: all 0.3s ease;
     pointer-events: none;
     color: var(--color-gray);
-    font-size: var(--fs-s);
+    font-size: var(--fs-s-a);
+    font-family: var(--ff-body2);
 }
 
 .inputContainer .input:focus+ .label,

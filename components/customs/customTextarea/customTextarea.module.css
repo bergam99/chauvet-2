@@ -6,6 +6,7 @@
 
 .label{
     font-size: var(--fs-s);
+    font-family: var(--ff-body2);
 }
 
 .textarea{
@@ -16,4 +17,5 @@
     border-radius: var(--br-m);
     resize: none;
     font-size: var(--fs-s);
+    font-family: var(--ff-body2);
 }
