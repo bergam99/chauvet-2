@@ -33,6 +33,8 @@ export default async function handler(
 
       // if product don't exists on stripe dashboard then create one
       if (!stripeProduct) {
+        // console.log(product?.images.url[0]);
+
         await stripe.products.create({
           // create() : build stripe fc
           name: product.name,
@@ -40,6 +42,7 @@ export default async function handler(
             unit_amount: product.price * 100,
             currency: "EUR",
           },
+          // images: [product?.images?.url[0]],
           active: true,
         });
       }

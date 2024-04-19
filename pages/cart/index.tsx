@@ -13,6 +13,7 @@ const Cart = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const total = totalPrice(cart);
+
   const handleCheckout = () => {
     // If there's no session (user not logged in), redirect to login page
     if (!session) {
@@ -21,6 +22,10 @@ const Cart = () => {
       // If user is logged in, redirect to checkout page
       router.push("/checkout/form");
     }
+  };
+
+  const toProducts = () => {
+    router.push("/products");
   };
 
   useEffect(() => {
@@ -59,9 +64,9 @@ const Cart = () => {
           </div>
 
           <div className={classes.buttonsWrapper}>
-            <Link href="/products" className="DefaultButton">
+            <button className="DefaultButton" onClick={() => toProducts()}>
               Continuer mes achats
-            </Link>
+            </button>
 
             <button
               className="DefaultButtonDark"
