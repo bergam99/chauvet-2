@@ -1,13 +1,15 @@
-import { IProduct } from "@/types/products";
 import { NextApiRequest, NextApiResponse } from "next";
+import Stripe from "stripe";
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2024-04-10",
+  typescript: true,
+});
 
-// retrieve a list of active products from Stripe
 const getActiveProducts = async () => {
-  const checkProducts = await stripe.products.list(); // list() : calls the Stripe API to get a list of all products
+  const checkProducts = await stripe.products.list();
   const availableProducts = checkProducts.data.filter(
-    (product: any) => product.active === true
+    (product) => product.active === true
   );
   return availableProducts;
 };
@@ -16,15 +18,17 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (req.method !== "POST") {
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
+  // ====== creating the products from front-end (cart) ======
   const { products } = req.body;
-
-  // creating the products from front-end (cart)
   try {
     const activeProducts = await getActiveProducts();
 
     for (const product of products) {
       const stripeProduct = activeProducts.find(
-        (sp: IProduct) => sp.name.toLowerCase() === product.name.toLowerCase() //avoid case sensetive pb (double fetch)
+        (sp) => sp.name.toLowerCase() === product.name.toLowerCase() //avoid case sensetive pb (double fetch)
       );
 
       // if product don't exists on stripe dashboard then create one
@@ -40,51 +44,28 @@ export default async function handler(
         });
       }
     }
-    res.status(200).json({ message: "Products synchronized with Stripe." });
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error", details: error });
-  }
 
-  // ====== create payment session =====
-  try {
-    // get updated products
-    const activeProducts = await getActiveProducts();
+    // // ====== create payment session =====
 
     let stripeItems: any = [];
     for (const product of products) {
       const stripeProduct = activeProducts?.find(
-        (prod: any) => prod?.name.toLowerCase() === product?.name.toLowerCase()
+        (prod) => prod?.name.toLowerCase() === product?.name.toLowerCase()
       );
 
       if (!stripeProduct) {
         throw new Error(`Product not found: ${product.name}`);
       }
 
-      if (!product.quantity || product.quantity < 1) {
-        throw new Error(
-          `Quantity is required and must be at least 1 for: ${product.name}`
-        );
-      }
-
       if (stripeProduct) {
         stripeItems.push({
           price: stripeProduct?.default_price,
-          quantity: product?.quantity,
+          quantity: product?.count,
         });
       }
-      return {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: product.name,
-          },
-          unit_amount: product.price * 100,
-        },
-        quantity: product.quantity,
-      };
     }
 
-    const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.BASE_URL;
     const successUrl = `${baseUrl}/payment-success`;
     const cancelUrl = `${baseUrl}/payment-failed`;
 
@@ -97,7 +78,6 @@ export default async function handler(
 
     return res.json({ url: session.url });
   } catch (error) {
-    console.error("Error in creating Stripe session:", error);
     res.status(500).json({ error: "Internal Server Error", details: error });
   }
 }

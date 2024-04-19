@@ -26,17 +26,29 @@ const CheckoutLayout = ({
     setIsLoading(false);
   }, [loadCart]);
 
+  const payment = async () => {
+    setIsLoading(true);
+    const response = await fetch("/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: cart }),
+    });
+    const data = await response.json();
+    console.log({ data });
+
+    if (response.ok) {
+      window.location.href = data.url;
+    } else {
+      console.error("failed to create checkout session", data.error);
+    }
+    setIsLoading(false);
+  };
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
-
-  const payment = async () => {
-    fetch("/api/payment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ products: cart }),
-    }).then((response) => response.json().then((data) => console.log(data)));
-  };
 
   return (
     <>
@@ -50,7 +62,8 @@ const CheckoutLayout = ({
             type="submit"
             onClick={buttonTxt === "Payer" ? payment : undefined}
           >
-            {buttonTxt}
+            {/* {buttonTxt} */}
+            {buttonTxt === "Payer" && isLoading ? "Loading..." : buttonTxt}
           </button>
         </div>
 

@@ -70,7 +70,6 @@ const Cart = () => {
               Valider le paiement
             </button>
           </div>
-          <p>livraison gratuite à partir de 15 euros</p>
         </>
       )}
     </>
