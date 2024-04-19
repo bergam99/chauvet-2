@@ -45,15 +45,13 @@ const Summary = () => {
           <ul className={classes.addressContainer}>
             {userAddresses.map((address) => (
               <li key={address._id.toString()} className={classes.address}>
-                {address.firstName} {address.lastName} <br />
+                {address.gender} {address.firstName} {address.lastName} <br />
                 {address.address} {address.additionalAddresse} <br />
                 {address.city} {address.zipcode} {address.region} <br />
                 {address.country} <br />
                 Téléphone : {address.tel} <br />
-                {address?.tel2 && <p>Téléphone 2 : {address.tel2}</p>}
-                {address?.additionalInfo && (
-                  <p>note: {address.additionalInfo}</p>
-                )}
+                {address?.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
+                {address?.additionalInfo && `Note: ${address.additionalInfo}`}
               </li>
             ))}
           </ul>

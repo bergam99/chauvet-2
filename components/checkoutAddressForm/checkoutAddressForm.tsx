@@ -75,7 +75,7 @@ const CheckoutAddressForm = ({
 
         <CustomInput
           label="Adresse supplémentaire"
-          name="additionalAddresses"
+          name="additionalAddresse"
           onChange={handleInputChange}
         />
       </div>
