@@ -24,3 +24,9 @@
     font-family: var(--ff-body2);
     font-size: var(--fs-xs);
 }
+
+.userName{
+    font-size: var(--fs-xs-a);
+    display: flex;
+    align-items: center;
+}

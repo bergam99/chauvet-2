@@ -57,7 +57,7 @@ const Cart = () => {
           </p>
         )}
       </section>
-      {total.length > 0 && (
+      {cart.length !== 0 && (
         <>
           <div className={classes.totalWrapper}>
             <p className={classes.totalPrice}> Total : {total} €</p>
