@@ -36,7 +36,7 @@ const CheckoutLayout = ({
       body: JSON.stringify({ products: cart }),
     });
     const data = await response.json();
-    console.log({ data });
+    // console.log({ data });
 
     if (response.ok) {
       window.location.href = data.url;
@@ -49,6 +49,8 @@ const CheckoutLayout = ({
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
+  console.log({ cart });
 
   return (
     <>

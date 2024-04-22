@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+// import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -7,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 const getActiveProducts = async () => {
-  const checkProducts = await stripe.products.list();
+  const checkProducts = await stripe.products.list(); // list() : get all products
   const availableProducts = checkProducts.data.filter(
     (product) => product.active === true
   );
@@ -21,10 +22,18 @@ export default async function handler(
   if (req.method !== "POST") {
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
+
+  // User
+  // const token = await getToken({ req });
+  // const user_email = token?.email;
+
   // ====== creating the products from front-end (cart) ======
   const { products } = req.body;
+  console.log({ products });
+  console.log(products[1]?.images[0]?.url);
+
   try {
-    const activeProducts = await getActiveProducts();
+    const activeProducts = await getActiveProducts(); // available products
 
     for (const product of products) {
       const stripeProduct = activeProducts.find(
@@ -33,8 +42,6 @@ export default async function handler(
 
       // if product don't exists on stripe dashboard then create one
       if (!stripeProduct) {
-        // console.log(product?.images.url[0]);
-
         await stripe.products.create({
           // create() : build stripe fc
           name: product.name,
@@ -45,6 +52,7 @@ export default async function handler(
           // images: [product?.images?.url[0]],
           active: true,
         });
+        // console.log("product created on stripe product catalog");
       }
     }
 
@@ -60,11 +68,15 @@ export default async function handler(
         throw new Error(`Product not found: ${product.name}`);
       }
 
+      // If available product push to stripeItems array to create session (price: default unit price, quantity: cart quantity)
+      // console.log(product?.images.url[0]);
+      // console.log({ product });
       if (stripeProduct) {
         stripeItems.push({
           price: stripeProduct?.default_price,
           quantity: product?.count,
         });
+        console.log({ stripeItems });
       }
     }
 
@@ -72,12 +84,15 @@ export default async function handler(
     const successUrl = `${baseUrl}/payment-success`;
     const cancelUrl = `${baseUrl}/payment-failed`;
 
+    // session create
     const session = await stripe.checkout.sessions.create({
-      line_items: stripeItems,
+      line_items: stripeItems, // order items
       mode: "payment",
       success_url: successUrl,
       cancel_url: cancelUrl,
     });
+    // customer_email: user_email,
+    // client_reference_id: token?.sub
 
     return res.json({ url: session.url });
   } catch (error) {
