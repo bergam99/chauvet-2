@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-// import { getToken } from "next-auth/jwt";
+import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -24,8 +24,9 @@ export default async function handler(
   }
 
   // User
-  // const token = await getToken({ req });
-  // const user_email = token?.email;
+  const token = await getToken({ req });
+  const user_id = token?.sub || undefined;
+  const user_email = token?.email || undefined;
 
   // ====== creating the products from front-end (cart) ======
   const { products } = req.body;
@@ -49,7 +50,6 @@ export default async function handler(
             unit_amount: product.price * 100,
             currency: "EUR",
           },
-          // images: [product?.images?.url[0]],
           active: true,
         });
         // console.log("product created on stripe product catalog");
@@ -90,9 +90,10 @@ export default async function handler(
       mode: "payment",
       success_url: successUrl,
       cancel_url: cancelUrl,
+      customer_email: user_email,
+      client_reference_id: user_id,
     });
-    // customer_email: user_email,
-    // client_reference_id: token?.sub
+    console.log({ session });
 
     return res.json({ url: session.url });
   } catch (error) {
