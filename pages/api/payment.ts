@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-04-10",
   typescript: true,
 });
@@ -30,8 +30,8 @@ export default async function handler(
 
   // ====== creating the products from front-end (cart) ======
   const { products } = req.body;
-  console.log({ products });
-  console.log(products[1]?.images[0]?.url);
+  // console.log({ products });
+  // console.log(products[1]?.images[0]?.url);
 
   try {
     const activeProducts = await getActiveProducts(); // available products
@@ -76,7 +76,7 @@ export default async function handler(
           price: stripeProduct?.default_price,
           quantity: product?.count,
         });
-        console.log({ stripeItems });
+        // console.log({ stripeItems });
       }
     }
 
@@ -93,7 +93,8 @@ export default async function handler(
       customer_email: user_email,
       client_reference_id: user_id,
     });
-    console.log({ session });
+
+    // console.log({ session });
 
     return res.json({ url: session.url });
   } catch (error) {
