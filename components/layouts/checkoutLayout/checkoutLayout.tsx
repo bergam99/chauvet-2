@@ -50,7 +50,7 @@ const CheckoutLayout = ({
     return <p>Loading...</p>;
   }
 
-  console.log({ cart });
+  // console.log({ cart });
 
   return (
     <>
