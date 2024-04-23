@@ -18,13 +18,25 @@
 .link {
     font-size: var(--fs-xs);
     font-family: var(--ff-body2);
+        width: fit-content;
+}
+
+.link:hover {
+    border-bottom: .6px solid var(--color-heavy-gray);
+    /* width: fit-content; */
+}
+
+.active {
+    border-bottom: .6px solid var(--color-heavy-gray);
 }
 
 .deconnexion {
     color: var(--color-red);
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
 }
 
-.children{
+.children {
     margin: auto;
 }
 

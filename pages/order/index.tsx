@@ -1,11 +1,13 @@
 import MeLayout from "@/components/layouts/meLayout/meLayout";
 import OrderCard from "@/components/orderCard/orderCard";
 import { IOrder } from "@/types/order";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { data: session } = useSession();
 
   useEffect(() => {
     fetch("/api/order", {
@@ -28,13 +30,14 @@ const OrderPage = () => {
       });
   }, []);
   console.log({ orders });
+  // TODO:  si session vide -> interdit, (server) *** (partie api) session.user.id=>collection order / server => front
 
   return (
     <>
       <MeLayout>
-        {!isLoading && orders.length > 0 && (
+        <p>Mes commandes</p>
+        {!isLoading && orders.length > 0 && session && (
           <table>
-            <caption>Mes commandes</caption>
             {orders.map((orderItem) => (
               <tbody key={orderItem._id.toString()}>
                 <OrderCard order={orderItem} />
@@ -43,6 +46,8 @@ const OrderPage = () => {
           </table>
         )}
         {!isLoading && !orders && <p>No order found.</p>}
+        {!session && <p>You must be logged in to see your orders.</p>}
+        {/* TODO:redirect to login page*/}
       </MeLayout>
     </>
   );

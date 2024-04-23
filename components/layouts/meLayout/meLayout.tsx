@@ -1,7 +1,7 @@
 import classes from "./meLayout.module.css";
-import arrow from "@/public/icon/right-arrow.png";
 import Link from "next/link";
-import { signIn, useSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export const handleSignout = (e: { preventDefault: () => void }) => {
   e.preventDefault();
@@ -13,20 +13,31 @@ interface Props {
 }
 
 const MeLayout = ({ children }: Props) => {
+  const router = useRouter();
+
+  const isActive = (pathname: string) => router.pathname === pathname;
+
   return (
     <>
       <div className={classes.authenticatedContainer}>
         <div className={classes.desktopMenuContainer}>
-          <Link href="/me" className={classes.link}>
+          <Link
+            href="/me"
+            className={`${classes.link} ${
+              isActive("/me") ? classes.active : ""
+            }`}
+          >
             Me
           </Link>
-          <Link href="/order" className={classes.link}>
+          <Link
+            href="/order"
+            className={`${classes.link} ${
+              isActive("/order") ? classes.active : ""
+            }`}
+          >
             Mes commandes
           </Link>
-          <button
-            className={`${classes.link} ${classes.deconnexion}`}
-            onClick={handleSignout}
-          >
+          <button className={classes.deconnexion} onClick={handleSignout}>
             Déconnexion
           </button>
         </div>

@@ -18,7 +18,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       <ul>
         {order.orderItems.map((orderItem, index) => (
           <li key={index}>
-            <p>product :{orderItem.name}</p>
+            <p>product :{orderItem.name.substring(0, 15)}</p>
             <p>quantity :{orderItem.quantity}</p>
             <p>each price : {orderItem.price}</p>
             <p></p>
