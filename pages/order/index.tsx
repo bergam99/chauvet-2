@@ -41,20 +41,26 @@ const OrderPage = () => {
   return (
     <>
       <MeLayout>
-        <p>Mes commandes</p>
-        <p>commande total: {totalOrder}</p>
-        {!isLoading && orders.length > 0 && session && (
-          <table>
-            {orders.map((orderItem) => (
-              <tbody key={orderItem._id.toString()}>
-                <OrderCard order={orderItem} />
-              </tbody>
-            ))}
-          </table>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            {!isLoading && orders.length > 0 && session && (
+              <table>
+                <p>Mes commandes</p>
+                <p>commande total: {totalOrder}</p>
+                {orders.map((orderItem) => (
+                  <tbody key={orderItem._id.toString()}>
+                    <OrderCard order={orderItem} />
+                  </tbody>
+                ))}
+              </table>
+            )}
+            {!isLoading && !orders && <p>No order found.</p>}
+            {!session && <p>You must be logged in to see your orders.</p>}
+            {/* TODO:redirect to login page*/}
+          </>
         )}
-        {!isLoading && !orders && <p>No order found.</p>}
-        {!session && <p>You must be logged in to see your orders.</p>}
-        {/* TODO:redirect to login page*/}
       </MeLayout>
     </>
   );

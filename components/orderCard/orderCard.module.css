@@ -1,4 +1,9 @@
-.ordercard{
+.ordercard {
     border: .6px solid var(--color-heavy-gray);
     margin: 1em;
+}
+
+.font {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
 }
