@@ -19,7 +19,7 @@ export default async function handler(
         .find({ user_id })
         .toArray();
 
-      res.status(200).json({ message: "api/orders:ok", ordersCount, orders });
+      res.status(200).json({ message: "api/order:ok", ordersCount, orders });
     } catch (error) {
       res.status(405).json({ error: "Method Not Allowed" });
     }

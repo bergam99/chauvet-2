@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrder[]>([]);
+  const [totalOrder, setTotalOrder] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { data: session } = useSession();
 
@@ -22,6 +23,7 @@ const OrderPage = () => {
       })
       .then((data) => {
         setOrders(data.orders);
+        setTotalOrder(data.ordersCount);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -36,6 +38,7 @@ const OrderPage = () => {
     <>
       <MeLayout>
         <p>Mes commandes</p>
+        <p>commande total: {totalOrder}</p>
         {!isLoading && orders.length > 0 && session && (
           <table>
             {orders.map((orderItem) => (
