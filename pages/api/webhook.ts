@@ -1,4 +1,5 @@
 import { connectDB } from "@/utils/connectDB";
+import { safeParseFloat } from "@/utils/parseFloat";
 import { NextApiRequest, NextApiResponse } from "next";
 import getRawBody from "raw-body";
 import Stripe from "stripe";
@@ -71,7 +72,7 @@ export default async function handler(
         orderItems: cartItems,
       };
 
-      console.log({ orderData });
+      // console.log({ orderData });
 
       const db = await connectDB();
       const orderCollection = db.collection("Orders");
@@ -85,11 +86,4 @@ export default async function handler(
     console.error("Error in webhook:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
-}
-
-function safeParseFloat(value: string | null): number | null {
-  if (value === null) return null; // Early return if value is null
-  const parsed = parseFloat(value);
-  const parsedNoDecimal = parsed / 100;
-  return isNaN(parsedNoDecimal) ? null : parsedNoDecimal; // Check for NaN and return null if invalid
 }

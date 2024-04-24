@@ -1,8 +1,8 @@
 import { ObjectId } from "mongodb";
+import { IUserAddress } from "./userAddress";
+import { IUser } from "./user";
 
-// TODO: populate user infos
-
-export interface IOrder {
+export interface IOrders {
   _id: ObjectId | string;
   user_id: string;
   paymentInfo: {
@@ -17,4 +17,6 @@ export interface IOrder {
     quantity: number;
     image?: string;
   }[];
+  userAddress: IUserAddress[];
+  user: IUser[];
 }
