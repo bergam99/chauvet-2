@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
 import CheckoutAddressForm from "@/components/checkoutAddressForm/checkoutAddressForm";
 
-function CheckoutPage() {
+function CheckoutFormPage() {
   const router = useRouter();
   const [userAddress, setUserAddress] = useState({
     gender: "",
@@ -29,27 +30,29 @@ function CheckoutPage() {
     }));
   };
 
-  const submitFormHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  const postAddress = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch("/api/userAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userAddress),
     }).then((response) => response.json());
-    // .then((data) => console.log(data));
     router.push("/checkout/summary");
   };
 
   return (
+    // [checkout/form]
     <>
-      <CheckoutAddressForm
-        userAddress={userAddress}
-        handleInputChange={handleInputChange}
-        submitFormHandler={submitFormHandler}
-      />
+      <CheckoutLayout title="1. Livraison" subTitle="Adresse de livraison">
+        <CheckoutAddressForm
+          userAddress={userAddress}
+          handleInputChange={handleInputChange}
+          postAddress={postAddress}
+        />
+      </CheckoutLayout>
     </>
   );
 }
 
 // if !session return redirect destination: "/login"
-export default CheckoutPage;
+export default CheckoutFormPage;

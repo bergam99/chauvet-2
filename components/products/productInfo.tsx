@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Modal, { ModalHandles } from "../modal/modal";
 import { useCartStore } from "@/stores/cart";
 import { IProduct } from "@/types/products";
+import Link from "next/link";
 
 interface ProductInfoProps {
   product: IProduct;
@@ -23,7 +24,18 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
   return (
     <>
-      <Modal ref={dialog} title={name} />
+      <Modal ref={dialog}>
+        <p className={classes.txt}>1 {name} a été ajouté dans votre panier.</p>
+        <div className={classes.btnContainer}>
+          <form method="dialog" className="DefaultButton">
+            <button>Continuer mes achats</button>
+          </form>
+          <Link href="/cart" className="DefaultButtonDark">
+            <button>Voir mon panier</button>
+          </Link>
+        </div>
+      </Modal>
+
       <section className={classes.infoContainer}>
         <Image
           src={src}

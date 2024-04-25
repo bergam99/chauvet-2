@@ -23,27 +23,27 @@ export default async function handler(
 
     const db = await connectDB();
     const userAddressCollection = db.collection("UserAddress");
-    const existingUserAddress = await userAddressCollection.findOne({
-      user_id,
-    });
+    // const existingUserAddress = await userAddressCollection.findOne({
+    //   user_id,
+    // });
     const { ...newUserAddress } = req.body;
 
-    if (existingUserAddress) {
-      await userAddressCollection.updateOne(
-        { user_id },
-        { $set: newUserAddress }
-      );
-      res
-        .status(201)
-        .json({ message: "User address updated", user_id, newUserAddress });
-    } else {
-      await userAddressCollection.insertOne({ user_id, ...newUserAddress });
-      res.status(201).json({
-        message: "User address created",
-        user_id,
-        newUserAddress,
-      });
-    }
+    // if (existingUserAddress) {
+    //   await userAddressCollection.updateOne(
+    //     { user_id },
+    //     { $set: newUserAddress }
+    //   );
+    //   res
+    //     .status(201)
+    //     .json({ message: "User address updated", user_id, newUserAddress });
+    // } else {
+    await userAddressCollection.insertOne({ user_id, ...newUserAddress });
+    res.status(201).json({
+      message: "User address created",
+      user_id,
+      newUserAddress,
+    });
+    // }
   } else {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }

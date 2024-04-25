@@ -1,144 +1,57 @@
-import CustomInput from "@/components/customs/customInput/customInput";
-import CustomTextarea from "@/components/customs/customTextarea/customTextarea";
-import CheckoutLayout from "../layouts/checkoutLayout/checkoutLayout";
-import CustomRadioButton from "@/components/customs/custumRadioButton/custumRadioButton";
-import classes from "./checkoutAddressForm.module.css";
-
-interface CheckoutAddressFormProps {
-  userAddress: {
-    gender: string;
-    firstName: string;
-    lastName: string;
-    address: string;
-    additionalAddresse: string;
-    zipcode: string;
-    city: string;
-    region: string;
-    country: string;
-    additionalInfo: string;
-    tel: string;
-    tel2: string;
-  };
-  handleInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  submitFormHandler: (e: React.FormEvent<HTMLFormElement>) => void;
-}
+import { useEffect, useState } from "react";
+import AddressForm from "../addressForm/addressForm";
+import classes from "./CheckoutAddressForm.module.css";
+import { IUserAddress } from "@/types/userAddress";
+import AllAddresses from "../allAddresses/allAddresses";
+import { CheckoutProps } from "@/types/checkout";
 
 const CheckoutAddressForm = ({
   userAddress,
   handleInputChange,
-  submitFormHandler,
-}: CheckoutAddressFormProps) => {
+  postAddress,
+}: CheckoutProps) => {
+  const [allAddresses, setAllAddresses] = useState<IUserAddress[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // fetch All address in allAddresses
+  useEffect(() => {
+    fetch("/api/summary", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setAllAddresses(data.userAddress); // fetch all address
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetching user addresses failed:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
-    <CheckoutLayout title="1. Livraison" subTitle="Adresse de livraison">
-      <form onSubmit={submitFormHandler}>
-        <p className={classes.civilite}>Civilité</p>
-        <div className={classes.radio}>
-          <CustomRadioButton
-            label="M."
-            name="gender"
-            value="M."
-            checked={userAddress.gender === "M."}
-            onChange={handleInputChange}
-          />
-
-          <CustomRadioButton
-            label="Mme"
-            name="gender"
-            value="Mme"
-            checked={userAddress.gender === "Mme"}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className={classes.name}>
-          <CustomInput
-            label="Prénom"
-            name="firstName"
-            required={true}
-            onChange={handleInputChange}
-          />
-
-          <CustomInput
-            label="Nom"
-            name="lastName"
-            onChange={handleInputChange}
-            required={true}
-          />
-        </div>
-
-        <div className={classes.address}>
-          <CustomInput
-            label="Adresse"
-            name="address"
-            onChange={handleInputChange}
-            required={true}
-          />
-
-          <CustomInput
-            label="Adresse supplémentaire"
-            name="additionalAddresse"
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className={classes.ville}>
-          <CustomInput
-            label="Code postal"
-            name="zipcode"
-            onChange={handleInputChange}
-            required={true}
-          />
-
-          <CustomInput
-            label="Ville"
-            name="city"
-            onChange={handleInputChange}
-            required={true}
-          />
-        </div>
-
-        <div className={classes.country}>
-          <CustomInput
-            label="État / Région"
-            name="region"
-            onChange={handleInputChange}
-          />
-
-          <CustomInput
-            label="Pays"
-            name="country"
-            onChange={handleInputChange}
-            required={true}
-          />
-        </div>
-
-        <div className={classes.tel}>
-          <CustomInput
-            label="Téléphone"
-            name="tel"
-            onChange={handleInputChange}
-            required={true}
-            type="tel"
-          />
-          <CustomInput
-            label="Téléphone 2"
-            name="tel2"
-            onChange={handleInputChange}
-            type="tel"
-          />
-        </div>
-        <CustomTextarea
-          label="Information additionnelle"
-          name="additionalInfo"
-          onChange={handleInputChange}
+    <>
+      {!isLoading && allAddresses.length > 0 ? (
+        <AllAddresses
+          allAddresses={allAddresses}
+          userAddress={userAddress}
+          handleInputChange={handleInputChange}
+          postAddress={postAddress}
         />
-        <button className={`${classes.btn} DefaultButtonDark`} type="submit">
-          Next
-        </button>
-      </form>
-    </CheckoutLayout>
+      ) : (
+        <AddressForm
+          userAddress={userAddress}
+          handleInputChange={handleInputChange}
+          postAddress={postAddress}
+        />
+      )}
+    </>
   );
 };
 

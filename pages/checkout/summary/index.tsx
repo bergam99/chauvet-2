@@ -58,7 +58,6 @@ const Summary = () => {
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
-        // buttonTxt="Payer"
       >
         {isLoading && <p>Loading...</p>}
         {!isLoading && userAddresses.length > 0 && (
