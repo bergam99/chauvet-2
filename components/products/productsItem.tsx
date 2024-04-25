@@ -21,7 +21,7 @@ const ProductsItem = ({ product }: ProductsItemProps) => {
           <h2 className={classes.name}>{product.name}</h2>
 
           <Link href={`/products/${product._id}`} className="DefaultButton">
-            <button>Voir plus</button>
+            <button className={classes.detail}>Voir plus</button>
           </Link>
         </div>
       </div>

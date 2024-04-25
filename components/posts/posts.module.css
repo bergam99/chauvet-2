@@ -23,6 +23,10 @@
     font-family: var(--ff-body2);
     font-size: var(--fs-xs-a);
     letter-spacing: var(--ls-m);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+        
 }
 
 .arrow{

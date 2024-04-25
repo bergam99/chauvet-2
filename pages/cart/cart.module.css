@@ -23,9 +23,8 @@
 }
 
 .link {
-    font-family: var(--ff-body);
     border-bottom: .6px solid var(--color-heavy-gray);
-    font-weight: var(--fw-regular);
+    font-family: var(--ff-body);
 }
 
 .totalWrapper {

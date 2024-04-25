@@ -10,7 +10,7 @@ type CartStore = {
   count: () => number;
   add: (product: IProduct) => void;
   remove: (idProduct: string) => void;
-  // removeAll: () => void;
+  clearCart: () => void;
   loadCart: () => void;
 };
 
@@ -62,10 +62,10 @@ export const useCartStore = create<CartStore>((set, get) => ({
     saveCartToSessionStorage(updatedCart);
   },
 
-  // removeAll: () => {
-  //   set({ cart: [] });
-  //   saveCartToSessionStorage([]);
-  // },
+  clearCart: () => {
+    set({ cart: [] });
+    saveCartToSessionStorage([]);
+  },
 }));
 
 function updateCart(product: IProduct, cart: CartItem[]): CartItem[] {

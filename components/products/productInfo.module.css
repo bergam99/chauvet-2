@@ -26,7 +26,7 @@
     width: fit-content;
     margin-bottom: var(--sp-xl);
     padding-bottom: var(--sp-xs);
-    font-family: var(--ff-heading);
+    font-family: var(--ff-body2);
 }
 
 .des {
