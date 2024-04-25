@@ -9,6 +9,14 @@ const AddressForm = ({
   handleInputChange,
   postAddress,
 }: CheckoutProps) => {
+  // TODO: empty form using ref={formRef}
+  // const formRef = useRef(null);
+  // const postAddress = (e) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted");
+  //   formRef.current.reset();
+  // };
+
   return (
     <>
       <form onSubmit={postAddress}>

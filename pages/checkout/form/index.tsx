@@ -4,7 +4,7 @@ import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
 import CheckoutAddressForm from "@/components/checkoutAddressForm/checkoutAddressForm";
 
 function CheckoutFormPage() {
-  const router = useRouter();
+  // const router = useRouter();
   const [userAddress, setUserAddress] = useState({
     gender: "",
     firstName: "",
@@ -37,11 +37,13 @@ function CheckoutFormPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userAddress),
     }).then((response) => response.json());
-    router.push("/checkout/summary");
+
+    console.log("address posted~~~~~~~~~~~~~~~~!");
+
+    // router.push("/checkout/summary");
   };
 
   return (
-    // [checkout/form]
     <>
       <CheckoutLayout title="1. Livraison" subTitle="Adresse de livraison">
         <CheckoutAddressForm

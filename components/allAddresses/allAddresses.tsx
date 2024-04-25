@@ -1,13 +1,14 @@
 import { IUserAddress } from "@/types/userAddress";
 import Modal, { ModalHandles } from "../modal/modal";
 import classes from "./allAddresses.module.css";
-import { useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import AddressForm from "../addressForm/addressForm";
 import { CheckoutProps } from "@/types/checkout";
 
 interface AllAddressesProps {
   allAddresses: IUserAddress[];
+  setAllAddresses: Dispatch<SetStateAction<IUserAddress[]>>;
 }
 
 type AllAddressesComponentProps = AllAddressesProps & CheckoutProps;
@@ -17,20 +18,20 @@ const AllAddresses = ({
   userAddress,
   handleInputChange,
   postAddress,
+  setAllAddresses,
 }: AllAddressesComponentProps) => {
   const dialog = useRef<ModalHandles>(null);
   const [selectedAddress, setSelectedAddress] = useState("");
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
+  const [fetchTrigger, setFetchTrigger] = useState(false);
 
   const handleSelectedAddress = (address: IUserAddress) => {
     setSelectedAddress(address._id.toString());
   };
 
-  const handleValidationAndClick = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
+  const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     if (!selectedAddress) {
       setValidationError("Please select an address!!");
       return;
@@ -43,18 +44,62 @@ const AllAddresses = ({
     dialog.current?.open();
   }
 
+  function submitModal(e: React.FormEvent<HTMLFormElement>) {
+    // TODO: faire propre ici
+    const fakeEvent = {
+      preventDefault: () => {},
+    } as React.FormEvent<HTMLFormElement>;
+
+    e.preventDefault();
+
+    postAddress(fakeEvent);
+
+    dialog.current?.close();
+    console.log("close modal~~~~~~~~~~~~~~~~");
+
+    setFetchTrigger(true);
+    console.log("start refresh");
+  }
+
+  useEffect(() => {
+    // TODO: Optimizer fetch fc
+    if (fetchTrigger) {
+      console.log("Fetching all addresses...");
+      fetch("/api/summary", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setAllAddresses(data.userAddress);
+        })
+        .catch((error) => {
+          console.error("Fetching user addresses failed:", error);
+        })
+        .finally(() => {
+          setFetchTrigger(false);
+          console.log("end refresh");
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchTrigger]);
+
   return (
     <>
       <Modal ref={dialog}>
         <AddressForm
           userAddress={userAddress}
           handleInputChange={handleInputChange}
-          postAddress={postAddress}
+          postAddress={submitModal}
         />
       </Modal>
 
       <ul>
-        <p>allAddress</p>
         {allAddresses.map((address: IUserAddress) => (
           <li
             key={address._id.toString()}

@@ -13,7 +13,7 @@ const CheckoutAddressForm = ({
   const [allAddresses, setAllAddresses] = useState<IUserAddress[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // fetch All address in allAddresses
+  // fetch All address
   useEffect(() => {
     fetch("/api/summary", {
       method: "GET",
@@ -43,6 +43,7 @@ const CheckoutAddressForm = ({
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={postAddress}
+          setAllAddresses={setAllAddresses}
         />
       ) : (
         <AddressForm

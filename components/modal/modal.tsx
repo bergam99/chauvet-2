@@ -11,6 +11,7 @@ import Close from "../customs/closeButton/closeButton";
 
 export interface ModalHandles {
   open: () => void;
+  close: () => void;
 }
 
 interface ModalProps {
@@ -24,6 +25,9 @@ const Modal = forwardRef<ModalHandles, ModalProps>(({ children }, ref) => {
   useImperativeHandle(ref, () => ({
     open() {
       dialog.current?.showModal();
+    },
+    close() {
+      dialog.current?.close();
     },
   }));
 
