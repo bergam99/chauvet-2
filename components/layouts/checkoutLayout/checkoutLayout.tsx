@@ -8,15 +8,9 @@ type CheckoutLayoutProps = {
   title: string;
   subTitle: string;
   children: React.ReactNode;
-  buttonTxt?: string;
 };
 
-const CheckoutLayout = ({
-  title,
-  subTitle,
-  children,
-  buttonTxt = "Suivant",
-}: CheckoutLayoutProps) => {
+const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
   const { cart, loadCart } = useCartStore();
   const [isLoading, setIsLoading] = useState(true);
   const total = totalPrice(cart);
@@ -26,31 +20,9 @@ const CheckoutLayout = ({
     setIsLoading(false);
   }, [loadCart]);
 
-  const payment = async () => {
-    setIsLoading(true);
-    const response = await fetch("/api/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ products: cart }),
-    });
-    const data = await response.json();
-    // console.log({ data });
-
-    if (response.ok) {
-      window.location.href = data.url;
-    } else {
-      console.error("failed to create checkout session", data.error);
-    }
-    setIsLoading(false);
-  };
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
-
-  // console.log({ cart });
 
   return (
     <>
@@ -59,14 +31,6 @@ const CheckoutLayout = ({
           <h2 className={classes.title}>{title}</h2>
           <p className={classes.subTitle}>{subTitle}</p>
           {children}
-          <button
-            className={`${classes.btn} DefaultButtonDark`}
-            type="submit"
-            onClick={buttonTxt === "Payer" ? payment : undefined}
-          >
-            {/* {buttonTxt} */}
-            {buttonTxt === "Payer" && isLoading ? "Loading..." : buttonTxt}
-          </button>
         </div>
 
         <aside className={classes.recapSection}>

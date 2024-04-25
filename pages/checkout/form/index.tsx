@@ -19,6 +19,16 @@ function CheckoutPage() {
     additionalInfo: "",
   });
 
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target; // extract name and value
+    setUserAddress((prevUserAddress) => ({
+      ...prevUserAddress,
+      [name]: value, // name(key) : value
+    }));
+  };
+
   const submitFormHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch("/api/userAddress", {
@@ -30,24 +40,13 @@ function CheckoutPage() {
     router.push("/checkout/summary");
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target; // extract name and value
-    setUserAddress((prevUserAddress) => ({
-      ...prevUserAddress,
-      [name]: value, // name(key) : value
-    }));
-  };
-
   return (
     <>
-      <form onSubmit={submitFormHandler}>
-        <CheckoutAddressForm
-          userAddress={userAddress}
-          handleInputChange={handleInputChange}
-        />
-      </form>
+      <CheckoutAddressForm
+        userAddress={userAddress}
+        handleInputChange={handleInputChange}
+        submitFormHandler={submitFormHandler}
+      />
     </>
   );
 }

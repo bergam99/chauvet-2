@@ -32,13 +32,33 @@ const Summary = () => {
       });
   }, []);
 
+  const payment = async () => {
+    setIsLoading(true);
+    const response = await fetch("/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: cart }),
+    });
+    const data = await response.json();
+    // console.log({ data });
+
+    if (response.ok) {
+      window.location.href = data.url;
+    } else {
+      console.error("failed to create checkout session", data.error);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <>
       {/* <p>1. Livraison</p> */}
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
-        buttonTxt="Payer"
+        // buttonTxt="Payer"
       >
         {isLoading && <p>Loading...</p>}
         {!isLoading && userAddresses.length > 0 && (
@@ -58,6 +78,7 @@ const Summary = () => {
         )}
         {!isLoading && userAddresses.length === 0 && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
+        <button onClick={payment}> payer</button>
       </CheckoutLayout>
     </>
   );
