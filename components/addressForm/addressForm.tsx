@@ -3,12 +3,18 @@ import CustomInput from "../customs/customInput/customInput";
 import CustomTextarea from "../customs/customTextarea/customTextarea";
 import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
+// import { useRouter } from "next/router";
+import { useCheckoutStore } from "@/stores/checkout";
 
 const AddressForm = ({
   userAddress,
+  // allAddresses
+  // toSummary = () => {},
   handleInputChange,
   postAddress,
-}: CheckoutProps) => {
+}: // allAddresses,
+CheckoutProps) => {
+  // const router = useRouter();
   // TODO: empty form using ref={formRef}
   // const formRef = useRef(null);
   // const postAddress = (e) => {
@@ -16,10 +22,28 @@ const AddressForm = ({
   //   console.log("Form submitted");
   //   formRef.current.reset();
   // };
+  const { handleshippingAddress } = useCheckoutStore();
+
+  function postAddressAndNavigate(e: React.FormEvent<HTMLFormElement>) {
+    // TODO: faire propre ici
+    const fakeEvent = {
+      preventDefault: () => {},
+    } as React.FormEvent<HTMLFormElement>;
+
+    e.preventDefault();
+
+    // if (!allAddresses || allAddresses?.length === 0) {
+    //   router.push("/checkout/summary");
+    // }
+
+    postAddress(fakeEvent);
+
+    handleshippingAddress(userAddress);
+  }
 
   return (
     <>
-      <form onSubmit={postAddress}>
+      <form onSubmit={postAddressAndNavigate}>
         <p className={classes.civilite}>Civilité</p>
         <div className={classes.radio}>
           <CustomRadioButton
@@ -121,7 +145,11 @@ const AddressForm = ({
           name="additionalInfo"
           onChange={handleInputChange}
         />
-        <button className={`${classes.btn} DefaultButtonDark`} type="submit">
+        <button
+          className={`${classes.btn} DefaultButtonDark`}
+          type="submit"
+          // onClick={toSummary}
+        >
           submit this form (post)
         </button>
       </form>

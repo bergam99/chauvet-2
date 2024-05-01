@@ -7,7 +7,7 @@ interface OrderCardProps {
 
 const OrderCard = ({ order }: OrderCardProps) => {
   const { firstName, lastName, address, city, region, tel, tel2, country } =
-    order.userAddress[0];
+    order.shippingAddress[0];
 
   const { email, name } = order.user[0];
 
@@ -34,7 +34,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
         ))}
       </ul>
       <hr />
-      user detail =&gt;
+      shipping address =&gt;
       <p className={classes.font}>{firstName}</p>
       <p className={classes.font}>{lastName}</p>
       <p className={classes.font}>{address}</p>

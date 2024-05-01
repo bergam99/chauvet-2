@@ -68,11 +68,12 @@ export default async function handler(
 
       const orderData = {
         user_id: userId,
+        shippingAddress: session.metadata!.shippingAddress,
         paymentInfo,
         orderItems: cartItems,
       };
 
-      // console.log({ orderData });
+      console.log({ orderData });
 
       const db = await connectDB();
       const orderCollection = db.collection("Orders");

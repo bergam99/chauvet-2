@@ -1,7 +1,12 @@
+// import { IUserAddress } from "./userAddress";
+
 export interface CheckoutProps {
   userAddress: UserAddress;
   handleInputChange: HandleInputChange;
   postAddress: PostAddress;
+  postAddressAndNavigate?: PostAddressAndNavigate;
+  // toSummary?: () => void;
+  // allAddresses?: IUserAddress[];
 }
 
 export interface UserAddress {
@@ -26,3 +31,7 @@ export type HandleInputChange = (
 ) => void;
 
 export type PostAddress = (e: React.FormEvent<HTMLFormElement>) => void;
+
+export type PostAddressAndNavigate = (
+  e: React.FormEvent<HTMLFormElement>
+) => void;

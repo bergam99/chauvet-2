@@ -1,11 +1,10 @@
 import CartItemCard from "@/components/cartItemCard/cartItemCard";
-import { useCartStore } from "@/stores/cart";
+import { totalPrice, useCartStore } from "@/stores/cart";
 import { useEffect, useState } from "react";
 import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { totalPrice } from "@/utils/cartUtils";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();

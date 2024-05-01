@@ -27,12 +27,29 @@ export default async function handler(
           { $match: { user_id } }, // Match orders by user_id
           {
             $lookup: {
-              from: "UserAddress", // The collection to join
-              localField: "user_id", // Field from the orders collection
-              foreignField: "user_id", // Field from the userAddresses collection
-              as: "userAddress", // Output array field with joined documents
+              from: "UserAddress",
+              let: { shippingAddressId: "$shippingAddress" }, // Define variable to use in pipeline
+              pipeline: [
+                {
+                  $match: {
+                    $expr: {
+                      $eq: [{ $toString: "$_id" }, "$$shippingAddressId"],
+                    },
+                  },
+                }, // Use the converted string ID in comparison
+              ],
+              as: "shippingAddress",
             },
           },
+
+          // {
+          //   $lookup: {
+          //     from: "UserAddress", // The collection to join
+          //     localField: "shippingAddress", // Field from the orders collection
+          //     foreignField: "_id", // Field from the userAddresses collection
+          //     as: "shippingAddress", // Output array field with joined documents
+          //   },
+          // },
           {
             $lookup: {
               from: "users",

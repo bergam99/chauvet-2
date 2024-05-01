@@ -5,11 +5,6 @@ import { IUser } from "./user";
 export interface IOrders {
   _id: ObjectId | string;
   user_id: string;
-  paymentInfo: {
-    session_id: string;
-    status: string;
-    amountPaid: number;
-  };
   orderItems: {
     product_id: string;
     name: string;
@@ -17,6 +12,11 @@ export interface IOrders {
     quantity: number;
     image?: string;
   }[];
-  userAddress: IUserAddress[];
+  paymentInfo: {
+    session_id: string;
+    status: string;
+    amountPaid: number;
+  };
+  shippingAddress: IUserAddress[];
   user: IUser[];
 }

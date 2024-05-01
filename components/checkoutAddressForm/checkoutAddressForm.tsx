@@ -4,6 +4,8 @@ import classes from "./CheckoutAddressForm.module.css";
 import { IUserAddress } from "@/types/userAddress";
 import AllAddresses from "../allAddresses/allAddresses";
 import { CheckoutProps } from "@/types/checkout";
+import { useRouter } from "next/router";
+import { useCheckoutStore } from "@/stores/checkout";
 
 const CheckoutAddressForm = ({
   userAddress,
@@ -12,6 +14,9 @@ const CheckoutAddressForm = ({
 }: CheckoutProps) => {
   const [allAddresses, setAllAddresses] = useState<IUserAddress[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+
+  const { handleshippingAddress } = useCheckoutStore();
 
   // fetch All address
   useEffect(() => {
@@ -35,6 +40,20 @@ const CheckoutAddressForm = ({
       });
   }, []);
 
+  // function postAddressAndNavigate(e: React.FormEvent<HTMLFormElement>) {
+  //   // TODO: faire propre ici
+  //   const fakeEvent = {
+  //     preventDefault: () => {},
+  //   } as React.FormEvent<HTMLFormElement>;
+
+  //   e.preventDefault();
+
+  //   postAddress(fakeEvent);
+
+  //   router.push("/checkout/summary");
+  //   handleshippingAddress(userAddress);
+  // }
+
   return (
     <>
       {!isLoading && allAddresses.length > 0 ? (
@@ -50,6 +69,8 @@ const CheckoutAddressForm = ({
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={postAddress}
+          // allAddresses={allAddresses}
+          // postAddressAndNavigate={postAddressAndNavigate}
         />
       )}
     </>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
 import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
 import CheckoutAddressForm from "@/components/checkoutAddressForm/checkoutAddressForm";
 

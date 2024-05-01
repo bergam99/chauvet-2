@@ -5,14 +5,12 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import AddressForm from "../addressForm/addressForm";
 import { CheckoutProps } from "@/types/checkout";
-
+import { useCheckoutStore } from "@/stores/checkout";
 interface AllAddressesProps {
   allAddresses: IUserAddress[];
   setAllAddresses: Dispatch<SetStateAction<IUserAddress[]>>;
 }
-
 type AllAddressesComponentProps = AllAddressesProps & CheckoutProps;
-
 const AllAddresses = ({
   allAddresses,
   userAddress,
@@ -20,47 +18,52 @@ const AllAddresses = ({
   postAddress,
   setAllAddresses,
 }: AllAddressesComponentProps) => {
+  const { shippingAddress, handleshippingAddress } = useCheckoutStore();
   const dialog = useRef<ModalHandles>(null);
-  const [selectedAddress, setSelectedAddress] = useState("");
+  // const [selectedAddress, setSelectedAddress] = useState("");
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
   const [fetchTrigger, setFetchTrigger] = useState(false);
-
-  const handleSelectedAddress = (address: IUserAddress) => {
-    setSelectedAddress(address._id.toString());
-  };
-
-  const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // const [isLoading, setIsLoading] = useState(true);
+  // const handleSelectedAddress = (_id: string) => {
+  //   setSelectedAddress(_id);
+  // };
+  const handleValidationAndClick = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
-    if (!selectedAddress) {
+    if (!shippingAddress) {
       setValidationError("Please select an address!!");
       return;
+    } else {
+      setValidationError("");
+      // const response = await fetch("/api/payment", {
+      // method: "POST",
+      // headers: { "Content-Type": "application/json" },
+      // body: JSON.stringify({ selectedAddress: selectedAddress }),
+      // });
+      // if (!response.ok) {
+      // throw new Error("Failed to send payment data");
+      // }
+      router.push("/checkout/summary");
+      // console.log("front selectedAddress", selectedAddress);
     }
-    setValidationError("");
-    router.push("/checkout/summary");
   };
-
   function openModal() {
     dialog.current?.open();
   }
-
   function submitModal(e: React.FormEvent<HTMLFormElement>) {
     // TODO: faire propre ici
     const fakeEvent = {
       preventDefault: () => {},
     } as React.FormEvent<HTMLFormElement>;
-
     e.preventDefault();
-
     postAddress(fakeEvent);
-
     dialog.current?.close();
     console.log("close modal~~~~~~~~~~~~~~~~");
-
     setFetchTrigger(true);
     console.log("start refresh");
   }
-
   useEffect(() => {
     // TODO: Optimizer fetch fc
     if (fetchTrigger) {
@@ -89,6 +92,10 @@ const AllAddresses = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
+  const toSummary = () => {
+    router.push("/checkout/summary");
+  };
+
   return (
     <>
       <Modal ref={dialog}>
@@ -96,15 +103,15 @@ const AllAddresses = ({
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={submitModal}
+          // toSummary={toSummary}
         />
       </Modal>
-
       <ul>
         {allAddresses.map((address: IUserAddress) => (
           <li
             key={address._id.toString()}
             className={classes.address}
-            onClick={() => handleSelectedAddress(address)}
+            onClick={() => handleshippingAddress(address)}
           >
             {address.gender} {address.firstName} {address.lastName} <br />
             {address.address} {address.additionalAddresse} <br />
@@ -132,10 +139,10 @@ const AllAddresses = ({
       >
         i selected! go to payment page
       </button>
-      {selectedAddress ? selectedAddress : "not selected"}
+      {/* {isLoading && <p>Loading...</p>} */}
+      {shippingAddress ? `${shippingAddress._id}` : "not selected"}
       {validationError}
     </>
   );
 };
-
 export default AllAddresses;

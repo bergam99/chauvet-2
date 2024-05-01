@@ -1,8 +1,7 @@
 import CartItemCard from "../../cartItemCard/cartItemCard";
-import { useCartStore } from "@/stores/cart";
+import { totalPrice, useCartStore } from "@/stores/cart";
 import classes from "./checkoutLayout.module.css";
 import { useEffect, useState } from "react";
-import { totalPrice } from "@/utils/cartUtils";
 
 type CheckoutLayoutProps = {
   title: string;
