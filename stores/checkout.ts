@@ -1,10 +1,10 @@
-import { UserAddress } from "@/types/checkout";
 import { IUserAddress } from "@/types/userAddress";
 import { create } from "zustand";
 type CheckoutStore = {
   shippingAddress: IUserAddress;
-  // allAddresses: UserAddress[];
-  handleshippingAddress: (address: any) => void;
+  handleshippingAddress: (address: IUserAddress) => void;
+  allAddresses: IUserAddress[];
+  setAllAddresses: (addresses: IUserAddress[]) => void;
 };
 
 const baseAddress = {
@@ -25,9 +25,11 @@ const baseAddress = {
 
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
-  // allAddresses: [{ ...baseAddress }],
+  allAddresses: [{ ...baseAddress }],
 
-  handleshippingAddress: (address: any) => {
+  handleshippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
   },
+
+  setAllAddresses: (addresses) => set({ allAddresses: addresses }),
 }));

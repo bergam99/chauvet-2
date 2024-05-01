@@ -8,13 +8,10 @@ import { useCheckoutStore } from "@/stores/checkout";
 
 const AddressForm = ({
   userAddress,
-  // allAddresses
-  // toSummary = () => {},
+  toSummary = () => {},
   handleInputChange,
   postAddress,
-}: // allAddresses,
-CheckoutProps) => {
-  // const router = useRouter();
+}: CheckoutProps) => {
   // TODO: empty form using ref={formRef}
   // const formRef = useRef(null);
   // const postAddress = (e) => {
@@ -22,22 +19,16 @@ CheckoutProps) => {
   //   console.log("Form submitted");
   //   formRef.current.reset();
   // };
+
   const { handleshippingAddress } = useCheckoutStore();
 
   function postAddressAndNavigate(e: React.FormEvent<HTMLFormElement>) {
-    // TODO: faire propre ici
     const fakeEvent = {
       preventDefault: () => {},
     } as React.FormEvent<HTMLFormElement>;
 
     e.preventDefault();
-
-    // if (!allAddresses || allAddresses?.length === 0) {
-    //   router.push("/checkout/summary");
-    // }
-
     postAddress(fakeEvent);
-
     handleshippingAddress(userAddress);
   }
 
@@ -148,7 +139,7 @@ CheckoutProps) => {
         <button
           className={`${classes.btn} DefaultButtonDark`}
           type="submit"
-          // onClick={toSummary}
+          onClick={toSummary}
         >
           submit this form (post)
         </button>

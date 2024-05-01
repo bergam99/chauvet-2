@@ -1,29 +1,12 @@
-// import { IUserAddress } from "./userAddress";
+import { IUserAddress } from "./userAddress";
 
 export interface CheckoutProps {
-  userAddress: UserAddress;
+  userAddress: IUserAddress;
   handleInputChange: HandleInputChange;
   postAddress: PostAddress;
-  postAddressAndNavigate?: PostAddressAndNavigate;
-  // toSummary?: () => void;
+  // postAddressAndNavigate?: PostAddressAndNavigate;
+  toSummary?: () => void;
   // allAddresses?: IUserAddress[];
-}
-
-export interface UserAddress {
-  //   userAddress: {
-  gender: string;
-  firstName: string;
-  lastName: string;
-  address: string;
-  additionalAddresse: string;
-  zipcode: string;
-  city: string;
-  region: string;
-  country: string;
-  additionalInfo: string;
-  tel: string;
-  tel2: string;
-  //   };
 }
 
 export type HandleInputChange = (

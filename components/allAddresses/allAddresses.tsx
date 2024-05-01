@@ -1,33 +1,29 @@
 import { IUserAddress } from "@/types/userAddress";
 import Modal, { ModalHandles } from "../modal/modal";
 import classes from "./allAddresses.module.css";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import AddressForm from "../addressForm/addressForm";
 import { CheckoutProps } from "@/types/checkout";
 import { useCheckoutStore } from "@/stores/checkout";
-interface AllAddressesProps {
-  allAddresses: IUserAddress[];
-  setAllAddresses: Dispatch<SetStateAction<IUserAddress[]>>;
-}
-type AllAddressesComponentProps = AllAddressesProps & CheckoutProps;
+
 const AllAddresses = ({
-  allAddresses,
   userAddress,
   handleInputChange,
   postAddress,
-  setAllAddresses,
-}: AllAddressesComponentProps) => {
-  const { shippingAddress, handleshippingAddress } = useCheckoutStore();
+}: CheckoutProps) => {
+  const {
+    shippingAddress,
+    handleshippingAddress,
+    allAddresses,
+    setAllAddresses,
+  } = useCheckoutStore();
+
   const dialog = useRef<ModalHandles>(null);
-  // const [selectedAddress, setSelectedAddress] = useState("");
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
   const [fetchTrigger, setFetchTrigger] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const handleSelectedAddress = (_id: string) => {
-  //   setSelectedAddress(_id);
-  // };
+
   const handleValidationAndClick = async (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -37,33 +33,26 @@ const AllAddresses = ({
       return;
     } else {
       setValidationError("");
-      // const response = await fetch("/api/payment", {
-      // method: "POST",
-      // headers: { "Content-Type": "application/json" },
-      // body: JSON.stringify({ selectedAddress: selectedAddress }),
-      // });
-      // if (!response.ok) {
-      // throw new Error("Failed to send payment data");
-      // }
       router.push("/checkout/summary");
-      // console.log("front selectedAddress", selectedAddress);
     }
   };
+
   function openModal() {
     dialog.current?.open();
   }
+
   function submitModal(e: React.FormEvent<HTMLFormElement>) {
-    // TODO: faire propre ici
     const fakeEvent = {
       preventDefault: () => {},
     } as React.FormEvent<HTMLFormElement>;
+
     e.preventDefault();
-    postAddress(fakeEvent);
-    dialog.current?.close();
-    console.log("close modal~~~~~~~~~~~~~~~~");
-    setFetchTrigger(true);
-    console.log("start refresh");
+
+    postAddress(fakeEvent); // post form
+    dialog.current?.close(); // close modal
+    setFetchTrigger(true); // start refresh
   }
+
   useEffect(() => {
     // TODO: Optimizer fetch fc
     if (fetchTrigger) {
@@ -92,9 +81,9 @@ const AllAddresses = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
-  const toSummary = () => {
-    router.push("/checkout/summary");
-  };
+  // const toSummary = () => {
+  //   router.push("/checkout/summary");
+  // };
 
   return (
     <>
@@ -103,13 +92,13 @@ const AllAddresses = ({
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={submitModal}
-          // toSummary={toSummary}
         />
       </Modal>
+
       <ul>
         {allAddresses.map((address: IUserAddress) => (
           <li
-            key={address._id.toString()}
+            key={address._id?.toString()}
             className={classes.address}
             onClick={() => handleshippingAddress(address)}
           >
@@ -137,9 +126,8 @@ const AllAddresses = ({
         type="button"
         onClick={handleValidationAndClick}
       >
-        i selected! go to payment page
+        selected! go to payment page
       </button>
-      {/* {isLoading && <p>Loading...</p>} */}
       {shippingAddress ? `${shippingAddress._id}` : "not selected"}
       {validationError}
     </>

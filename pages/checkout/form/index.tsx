@@ -3,7 +3,6 @@ import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
 import CheckoutAddressForm from "@/components/checkoutAddressForm/checkoutAddressForm";
 
 function CheckoutFormPage() {
-  // const router = useRouter();
   const [userAddress, setUserAddress] = useState({
     gender: "",
     firstName: "",
@@ -31,13 +30,14 @@ function CheckoutFormPage() {
 
   const postAddress = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     fetch("/api/userAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userAddress),
     }).then((response) => response.json());
 
-    console.log("address posted~~~~~~~~~~~~~~~~!");
+    console.log("address posted");
 
     // router.push("/checkout/summary");
   };
@@ -55,5 +55,4 @@ function CheckoutFormPage() {
   );
 }
 
-// if !session return redirect destination: "/login"
 export default CheckoutFormPage;

@@ -1,39 +1,14 @@
 import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
-import React, { useEffect, useState } from "react";
-import { IUserAddress } from "@/types/userAddress";
+import { useState } from "react";
 import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import { useCheckoutStore } from "@/stores/checkout";
 
 const Summary = () => {
   const { shippingAddress } = useCheckoutStore();
-  // const [userAddresses, setUserAddresses] = useState<IUserAddress[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { cart } = useCartStore();
   const total = totalPrice(cart);
-
-  // useEffect(() => {
-  //   fetch("/api/summary", {
-  //     method: "GET",
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error(`HTTP error! status: ${res.status}`);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setUserAddresses(data.userAddress);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Fetching user addresses failed:", error);
-  //       setIsLoading(false);
-  //     });
-  // }, []);
-
-  // console.log("ici", shippingAddress._id);
 
   const payment = async () => {
     setIsLoading(true);
@@ -48,7 +23,6 @@ const Summary = () => {
       }),
     });
     const data = await response.json();
-    // console.log({ data });
 
     if (response.ok) {
       window.location.href = data.url;

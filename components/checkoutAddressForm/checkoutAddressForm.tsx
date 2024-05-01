@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import AddressForm from "../addressForm/addressForm";
-import classes from "./CheckoutAddressForm.module.css";
-import { IUserAddress } from "@/types/userAddress";
 import AllAddresses from "../allAddresses/allAddresses";
 import { CheckoutProps } from "@/types/checkout";
-import { useRouter } from "next/router";
 import { useCheckoutStore } from "@/stores/checkout";
+import { useRouter } from "next/router";
 
 const CheckoutAddressForm = ({
   userAddress,
   handleInputChange,
   postAddress,
 }: CheckoutProps) => {
-  const [allAddresses, setAllAddresses] = useState<IUserAddress[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { allAddresses, setAllAddresses } = useCheckoutStore();
   const router = useRouter();
 
-  const { handleshippingAddress } = useCheckoutStore();
-
-  // fetch All address
+  /**
+   * fetch All address
+   */
   useEffect(() => {
     fetch("/api/summary", {
       method: "GET",
@@ -31,46 +29,37 @@ const CheckoutAddressForm = ({
         return res.json();
       })
       .then((data) => {
-        setAllAddresses(data.userAddress); // fetch all address
+        setAllAddresses(data.userAddress);
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Fetching user addresses failed:", error);
         setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // function postAddressAndNavigate(e: React.FormEvent<HTMLFormElement>) {
-  //   // TODO: faire propre ici
-  //   const fakeEvent = {
-  //     preventDefault: () => {},
-  //   } as React.FormEvent<HTMLFormElement>;
-
-  //   e.preventDefault();
-
-  //   postAddress(fakeEvent);
-
-  //   router.push("/checkout/summary");
-  //   handleshippingAddress(userAddress);
-  // }
+  /**
+   * Navigate to summary after submitting form & when only first address
+   */
+  const toSummary = () => {
+    router.push("/checkout/summary");
+  };
 
   return (
     <>
       {!isLoading && allAddresses.length > 0 ? (
         <AllAddresses
-          allAddresses={allAddresses}
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={postAddress}
-          setAllAddresses={setAllAddresses}
         />
       ) : (
         <AddressForm
           userAddress={userAddress}
           handleInputChange={handleInputChange}
           postAddress={postAddress}
-          // allAddresses={allAddresses}
-          // postAddressAndNavigate={postAddressAndNavigate}
+          toSummary={toSummary}
         />
       )}
     </>
