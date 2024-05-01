@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrders[]>([]);
-  // const [address, setAddress] = useState<IUserAddress>({} as IUserAddress);
   const [totalOrder, setTotalOrder] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { data: session } = useSession();
@@ -41,25 +40,21 @@ const OrderPage = () => {
   return (
     <>
       <MeLayout>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            {!isLoading && orders.length > 0 && session && (
-              <table>
-                <p>Mes commandes</p>
-                <p>commande total: {totalOrder}</p>
-                {orders.map((orderItem) => (
-                  <tbody key={orderItem._id.toString()}>
-                    <OrderCard order={orderItem} />
-                  </tbody>
-                ))}
-              </table>
-            )}
-            {!isLoading && !orders && <p>No order found.</p>}
-            {!session && <p>You must be logged in to see your orders.</p>}
-            {/* TODO:redirect to login page*/}
-          </>
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && orders.length > 0 && session && (
+          <div>
+            <p>Mes commandes</p>
+            <p>commande total: {totalOrder}</p>
+            {orders.map((orderItem) => (
+              <div key={orderItem._id.toString()}>
+                <OrderCard order={orderItem} />
+              </div>
+            ))}
+          </div>
+        )}
+        {!isLoading && session && orders.length === 0 && <p>No order found.</p>}
+        {!isLoading && !session && (
+          <p>You must be logged in to see your orders.</p>
         )}
       </MeLayout>
     </>

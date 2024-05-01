@@ -31,8 +31,6 @@ export default async function handler(
   // ====== creating the products from front-end (cart) ======
   const { products, shippingAddress } = req.body;
   // const address = req.body;
-  // const { selectedAddress } = req.body;
-  // console.log("backend selectedAddress 1 :", selectedAddress);
   // console.log({ shippingAddress });
 
   // console.log(products);
@@ -60,7 +58,6 @@ export default async function handler(
         // console.log("product created on stripe product catalog");
       }
     }
-    // console.log("backend selectedAddress 2 :", selectedAddress);
 
     // // ====== create payment session =====
 
@@ -85,15 +82,10 @@ export default async function handler(
         // console.log({ stripeItems });
       }
     }
-    // const { selectedAddress } = req.body;
-
-    // console.log("backend selectedAddress 3 :", selectedAddress);
 
     const baseUrl = process.env.BASE_URL;
     const successUrl = `${baseUrl}/payment-success`;
     const cancelUrl = `${baseUrl}/payment-failed`;
-
-    // console.log("backend selectedAddress 4 :", selectedAddress);
 
     // session create
     const session = await stripe.checkout.sessions.create({
@@ -106,9 +98,8 @@ export default async function handler(
       metadata: { shippingAddress },
     });
 
-    console.log(session.metadata);
+    // console.log(session.metadata);
     // console.log({ session });
-    // console.log("backend selectedAddress 5 :", selectedAddress);
 
     return res.json({ url: session.url });
   } catch (error) {
