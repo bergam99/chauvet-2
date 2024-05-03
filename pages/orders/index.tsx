@@ -1,7 +1,6 @@
 import MeLayout from "@/components/layouts/meLayout/meLayout";
 import OrderCard from "@/components/orderCard/orderCard";
 import { IOrders } from "@/types/order";
-import { IUserAddress } from "@/types/userAddress";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
@@ -12,7 +11,7 @@ const OrderPage = () => {
   const { data: session } = useSession();
 
   useEffect(() => {
-    fetch("/api/order", {
+    fetch("/api/orders", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -25,16 +24,17 @@ const OrderPage = () => {
       .then((data) => {
         setOrders(data.orders);
         setTotalOrder(data.ordersCount);
-        // setAddress(data.);
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Fetching order failed:", error);
         setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log({ orders });
+
   // TODO:  si session vide -> interdit, (server) *** (partie api) session.user.id=>collection order / server => front
 
   return (

@@ -1,15 +1,16 @@
 import { IOrders } from "@/types/order";
 import classes from "./orderCard.module.css";
+import Link from "next/link";
 
 interface OrderCardProps {
   order: IOrders;
 }
 
 const OrderCard = ({ order }: OrderCardProps) => {
-  const { firstName, lastName, address, city, region, tel, tel2, country } =
-    order.shippingAddress[0];
+  // const { firstName, lastName, address, city, region, tel, tel2, country } =
+  //   order.shippingAddress[0];
 
-  const { email, name } = order.user[0];
+  // const { email, name } = order.user[0];
 
   return (
     // TODO: ajouter order detail page
@@ -25,8 +26,11 @@ const OrderCard = ({ order }: OrderCardProps) => {
       <ul>
         {order.orderItems.map((orderItem, index) => (
           <li key={index}>
+            <Link href={`/orders/${order._id}`} className={classes.link}>
+              Details
+            </Link>
             <p className={classes.font}>
-              product :{orderItem.name.substring(0, 25)}
+              product :{orderItem.name.substring(0, 25)}..
             </p>
             <p className={classes.font}>quantity :{orderItem.quantity}</p>
             <p className={classes.font}>each price : {orderItem.price}</p>
@@ -34,7 +38,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
         ))}
       </ul>
       <hr />
-      shipping address =&gt;
+      {/* shipping address =&gt;
       <p className={classes.font}>{firstName}</p>
       <p className={classes.font}>{lastName}</p>
       <p className={classes.font}>{address}</p>
@@ -46,7 +50,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       <hr />
       user infos =&gt;
       <p className={classes.font}>{email}</p>
-      <p className={classes.font}>{name}</p>
+      <p className={classes.font}>{name}</p> */}
     </div>
   );
 };

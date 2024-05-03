@@ -19,7 +19,7 @@ const NestedLayout = () => {
   } else if (
     currentPath.includes("/products") ||
     currentPath.includes("/me") ||
-    currentPath.includes("/order") ||
+    currentPath.includes("/orders") ||
     currentPath.includes("/cart")
   ) {
     return (

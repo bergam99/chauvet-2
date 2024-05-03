@@ -73,7 +73,7 @@ export default async function handler(
         orderItems: cartItems,
       };
 
-      console.log({ orderData });
+      // console.log({ orderData });
 
       const db = await connectDB();
       const orderCollection = db.collection("Orders");

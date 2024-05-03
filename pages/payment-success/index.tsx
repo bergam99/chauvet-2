@@ -13,7 +13,7 @@ const PaymentSuccess = () => {
   return (
     <>
       <div>PaymentSuccess</div>
-      <Link href="/order" className="DefaultButton">
+      <Link href="/orders" className="DefaultButton">
         Mes commandes
       </Link>
     </>
