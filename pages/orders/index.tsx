@@ -3,6 +3,7 @@ import OrderCard from "@/components/orderCard/orderCard";
 import { IOrders } from "@/types/order";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import classes from "./order.module.css";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrders[]>([]);
@@ -43,13 +44,8 @@ const OrderPage = () => {
         {isLoading && <p>Loading...</p>}
         {!isLoading && orders.length > 0 && session && (
           <div>
-            <p>Mes commandes</p>
-            <p>commande total: {totalOrder}</p>
-            {orders.map((orderItem) => (
-              <div key={orderItem._id.toString()}>
-                <OrderCard order={orderItem} />
-              </div>
-            ))}
+            <p className={classes.font}>Mes commandes ({totalOrder})</p>
+            <OrderCard orders={orders} />
           </div>
         )}
         {!isLoading && session && orders.length === 0 && <p>No order found.</p>}
