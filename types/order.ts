@@ -20,22 +20,3 @@ export interface IOrders {
   shippingAddress: IUserAddress[];
   user: IUser[];
 }
-
-// export interface IOrder {
-//   _id: ObjectId | string;
-//   user_id: string;
-//   orderItems: {
-//     product_id: string;
-//     name: string;
-//     price: number | null; // can be null if there's a parsing error
-//     quantity: number;
-//     image?: string;
-//   }[];
-//   paymentInfo: {
-//     session_id: string;
-//     status: string;
-//     amountPaid: number;
-//   };
-//   shippingAddress: IUserAddress;
-//   user: IUser;
-// }
