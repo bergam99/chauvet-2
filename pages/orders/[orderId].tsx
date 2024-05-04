@@ -9,7 +9,6 @@ import MeLayout from "@/components/layouts/meLayout/meLayout";
 const OrderDetail = () => {
   const [order, setOrder] = useState<IOrders>();
   const [isLoading, setIsLoading] = useState(true);
-  const { data: session } = useSession();
 
   const router = useRouter();
   const { orderId } = router.query;

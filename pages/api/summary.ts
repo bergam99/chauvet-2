@@ -1,5 +1,6 @@
 import { IUserAddress } from "@/types/userAddress";
 import { connectDB } from "@/utils/connectDB";
+import { securingEndpoint } from "@/utils/securingEndpoint";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 
@@ -10,10 +11,10 @@ export default async function handler(
   if (req.method === "GET") {
     try {
       const token = await getToken({ req });
+      const user_id = token?.sub || undefined;
 
-      if (!token) {
-        return res.status(401).json({ error: "You must log in first." });
-      }
+      securingEndpoint(token, user_id, res);
+
       const db = await connectDB();
       const userAddress = await db
         .collection<IUserAddress>("UserAddress")

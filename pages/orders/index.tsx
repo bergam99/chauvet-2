@@ -34,9 +34,7 @@ const OrderPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log({ orders });
-
-  // TODO:  si session vide -> interdit, (server) *** (partie api) session.user.id=>collection order / server => front
+  // console.log({ orders });
 
   return (
     <>

@@ -21,7 +21,7 @@ const AuthPage = () => {
         </>
       )}
 
-      {!session && status === "unauthenticated" && (
+      {!session && (
         <>
           <GoBack />
           <div className={classes.nonAuthenticatedContainer}>

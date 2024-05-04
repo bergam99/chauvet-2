@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
 import { getToken } from "next-auth/jwt";
+import { securingEndpoint } from "@/utils/securingEndpoint";
 // import serverSideCheckoutFormValidation from "./../../utils/serverSideCheckoutFormValidation";
 export default async function handler(
   req: NextApiRequest,
@@ -9,10 +10,6 @@ export default async function handler(
   if (req.method === "POST") {
     const token = await getToken({ req });
 
-    if (!token) {
-      return res.status(401).json({ error: "You must log in first." });
-    }
-
     // serverside validation!! => third party?
     // const SSvalidationError = serverSideCheckoutFormValidation(req.body);
     // if (Object.keys(SSvalidationError).length > 0) {
@@ -20,6 +17,8 @@ export default async function handler(
     // }
 
     const user_id = token?.sub;
+
+    securingEndpoint(token, user_id, res);
 
     const db = await connectDB();
     const userAddressCollection = db.collection("UserAddress");

@@ -12,6 +12,7 @@ const PaymentSuccess = () => {
 
   return (
     <>
+      {/* TODO: get order number... summary */}
       <div>PaymentSuccess</div>
       <Link href="/orders" className="DefaultButton">
         Mes commandes
