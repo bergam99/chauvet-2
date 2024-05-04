@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import classes from "./orderId.module.css";
 import GoBack from "@/components/customs/backButton/goBack";
 import MeLayout from "@/components/layouts/meLayout/meLayout";
+
 const OrderDetail = () => {
   const [order, setOrder] = useState<IOrders>();
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +54,31 @@ const OrderDetail = () => {
 
   const { email, name } = order?.user[0] ?? {};
 
-  console.log({ order, orderId });
+  const user = [
+    { label: "Email", value: email },
+    { label: "Nom", value: name },
+  ];
+
+  const livraison = [
+    { label: "First Name", value: firstName },
+    { label: "Prénom", value: lastName },
+    { label: "Address", value: address },
+    { label: "City", value: city },
+    { label: "Region", value: region },
+    { label: "Tel", value: tel },
+    { label: "Tel2", value: tel2 },
+    { label: "Country", value: country },
+    { label: "Zipcode", value: zipcode },
+    { label: "Additional Address", value: additionalAddresse },
+    { label: "Additional Info", value: additionalInfo },
+    { label: "Gender", value: gender },
+  ];
+
+  const paymentInfos = [
+    { label: "ID", value: order?._id.toString() },
+    { label: "Montant payé", value: order?.paymentInfo.amountPaid },
+    { label: "Status", value: order?.paymentInfo.status },
+  ];
 
   return (
     <>
@@ -62,47 +87,64 @@ const OrderDetail = () => {
           <p>Loading...</p>
         ) : (
           <>
-            <GoBack />
-            <p>order Id :{order?._id.toString()}</p>
+            <section className={classes.orderId}>
+              <GoBack />
+              <p className={classes.title}>Payment infos</p>
+              <div className={classes.orderTable}>
+                {paymentInfos.map((item) => (
+                  <div key={item.label} className={classes.tableRow}>
+                    <div className={classes.tableCell}>{item.label}</div>
+                    <div className={classes.tableCell}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
 
-            <hr />
-            <p>user</p>
-            <p>email: {email}</p>
-            <p>name: {name}</p>
-            <hr />
-            <p>Produits commandés</p>
-            <ul>
-              {order?.orderItems.map((orderItem, index) => (
-                <li key={index}>
-                  <p className={classes.font}>
-                    product :{orderItem.name.substring(0, 30)}
-                  </p>
-                  <p className={classes.font}>quantity :{orderItem.quantity}</p>
-                  <p className={classes.font}>each price : {orderItem.price}</p>
+              <p className={classes.title}>User</p>
+
+              <div className={classes.orderTable}>
+                {user.map((item) => (
+                  <div key={item.label} className={classes.tableRow}>
+                    <div className={classes.tableCell}>{item.label}</div>
+                    <div className={classes.tableCell}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              <p className={classes.title}>Livraison</p>
+              <div className={classes.orderTable}>
+                {livraison.map((item) => (
+                  <div key={item.label} className={classes.tableRow}>
+                    <div className={classes.tableCell}>{item.label}</div>
+                    <div className={classes.tableCell}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              <p className={classes.title}>Produits commandés</p>
+
+              <ul className={classes.orderTable}>
+                {/* Header Row */}
+                <li className={classes.tableRow}>
+                  <div className={classes.tableCell}>Produit</div>
+                  <div className={classes.tableCell}>Quantité</div>
+                  <div className={classes.tableCell}>Prix</div>
+                  <div className={classes.tableCell}>Prix total</div>
                 </li>
-              ))}
-            </ul>
-            <hr />
-            <p>payment infos</p>
-
-            <p>total amountPaid: {order?.paymentInfo.amountPaid}</p>
-            <p>status:{order?.paymentInfo.status}</p>
-
-            <hr />
-            <p>Livraison</p>
-
-            <p>firstName: {firstName}</p>
-            <p>Prénom: {lastName}</p>
-            <p>address: {address}</p>
-            <p>city: {city}</p>
-            <p>region: {region}</p>
-            <p>tel: {tel}</p>
-            <p>tel2: {tel2}</p>
-            <p>country: {country}</p>
-            <p>zipcode:{zipcode}</p>
-            <p>additionalAddresse:{additionalAddresse}</p>
-            <p>additionalInfo: {additionalInfo}</p>
-            <p>gender: {gender}</p>
+                {/* Data Rows */}
+                {order?.orderItems.map((orderItem) => (
+                  <li key={orderItem.product_id} className={classes.tableRow}>
+                    <div className={classes.tableCell}>{orderItem.name}</div>
+                    <div className={classes.tableCell}>
+                      {orderItem.quantity}
+                    </div>
+                    <div className={classes.tableCell}>{orderItem.price}</div>
+                    <div className={classes.tableCell}>
+                      {orderItem.price! * orderItem.quantity}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </>
         )}
       </MeLayout>

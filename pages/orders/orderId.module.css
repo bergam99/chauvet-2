@@ -1,0 +1,36 @@
+.orderTable {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableRow {
+    display: table-row;
+}
+
+.tableCell {
+    display: table-cell;
+    padding: var(--sp-xs);
+    border: .6px solid var(--color-heavy-gray);
+}
+
+.tableCell:first-child {
+    width: 30%;
+    /* Fixed width for title cells */
+}
+
+.orderId {
+    width: 100%;
+}
+
+.font,
+.title,
+.tableCell {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}
+
+.title {
+    font-weight: bolder;
+    padding: var(--sp-s) 0 var(--sp-xs);
+}

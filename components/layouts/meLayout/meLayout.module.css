@@ -1,7 +1,7 @@
 .authenticatedContainer {
     display: flex;
     gap: 1em;
-    padding: 3em 0 3em 0;
+    padding: var(--sp-xl) 0 ;
 }
 
 .desktopMenuContainer {
@@ -44,5 +44,9 @@
 @media (max-width: 768px) {
     .desktopMenuContainer {
         display: none;
+    }
+
+    .children{
+        width: 100%;
     }
 }

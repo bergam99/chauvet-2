@@ -35,7 +35,7 @@ export default function MobileLayout() {
 
           {session && (
             <>
-              <Link href="#" className={classes.order}>
+              <Link href="orders" className={classes.order}>
                 Commandes
               </Link>
               <a onClick={handleSignout} className={classes.signOut}>

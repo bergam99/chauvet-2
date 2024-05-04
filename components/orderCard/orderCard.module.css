@@ -13,7 +13,7 @@
     display: table-cell;
     border: 0.6px solid var(--color-heavy-gray);
     text-align: center;
-    padding: 10px;
+    padding: var(--sp-m);
     vertical-align: middle;
     font-size: var(--fs-xs);
     font-family: var(--ff-body2);
@@ -26,7 +26,6 @@
     width: fit-content;
 }
 
-.voir:hover{
+.voir:hover {
     border-bottom: .5px solid var(--color-heavy-gray);
 }
-
