@@ -3,6 +3,7 @@ import { useState } from "react";
 import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import { useCheckoutStore } from "@/stores/checkout";
+import Loader from "@/components/loader";
 
 const Summary = () => {
   const { shippingAddress } = useCheckoutStore();
@@ -33,7 +34,7 @@ const Summary = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <>

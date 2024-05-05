@@ -5,6 +5,7 @@ import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Loader from "@/components/loader";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
@@ -33,7 +34,7 @@ const Cart = () => {
   }, [loadCart]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (

@@ -4,6 +4,7 @@ import { IOrders } from "@/types/order";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import classes from "./order.module.css";
+import Loader from "@/components/loader";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrders[]>([]);
@@ -39,7 +40,7 @@ const OrderPage = () => {
   return (
     <>
       <MeLayout>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
         {!isLoading && orders.length > 0 && session && (
           <div>
             <p className={classes.font}>Mes commandes ({totalOrder})</p>

@@ -2,6 +2,7 @@ import CartItemCard from "../../cartItemCard/cartItemCard";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import classes from "./checkoutLayout.module.css";
 import { useEffect, useState } from "react";
+import Loader from "@/components/loader";
 
 type CheckoutLayoutProps = {
   title: string;
@@ -20,7 +21,7 @@ const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
   }, [loadCart]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (

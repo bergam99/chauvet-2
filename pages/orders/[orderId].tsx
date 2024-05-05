@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import classes from "./orderId.module.css";
 import GoBack from "@/components/customs/backButton/goBack";
 import MeLayout from "@/components/layouts/meLayout/meLayout";
+import Loader from "@/components/loader";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState<IOrders>();
@@ -83,7 +84,7 @@ const OrderDetail = () => {
     <>
       <MeLayout>
         {isLoading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <>
             <section className={classes.orderId}>
