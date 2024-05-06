@@ -14,6 +14,12 @@ type CartStore = {
   loadCart: () => void;
 };
 
+export function totalPrice(cart: CartItem[]): string {
+  return cart
+    .reduce((acc, item) => acc + item.count * item.price, 0)
+    .toFixed(2);
+}
+
 // load cart data stored in session storage
 const loadCartFromSessionStorage = (): CartItem[] => {
   // verify if client side (is execution in browser?)

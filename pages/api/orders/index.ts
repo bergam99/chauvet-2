@@ -1,4 +1,4 @@
-import { IUserAddress } from "@/types/userAddress";
+import { IOrders } from "@/types/order";
 import { connectDB } from "@/utils/connectDB";
 import { securingEndpoint } from "@/utils/securingEndpoint";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -16,14 +16,23 @@ export default async function handler(
       securingEndpoint(token, user_id, res);
 
       const db = await connectDB();
-      const userAddress = await db
-        .collection<IUserAddress>("UserAddresses")
-        .find({})
+      const ordersCount = await db.collection("Orders").countDocuments(); // count total number of orders
+
+      const orders = await db
+        .collection<IOrders>("Orders")
+        .aggregate([
+          { $match: { user_id } }, // Match orders by user_id
+        ])
         .toArray();
 
-      res.status(200).json({ message: "api/summary:ok", userAddress });
+      if (orders.length > 0) {
+        // const order = orders[0];
+        res.status(200).json({ ordersCount, orders });
+      } else {
+        res.status(404).json({ message: "Order not found" });
+      }
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   } else {
     res.status(405).json({ error: "Method Not Allowed" });

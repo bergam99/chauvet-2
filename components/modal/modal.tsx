@@ -7,23 +7,27 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import classes from "./modal.module.css";
-import Link from "next/link";
 import Close from "../customs/closeButton/closeButton";
+
 export interface ModalHandles {
   open: () => void;
+  close: () => void;
 }
 
 interface ModalProps {
-  title: any;
+  children: React.ReactNode;
 }
 
-const Modal = forwardRef<ModalHandles, ModalProps>(({ title }, ref) => {
+const Modal = forwardRef<ModalHandles, ModalProps>(({ children }, ref) => {
   const dialog = useRef<HTMLDialogElement>(null);
   const [isBrowser, setIsBrowser] = useState(false);
 
   useImperativeHandle(ref, () => ({
     open() {
       dialog.current?.showModal();
+    },
+    close() {
+      dialog.current?.close();
     },
   }));
 
@@ -45,19 +49,7 @@ const Modal = forwardRef<ModalHandles, ModalProps>(({ title }, ref) => {
               <Close />
             </div>
           </form>
-
-          <p className={classes.txt}>
-            1 {title} a été ajouté dans votre panier.
-          </p>
-
-          <div className={classes.btnContainer}>
-            <form method="dialog" className="DefaultButton">
-              <button>Continuer mes achats</button>
-            </form>
-            <Link href="/cart" className="DefaultButtonDark">
-              <button>Voir mon panier</button>
-            </Link>
-          </div>
+          {children}
         </dialog>,
         document.getElementById("modal") as HTMLElement
       )

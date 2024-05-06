@@ -27,7 +27,7 @@ export const options: NextAuthOptions = {
       // Executed when login
       const { email, name } = user; // extract email, name
       const db = await connectDB();
-      const userCollection = db.collection("users"); // select db name to register
+      const userCollection = db.collection("Users"); // select db name to register
       const existingUser = await userCollection.findOne({ email, name });
 
       if (existingUser) {

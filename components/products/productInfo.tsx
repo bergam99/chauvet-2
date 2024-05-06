@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Modal, { ModalHandles } from "../modal/modal";
 import { useCartStore } from "@/stores/cart";
 import { IProduct } from "@/types/products";
+import Link from "next/link";
 
 interface ProductInfoProps {
   product: IProduct;
@@ -23,7 +24,18 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
   return (
     <>
-      <Modal ref={dialog} title={name} />
+      <Modal ref={dialog}>
+        <p className={classes.txt}>1 {name} a été ajouté dans votre panier.</p>
+        <div className={classes.btnContainer}>
+          <form method="dialog" className="DefaultButton">
+            <button>Continuer mes achats</button>
+          </form>
+          <Link href="/cart" className="DefaultButtonDark">
+            <button>Voir mon panier</button>
+          </Link>
+        </div>
+      </Modal>
+
       <section className={classes.infoContainer}>
         <Image
           src={src}
@@ -38,7 +50,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           <p className={classes.price}>{price} €</p>
           <div className={classes.gap}></div>
           <p className={classes.stock}>{stock <= 0 && "stock épuisé"}</p>
-          {/* add disabled color className from global.css when 0 stock */}
+          {/* TODO: add disabled color className from global.css when 0 stock */}
           <button
             onClick={() => {
               handleAddToCart(product);

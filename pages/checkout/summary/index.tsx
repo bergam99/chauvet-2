@@ -1,63 +1,82 @@
 import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
-import React, { useEffect, useState } from "react";
-import { IUserAddress } from "@/types/userAddress";
+import { useState } from "react";
 import classes from "./summary.module.css";
-import { totalPrice } from "@/utils/cartUtils";
-import { useCartStore } from "@/stores/cart";
+import { totalPrice, useCartStore } from "@/stores/cart";
+import { useCheckoutStore } from "@/stores/checkout";
+import Loader from "@/components/loader";
 
 const Summary = () => {
-  const [userAddresses, setUserAddresses] = useState<IUserAddress[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { shippingAddress } = useCheckoutStore();
+  const [isLoading, setIsLoading] = useState(false);
   const { cart } = useCartStore();
   const total = totalPrice(cart);
 
-  useEffect(() => {
-    fetch("/api/summary", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setUserAddresses(data.userAddress);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Fetching user addresses failed:", error);
-        setIsLoading(false);
-      });
-  }, []);
+  const payment = async () => {
+    setIsLoading(true);
+    const response = await fetch("/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        products: cart,
+        shippingAddress: shippingAddress._id,
+      }),
+    });
+    const data = await response.json();
 
+    if (response.ok) {
+      window.location.href = data.url;
+    } else {
+      console.error("failed to create checkout session", data.error);
+    }
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       {/* <p>1. Livraison</p> */}
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
-        buttonTxt="Payer"
       >
-        {isLoading && <p>Loading...</p>}
-        {!isLoading && userAddresses.length > 0 && (
-          <ul className={classes.addressContainer}>
-            {userAddresses.map((address) => (
-              <li key={address._id.toString()} className={classes.address}>
-                {address.gender} {address.firstName} {address.lastName} <br />
-                {address.address} {address.additionalAddresse} <br />
-                {address.city} {address.zipcode} {address.region} <br />
-                {address.country} <br />
-                Téléphone : {address.tel} <br />
-                {address?.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
-                {address?.additionalInfo && `Note: ${address.additionalInfo}`}
+        {shippingAddress && (
+          <div className={classes.addressContainer}>
+            <ul className={classes.shippingAddress}>
+              <li>{shippingAddress._id?.toString()}</li>
+              <li>
+                {shippingAddress.gender} {shippingAddress.firstName}
               </li>
-            ))}
-          </ul>
+              <li> {shippingAddress.lastName} </li>
+              <li>
+                {shippingAddress.address} {shippingAddress.additionalAddresse}
+              </li>
+              <li>
+                {shippingAddress.city} {shippingAddress.zipcode}
+              </li>
+              <li>{shippingAddress.region}</li>
+              <li>{shippingAddress.country}</li>
+              <li>Téléphone : {shippingAddress.tel}</li>
+              <li>
+                {shippingAddress?.tel2 &&
+                  `Téléphone 2 : ${shippingAddress.tel2}`}
+              </li>
+              <li>
+                {shippingAddress?.additionalInfo &&
+                  `Note: ${shippingAddress.additionalInfo}`}
+              </li>
+            </ul>
+          </div>
         )}
-        {!isLoading && userAddresses.length === 0 && <p>No addresse found.</p>}
+
+        {!isLoading && !shippingAddress && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
+        <button onClick={payment} className="DefaultButton">
+          {isLoading ? "Loading..." : "Payer"}
+        </button>
       </CheckoutLayout>
     </>
   );

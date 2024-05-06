@@ -48,6 +48,28 @@
     font-size: var(--fs-xs);
 }
 
+.btnContainer {
+    display: flex;
+    gap: var(--sp-xl);
+    justify-content: center;
+}
+
+.txt {
+    font-size: var(--fs-m);
+    padding: var(--sp-xl) 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .btnContainer {
+        flex-direction: column;
+    }
+
+    .btnContainer {
+        width: auto
+    }
+}
+
 @media (max-width: 768px) {
     .infoContainer {
         display: block;

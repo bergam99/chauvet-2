@@ -30,9 +30,9 @@ const MeLayout = ({ children }: Props) => {
             Me
           </Link>
           <Link
-            href="/order"
+            href="/orders"
             className={`${classes.link} ${
-              isActive("/order") ? classes.active : ""
+              isActive("/orders") ? classes.active : ""
             }`}
           >
             Mes commandes

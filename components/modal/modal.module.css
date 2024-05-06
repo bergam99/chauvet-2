@@ -4,7 +4,13 @@
     border: none;
 }
 
-.btnContainer{
+
+.x{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .btnContainer{
     display: flex;
     gap: var(--sp-xl);
     justify-content: center;
@@ -15,12 +21,6 @@
     padding: var(--sp-xl) 0;
     text-align: center;
 }
-
-.x{
-    display: flex;
-    justify-content: flex-end;
-}
-
 @media (max-width: 768px) {
     .btnContainer {
         flex-direction: column;
@@ -28,4 +28,4 @@
     .btnContainer .btn{
         width: auto
     }
-}
+} */

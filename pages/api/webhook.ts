@@ -68,6 +68,7 @@ export default async function handler(
 
       const orderData = {
         user_id: userId,
+        shippingAddress: session.metadata!.shippingAddress,
         paymentInfo,
         orderItems: cartItems,
       };

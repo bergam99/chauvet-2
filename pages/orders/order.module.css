@@ -1,0 +1,5 @@
+.font {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    margin-bottom: var(--sp-s);
+}
