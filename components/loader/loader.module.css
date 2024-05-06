@@ -1,13 +1,18 @@
+.loadingContainer {
+    position: relative;
+    width: fit-content;
+}
+
 .dots {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: bottom;
+    position: absolute;
 }
 
 .dots::after {
     content: "...";
-    animation: dots 1.5s steps(5, end) infinite;
     display: inline-block;
+    width: 0px;
+    overflow: hidden;
+    animation: dots 1.5s steps(5, end) infinite;
 }
 
 @keyframes dots {

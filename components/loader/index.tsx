@@ -2,8 +2,9 @@ import classes from "./loader.module.css";
 
 const Loader = () => {
   return (
-    <div className={classes.loading}>
-      Loading<span className={classes.dots}></span>
+    <div className={classes.loadingContainer}>
+      <span className={classes.loadingText}>Loading</span>
+      <span className={classes.dots}></span>
     </div>
   );
 };
