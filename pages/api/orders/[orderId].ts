@@ -30,7 +30,7 @@ export default async function handler(
           { $match: { _id: orderObjectId, user_id } }, // Match orders by user_id
           {
             $lookup: {
-              from: "UserAddress", // The collection to join
+              from: "UserAddresses", // The collection to join
               let: { shippingAddressId: "$shippingAddress" }, // Define variable to use in pipeline
               pipeline: [
                 {
@@ -46,7 +46,7 @@ export default async function handler(
           },
           {
             $lookup: {
-              from: "users",
+              from: "Users",
               let: { userId: "$user_id" }, // Pass the user_id from Orders as a variable
               pipeline: [
                 {

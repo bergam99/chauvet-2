@@ -21,7 +21,7 @@ export default async function handler(
     securingEndpoint(token, user_id, res);
 
     const db = await connectDB();
-    const userAddressCollection = db.collection("UserAddress");
+    const userAddressCollection = db.collection("UserAddresses");
     // const existingUserAddress = await userAddressCollection.findOne({
     //   user_id,
     // });

@@ -17,7 +17,7 @@ export default async function handler(
 
       const db = await connectDB();
       const userAddress = await db
-        .collection<IUserAddress>("UserAddress")
+        .collection<IUserAddress>("UserAddresses")
         .find({})
         .toArray();
 

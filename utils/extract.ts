@@ -9,7 +9,7 @@ export const getProducts = async (): Promise<IProduct[]> => {
   try {
     const db = await connectDB();
     const products = await db
-      .collection<IProduct>("products")
+      .collection<IProduct>("Products")
       .find({})
       .toArray();
     if (products.length === 0) {
@@ -31,7 +31,7 @@ export async function getProduct(productId: string | undefined) {
   try {
     const db = await connectDB();
     const product = await db
-      .collection<IProduct>("products")
+      .collection<IProduct>("Products")
       .findOne({ _id: new ObjectId(productId) });
 
     if (!product) {

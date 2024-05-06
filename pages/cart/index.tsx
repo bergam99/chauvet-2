@@ -30,7 +30,7 @@ const Cart = () => {
 
   useEffect(() => {
     loadCart();
-    // setIsLoading(false);
+    setIsLoading(false);
   }, [loadCart]);
 
   if (isLoading) {
