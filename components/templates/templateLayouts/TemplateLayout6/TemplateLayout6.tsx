@@ -5,19 +5,14 @@ import classes from "./TemplateLayout6.module.css";
 
 interface TemplateLayout6Props {
   img: string;
-  size: string;
   txt?: string[];
 }
 
-const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
-  img,
-  size,
-  txt,
-}) => {
+const TemplateLayout6: NextPage<TemplateLayout6Props> = ({ img, txt }) => {
   return (
     <>
       <div>
-        <div className={`${size[0]} ${classes.img0} fadeInFromBottom`}>
+        <div className={` ${classes.img0} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="img"
@@ -26,7 +21,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
             style={imageStyle}
           />
         </div>
-        <div className={`${size[1]} ${classes.img1} fadeInFromBottom`}>
+        <div className={` ${classes.img1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="img"
@@ -35,7 +30,7 @@ const TemplateLayout6: NextPage<TemplateLayout6Props> = ({
             style={imageStyle}
           />
         </div>
-        <div className={`${size[2]} ${classes.img2} fadeInFromBottom`}>
+        <div className={`${classes.img2} fadeInFromBottom`}>
           <Image
             src={img[2]}
             alt="img"

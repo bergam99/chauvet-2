@@ -5,19 +5,14 @@ import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout3Props {
   img: string;
-  size: string;
   txt?: any;
 }
 
-const TemplateLayout3: NextPage<TemplateLayout3Props> = ({
-  img,
-  size,
-  txt,
-}) => {
+const TemplateLayout3: NextPage<TemplateLayout3Props> = ({ img, txt }) => {
   return (
     <>
       <div>
-        <div className={`${size} ${classes.img} fadeInFromBottom`}>
+        <div className={`${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="mainImg"

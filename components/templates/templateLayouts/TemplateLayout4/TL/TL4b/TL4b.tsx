@@ -5,12 +5,11 @@ import { imageStyle } from "@/utils/imageStyle";
 
 interface TL4bProps {
   img: string;
-  size: string;
   txt?: any;
   connectedTxt?: any;
 }
 
-const TL4b: NextPage<TL4bProps> = ({ img, size, txt, connectedTxt }) => {
+const TL4b: NextPage<TL4bProps> = ({ img, txt, connectedTxt }) => {
   return (
     <>
       <section className={classes.gridContainer}>
