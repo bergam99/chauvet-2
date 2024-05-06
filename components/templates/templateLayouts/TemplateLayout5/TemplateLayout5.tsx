@@ -5,19 +5,17 @@ import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout5Props {
   img: string;
-  size: string;
   connectedTxt?: string[];
 }
 
 const TemplateLayout5: NextPage<TemplateLayout5Props> = ({
   img,
-  size,
   connectedTxt,
 }) => {
   return (
     <>
       <section className={classes.gridContainer}>
-        <div className={`${size[0]} ${classes.img0} fadeInFromBottom`}>
+        <div className={`${classes.img0} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="mainImg"
@@ -28,7 +26,7 @@ const TemplateLayout5: NextPage<TemplateLayout5Props> = ({
         </div>
         <p className={classes.connectedTxt0}>{connectedTxt?.[0]}</p>
 
-        <div className={`${size[1]} ${classes.img1} fadeInFromBottom`}>
+        <div className={`${classes.img1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="mainImg"

@@ -20,7 +20,6 @@ export const extractCardProps = (
   const slice = cards.slice(startIndex, endIndex);
   return {
     img: slice.map((card: any) => card.url),
-    size: slice.map((card: any) => card.size),
     txt: slice.map((card: any) => card.txt),
     connectedTxt: slice.map((card: any) => card.connected_txt),
   };
@@ -35,14 +34,12 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
     img: cards[0]?.url,
     author: post.author,
     txt: cards[0]?.txt,
-    size: cards[0]?.size,
   };
 
   const templateLayout2Props = extractCardProps(cards, 1, 4);
 
   const templateLayout3Props = {
     img: cards[4]?.url,
-    size: cards[4]?.size,
     txt: cards[4]?.txt,
   };
 
@@ -50,7 +47,6 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
 
   const templateLayout3Props_1 = {
     img: cards[8]?.url,
-    size: cards[8]?.size,
     txt: cards[8]?.txt,
   };
 
@@ -58,7 +54,6 @@ const TemplateA: NextPage<TemplateAProps> = ({ post }) => {
 
   const TL4bProps = {
     img: cards[11]?.url,
-    size: cards[11]?.size,
     txt: cards[11]?.txt,
     connectedTxt: cards[11]?.connected_txt,
   };
