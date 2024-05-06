@@ -1,0 +1,21 @@
+.layout{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section{
+    width: min(1100px, 90%);
+    margin: auto;
+    flex: 1;
+}
+
+.headerContainer{
+    display: flex;
+    align-items: center;
+    padding: var(--sp-2xl) 0;
+}
+
+.nestedLayout {
+    margin-left: auto;
+}

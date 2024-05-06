@@ -5,14 +5,13 @@ import { imageStyle } from "@/utils/imageStyle";
 
 interface TemplateLayout2Props {
   img: string[];
-  size: any;
 }
 
-const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
+const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img }) => {
   return (
     <>
       <div className={classes.gridContainer}>
-        <div className={`${size[0]} ${classes.verticalImg} fadeInFromBottom`}>
+        <div className={`${classes.verticalImg} fadeInFromBottom`}>
           <Image
             src={img[0]}
             alt="img"
@@ -22,7 +21,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             style={imageStyle}
           />
         </div>
-        <div className={`${size[1]} ${classes.smallImg1} fadeInFromBottom`}>
+        <div className={`${classes.smallImg1} fadeInFromBottom`}>
           <Image
             src={img[1]}
             alt="img"
@@ -31,7 +30,7 @@ const TemplateLayout2: NextPage<TemplateLayout2Props> = ({ img, size }) => {
             style={imageStyle}
           />
         </div>
-        <div className={`${size[2]} ${classes.smallImg2} fadeInFromBottom`}>
+        <div className={`${classes.smallImg2} fadeInFromBottom`}>
           <Image
             src={img[2]}
             alt="img"

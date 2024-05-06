@@ -1,14 +1,32 @@
 import CartItemCard from "@/components/cartItemCard/cartItemCard";
-import { useCartStore } from "@/stores/cart";
+import { totalPrice, useCartStore } from "@/stores/cart";
 import { useEffect, useState } from "react";
 import classes from "./cart.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import Loader from "@/components/loader";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
-  console.log({ cart });
-
   const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+  const { data: session } = useSession();
+  const router = useRouter();
+  const total = totalPrice(cart);
+
+  const handleCheckout = () => {
+    // If there's no session (user not logged in), redirect to login page
+    if (!session) {
+      router.push("/me");
+    } else {
+      // If user is logged in, redirect to checkout page
+      router.push("/checkout/form");
+    }
+  };
+
+  const toProducts = () => {
+    router.push("/products");
+  };
 
   useEffect(() => {
     loadCart();
@@ -16,12 +34,8 @@ const Cart = () => {
   }, [loadCart]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
-
-  const totalPrice = cart.reduce((acc, item) => {
-    return acc + item.count * item.price;
-  }, 0);
 
   return (
     <>
@@ -31,7 +45,7 @@ const Cart = () => {
         </div>
         {cart.length > 0 ? (
           cart.map((item) => (
-            <CartItemCard item={item} key={item._id.toString()} />
+            <CartItemCard item={item} key={item._id.toString()} removeBtn />
           ))
         ) : (
           <p className={classes.noProduct}>
@@ -43,20 +57,23 @@ const Cart = () => {
           </p>
         )}
       </section>
-      {totalPrice > 0 && (
+      {cart.length !== 0 && (
         <>
           <div className={classes.totalWrapper}>
-            <p className={classes.totalPrice}> Total : {totalPrice} €</p>
+            <p className={classes.totalPrice}> Total : {total} €</p>
           </div>
 
           <div className={classes.buttonsWrapper}>
-            <Link href="/products" className="DefaultButton">
+            <button className="DefaultButton" onClick={() => toProducts()}>
               Continuer mes achats
-            </Link>
+            </button>
 
-            <Link href="/products" className="DefaultButtonDark">
+            <button
+              className="DefaultButtonDark"
+              onClick={() => handleCheckout()}
+            >
               Valider le paiement
-            </Link>
+            </button>
           </div>
         </>
       )}

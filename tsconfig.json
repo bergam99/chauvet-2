@@ -24,7 +24,9 @@
     "pages/api/products.ts",
     "types/user.ts",
     "pages/products/[productId].tsx",
-    "pages/api/auth/[...nextauth].ts"
+    "pages/api/auth/[...nextauth].ts",
+    "pages/api/userAddress.ts",
+    "pages/checkout/form/index.tsx"
   ],
   "exclude": ["node_modules"]
 }

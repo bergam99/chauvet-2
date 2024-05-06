@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.7.0",
+    "@stripe/stripe-js": "^3.3.0",
+    "axios": "^1.6.8",
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
     "next": "14.1.0",
     "next-auth": "^4.24.6",
+    "raw-body": "^2.5.2",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.3",
+    "stripe": "^15.1.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

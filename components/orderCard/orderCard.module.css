@@ -1,0 +1,31 @@
+.ordercard {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    /* Removes the space between borders */
+}
+
+.tableRow {
+    display: table-row;
+}
+
+.tableCell {
+    display: table-cell;
+    border: 0.6px solid var(--color-heavy-gray);
+    text-align: center;
+    padding: var(--sp-m);
+    vertical-align: middle;
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}
+
+.voir {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    margin: auto;
+    width: fit-content;
+}
+
+.voir:hover {
+    border-bottom: .5px solid var(--color-heavy-gray);
+}

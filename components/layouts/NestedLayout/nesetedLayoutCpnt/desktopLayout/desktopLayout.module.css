@@ -1,0 +1,32 @@
+.iconContainer .icon {
+    width: var(--icon);
+    height: auto;
+    /* maintain aspect ratio */
+}
+
+.iconContainer {
+    display: flex;
+    gap: var(--sp-m);
+}
+
+.cartContainer {
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    background-color: var(--color-light-gray);
+    left: 11px;
+    top: 12px;
+    border-radius: var(--br-max);
+    min-width: 20px;
+    text-align: center;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-xs);
+}
+
+.userName{
+    font-size: var(--fs-xs-a);
+    display: flex;
+    align-items: center;
+}

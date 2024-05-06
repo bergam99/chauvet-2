@@ -5,8 +5,8 @@
 
 .infoContainer {
     display: flex;
-    gap: var(--pd-xl);
-    padding-bottom: var(--pd-l);
+    gap: var(--sp-xl);
+    padding-bottom: var(--sp-l);
 }
 
 .mainInfo {
@@ -24,9 +24,9 @@
 
 .title {
     width: fit-content;
-    margin-bottom: var(--pd-xl);
-    padding-bottom: var(--pd-xs);
-    font-family: var(--ff-heading);
+    margin-bottom: var(--sp-xl);
+    padding-bottom: var(--sp-xs);
+    font-family: var(--ff-body2);
 }
 
 .des {
@@ -37,15 +37,37 @@
 .price {
     font-family: var(--ff-body2);
     font-size: var(--fs-xs);
-    padding: var(--pd-2xl) 0;
+    padding: var(--sp-2xl) 0;
 }
 
 
 .stock {
     color: var(--color-red);
-    padding: var(--pd-m) 0;
+    padding: var(--sp-m) 0;
     font-family: var(--ff-heading);
     font-size: var(--fs-xs);
+}
+
+.btnContainer {
+    display: flex;
+    gap: var(--sp-xl);
+    justify-content: center;
+}
+
+.txt {
+    font-size: var(--fs-m);
+    padding: var(--sp-xl) 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .btnContainer {
+        flex-direction: column;
+    }
+
+    .btnContainer {
+        width: auto
+    }
 }
 
 @media (max-width: 768px) {
@@ -54,7 +76,7 @@
     }
 
     .mainInfo {
-        padding: var(--pd-l) 0;
+        padding: var(--sp-l) 0;
     }
 
     .btn {

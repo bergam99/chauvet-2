@@ -42,11 +42,12 @@
     --fs-s: clamp(0.8rem, 3vw, 0.9rem);
 
     /* 'voir plus' button & connectedTxt in [postId] page */
-    --fs-xs: clamp(.8rem, 1.3vw, .8rem);
+    --fs-xs: clamp(.7rem, 1.3vw, .8rem);
 
     /* 'voir plus' link in posts page */
     --fs-xs-a: clamp(.6rem, 1.3vw, .7rem);
 
+    --fs--7rem: .7rem;
     /* in products page, mainProduct container*/
     --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
 
@@ -57,16 +58,24 @@
     --ls-s: .1rem;
     --ls-m: .2rem;
 
-    /* ===== padding ===== */
-    --pd-xs: clamp(.3em, 1vw, .5em);
-    --pd-s: clamp(8px, 2vw, 16px);
-    --pd-m: clamp(.5em, 1vw, 1em);
-    --pd-l: clamp(.5em, 3vw, 2em);
-    --pd-xl: clamp(.7em, 2vw, 2em);
-    --pd-2xl: clamp(1em, 4vw, 5em);
+    /* ===== spaces ===== */
+    --sp-xs: clamp(.3em, 1vw, .5em);
+    --sp-s: clamp(8px, 2vw, 16px);
+    --sp-m: clamp(.5em, 1vw, 1em);
+    --sp-l: clamp(.5em, 3vw, 2em);
+    --sp-xl: clamp(.7em, 2vw, 2em);
+    --sp-2xl: clamp(1em, 4vw, 5em);
     /* layout6 */
-    --pd-4xl: clamp(2em, 6vw, 5em);
-    --pd-5xl: clamp(3em, 16vw, 13em);
+    --sp-4xl: clamp(2em, 6vw, 5em);
+    --sp-5xl: clamp(3em, 16vw, 13em);
+    /* em */
+    --sp-em-s:1em;
+    --sp-em-m: 1.6em;
+
+    /* ===== border-radious ===== */
+    --br-m: 7px;
+    --br-l:4%;
+    --br-max: 50%;
 
     /* ===== line-height ===== */
     /* intro */
@@ -190,28 +199,3 @@ a {
 }
 
 
-/* Image classes */
-
-/* .Horizontal_Full {
-    aspect-ratio: 3/2;
-}
-
-.Horizontal_Medium {
-    aspect-ratio: 3/2;
-}
-
-.Horizontal_Small {
-    aspect-ratio: 3/2;
-}
-
-.Vertical_Full {
-    aspect-ratio: 2/3;
-}
-
-.Vertical_Medium{
-    aspect-ratio: 2/3;
-}
-
-.Vertical_Small {
-    aspect-ratio: 2/3;
-} */

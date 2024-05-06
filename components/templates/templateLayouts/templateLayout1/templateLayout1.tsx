@@ -7,19 +7,17 @@ interface TemplateLayout1Props {
   img: string;
   author: string;
   txt?: string[];
-  size: any;
 }
 
 const TemplateLayout1: NextPage<TemplateLayout1Props> = ({
   img,
   author,
   txt,
-  size,
 }) => {
   return (
     <>
       <div className={classes.gridContainer}>
-        <div className={`${size} ${classes.img} fadeInFromBottom`}>
+        <div className={`${classes.img} fadeInFromBottom`}>
           <Image
             src={img}
             alt="mainImg"

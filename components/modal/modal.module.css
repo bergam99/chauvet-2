@@ -1,26 +1,26 @@
 .modal {
     margin: auto;
-    padding: var(--pd-2xl);
+    padding: var(--sp-2xl);
     border: none;
 }
 
-.btnContainer{
-    display: flex;
-    gap: var(--pd-xl);
-    justify-content: center;
-}
-
-.txt{
-    font-size: var(--fs-m);
-    padding: var(--pd-xl) 0;
-    text-align: center;
-}
 
 .x{
     display: flex;
     justify-content: flex-end;
 }
 
+/* .btnContainer{
+    display: flex;
+    gap: var(--sp-xl);
+    justify-content: center;
+}
+
+.txt{
+    font-size: var(--fs-m);
+    padding: var(--sp-xl) 0;
+    text-align: center;
+}
 @media (max-width: 768px) {
     .btnContainer {
         flex-direction: column;
@@ -28,4 +28,4 @@
     .btnContainer .btn{
         width: auto
     }
-}
+} */

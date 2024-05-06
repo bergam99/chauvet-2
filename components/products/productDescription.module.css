@@ -2,7 +2,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 4%;
+    border-radius:var(--br-l);
 }
 
 .imageListContainer {
@@ -18,11 +18,11 @@
 
 .imageListItem {
     flex: 0 0 auto; /* let item size depends on flex-basis */
-    margin: var(--pd-l) var(--pd-m) var(--pd-l) 0;
+    margin: var(--sp-l) var(--sp-m) var(--sp-l) 0;
     /* height: 100%;     */
     /* width: 100%; */
 }
 
 .des{
-    padding: var(--pd-l) 0 var(--pd-2xl) 0;
+    padding: var(--sp-l) 0 var(--sp-2xl) 0;
 }

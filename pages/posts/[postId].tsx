@@ -14,29 +14,21 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
   if (!post) return <div>product not found</div>;
 
   return (
-    <>
-      <section className={classes.section}>
-        <div className={classes.title}>
-          <i className={classes.thema}>{post.thema}</i>
-          <h1 className={classes.heading}>{post.title}</h1>
-        </div>
-        <div>
-          {post.template.map((template, index) => (
-            <div key={index}>
-              {template.templateKey === "templateA" && (
-                <TemplateA post={post} />
-              )}
-              {template.templateKey === "templateB" && (
-                <TemplateB post={post} />
-              )}
-              {template.templateKey === "templateC" && (
-                <TemplateC post={post} />
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
+    <section>
+      <div className={classes.title}>
+        <i className={classes.thema}>{post.thema}</i>
+        <h1 className={classes.heading}>{post.title}</h1>
+      </div>
+      <div>
+        {post.template.map((template, index) => (
+          <div key={index}>
+            {template.templateKey === "templateA" && <TemplateA post={post} />}
+            {template.templateKey === "templateB" && <TemplateB post={post} />}
+            {template.templateKey === "templateC" && <TemplateC post={post} />}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

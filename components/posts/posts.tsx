@@ -38,7 +38,10 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
               )}
 
               <div className={`${classes.detailContainer} Link`}>
-                VOIR PLUS ➛
+                VOIR PLUS
+                <div className={classes.arrow}>
+                  <Image src={arrow} alt="->" layout="responsive" />
+                </div>
               </div>
             </Link>
           </div>

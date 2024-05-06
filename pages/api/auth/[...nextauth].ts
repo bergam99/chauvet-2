@@ -24,20 +24,40 @@ export const options: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user }) {
-      const { email, name } = user;
+      // Executed when login
+      const { email, name } = user; // extract email, name
       const db = await connectDB();
-      const userCollection = db.collection("users");
+      const userCollection = db.collection("Users"); // select db name to register
       const existingUser = await userCollection.findOne({ email, name });
 
       if (existingUser) {
         await userCollection.updateOne({ email }, { $set: { name: name } }); // Update the name in case it has changed
+        user.id = existingUser._id.toString(); // _id for user ID in DB
       } else {
-        await userCollection.insertOne({
+        const { insertedId } = await userCollection.insertOne({
           email,
           name,
         });
+        user.id = insertedId.toString(); // Use the inserted ID as the user ID
       }
       return true; // Return true to proceed with the sign in
+    },
+    // include id in session & jwt
+    async session({ session, token }) {
+      if (session && token.sub) {
+        // Check if session and token.sub are defined
+        if (!session.user) {
+          session.user = {}; // Initialize session.user if it's undefined
+        }
+        session.user.id = token.sub; // Include the user ID in the session
+      }
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user?.id) {
+        token.sub = user.id; // Store the user ID in the JWT token
+      }
+      return token;
     },
   },
 };

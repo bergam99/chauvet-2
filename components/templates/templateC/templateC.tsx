@@ -24,7 +24,6 @@ const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
     img: cards[0]?.url,
     author: post.author,
     txt: cards[0]?.txt,
-    size: cards[0]?.size,
   };
 
   const templateLayout6Props = extractCardProps(cards, 1, 4);
@@ -33,27 +32,23 @@ const TemplateC: NextPage<TemplateCProps> = ({ post }) => {
 
   const TL4bProps = {
     img: cards[7]?.url,
-    size: cards[7]?.size,
     txt: cards[7]?.txt,
     connectedTxt: cards[7]?.connected_txt,
   };
 
   const templateLayout3Props = {
     img: cards[8]?.url,
-    size: cards[8]?.size,
     txt: cards[8]?.txt,
   };
 
   const TL4aProps = {
     img: cards[9]?.url,
-    size: cards[9]?.size,
     txt: cards[9]?.txt,
     connectedTxt: cards[9]?.connected_txt,
   };
 
   const TL4bProps_1 = {
     img: cards[10]?.url,
-    size: cards[10]?.size,
     txt: cards[10]?.txt,
     connectedTxt: cards[10]?.connected_txt,
   };

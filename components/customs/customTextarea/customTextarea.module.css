@@ -1,0 +1,21 @@
+.textareaContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--sp-em-m);
+}
+
+.label{
+    font-size: var(--fs-s);
+    font-family: var(--ff-body2);
+}
+
+.textarea{
+    padding: var(--sp-xs);
+    margin: var(--sp-xs) 0;
+    border: .6px solid var(--color-gray);
+    height: 4rem;
+    border-radius: var(--br-m);
+    resize: none;
+    font-size: var(--fs-s);
+    font-family: var(--ff-body2);
+}
