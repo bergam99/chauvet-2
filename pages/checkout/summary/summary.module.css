@@ -1,16 +1,22 @@
-.address{
-    font-size: var(--fs-xs);
+.livraison {
+    font-size: var(--fs-s);
     font-family: var(--ff-body2);
     color: var(--color-gray);
 }
 
-.addressContainer{
+.address {
+    /* font-size: var(--fs-xs); */
+    font-family: var(--ff-body2);
+    color: var(--color-gray);
+}
+
+.addressContainer {
     border: .6px solid var(--color-gray);
     border-radius: var(--br-m);
     padding: var(--sp-l);
 }
 
-.total{
+.total {
     font-size: var(--fs-xs);
     font-family: var(--ff-body2);
     padding-top: var(--sp-4xl);
