@@ -64,6 +64,7 @@ export default async function handler(
         session_id: session.payment_intent,
         status: session.payment_status,
         amountPaid,
+        created: session.created,
       };
 
       const orderData = {

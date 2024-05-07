@@ -16,6 +16,7 @@ export interface IOrders {
     session_id: string;
     status: string;
     amountPaid: number;
+    created: number;
   };
   shippingAddress: IUserAddress[];
   user: IUser[];
