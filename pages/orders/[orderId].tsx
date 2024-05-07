@@ -54,6 +54,10 @@ const OrderDetail = () => {
 
   const { email, name } = order?.user[0] ?? {};
 
+  const createdAt = new Date(
+    (order?.paymentInfo.created ?? 0) * 1000
+  ).toLocaleString();
+
   const user = [
     { label: "Email", value: email },
     { label: "Nom", value: name },
@@ -78,6 +82,7 @@ const OrderDetail = () => {
     { label: "ID", value: order?._id.toString() },
     { label: "Montant payé", value: order?.paymentInfo.amountPaid },
     { label: "Status", value: order?.paymentInfo.status },
+    { label: "Date", value: createdAt },
   ];
 
   return (

@@ -4,6 +4,7 @@ import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import { useCheckoutStore } from "@/stores/checkout";
 import Loader from "@/components/loader";
+import Link from "next/link";
 
 const Summary = () => {
   const { shippingAddress } = useCheckoutStore();
@@ -38,7 +39,9 @@ const Summary = () => {
   }
   return (
     <>
-      {/* <p>1. Livraison</p> */}
+      <Link href="/checkout/form" className={classes.livraison}>
+        1. Livraison
+      </Link>
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
