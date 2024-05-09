@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react";
 import AddressForm from "../addressForm/addressForm";
 import AllAddresses from "../allAddresses/allAddresses";
-import { CheckoutProps } from "@/types/checkout";
 import { useCheckoutStore } from "@/stores/checkout";
 import { useRouter } from "next/router";
 
-const CheckoutAddressForm = ({
-  userAddress,
-  handleInputChange,
-  postAddress,
-}: CheckoutProps) => {
+const CheckoutAddressForm = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { allAddresses, setAllAddresses } = useCheckoutStore();
   const router = useRouter();
 
   /**
-   * fetch All address
+   * fetch All address already exists in db
    */
   useEffect(() => {
     fetch("/api/summary", {
@@ -49,18 +44,10 @@ const CheckoutAddressForm = ({
   return (
     <>
       {!isLoading && allAddresses.length > 0 ? (
-        <AllAddresses
-          userAddress={userAddress}
-          handleInputChange={handleInputChange}
-          postAddress={postAddress}
-        />
+        <AllAddresses />
       ) : (
-        <AddressForm
-          userAddress={userAddress}
-          handleInputChange={handleInputChange}
-          postAddress={postAddress}
-          toSummary={toSummary}
-        />
+        <AddressForm toSummary={toSummary} />
+        // toSummary={toSummary}
       )}
     </>
   );
