@@ -4,7 +4,7 @@ export interface CheckoutProps {
   userAddress?: IUserAddress;
   handleInputChange?: HandleInputChange;
   postAddress?: PostAddress;
-  toSummary?: () => void;
+  toSummary: () => void;
   shippingAddress?: any; // temporary
   submitModal?: PostAddress;
 }

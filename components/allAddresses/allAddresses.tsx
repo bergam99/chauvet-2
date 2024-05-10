@@ -88,7 +88,7 @@ const AllAddresses = () => {
       <ul>
         {allAddresses.map((address: IUserAddress) => (
           <li
-            key={address._id?.toString()}
+            key={address.localId?.toString()}
             className={classes.address}
             onClick={() => setShippingAddress(address)}
           >
@@ -118,7 +118,7 @@ const AllAddresses = () => {
       >
         selected! go to payment page
       </button>
-      {shippingAddress ? `${shippingAddress._id}` : "not selected"}
+      {shippingAddress ? `${shippingAddress.localId}` : "not selected"}
       {validationError}
     </>
   );

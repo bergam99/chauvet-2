@@ -7,16 +7,19 @@ import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
 import { useCheckoutStore } from "@/stores/checkout";
 
-const AddressForm = ({ toSummary = () => {}, submitModal }: CheckoutProps) => {
+const AddressForm = ({ toSummary, submitModal }: CheckoutProps) => {
   const { postAddress, handleInputChange, shippingAddress } =
     useCheckoutStore();
 
   async function submission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (submitModal) {
+      // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
     } else {
+      // first time submission (shippingAddress.length === 0)
       await postAddress(e);
+      toSummary();
     }
   }
 
@@ -124,12 +127,8 @@ const AddressForm = ({ toSummary = () => {}, submitModal }: CheckoutProps) => {
           name="additionalInfo"
           onChange={handleInputChange}
         />
-        <button
-          className={`${classes.btn} DefaultButtonDark`}
-          type="submit"
-          onClick={toSummary}
-        >
-          submit this form (post)
+        <button className={`${classes.btn} DefaultButtonDark`} type="submit">
+          submit this form
         </button>
       </form>
     </>

@@ -38,6 +38,7 @@ const OrderDetail = () => {
   }, [orderId]);
 
   const {
+    localId,
     firstName,
     lastName,
     address,

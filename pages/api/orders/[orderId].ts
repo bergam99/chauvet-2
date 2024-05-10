@@ -30,18 +30,10 @@ export default async function handler(
           { $match: { _id: orderObjectId, user_id } }, // Match orders by user_id
           {
             $lookup: {
-              from: "UserAddresses", // The collection to join
-              let: { shippingAddressId: "$shippingAddress" }, // Define variable to use in pipeline
-              pipeline: [
-                {
-                  $match: {
-                    $expr: {
-                      $eq: [{ $toString: "$_id" }, "$$shippingAddressId"],
-                    },
-                  },
-                }, // Use the converted string ID in comparison
-              ],
-              as: "shippingAddress", // Output array field with joined documents
+              from: "UserAddresses",
+              localField: "shippingAddress",
+              foreignField: "localId",
+              as: "shippingAddress",
             },
           },
           {
