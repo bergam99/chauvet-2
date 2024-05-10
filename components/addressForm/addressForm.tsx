@@ -6,10 +6,12 @@ import CustomTextarea from "../customs/customTextarea/customTextarea";
 import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
 import { useCheckoutStore } from "@/stores/checkout";
+import { useRouter } from "next/router";
 
-const AddressForm = ({ toSummary, submitModal }: CheckoutProps) => {
+const AddressForm = ({ submitModal }: CheckoutProps) => {
   const { postAddress, handleInputChange, shippingAddress } =
     useCheckoutStore();
+  const router = useRouter();
 
   async function submission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,7 +21,7 @@ const AddressForm = ({ toSummary, submitModal }: CheckoutProps) => {
     } else {
       // first time submission (shippingAddress.length === 0)
       await postAddress(e);
-      toSummary();
+      router.push("/checkout/summary");
     }
   }
 

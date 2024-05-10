@@ -34,20 +34,12 @@ const CheckoutAddressForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /**
-   * Navigate to summary after submitting form & when only first address
-   */
-  const toSummary = () => {
-    router.push("/checkout/summary");
-  };
-
   return (
     <>
       {!isLoading && allAddresses.length > 0 ? (
         <AllAddresses />
       ) : (
-        <AddressForm toSummary={toSummary} />
-        // toSummary={toSummary}
+        <AddressForm />
       )}
     </>
   );
