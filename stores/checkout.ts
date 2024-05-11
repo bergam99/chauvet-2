@@ -9,6 +9,8 @@ type CheckoutStore = {
   postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
+  fetchTrigger: boolean;
+  setFetchTrigger: (value: boolean) => void;
 };
 
 export const baseAddress = {
@@ -29,6 +31,7 @@ export const baseAddress = {
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
+  fetchTrigger: true,
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
@@ -43,6 +46,8 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
       },
     }));
   },
+
+  setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
   // resrt
   resetShippingAddress: () =>
     set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId

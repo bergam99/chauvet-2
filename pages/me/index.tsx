@@ -5,7 +5,7 @@ import facebookLogo from "@/public/icon/logo-fb.png";
 import googleLogo from "@/public/icon/logo-google.png";
 import GoBack from "@/components/customs/backButton/goBack";
 import MeLayout from "@/components/layouts/meLayout/meLayout";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 
 const AuthPage = () => {
   const { data: session, status } = useSession();

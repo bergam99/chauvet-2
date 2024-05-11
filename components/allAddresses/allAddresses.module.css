@@ -1,8 +1,0 @@
-.address {
-    font-size: var(--fs-xs);
-    font-family: var(--ff-body2);
-    color: var(--color-gray);
-    border: .6px solid var(--color-gray);
-    border-radius: var(--br-m);
-    padding: var(--sp-l);
-}

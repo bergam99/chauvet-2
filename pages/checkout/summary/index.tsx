@@ -3,7 +3,7 @@ import { useState } from "react";
 import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import { useCheckoutStore } from "@/stores/checkout";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 import Link from "next/link";
 
 const Summary = () => {

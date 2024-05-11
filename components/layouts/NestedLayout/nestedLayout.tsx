@@ -20,7 +20,8 @@ const NestedLayout = () => {
     currentPath.includes("/products") ||
     currentPath.includes("/me") ||
     currentPath.includes("/orders") ||
-    currentPath.includes("/cart")
+    currentPath.includes("/cart") ||
+    currentPath.includes("/addresses")
   ) {
     return (
       <>
