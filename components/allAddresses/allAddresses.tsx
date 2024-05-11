@@ -5,18 +5,16 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import AddressForm from "../addressForm/addressForm";
 import { CheckoutProps } from "@/types/checkout";
-import { useCheckoutStore } from "@/stores/checkout";
+import { baseAddress, useCheckoutStore } from "@/stores/checkout";
 
-const AllAddresses = ({
-  userAddress,
-  handleInputChange,
-  postAddress,
-}: CheckoutProps) => {
+const AllAddresses = () => {
   const {
     shippingAddress,
-    handleshippingAddress,
+    setShippingAddress,
     allAddresses,
     setAllAddresses,
+    postAddress,
+    resetShippingAddress,
   } = useCheckoutStore();
 
   const dialog = useRef<ModalHandles>(null);
@@ -24,14 +22,14 @@ const AllAddresses = ({
   const router = useRouter();
   const [fetchTrigger, setFetchTrigger] = useState(false);
 
-  const handleValidationAndClick = async (
-    e: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!shippingAddress) {
-      setValidationError("Please select an address!!");
+    if (!shippingAddress.localId) {
+      console.log("address not selected");
+      setValidationError(" !!Please select an address!!");
       return;
     } else {
+      console.log("address selected", shippingAddress);
       setValidationError("");
       router.push("/checkout/summary");
     }
@@ -41,22 +39,20 @@ const AllAddresses = ({
     dialog.current?.open();
   }
 
-  function submitModal(e: React.FormEvent<HTMLFormElement>) {
-    const fakeEvent = {
-      preventDefault: () => {},
-    } as React.FormEvent<HTMLFormElement>;
-
+  async function submitModal(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    postAddress(fakeEvent); // post form
+    await postAddress(e); // post form
     dialog.current?.close(); // close modal
+    console.log("submitted modal :", shippingAddress);
+    resetShippingAddress(); // prevent auto-select submitted shippingAddress
+    console.log("clear modal :", shippingAddress);
     setFetchTrigger(true); // start refresh
   }
 
   useEffect(() => {
-    // TODO: Optimizer fetch fc
+    console.log("Current shipping address:", shippingAddress);
     if (fetchTrigger) {
-      console.log("Fetching all addresses...");
+      console.log("re-fetching all addresses...");
       fetch("/api/summary", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -68,7 +64,7 @@ const AllAddresses = ({
           return res.json();
         })
         .then((data) => {
-          setAllAddresses(data.userAddress);
+          setAllAddresses(data.userAddress); // fetch all address
         })
         .catch((error) => {
           console.error("Fetching user addresses failed:", error);
@@ -81,26 +77,18 @@ const AllAddresses = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
-  // const toSummary = () => {
-  //   router.push("/checkout/summary");
-  // };
-
   return (
     <>
       <Modal ref={dialog}>
-        <AddressForm
-          userAddress={userAddress}
-          handleInputChange={handleInputChange}
-          postAddress={submitModal}
-        />
+        <AddressForm submitModal={submitModal} />
       </Modal>
 
       <ul>
         {allAddresses.map((address: IUserAddress) => (
           <li
-            key={address._id?.toString()}
+            key={address.localId?.toString()}
             className={classes.address}
-            onClick={() => handleshippingAddress(address)}
+            onClick={() => setShippingAddress(address)}
           >
             {address.gender} {address.firstName} {address.lastName} <br />
             {address.address} {address.additionalAddresse} <br />
@@ -128,7 +116,7 @@ const AllAddresses = ({
       >
         selected! go to payment page
       </button>
-      {shippingAddress ? `${shippingAddress._id}` : "not selected"}
+      {shippingAddress ? `${shippingAddress.localId}` : "not selected"}
       {validationError}
     </>
   );

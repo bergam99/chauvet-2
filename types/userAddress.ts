@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 
 export interface IUserAddress {
   _id?: ObjectId | string;
+  localId?: string;
   gender: string;
   firstName: string;
   lastName: string;

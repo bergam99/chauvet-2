@@ -21,7 +21,7 @@ const Summary = () => {
       },
       body: JSON.stringify({
         products: cart,
-        shippingAddress: shippingAddress._id,
+        shippingAddress: shippingAddress.localId,
       }),
     });
     const data = await response.json();
@@ -37,6 +37,8 @@ const Summary = () => {
   if (isLoading) {
     return <Loader />;
   }
+  // console.log({ shippingAddress });
+
   return (
     <>
       <Link href="/checkout/form" className={classes.livraison}>
@@ -49,7 +51,7 @@ const Summary = () => {
         {shippingAddress && (
           <div className={classes.addressContainer}>
             <ul className={classes.shippingAddress}>
-              <li>{shippingAddress._id?.toString()}</li>
+              <li>{shippingAddress.localId?.toString()}</li>
               <li>
                 {shippingAddress.gender} {shippingAddress.firstName}
               </li>
