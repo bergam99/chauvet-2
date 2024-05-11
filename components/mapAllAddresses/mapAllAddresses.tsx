@@ -12,11 +12,13 @@ const MapAllAddresses = ({
   setFetchTrigger,
   fetchTrigger,
 }: MapAllAddressesProps) => {
-  const { shippingAddress, setShippingAddress, allAddresses, setAllAddresses } =
+  const { setShippingAddress, allAddresses, setAllAddresses } =
     useCheckoutStore();
 
   useEffect(() => {
-    console.log("Current shipping address:", shippingAddress);
+    // console.log("Current shipping address:", shippingAddress);
+    console.log("mapAllAddresses useEffect GO ==> ", fetchTrigger);
+
     if (fetchTrigger) {
       console.log("re-fetching all addresses...");
       fetch("/api/summary", {
@@ -40,6 +42,8 @@ const MapAllAddresses = ({
           console.log("end refresh");
         });
     }
+    console.log("mapAllAddresses useEffect DONE ==> ", fetchTrigger);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 

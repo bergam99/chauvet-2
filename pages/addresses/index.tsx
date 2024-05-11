@@ -8,10 +8,11 @@ const Addresses = () => {
   const { allAddresses, setAllAddresses } = useCheckoutStore();
   const [isLoading, setIsLoading] = useState(true);
 
-  const [fetchTrigger, setFetchTrigger] = useState(false);
+  const [fetchTrigger, setFetchTrigger] = useState(true); // fetch first time cpnt mount
+  console.log("address cpnt=>", fetchTrigger);
 
   useEffect(() => {
-    console.log("addresses component useEffect launched");
+    console.log("addresses cp, useEffect GO ==> ", fetchTrigger);
 
     if (fetchTrigger) {
       console.log("re-fetching all addresses...");
@@ -34,8 +35,9 @@ const Addresses = () => {
           setIsLoading(false);
         });
     }
-    console.log("addresses component useEffect finished");
+    setFetchTrigger(false);
 
+    console.log("addresses cp, useEffect DONE ==> ", fetchTrigger);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
