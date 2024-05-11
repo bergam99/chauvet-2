@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--sp-4xl);
-    padding: var(--sp-xl) 0;
+    padding: var(--sp-2xl) 0;
 }
 
 .mainProductContainer{
