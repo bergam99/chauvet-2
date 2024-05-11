@@ -5,10 +5,14 @@ import { useCheckoutStore } from "@/stores/checkout";
 import { useEffect, useState } from "react";
 
 const Addresses = () => {
-  const { allAddresses, setAllAddresses, fetchTrigger } = useCheckoutStore();
+  const { allAddresses, setAllAddresses } = useCheckoutStore();
   const [isLoading, setIsLoading] = useState(true);
 
+  const [fetchTrigger, setFetchTrigger] = useState(false);
+
   useEffect(() => {
+    console.log("addresses component useEffect launched");
+
     if (fetchTrigger) {
       console.log("re-fetching all addresses...");
       fetch("/api/summary", {
@@ -30,6 +34,8 @@ const Addresses = () => {
           setIsLoading(false);
         });
     }
+    console.log("addresses component useEffect finished");
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
@@ -39,13 +45,24 @@ const Addresses = () => {
         <p>Gérer mes Addresses</p>
         {!isLoading && allAddresses.length > 0 ? (
           <>
-            <MapAllAddresses />
-            <OpenModalBtn btnTxt="+ ajouter plus d'address" />
+            <MapAllAddresses
+              setFetchTrigger={setFetchTrigger}
+              fetchTrigger={fetchTrigger}
+            />
+            <OpenModalBtn
+              btnTxt="+ ajouter plus d'address"
+              setFetchTrigger={setFetchTrigger}
+              fetchTrigger={fetchTrigger}
+            />
           </>
         ) : (
           <>
             <p>Pas d&apos;address encore...</p>
-            <OpenModalBtn btnTxt="ajouter ma première address" />
+            <OpenModalBtn
+              btnTxt="ajouter ma première address"
+              setFetchTrigger={setFetchTrigger}
+              fetchTrigger={fetchTrigger}
+            />
           </>
         )}
       </MeLayout>

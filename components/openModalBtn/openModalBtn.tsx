@@ -1,21 +1,20 @@
 import Modal, { ModalHandles } from "../modal/modal";
-import { useRef } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 import AddressForm from "../addressForm/addressForm";
 import { useCheckoutStore } from "@/stores/checkout";
 
 type OpenModalProps = {
   btnTxt?: string;
+  setFetchTrigger: Dispatch<SetStateAction<boolean>>;
+  fetchTrigger: boolean;
 };
 const OpenModalBtn = ({
   btnTxt = "+ ajouter une nouvelle address",
+  setFetchTrigger,
+  fetchTrigger,
 }: OpenModalProps) => {
-  const {
-    shippingAddress,
-    postAddress,
-    resetShippingAddress,
-    setFetchTrigger,
-    fetchTrigger,
-  } = useCheckoutStore();
+  const { shippingAddress, postAddress, resetShippingAddress } =
+    useCheckoutStore();
 
   const dialog = useRef<ModalHandles>(null);
 

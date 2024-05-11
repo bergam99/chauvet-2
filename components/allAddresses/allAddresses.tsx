@@ -6,11 +6,10 @@ import MapAllAddresses from "../mapAllAddresses/mapAllAddresses";
 import OpenModalBtn from "../openModalBtn/openModalBtn";
 
 const AllAddresses = () => {
-  const { shippingAddress, setAllAddresses, fetchTrigger, setFetchTrigger } =
-    useCheckoutStore();
-
+  const { shippingAddress } = useCheckoutStore();
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
+  const [fetchTrigger, setFetchTrigger] = useState(false);
 
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -27,8 +26,14 @@ const AllAddresses = () => {
 
   return (
     <>
-      <MapAllAddresses />
-      <OpenModalBtn />
+      <MapAllAddresses
+        setFetchTrigger={setFetchTrigger}
+        fetchTrigger={fetchTrigger}
+      />
+      <OpenModalBtn
+        setFetchTrigger={setFetchTrigger}
+        fetchTrigger={fetchTrigger}
+      />
 
       <button
         className={`${classes.btn} DefaultButtonDark`}

@@ -1,17 +1,19 @@
 import { IUserAddress } from "@/types/userAddress";
 import { useCheckoutStore } from "@/stores/checkout";
 import classes from "./mapAllAddresses.module.css";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-const MapAllAddresses = () => {
-  const {
-    shippingAddress,
-    setShippingAddress,
-    allAddresses,
-    fetchTrigger,
-    setAllAddresses,
-    setFetchTrigger,
-  } = useCheckoutStore();
+type MapAllAddressesProps = {
+  setFetchTrigger: Dispatch<SetStateAction<boolean>>;
+  fetchTrigger: boolean;
+};
+
+const MapAllAddresses = ({
+  setFetchTrigger,
+  fetchTrigger,
+}: MapAllAddressesProps) => {
+  const { shippingAddress, setShippingAddress, allAddresses, setAllAddresses } =
+    useCheckoutStore();
 
   useEffect(() => {
     console.log("Current shipping address:", shippingAddress);
