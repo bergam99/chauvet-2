@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import AddressForm from "../addressForm/addressForm";
 import AllAddresses from "../allAddresses/allAddresses";
 import { useCheckoutStore } from "@/stores/checkout";
-import { useRouter } from "next/router";
 
 const CheckoutAddressForm = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { allAddresses, setAllAddresses } = useCheckoutStore();
-  const router = useRouter();
 
   /**
    * fetch All address already exists in db

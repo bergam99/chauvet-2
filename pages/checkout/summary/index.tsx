@@ -37,7 +37,7 @@ const Summary = () => {
   if (isLoading) {
     return <Loader />;
   }
-  console.log({ shippingAddress });
+  // console.log({ shippingAddress });
 
   return (
     <>

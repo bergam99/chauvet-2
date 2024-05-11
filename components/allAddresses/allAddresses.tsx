@@ -24,14 +24,12 @@ const AllAddresses = () => {
 
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // TODO: fix empty form submission
-    if (!shippingAddress) {
+    if (!shippingAddress.localId) {
       console.log("address not selected");
-      setValidationError("Please select an address!!");
+      setValidationError(" !!Please select an address!!");
       return;
     } else {
       console.log("address selected", shippingAddress);
-
       setValidationError("");
       router.push("/checkout/summary");
     }
@@ -45,9 +43,9 @@ const AllAddresses = () => {
     e.preventDefault();
     await postAddress(e); // post form
     dialog.current?.close(); // close modal
-    // resetShippingAddress();
-    console.log("submit modal", shippingAddress);
-
+    console.log("submitted modal :", shippingAddress);
+    resetShippingAddress(); // prevent auto-select submitted shippingAddress
+    console.log("clear modal :", shippingAddress);
     setFetchTrigger(true); // start refresh
   }
 

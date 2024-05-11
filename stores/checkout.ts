@@ -9,7 +9,6 @@ type CheckoutStore = {
   postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
-  validationError: "";
 };
 
 export const baseAddress = {
@@ -30,7 +29,6 @@ export const baseAddress = {
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-  validationError: "",
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
@@ -46,7 +44,8 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     }));
   },
   // resrt
-  resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }),
+  resetShippingAddress: () =>
+    set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId
 
   postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,7 +54,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
       ...shippingAddress,
       localId: generateRandomID(),
     };
-    console.log("checkout avant post", newShippingAddress);
+    // console.log("checkout avant post", newShippingAddress);
     set({ shippingAddress: newShippingAddress });
 
     const response = await fetch("/api/userAddress", {
