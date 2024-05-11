@@ -1,3 +1,6 @@
+// stripe login
+// stripe listen --events checkout.session.completed --forward-to localhost:3000/api/webhook
+
 import { connectDB } from "@/utils/connectDB";
 import { safeParseFloat } from "@/utils/parseFloat";
 import { NextApiRequest, NextApiResponse } from "next";
