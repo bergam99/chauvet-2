@@ -81,7 +81,7 @@ const Summary = () => {
 
         {!isLoading && !shippingAddress && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
-        <button onClick={payment} className="DefaultButton">
+        <button onClick={payment} className="DefaultButtonDark">
           {isLoading ? "Loading..." : "Payer"}
         </button>
       </CheckoutLayout>
