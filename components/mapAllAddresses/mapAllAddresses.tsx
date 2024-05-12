@@ -8,19 +8,22 @@ type MapAllAddressesProps = {
   setFetchTrigger: Dispatch<SetStateAction<boolean>>;
   fetchTrigger: boolean;
   radioBtn?: boolean;
+  // deleteAddress: (id: string) => Promise<void>;
+  deleteAddress: any; // TODO typer
 };
 
 const MapAllAddresses = ({
   setFetchTrigger,
   fetchTrigger,
   radioBtn = false,
+  deleteAddress,
 }: MapAllAddressesProps) => {
   const { setShippingAddress, shippingAddress, allAddresses, setAllAddresses } =
     useCheckoutStore();
 
   useEffect(() => {
     // console.log("Current shipping address:", shippingAddress);
-    console.log("mapAllAddresses useEffect GO ==> ", fetchTrigger);
+    // console.log("mapAllAddresses useEffect GO ==> ", fetchTrigger);
 
     if (fetchTrigger) {
       console.log("re-fetching all addresses...");
@@ -45,44 +48,52 @@ const MapAllAddresses = ({
           console.log("end refresh");
         });
     }
-    console.log("mapAllAddresses useEffect DONE ==> ", fetchTrigger);
+    // console.log("mapAllAddresses useEffect DONE ==> ", fetchTrigger);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
-  function renderAddressContent(address: IUserAddress) {
-    return (
-      <p className={classes.p}>
-        {address.address} {address.additionalAddresse} <br />
-        Téléphone : {address.tel} <br />
-        {address.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
-        {address.additionalInfo && `Note: ${address.additionalInfo}`}
-      </p>
-    );
-  }
-
   return (
     <ul className={classes.ul}>
       {allAddresses.map((address: IUserAddress) => (
-        <>
-          <li
-            key={address.localId?.toString()}
-            className={classes.li}
-            onClick={() => setShippingAddress(address)}
-          >
-            {radioBtn ? (
-              <CustomRadioButton
-                label={renderAddressContent(address)}
-                name="addressSelection"
-                value={address.localId}
-                checked={shippingAddress === address}
-                onChange={() => setShippingAddress(address)}
-              />
-            ) : (
-              renderAddressContent(address)
-            )}
-          </li>
-        </>
+        <li
+          key={address._id?.toString()}
+          className={classes.li}
+          onClick={() => setShippingAddress(address)}
+        >
+          {radioBtn ? (
+            <CustomRadioButton
+              label={
+                <p className={classes.p}>
+                  {address._id?.toString()} {address.gender}
+                  {address.firstName}
+                  {address.address} {address.additionalAddresse} <br />
+                  Téléphone : {address.tel} <br />
+                  {address.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
+                  {address.additionalInfo && `Note: ${address.additionalInfo}`}
+                </p>
+              }
+              name="addressSelection"
+              value={address.localId}
+              checked={shippingAddress === address}
+              onChange={() => setShippingAddress(address)}
+            />
+          ) : (
+            <>
+              <p className={classes.p}>
+                {address._id?.toString()} {address.gender}
+                {address.firstName}
+                {address.address} {address.additionalAddresse} <br />
+                Téléphone : {address.tel} <br />
+                {address.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
+                {address.additionalInfo && `Note: ${address.additionalInfo}`}
+              </p>
+              <button onClick={() => deleteAddress(shippingAddress._id)}>
+                Delete
+              </button>
+            </>
+          )}
+        </li>
       ))}
     </ul>
   );

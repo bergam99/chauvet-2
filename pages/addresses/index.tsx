@@ -7,17 +7,17 @@ import classes from "./addresses.module.css";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
 
 const Addresses = () => {
-  const { allAddresses, setAllAddresses } = useCheckoutStore();
+  const { allAddresses, setAllAddresses, deleteAddress } = useCheckoutStore();
   const [isLoading, setIsLoading] = useState(true);
 
   const [fetchTrigger, setFetchTrigger] = useState(true); // fetch first time cpnt mount
-  console.log("address cpnt=>", fetchTrigger);
+  // console.log("address cpnt=>", fetchTrigger);
 
   useEffect(() => {
-    console.log("addresses cp, useEffect GO ==> ", fetchTrigger);
+    // console.log("addresses cp, useEffect GO ==> ", fetchTrigger);
 
     if (fetchTrigger) {
-      console.log("re-fetching all addresses...");
+      // console.log("re-fetching all addresses...");
       fetch("/api/summary", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ const Addresses = () => {
     }
     setFetchTrigger(false);
 
-    console.log("addresses cp, useEffect DONE ==> ", fetchTrigger);
+    // console.log("addresses cp, useEffect DONE ==> ", fetchTrigger);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
@@ -52,6 +52,7 @@ const Addresses = () => {
               <MapAllAddresses
                 setFetchTrigger={setFetchTrigger}
                 fetchTrigger={fetchTrigger}
+                deleteAddress={deleteAddress}
               />
               <OpenModalBtn
                 btnTxt="+ ajouter plus d'address"

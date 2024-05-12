@@ -23,7 +23,7 @@ const OpenModalBtn = ({
   }
 
   async function submitModal(e: React.FormEvent<HTMLFormElement>) {
-    console.log("OpenModalBtn Submit form GO ==> ", fetchTrigger);
+    // console.log("OpenModalBtn Submit form GO ==> ", fetchTrigger);
 
     e.preventDefault();
     await postAddress(e); // post form
@@ -32,7 +32,7 @@ const OpenModalBtn = ({
     resetShippingAddress(); // prevent auto-select submitted shippingAddress
     // console.log("clear modal :", shippingAddress);
     setFetchTrigger(true); // start refresh
-    console.log("OpenModalBtn Submit form DONE ==> ", fetchTrigger);
+    // console.log("OpenModalBtn Submit form DONE ==> ", fetchTrigger);
   }
 
   return (
