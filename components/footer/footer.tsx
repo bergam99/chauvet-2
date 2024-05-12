@@ -18,11 +18,23 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <Modal ref={dialog}>
-        <p className={classes.modaltxt}>
-          This is a virtual site, not commercial, created by Jiyun Park 👩🏻‍💻
-        </p>
-        <form method="dialog" className="DefaultButton">
-          <button>Close</button>
+        <form method="dialog">
+          <p className={classes.modaltxt}>
+            This is a virtual site, not commercial, created by Jiyun Park 👩🏻‍💻
+          </p>
+          <p>Stacks : React Next js, Typescript, MongoDB, Zustand</p>
+
+          <a
+            href="https://github.com/bergam99/chauvet-2"
+            target="_blank"
+            className={classes.link}
+          >
+            🔗 Github
+          </a>
+
+          <div className={`${classes.btn} DefaultButton`}>
+            <button className={classes.close}>Close</button>
+          </div>
         </form>
       </Modal>
 
@@ -82,7 +94,7 @@ const Footer = () => {
             photos de ce site Web.
           </p>
           <p className={`${classes.copyright} ${classes.copyrightpadding}`}>
-            © Chauvet 2024 Site réalisé par Team Chauvet
+            © Chauvet 2024 Site réalisé par Jiyun Park
           </p>
         </div>
       </div>
