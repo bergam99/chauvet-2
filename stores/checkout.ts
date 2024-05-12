@@ -1,4 +1,5 @@
 import { IUserAddress } from "@/types/userAddress";
+import { ObjectId } from "mongodb";
 import { create } from "zustand";
 
 type CheckoutStore = {
@@ -9,7 +10,7 @@ type CheckoutStore = {
   postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
-  deleteAddress: (id: string) => Promise<void>;
+  deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
   // fetchTrigger: boolean;
   // setFetchTrigger: (value: boolean) => void;
 };
@@ -76,7 +77,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
 
   setAllAddresses: (addresses) => set({ allAddresses: addresses }),
 
-  deleteAddress: async (id: string) => {
+  deleteAddress: async (id) => {
     const { allAddresses } = get();
     try {
       const response = await fetch(`/api/deleteAddress`, {

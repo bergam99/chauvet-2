@@ -3,28 +3,33 @@ import { useCheckoutStore } from "@/stores/checkout";
 import classes from "./mapAllAddresses.module.css";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
+import AddressCard from "../addressCard/addressCard";
 
 type MapAllAddressesProps = {
   setFetchTrigger: Dispatch<SetStateAction<boolean>>;
   fetchTrigger: boolean;
   radioBtn?: boolean;
   // deleteAddress: (id: string) => Promise<void>;
-  deleteAddress: any; // TODO typer
 };
 
 const MapAllAddresses = ({
   setFetchTrigger,
   fetchTrigger,
   radioBtn = false,
-  deleteAddress,
 }: MapAllAddressesProps) => {
-  const { setShippingAddress, shippingAddress, allAddresses, setAllAddresses } =
-    useCheckoutStore();
+  const {
+    setShippingAddress,
+    shippingAddress,
+    allAddresses,
+    setAllAddresses,
+    deleteAddress,
+  } = useCheckoutStore();
 
   useEffect(() => {
     // console.log("Current shipping address:", shippingAddress);
     // console.log("mapAllAddresses useEffect GO ==> ", fetchTrigger);
 
+    // TODO: fetch trigger after delete (stock in store?)
     if (fetchTrigger) {
       console.log("re-fetching all addresses...");
       fetch("/api/summary", {
@@ -48,8 +53,6 @@ const MapAllAddresses = ({
           console.log("end refresh");
         });
     }
-    // console.log("mapAllAddresses useEffect DONE ==> ", fetchTrigger);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
@@ -63,16 +66,7 @@ const MapAllAddresses = ({
         >
           {radioBtn ? (
             <CustomRadioButton
-              label={
-                <p className={classes.p}>
-                  {address._id?.toString()} {address.gender}
-                  {address.firstName}
-                  {address.address} {address.additionalAddresse} <br />
-                  Téléphone : {address.tel} <br />
-                  {address.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
-                  {address.additionalInfo && `Note: ${address.additionalInfo}`}
-                </p>
-              }
+              label={<AddressCard address={address} />}
               name="addressSelection"
               value={address.localId}
               checked={shippingAddress === address}
@@ -80,16 +74,12 @@ const MapAllAddresses = ({
             />
           ) : (
             <>
-              <p className={classes.p}>
-                {address._id?.toString()} {address.gender}
-                {address.firstName}
-                {address.address} {address.additionalAddresse} <br />
-                Téléphone : {address.tel} <br />
-                {address.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
-                {address.additionalInfo && `Note: ${address.additionalInfo}`}
-              </p>
-              <button onClick={() => deleteAddress(shippingAddress._id)}>
-                Delete
+              <AddressCard address={address} />
+              <button
+                onClick={() => deleteAddress(shippingAddress._id)}
+                className="Link"
+              >
+                Supprimer
               </button>
             </>
           )}
