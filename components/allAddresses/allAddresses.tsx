@@ -29,6 +29,7 @@ const AllAddresses = () => {
       <MapAllAddresses
         setFetchTrigger={setFetchTrigger}
         fetchTrigger={fetchTrigger}
+        radioBtn={true}
       />
       <OpenModalBtn
         setFetchTrigger={setFetchTrigger}
