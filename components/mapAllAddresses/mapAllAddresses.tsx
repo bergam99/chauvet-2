@@ -32,7 +32,7 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
       setIsLoading(false);
     };
     fetching();
-    setFetchTrigger(false); // reset to default value, this will switch when submit modal.
+    setFetchTrigger(false); // reset to default value aftre refreshing, this will switch when submit modal.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
@@ -59,12 +59,18 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
           ) : (
             <>
               <AddressCard address={address} />
-              <button
-                onClick={() => deleteAddress(shippingAddress._id)}
-                className="Link"
-              >
-                Supprimer
-              </button>
+              <div className={classes.btnContainer}>
+                <button onClick={() => {}} className={classes.modify}>
+                  Modifier
+                </button>
+
+                <button
+                  onClick={() => deleteAddress(shippingAddress._id)}
+                  className={classes.delete}
+                >
+                  Supprimer
+                </button>
+              </div>
             </>
           )}
         </li>

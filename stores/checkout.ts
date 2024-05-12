@@ -94,7 +94,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   },
 
   deleteAddress: async (id) => {
-    const { allAddresses } = get();
+    const { allAddresses, setFetchTrigger } = get();
     try {
       const response = await fetch(`/api/deleteAddress`, {
         method: "DELETE",
@@ -106,6 +106,8 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
         (address) => address._id !== id
       );
       set({ allAddresses: updatedAddresses });
+      setFetchTrigger(true);
+
       console.log("address deleted");
     } catch (error) {
       console.error("Error deleting address:", error);
