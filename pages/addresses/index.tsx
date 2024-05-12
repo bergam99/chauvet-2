@@ -7,7 +7,7 @@ import classes from "./addresses.module.css";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
 
 const Addresses = () => {
-  const { allAddresses, setAllAddresses, deleteAddress } = useCheckoutStore();
+  const { allAddresses, setAllAddresses } = useCheckoutStore();
   const [isLoading, setIsLoading] = useState(true);
 
   const [fetchTrigger, setFetchTrigger] = useState(true); // fetch first time cpnt mount
@@ -52,7 +52,6 @@ const Addresses = () => {
               <MapAllAddresses
                 setFetchTrigger={setFetchTrigger}
                 fetchTrigger={fetchTrigger}
-                deleteAddress={deleteAddress}
               />
               <OpenModalBtn
                 btnTxt="+ ajouter plus d'address"

@@ -1,3 +1,4 @@
+// TODO: rename => getAllAddresses.ts
 import { IUserAddress } from "@/types/userAddress";
 import { connectDB } from "@/utils/connectDB";
 import { securingEndpoint } from "@/utils/securingEndpoint";

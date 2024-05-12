@@ -9,7 +9,6 @@ type MapAllAddressesProps = {
   setFetchTrigger: Dispatch<SetStateAction<boolean>>;
   fetchTrigger: boolean;
   radioBtn?: boolean;
-  // deleteAddress: (id: string) => Promise<void>;
 };
 
 const MapAllAddresses = ({
