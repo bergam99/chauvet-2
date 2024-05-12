@@ -3,6 +3,8 @@ import MapAllAddresses from "@/components/mapAllAddresses/mapAllAddresses";
 import OpenModalBtn from "@/components/openModalBtn/openModalBtn";
 import { useCheckoutStore } from "@/stores/checkout";
 import { useEffect, useState } from "react";
+import classes from "./addresses.module.css";
+import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
 
 const Addresses = () => {
   const { allAddresses, setAllAddresses } = useCheckoutStore();
@@ -44,29 +46,30 @@ const Addresses = () => {
   return (
     <>
       <MeLayout>
-        <p>Gérer mes Addresses</p>
-        {!isLoading && allAddresses.length > 0 ? (
-          <>
-            <MapAllAddresses
-              setFetchTrigger={setFetchTrigger}
-              fetchTrigger={fetchTrigger}
-            />
-            <OpenModalBtn
-              btnTxt="+ ajouter plus d'address"
-              setFetchTrigger={setFetchTrigger}
-              fetchTrigger={fetchTrigger}
-            />
-          </>
-        ) : (
-          <>
-            <p>Pas d&apos;address encore...</p>
-            <OpenModalBtn
-              btnTxt="ajouter ma première address"
-              setFetchTrigger={setFetchTrigger}
-              fetchTrigger={fetchTrigger}
-            />
-          </>
-        )}
+        <InnerMeLayout title="Gérer mes Addresses">
+          {!isLoading && allAddresses.length > 0 ? (
+            <>
+              <MapAllAddresses
+                setFetchTrigger={setFetchTrigger}
+                fetchTrigger={fetchTrigger}
+              />
+              <OpenModalBtn
+                btnTxt="+ ajouter plus d'address"
+                setFetchTrigger={setFetchTrigger}
+                fetchTrigger={fetchTrigger}
+              />
+            </>
+          ) : (
+            <>
+              <p className={classes.noAddress}>Pas d&apos;address encore...</p>
+              <OpenModalBtn
+                btnTxt="ajouter ma première address"
+                setFetchTrigger={setFetchTrigger}
+                fetchTrigger={fetchTrigger}
+              />
+            </>
+          )}
+        </InnerMeLayout>
       </MeLayout>
     </>
   );

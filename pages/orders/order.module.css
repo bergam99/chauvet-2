@@ -3,3 +3,9 @@
     font-family: var(--ff-body2);
     margin-bottom: var(--sp-s);
 }
+
+.noOrder{
+    padding: 4em;
+        font-family: var(--ff-body2);
+        font-size: var(--fs-s);
+}

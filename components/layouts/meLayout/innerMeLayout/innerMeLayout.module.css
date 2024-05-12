@@ -1,0 +1,12 @@
+.title {
+    margin-right: auto;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-s);
+    margin-bottom: 1em;
+}
+
+/* .noAddress {
+    padding: 4em;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-s);
+} */

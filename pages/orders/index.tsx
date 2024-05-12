@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import classes from "./order.module.css";
 import Loader from "@/components/loader/loader";
+import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState<IOrders[]>([]);
@@ -46,17 +47,21 @@ const OrderPage = () => {
   return (
     <>
       <MeLayout>
-        {isLoading && <Loader />}
-        {!isLoading && orders.length > 0 && session && (
-          <div>
-            <p className={classes.font}>Mes commandes ({totalOrder})</p>
-            <OrderCard orders={orders} />
-          </div>
-        )}
-        {!isLoading && session && orders.length === 0 && <p>No order found.</p>}
-        {!isLoading && !session && (
-          <p>You must be logged in to see your orders.</p>
-        )}
+        <InnerMeLayout title="Mes commandes">
+          {isLoading && <Loader />}
+          {!isLoading && orders.length > 0 && session && (
+            <div>
+              <p className={classes.font}>Total ({totalOrder})</p>
+              <OrderCard orders={orders} />
+            </div>
+          )}
+          {!isLoading && session && orders.length === 0 && (
+            <p className={classes.noOrder}>Pas de commande encore..</p>
+          )}
+          {!isLoading && !session && (
+            <p>You must be logged in to see your orders.</p>
+          )}
+        </InnerMeLayout>
       </MeLayout>
     </>
   );

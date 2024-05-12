@@ -17,7 +17,9 @@ const AuthPage = () => {
       {session && (
         <>
           <MeLayout>
-            <p>welcome, {session.user?.name ?? session.user?.email}</p>
+            <p className={classes.welcome}>
+              welcome, {session.user?.name ?? session.user?.email}
+            </p>
           </MeLayout>
         </>
       )}
