@@ -20,40 +20,19 @@ const MapAllAddresses = ({
     setShippingAddress,
     shippingAddress,
     allAddresses,
-    setAllAddresses,
     deleteAddress,
+    fetchAllAddresses,
   } = useCheckoutStore();
 
   useEffect(() => {
-    // console.log("Current shipping address:", shippingAddress);
-    // console.log("mapAllAddresses useEffect GO ==> ", fetchTrigger);
-
-    // TODO: fetch trigger after delete (stock in store?)
-    if (fetchTrigger) {
-      console.log("re-fetching all addresses...");
-      fetch("/api/summary", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setAllAddresses(data.userAddress); // fetch all address
-        })
-        .catch((error) => {
-          console.error("Fetching user addresses failed:", error);
-        })
-        .finally(() => {
-          setFetchTrigger(false);
-          console.log("end refresh");
-        });
-    }
+    const fetching = async () => {
+      // setIsLoading(true);
+      await fetchAllAddresses();
+      // setIsLoading(false);
+    };
+    fetching();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchTrigger]);
+  }, []);
 
   return (
     <ul className={classes.ul}>

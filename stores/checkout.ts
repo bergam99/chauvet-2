@@ -7,11 +7,11 @@ type CheckoutStore = {
   shippingAddress: IUserAddress;
   setShippingAddress: (address: IUserAddress) => void;
   allAddresses: IUserAddress[];
-  setAllAddresses: (addresses: IUserAddress[]) => void;
   postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
   deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
+  fetchAllAddresses: () => Promise<void>;
   // fetchTrigger: boolean;
   // setFetchTrigger: (value: boolean) => void;
 };
@@ -34,7 +34,6 @@ export const baseAddress = {
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-
   // fetchTrigger: true,
 
   setShippingAddress: (address: IUserAddress) => {
@@ -63,7 +62,6 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
       ...shippingAddress,
       localId: generateRandomID(),
     };
-    // console.log("checkout avant post", newShippingAddress);
     set({ shippingAddress: newShippingAddress });
 
     const response = await fetch("/api/userAddress", {
@@ -76,7 +74,24 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     console.log("address posted", data);
   },
 
-  setAllAddresses: (addresses) => set({ allAddresses: addresses }),
+  fetchAllAddresses: async () => {
+    try {
+      const response = await fetch("/api/summary", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      set({ allAddresses: data.userAddress });
+    } catch (error) {
+      console.error("Fetching user addresses failed:", error);
+    }
+  },
 
   deleteAddress: async (id) => {
     const { allAddresses } = get();

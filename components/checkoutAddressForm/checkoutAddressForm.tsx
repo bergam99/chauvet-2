@@ -5,30 +5,15 @@ import { useCheckoutStore } from "@/stores/checkout";
 
 const CheckoutAddressForm = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { allAddresses, setAllAddresses } = useCheckoutStore();
+  const { allAddresses, fetchAllAddresses } = useCheckoutStore();
 
-  /**
-   * fetch All address already exists in db
-   */
   useEffect(() => {
-    fetch("/api/summary", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setAllAddresses(data.userAddress);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Fetching user addresses failed:", error);
-        setIsLoading(false);
-      });
+    const fetching = async () => {
+      setIsLoading(true);
+      await fetchAllAddresses();
+      setIsLoading(false);
+    };
+    fetching();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
