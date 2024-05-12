@@ -30,6 +30,7 @@ const AllAddresses = () => {
         setFetchTrigger={setFetchTrigger}
         fetchTrigger={fetchTrigger}
         radioBtn={true}
+        deleteAddress={() => {}} // TODO: default prop
       />
       <OpenModalBtn
         setFetchTrigger={setFetchTrigger}
