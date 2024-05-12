@@ -3,6 +3,7 @@
     width: 100%;
     border-collapse: collapse;
     /* Removes the space between borders */
+    width: 100%;
 }
 
 .tableRow {

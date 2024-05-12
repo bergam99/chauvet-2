@@ -42,15 +42,13 @@ const OrderPage = () => {
       });
   }, []);
 
-  // console.log({ orders });
-
   return (
     <>
       <MeLayout>
         <InnerMeLayout title="Mes commandes">
           {isLoading && <Loader />}
           {!isLoading && orders.length > 0 && session && (
-            <div>
+            <div className={classes.table}>
               <p className={classes.font}>Total ({totalOrder})</p>
               <OrderCard orders={orders} />
             </div>
