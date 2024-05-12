@@ -6,3 +6,25 @@
     border-radius: var(--br-m);
     padding: var(--sp-l);
 }
+
+.ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-em-s);
+    margin-bottom: var(--sp-em-s);
+    width: 100%;
+}
+
+
+
+@media (max-width: 1063px) {
+    .ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .ul {
+        grid-template-columns: 1fr;
+    }
+}

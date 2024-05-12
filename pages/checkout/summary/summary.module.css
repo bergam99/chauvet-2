@@ -4,16 +4,11 @@
     color: var(--color-gray);
 }
 
-.address {
-    /* font-size: var(--fs-xs); */
-    font-family: var(--ff-body2);
-    color: var(--color-gray);
-}
-
 .addressContainer {
     border: .6px solid var(--color-gray);
     border-radius: var(--br-m);
     padding: var(--sp-l);
+    margin-bottom: var( --sp-em-l);
 }
 
 .total {
@@ -22,6 +17,12 @@
     padding-top: var(--sp-4xl);
 }
 
+.txt {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    color: var(--color-gray);
+
+}
 
 @media (min-width: 1063px) {
 

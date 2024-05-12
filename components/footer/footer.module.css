@@ -66,6 +66,10 @@
     gap: .1em;
 }
 
+.modaltxt{
+    padding: var(--sp-em-s) 0;
+}
+
 
 @media (max-width: 768px) {
 

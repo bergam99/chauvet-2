@@ -2,7 +2,7 @@ import Modal, { ModalHandles } from "../modal/modal";
 import { Dispatch, SetStateAction, useRef } from "react";
 import AddressForm from "../addressForm/addressForm";
 import { useCheckoutStore } from "@/stores/checkout";
-
+import classes from "./openModalBtn.module.css";
 type OpenModalProps = {
   btnTxt?: string;
   setFetchTrigger: Dispatch<SetStateAction<boolean>>;
@@ -42,7 +42,7 @@ const OpenModalBtn = ({
       </Modal>
 
       <button
-        className="DefaultButton"
+        className={`${classes.btn} DefaultButton`}
         type="button"
         onClick={() => {
           openModal();

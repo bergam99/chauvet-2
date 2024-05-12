@@ -48,25 +48,23 @@ const MapAllAddresses = ({
   }, [fetchTrigger]);
 
   return (
-    <div>
-      <ul>
-        {allAddresses.map((address: IUserAddress) => (
-          <li
-            key={address.localId?.toString()}
-            className={classes.address}
-            onClick={() => setShippingAddress(address)}
-          >
-            {address.gender} {address.firstName} {address.lastName} <br />
-            {address.address} {address.additionalAddresse} <br />
-            {address.city} {address.zipcode} {address.region} <br />
-            {address.country} <br />
-            Téléphone : {address.tel} <br />
-            {address?.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
-            {address?.additionalInfo && `Note: ${address.additionalInfo}`}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className={classes.ul}>
+      {allAddresses.map((address: IUserAddress) => (
+        <li
+          key={address.localId?.toString()}
+          className={classes.address}
+          onClick={() => setShippingAddress(address)}
+        >
+          {address.gender} {address.firstName} {address.lastName} <br />
+          {address.address} {address.additionalAddresse} <br />
+          {address.city} {address.zipcode} {address.region} <br />
+          {address.country} <br />
+          Téléphone : {address.tel} <br />
+          {address?.tel2 && `Téléphone 2 : ${address.tel2}`} <br />
+          {address?.additionalInfo && `Note: ${address.additionalInfo}`}
+        </li>
+      ))}
+    </ul>
   );
 };
 
