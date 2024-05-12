@@ -1,3 +1,10 @@
 .btn{
     margin: var(--sp-em-m) 0;
 }
+
+.validation{
+    font-family: var(--ff-body2);
+    font-size: var(--fs-xs);
+    color: var(--color-red);
+    margin: auto;
+}

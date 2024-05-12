@@ -15,7 +15,7 @@ const AllAddresses = () => {
     e.preventDefault();
     if (!shippingAddress.localId) {
       console.log("address not selected");
-      setValidationError(" !!Please select an address!!");
+      setValidationError("Sélectionnez l'address de livraison ⚠");
       return;
     } else {
       console.log("address selected", shippingAddress);
@@ -43,8 +43,8 @@ const AllAddresses = () => {
       >
         selected! go to payment page
       </button>
-      {shippingAddress ? `${shippingAddress.localId}` : "not selected"}
-      {validationError}
+      {/* {shippingAddress.localId && `${shippingAddress.localId}`} */}
+      <p className={classes.validation}>{validationError}</p>
     </>
   );
 };
