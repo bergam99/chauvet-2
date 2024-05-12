@@ -22,7 +22,9 @@ const Footer = () => {
           <p className={classes.modaltxt}>
             This is a virtual site, not commercial, created by Jiyun Park 👩🏻‍💻
           </p>
-          <p>Stacks : React Next js, Typescript, MongoDB, Zustand</p>
+          <p className={classes.txt2}>
+            Stacks : React Next js, Typescript, MongoDB, Zustand
+          </p>
 
           <a
             href="https://github.com/bergam99/chauvet-2"
