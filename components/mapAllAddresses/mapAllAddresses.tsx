@@ -1,38 +1,44 @@
 import { IUserAddress } from "@/types/userAddress";
 import { useCheckoutStore } from "@/stores/checkout";
 import classes from "./mapAllAddresses.module.css";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
 import AddressCard from "../addressCard/addressCard";
+import Loader from "../loader/loader";
 
 type MapAllAddressesProps = {
-  setFetchTrigger: Dispatch<SetStateAction<boolean>>;
-  fetchTrigger: boolean;
   radioBtn?: boolean;
 };
 
-const MapAllAddresses = ({
-  setFetchTrigger,
-  fetchTrigger,
-  radioBtn = false,
-}: MapAllAddressesProps) => {
+const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
   const {
     setShippingAddress,
     shippingAddress,
     allAddresses,
     deleteAddress,
     fetchAllAddresses,
+    fetchTrigger,
+    setFetchTrigger,
   } = useCheckoutStore();
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  /**
+   * triggerd first time mount & trigger = true by submitting the modal
+   */
   useEffect(() => {
     const fetching = async () => {
-      // setIsLoading(true);
       await fetchAllAddresses();
-      // setIsLoading(false);
+      setIsLoading(false);
     };
     fetching();
+    setFetchTrigger(false); // reset to default value, this will switch when submit modal.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchTrigger]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <ul className={classes.ul}>

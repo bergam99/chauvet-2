@@ -12,8 +12,8 @@ type CheckoutStore = {
   resetShippingAddress: () => void;
   deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
   fetchAllAddresses: () => Promise<void>;
-  // fetchTrigger: boolean;
-  // setFetchTrigger: (value: boolean) => void;
+  fetchTrigger: boolean;
+  setFetchTrigger: (value: boolean) => void;
 };
 
 export const baseAddress = {
@@ -34,7 +34,7 @@ export const baseAddress = {
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-  // fetchTrigger: true,
+  fetchTrigger: false,
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
@@ -50,7 +50,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     }));
   },
 
-  // setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
+  setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
   // resrt
   resetShippingAddress: () =>
     set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId

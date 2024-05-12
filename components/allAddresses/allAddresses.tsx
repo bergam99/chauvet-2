@@ -9,7 +9,6 @@ const AllAddresses = () => {
   const { shippingAddress } = useCheckoutStore();
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
-  const [fetchTrigger, setFetchTrigger] = useState(false);
 
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -26,15 +25,8 @@ const AllAddresses = () => {
 
   return (
     <>
-      <MapAllAddresses
-        setFetchTrigger={setFetchTrigger}
-        fetchTrigger={fetchTrigger}
-        radioBtn={true}
-      />
-      <OpenModalBtn
-        setFetchTrigger={setFetchTrigger}
-        fetchTrigger={fetchTrigger}
-      />
+      <MapAllAddresses radioBtn={true} />
+      <OpenModalBtn />
 
       <button
         className={`${classes.btn} DefaultButtonDark`}
