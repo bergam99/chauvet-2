@@ -1,13 +1,19 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
+import { securingEndpoint } from "@/utils/securingEndpoint";
+import { getToken } from "next-auth/jwt";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const token = await getToken({ req });
+  const user_id = token?.sub || undefined;
+
   const { id } = req.query;
 
   if (req.method === "DELETE") {
+    securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();
       const collection = db.collection("UserAddresses");

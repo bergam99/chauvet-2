@@ -66,10 +66,38 @@
     gap: .1em;
 }
 
-.modaltxt{
+.modaltxt {
     padding: var(--sp-em-s) 0;
 }
 
+.btn {
+    position: relative;
+}
+
+.close::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    /* background: rgba(255, 0, 0, 0.2); */
+}
+
+.txt2{
+    font-family: var(--ff-body2);
+        font-size: var(--fs-s);
+}
+.link {
+    font-family: var(--ff-body2);
+    font-size: var(--fs-s);
+    display: inline-block;
+    margin: var(--sp-em-s) 0;
+}
+
+.link:hover  {
+    border-bottom: .6px solid var(--color-heavy-gray);
+}
 
 @media (max-width: 768px) {
 

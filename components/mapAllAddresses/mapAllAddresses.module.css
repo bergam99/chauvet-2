@@ -1,12 +1,12 @@
 .li {
-    
+
     border: .6px solid var(--color-gray);
     border-radius: var(--br-m);
     padding: var(--sp-l);
 }
 
-.p{
-font-size: var(--fs-xs);
+.p {
+    font-size: var(--fs-xs);
     font-family: var(--ff-body2);
     color: var(--color-gray);
 }
@@ -19,7 +19,31 @@ font-size: var(--fs-xs);
     width: 100%;
 }
 
+.btnContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--sp-em-s);
+}
 
+.delete {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    color: var(--color-red);
+}
+
+.delete:hover {
+    border-bottom: .6px solid var(--color-red);
+}
+
+.modify{
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    color: var(--color-heavy-gray);
+}
+
+.modify:hover {
+    border-bottom: .6px solid var(--color-heavy-gray);
+}
 
 @media (max-width: 1063px) {
     .ul {

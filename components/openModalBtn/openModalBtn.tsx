@@ -5,16 +5,16 @@ import { useCheckoutStore } from "@/stores/checkout";
 import classes from "./openModalBtn.module.css";
 type OpenModalProps = {
   btnTxt?: string;
-  setFetchTrigger: Dispatch<SetStateAction<boolean>>;
-  fetchTrigger: boolean;
 };
 const OpenModalBtn = ({
   btnTxt = "+ ajouter une nouvelle address",
-  setFetchTrigger,
-  fetchTrigger,
 }: OpenModalProps) => {
-  const { shippingAddress, postAddress, resetShippingAddress } =
-    useCheckoutStore();
+  const {
+    shippingAddress,
+    postAddress,
+    resetShippingAddress,
+    setFetchTrigger,
+  } = useCheckoutStore();
 
   const dialog = useRef<ModalHandles>(null);
 
@@ -23,16 +23,11 @@ const OpenModalBtn = ({
   }
 
   async function submitModal(e: React.FormEvent<HTMLFormElement>) {
-    // console.log("OpenModalBtn Submit form GO ==> ", fetchTrigger);
-
     e.preventDefault();
     await postAddress(e); // post form
     dialog.current?.close(); // close modal
-    // console.log("submitted modal :", shippingAddress);
     resetShippingAddress(); // prevent auto-select submitted shippingAddress
-    // console.log("clear modal :", shippingAddress);
     setFetchTrigger(true); // start refresh
-    // console.log("OpenModalBtn Submit form DONE ==> ", fetchTrigger);
   }
 
   return (

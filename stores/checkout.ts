@@ -1,17 +1,19 @@
+// TODO : rename => address.ts
 import { IUserAddress } from "@/types/userAddress";
+import { ObjectId } from "mongodb";
 import { create } from "zustand";
 
 type CheckoutStore = {
   shippingAddress: IUserAddress;
   setShippingAddress: (address: IUserAddress) => void;
   allAddresses: IUserAddress[];
-  setAllAddresses: (addresses: IUserAddress[]) => void;
   postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
-  deleteAddress: (id: string) => Promise<void>;
-  // fetchTrigger: boolean;
-  // setFetchTrigger: (value: boolean) => void;
+  deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
+  fetchAllAddresses: () => Promise<void>;
+  fetchTrigger: boolean;
+  setFetchTrigger: (value: boolean) => void;
 };
 
 export const baseAddress = {
@@ -32,8 +34,7 @@ export const baseAddress = {
 export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-
-  // fetchTrigger: true,
+  fetchTrigger: false,
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
@@ -49,7 +50,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     }));
   },
 
-  // setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
+  setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
   // resrt
   resetShippingAddress: () =>
     set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId
@@ -61,7 +62,6 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
       ...shippingAddress,
       localId: generateRandomID(),
     };
-    // console.log("checkout avant post", newShippingAddress);
     set({ shippingAddress: newShippingAddress });
 
     const response = await fetch("/api/userAddress", {
@@ -74,10 +74,27 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     console.log("address posted", data);
   },
 
-  setAllAddresses: (addresses) => set({ allAddresses: addresses }),
+  fetchAllAddresses: async () => {
+    try {
+      const response = await fetch("/api/summary", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
 
-  deleteAddress: async (id: string) => {
-    const { allAddresses } = get();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      set({ allAddresses: data.userAddress });
+    } catch (error) {
+      console.error("Fetching user addresses failed:", error);
+    }
+  },
+
+  deleteAddress: async (id) => {
+    const { allAddresses, setFetchTrigger } = get();
     try {
       const response = await fetch(`/api/deleteAddress`, {
         method: "DELETE",
@@ -89,6 +106,8 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
         (address) => address._id !== id
       );
       set({ allAddresses: updatedAddresses });
+      setFetchTrigger(true);
+
       console.log("address deleted");
     } catch (error) {
       console.error("Error deleting address:", error);

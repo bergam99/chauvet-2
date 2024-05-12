@@ -17,15 +17,9 @@
     padding: var(--sp-xl) 0;
 }
 
-.txt {
-    font-size: var(--fs-xs);
-    font-family: var(--ff-body2);
-    color: var(--color-gray);
 
-}
 
 @media (min-width: 1063px) {
-
     .total {
         display: none;
     }
