@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-
     /* ===== colors ===== */
-    --color-white: #FFFFFF;
+    --color-white: #ffffff;
     --color-black: #000000;
     --color-pink: #F6F0F0;
     --color-red: #F22929;
@@ -48,6 +47,7 @@
     --fs-xs-a: clamp(.6rem, 1.3vw, .7rem);
 
     --fs--7rem: .7rem;
+    --fs-6rem: .6rem;
     /* in products page, mainProduct container*/
     --fs-2xs: clamp(.4rem, 1vw, 0.7rem);
 
@@ -69,12 +69,13 @@
     --sp-4xl: clamp(2em, 6vw, 5em);
     --sp-5xl: clamp(3em, 16vw, 13em);
     /* em */
-    --sp-em-s:1em;
+    --sp-em-s: 1em;
     --sp-em-m: 1.6em;
+    --sp-em-l: 2em;
 
     /* ===== border-radious ===== */
     --br-m: 7px;
-    --br-l:4%;
+    --br-l: 4%;
     --br-max: 50%;
 
     /* ===== line-height ===== */
@@ -160,23 +161,30 @@ a {
     border-bottom: .5px solid var(--color-heavy-gray);
 }
 
-.Logo {
+.Heading{
+    font-family: var(--ff-heading);
+    font-size: var(--fs-3xl);
+}
+
+.LogoDefault {
     font-family: var(--ff-title);
     font-size: var(--fs-xl);
     letter-spacing: var(--ls-m);
 }
 
-.Heading {
-    font-size: var(--fs-3xl);
-    font-family: var(--ff-heading);
-
+.LogoLight {
+    font-family: var(--ff-title);
+    font-size: var(--fs-xl);
+    letter-spacing: var(--ls-m);
+    color: var(--color-white);
 }
 
 /* ===== animation ===== */
 @keyframes fadeInFromBottom {
     from {
         opacity: 0;
-        transform: translateY(20px);  /* start from */
+        transform: translateY(20px);
+        /* start from */
     }
 
     to {
@@ -194,8 +202,7 @@ a {
 
 /* when elememt inside of viewport, add .isVisible & execute animation */
 .fadeInFromBottom.isVisible {
-    animation: fadeInFromBottom 0.6s ease-out forwards; /* after animation maintain keyframe style */
+    animation: fadeInFromBottom 0.6s ease-out forwards;
+    /* after animation maintain keyframe style */
     visibility: visible;
 }
-
-

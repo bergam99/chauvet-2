@@ -37,6 +37,14 @@ const MeLayout = ({ children }: Props) => {
           >
             Mes commandes
           </Link>
+          <Link
+            href="/addresses"
+            className={`${classes.link} ${
+              isActive("/addresses") ? classes.active : ""
+            }`}
+          >
+            Mes Address
+          </Link>
           <button className={classes.deconnexion} onClick={handleSignout}>
             Déconnexion
           </button>

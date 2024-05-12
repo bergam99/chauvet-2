@@ -1,12 +1,11 @@
 import { IUserAddress } from "./userAddress";
 
 export interface CheckoutProps {
-  userAddress: IUserAddress;
-  handleInputChange: HandleInputChange;
-  postAddress: PostAddress;
-  // postAddressAndNavigate?: PostAddressAndNavigate;
-  toSummary?: () => void;
-  // allAddresses?: IUserAddress[];
+  userAddress?: IUserAddress;
+  handleInputChange?: HandleInputChange;
+  postAddress?: PostAddress;
+  shippingAddress?: any; // temporary
+  submitModal?: PostAddress;
 }
 
 export type HandleInputChange = (

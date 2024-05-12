@@ -3,8 +3,9 @@ import { useState } from "react";
 import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import { useCheckoutStore } from "@/stores/checkout";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 import Link from "next/link";
+import AddressCard from "@/components/addressCard/addressCard";
 
 const Summary = () => {
   const { shippingAddress } = useCheckoutStore();
@@ -21,7 +22,7 @@ const Summary = () => {
       },
       body: JSON.stringify({
         products: cart,
-        shippingAddress: shippingAddress._id,
+        shippingAddress: shippingAddress.localId,
       }),
     });
     const data = await response.json();
@@ -37,47 +38,29 @@ const Summary = () => {
   if (isLoading) {
     return <Loader />;
   }
+  // console.log({ shippingAddress });
+
   return (
     <>
       <Link href="/checkout/form" className={classes.livraison}>
         1. Livraison
       </Link>
+
       <CheckoutLayout
         title="2. Récapitulatif et paiement"
         subTitle="Adresse de livraison"
       >
         {shippingAddress && (
-          <div className={classes.addressContainer}>
-            <ul className={classes.shippingAddress}>
-              <li>{shippingAddress._id?.toString()}</li>
-              <li>
-                {shippingAddress.gender} {shippingAddress.firstName}
-              </li>
-              <li> {shippingAddress.lastName} </li>
-              <li>
-                {shippingAddress.address} {shippingAddress.additionalAddresse}
-              </li>
-              <li>
-                {shippingAddress.city} {shippingAddress.zipcode}
-              </li>
-              <li>{shippingAddress.region}</li>
-              <li>{shippingAddress.country}</li>
-              <li>Téléphone : {shippingAddress.tel}</li>
-              <li>
-                {shippingAddress?.tel2 &&
-                  `Téléphone 2 : ${shippingAddress.tel2}`}
-              </li>
-              <li>
-                {shippingAddress?.additionalInfo &&
-                  `Note: ${shippingAddress.additionalInfo}`}
-              </li>
-            </ul>
-          </div>
+          <ul className={classes.addressContainer}>
+            <li>
+              <AddressCard address={shippingAddress} />
+            </li>
+          </ul>
         )}
 
         {!isLoading && !shippingAddress && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
-        <button onClick={payment} className="DefaultButton">
+        <button onClick={payment} className="DefaultButtonDark">
           {isLoading ? "Loading..." : "Payer"}
         </button>
       </CheckoutLayout>

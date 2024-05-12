@@ -1,47 +1,40 @@
+// allAddresses.length === 0
+
 import { CheckoutProps } from "@/types/checkout";
 import CustomInput from "../customs/customInput/customInput";
 import CustomTextarea from "../customs/customTextarea/customTextarea";
 import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
-// import { useRouter } from "next/router";
 import { useCheckoutStore } from "@/stores/checkout";
+import { useRouter } from "next/router";
 
-const AddressForm = ({
-  userAddress,
-  toSummary = () => {},
-  handleInputChange,
-  postAddress,
-}: CheckoutProps) => {
-  // TODO: empty form using ref={formRef}
-  // const formRef = useRef(null);
-  // const postAddress = (e) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted");
-  //   formRef.current.reset();
-  // };
+const AddressForm = ({ submitModal }: CheckoutProps) => {
+  const { postAddress, handleInputChange, shippingAddress } =
+    useCheckoutStore();
+  const router = useRouter();
 
-  const { handleshippingAddress } = useCheckoutStore();
-
-  function postAddressAndNavigate(e: React.FormEvent<HTMLFormElement>) {
-    const fakeEvent = {
-      preventDefault: () => {},
-    } as React.FormEvent<HTMLFormElement>;
-
+  async function submission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    postAddress(fakeEvent);
-    handleshippingAddress(userAddress);
+    if (submitModal) {
+      // Modal mode (shippingAddress.length > 0)
+      await submitModal(e);
+    } else {
+      // first time submission (shippingAddress.length === 0)
+      await postAddress(e);
+      router.push("/checkout/summary");
+    }
   }
 
   return (
     <>
-      <form onSubmit={postAddressAndNavigate}>
+      <form onSubmit={submission}>
         <p className={classes.civilite}>Civilité</p>
         <div className={classes.radio}>
           <CustomRadioButton
             label="M."
             name="gender"
             value="M."
-            checked={userAddress.gender === "M."}
+            checked={shippingAddress.gender === "M."}
             onChange={handleInputChange}
           />
 
@@ -49,7 +42,7 @@ const AddressForm = ({
             label="Mme"
             name="gender"
             value="Mme"
-            checked={userAddress.gender === "Mme"}
+            checked={shippingAddress.gender === "Mme"}
             onChange={handleInputChange}
           />
         </div>
@@ -136,13 +129,11 @@ const AddressForm = ({
           name="additionalInfo"
           onChange={handleInputChange}
         />
-        <button
-          className={`${classes.btn} DefaultButtonDark`}
-          type="submit"
-          onClick={toSummary}
-        >
-          submit this form (post)
-        </button>
+        <div className={classes.btnContainer}>
+          <button className={`${classes.btn} DefaultButtonDark`} type="submit">
+            Enregistrer
+          </button>
+        </div>
       </form>
     </>
   );

@@ -19,6 +19,16 @@
     gap: 2em;
 }
 
+.btnContainer {
+    display: flex;
+    margin-top: var(--sp-xl);
+    width: 100%;
+}
+
+.btn{
+    width: 100%;
+}
+
 @media (max-width: 768px) {
 
     .name,

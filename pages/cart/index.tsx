@@ -5,7 +5,7 @@ import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import classes from "./orderId.module.css";
 import GoBack from "@/components/customs/backButton/goBack";
 import MeLayout from "@/components/layouts/meLayout/meLayout";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState<IOrders>();
@@ -38,6 +38,7 @@ const OrderDetail = () => {
   }, [orderId]);
 
   const {
+    localId,
     firstName,
     lastName,
     address,

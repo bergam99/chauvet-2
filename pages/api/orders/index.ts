@@ -29,7 +29,7 @@ export default async function handler(
         // const order = orders[0];
         res.status(200).json({ ordersCount, orders });
       } else {
-        res.status(404).json({ message: "Order not found" });
+        res.status(200).json({ message: "No order yet" });
       }
     } catch (error) {
       res.status(500).json({ error: "Internal Server Error" });

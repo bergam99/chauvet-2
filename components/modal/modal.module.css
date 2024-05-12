@@ -5,27 +5,15 @@
 }
 
 
-.x{
+.x {
     display: flex;
     justify-content: flex-end;
 }
 
-/* .btnContainer{
-    display: flex;
-    gap: var(--sp-xl);
-    justify-content: center;
-}
-
-.txt{
-    font-size: var(--fs-m);
-    padding: var(--sp-xl) 0;
-    text-align: center;
-}
 @media (max-width: 768px) {
-    .btnContainer {
-        flex-direction: column;
+
+    .modal {
+        width: 70%;
+        height: 80%;
     }
-    .btnContainer .btn{
-        width: auto
-    }
-} */
+}

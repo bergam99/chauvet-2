@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <>
       <Link href="/">
-        <h1 className="Logo">Chauvet</h1>
+        <h1 className="LogoDefault">Chauvet</h1>
       </Link>
     </>
   );

@@ -2,7 +2,7 @@ import CartItemCard from "../../cartItemCard/cartItemCard";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import classes from "./checkoutLayout.module.css";
 import { useEffect, useState } from "react";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 
 type CheckoutLayoutProps = {
   title: string;

@@ -6,7 +6,7 @@ import Image from "next/image";
 import classes from "./mobileLayout.module.css";
 
 export default function MobileLayout() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <>
@@ -31,6 +31,10 @@ export default function MobileLayout() {
 
           <Link href="/cart" className={classes.cart}>
             Panier
+          </Link>
+
+          <Link href="/addresses" className={classes.cart}>
+            Address
           </Link>
 
           {session && (
