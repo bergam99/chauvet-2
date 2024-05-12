@@ -41,7 +41,7 @@ const AllAddresses = () => {
         type="button"
         onClick={handleValidationAndClick}
       >
-        selected! go to payment page
+        Suivant
       </button>
       {/* {shippingAddress.localId && `${shippingAddress.localId}`} */}
       <p className={classes.validation}>{validationError}</p>

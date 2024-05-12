@@ -129,9 +129,11 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
           name="additionalInfo"
           onChange={handleInputChange}
         />
-        <button className={`${classes.btn} DefaultButtonDark`} type="submit">
-          submit this form
-        </button>
+        <div className={classes.btnContainer}>
+          <button className={`${classes.btn} DefaultButtonDark`} type="submit">
+            Enregistrer
+          </button>
+        </div>
       </form>
     </>
   );
