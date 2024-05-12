@@ -27,19 +27,18 @@
 }
 
 .name{
-    font-size: var(--fs-s);
+    font-size: var(--fs-xs);
     font-family: var(--ff-body2);
     line-height: var(--lh-m);
 }
 
 .quantity, .price {
     font-family: var(--ff-body2);
-    font-size: var(--fs-s);
+    font-size: var(--fs-xs);
 }
 
 .quantity{
     color: var(--color-gray);
-    font-size: var(--fs-xs);
 }
 
 .price {

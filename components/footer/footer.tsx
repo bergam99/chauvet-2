@@ -5,10 +5,27 @@ import IG from "@/public/icon/socialMedia/instagram.png";
 import YT from "@/public/icon/socialMedia/youtube.png";
 import TW from "@/public/icon/socialMedia/twitter.png";
 import Image from "next/image";
+import Modal, { ModalHandles } from "../modal/modal";
+import { useRef } from "react";
+
 const Footer = () => {
-  // TODO: ajouter footer contents
+  const dialog = useRef<ModalHandles>(null);
+
+  function openModal() {
+    dialog.current?.open();
+  }
+
   return (
     <div className={classes.footer}>
+      <Modal ref={dialog}>
+        <p className={classes.modaltxt}>
+          This is a virtual site, not commercial, created by Jiyun Park 👩🏻‍💻
+        </p>
+        <form method="dialog" className="DefaultButton">
+          <button>Close</button>
+        </form>
+      </Modal>
+
       <div className={classes.contentsWrapper}>
         <div className={classes.container1}>
           <div className={classes.logoContainer}>
@@ -33,9 +50,16 @@ const Footer = () => {
           </div>
 
           <div className={classes.linkContainer}>
-            <Link href="/" className={classes.txt}>
-              Politique de confidentialité
-            </Link>
+            <a className={classes.txt}>
+              <button
+                onClick={() => {
+                  openModal();
+                }}
+                type="button"
+              >
+                Politique de confidentialité
+              </button>
+            </a>
             <Link href="/" className={classes.txt}>
               CGU et mentions légales
             </Link>

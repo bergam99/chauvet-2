@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./custumRadioButton.module.css";
 
 interface CustomRadioButtonProps {
-  label: string;
+  label: React.ReactNode;
   name: string;
-  value: string;
+  value: string | undefined;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -30,7 +30,7 @@ const CustomRadioButton: React.FC<CustomRadioButtonProps> = ({
         <span className={`${classes.line} ${classes.line1}`}></span>
         <span className={`${classes.line} ${classes.line2}`}></span>
       </span>
-      <p className={classes.label}>{label}</p>
+      <div className={classes.label}>{label}</div>
     </label>
   );
 };

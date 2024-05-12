@@ -9,9 +9,7 @@
     border: none;
     border-bottom: .6px solid var(--color-heavy-gray);
     padding: 10px 0 5px;
-    font-size: var(--fs-s);
     outline: none;
-    font-family: var(--ff-body2);
 }
 
 .required{
@@ -27,6 +25,11 @@
     transition: all 0.3s ease;
     pointer-events: none;
     color: var(--color-gray);
+    font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+}
+
+.input{
     font-size: var(--fs-s-a);
     font-family: var(--ff-body2);
 }
@@ -34,5 +37,5 @@
 .inputContainer .input:focus+ .label,
 .inputContainer .input:not(:placeholder-shown)+ .label {
     bottom: 30px;
-    font-size: var(--fs-xs);
+    font-size: var(--fs-6rem);
 }

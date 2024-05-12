@@ -1,0 +1,34 @@
+.li {
+    
+    border: .6px solid var(--color-gray);
+    border-radius: var(--br-m);
+    padding: var(--sp-l);
+}
+
+.p{
+font-size: var(--fs-xs);
+    font-family: var(--ff-body2);
+    color: var(--color-gray);
+}
+
+.ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-em-s);
+    margin-bottom: var(--sp-em-s);
+    width: 100%;
+}
+
+
+
+@media (max-width: 1063px) {
+    .ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .ul {
+        grid-template-columns: 1fr;
+    }
+}

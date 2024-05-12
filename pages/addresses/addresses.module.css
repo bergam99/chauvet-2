@@ -1,0 +1,5 @@
+.noAddress {
+    padding: 4em;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-s);
+}
