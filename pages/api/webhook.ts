@@ -1,6 +1,6 @@
 // stripe login
-// stripe listen --events checkout.session.completed --forward-to localhost:3000/api/webhook
-
+// DEV) stripe listen --events checkout.session.completed --forward-to localhost:3000/api/webhook
+// PROD) stripe listen --events checkout.session.completed --forward-to https://chauvet.vercel.app/api/webhook
 import { connectDB } from "@/utils/connectDB";
 import { safeParseFloat } from "@/utils/parseFloat";
 import { NextApiRequest, NextApiResponse } from "next";
