@@ -6,40 +6,22 @@ import { useEffect, useState } from "react";
 import classes from "./order.module.css";
 import Loader from "@/components/loader/loader";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
+import { useOrderStore } from "@/stores/order";
 
 const OrderPage = () => {
-  const [orders, setOrders] = useState<IOrders[]>([]);
-  const [totalOrder, setTotalOrder] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { data: session } = useSession();
 
+  const { orders, totalOrderCount, fetchAllOrders } = useOrderStore();
+
   useEffect(() => {
-    console.log("fetching all orders...");
-    fetch("/api/orders", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.orders && data.orders.length > 0) {
-          setOrders(data.orders);
-          setTotalOrder(data.ordersCount);
-        } else {
-          console.log("No orders found or empty orders list.");
-          setOrders([]);
-        }
-      })
-      .catch((error) => {
-        console.error("Fetching orders failed:", error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    const fetching = async () => {
+      setIsLoading(true);
+      await fetchAllOrders();
+      setIsLoading(false);
+    };
+    fetching();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // console.log({ orders });
@@ -50,8 +32,8 @@ const OrderPage = () => {
         <InnerMeLayout title="Mes commandes">
           {isLoading && <Loader />}
           {!isLoading && orders.length > 0 && session && (
-            <div>
-              <p className={classes.font}>Total ({totalOrder})</p>
+            <div className={classes.table}>
+              <p className={classes.font}>Total ({totalOrderCount})</p>
               <OrderCard orders={orders} />
             </div>
           )}

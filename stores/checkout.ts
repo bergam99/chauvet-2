@@ -51,6 +51,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   },
 
   setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
+
   // resrt
   resetShippingAddress: () =>
     set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId
@@ -112,7 +113,6 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     } catch (error) {
       console.error("Error deleting address:", error);
     }
-    // add fetch trigger
   },
 }));
 

@@ -4,6 +4,7 @@ import { handleSignout } from "@/components/layouts/meLayout/meLayout";
 import Menu from "@/public/icon/menu.png";
 import Image from "next/image";
 import classes from "./mobileLayout.module.css";
+import ShopLink from "../../shopLink/shopLink";
 
 export default function MobileLayout() {
   const { data: session } = useSession();
@@ -29,6 +30,9 @@ export default function MobileLayout() {
             </Link>
           )}
 
+          <Link href="/products" className={classes.me}>
+            Shop 📚
+          </Link>
           <Link href="/cart" className={classes.cart}>
             Panier
           </Link>
