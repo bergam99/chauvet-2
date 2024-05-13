@@ -20,6 +20,9 @@
 
 .noProduct {
     padding: var(--sp-2xl) 0;
+    font-family: var(--ff-body2);
+    font-size: var(--fs-s);
+
 }
 
 .link {
