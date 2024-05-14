@@ -33,6 +33,7 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     };
     fetching();
     setFetchTrigger(false); // reset to default value aftre refreshing, this will switch when submit modal.
+    // console.log("mapAppAlldresses - useEffect =>", shippingAddress);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 

@@ -53,8 +53,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
 
   // resrt
-  resetShippingAddress: () =>
-    set({ shippingAddress: { _id: "", localId: "", ...baseAddress } }), // clear _id, localId
+  resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }), // clear _id, localId
 
   postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

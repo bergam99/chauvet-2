@@ -7,6 +7,7 @@ interface CustomInputProps {
   placeholder?: string;
   required?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
 const CustomInput = ({
@@ -16,6 +17,7 @@ const CustomInput = ({
   placeholder = "",
   required = false,
   onChange,
+  value,
 }: CustomInputProps) => {
   return (
     <>
@@ -28,6 +30,7 @@ const CustomInput = ({
           placeholder={placeholder}
           required={required}
           className={classes.input}
+          value={value}
         />
         <label htmlFor={name} className={classes.label}>
           {label}

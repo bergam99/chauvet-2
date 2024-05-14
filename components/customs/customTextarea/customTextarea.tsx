@@ -4,9 +4,15 @@ interface CustomTextareaProps {
   label: string;
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  value: string;
 }
 
-const CustomTextarea = ({ label, name, onChange }: CustomTextareaProps) => {
+const CustomTextarea = ({
+  label,
+  name,
+  value,
+  onChange,
+}: CustomTextareaProps) => {
   return (
     <>
       <div className={classes.textareaContainer}>
@@ -18,6 +24,7 @@ const CustomTextarea = ({ label, name, onChange }: CustomTextareaProps) => {
           id={name}
           name={name}
           className={classes.textarea}
+          value={value}
         />
       </div>
     </>

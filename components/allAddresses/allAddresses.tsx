@@ -35,7 +35,7 @@ const AllAddresses = () => {
       >
         Suivant
       </button>
-      {/* {shippingAddress.localId && `${shippingAddress.localId}`} */}
+      {shippingAddress.localId && `${shippingAddress.localId}`}
       <p className={classes.validation}>{validationError}</p>
     </>
   );
