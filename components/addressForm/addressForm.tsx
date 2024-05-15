@@ -8,7 +8,7 @@ import classes from "./addressForm.module.css";
 import { useCheckoutStore } from "@/stores/checkout";
 import { useRouter } from "next/router";
 
-const AddressForm = ({ submitModal }: CheckoutProps) => {
+const AddressForm = ({ submitModal, modifyAddress }: CheckoutProps) => {
   const {
     postAddress,
     handleInputChange,
@@ -22,6 +22,9 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
+    }
+    if (modifyAddress) {
+      await modifyAddress(e);
     } else {
       // first time submission (shippingAddress.length === 0)
       await postAddress(e);

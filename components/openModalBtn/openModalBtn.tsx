@@ -26,7 +26,6 @@ const OpenModalBtn = ({
     e.preventDefault();
     await postAddress(e); // post form
     dialog.current?.close(); // close modal
-    resetShippingAddress(); // prevent auto-select submitted shippingAddress
     setFetchTrigger(true); // start refresh
   }
 
