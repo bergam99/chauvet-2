@@ -9,17 +9,15 @@ import Loader from "@/components/loader/loader";
 
 const Cart = () => {
   const { cart, loadCart } = useCartStore();
-  const [isLoading, setIsLoading] = useState(true); // Initialize loading state
+  const [isLoading, setIsLoading] = useState(true);
   const { data: session } = useSession();
   const router = useRouter();
   const total = totalPrice(cart);
 
   const handleCheckout = () => {
-    // If there's no session (user not logged in), redirect to login page
     if (!session) {
       router.push("/me");
     } else {
-      // If user is logged in, redirect to checkout page
       router.push("/checkout/form");
     }
   };
@@ -45,7 +43,25 @@ const Cart = () => {
         </div>
         {cart.length > 0 ? (
           cart.map((item) => (
-            <CartItemCard item={item} key={item._id.toString()} removeBtn />
+            <>
+              <CartItemCard item={item} key={item._id.toString()} removeBtn />
+              <div className={classes.totalWrapper}>
+                <p className={classes.totalPrice}> Total : {total} €</p>
+              </div>
+
+              <div className={classes.buttonsWrapper}>
+                <button className="DefaultButton" onClick={() => toProducts()}>
+                  Continuer mes achats
+                </button>
+
+                <button
+                  className="DefaultButtonDark"
+                  onClick={() => handleCheckout()}
+                >
+                  Valider le paiement
+                </button>
+              </div>
+            </>
           ))
         ) : (
           <p className={classes.noProduct}>
@@ -57,26 +73,6 @@ const Cart = () => {
           </p>
         )}
       </section>
-      {cart.length !== 0 && (
-        <>
-          <div className={classes.totalWrapper}>
-            <p className={classes.totalPrice}> Total : {total} €</p>
-          </div>
-
-          <div className={classes.buttonsWrapper}>
-            <button className="DefaultButton" onClick={() => toProducts()}>
-              Continuer mes achats
-            </button>
-
-            <button
-              className="DefaultButtonDark"
-              onClick={() => handleCheckout()}
-            >
-              Valider le paiement
-            </button>
-          </div>
-        </>
-      )}
     </>
   );
 };

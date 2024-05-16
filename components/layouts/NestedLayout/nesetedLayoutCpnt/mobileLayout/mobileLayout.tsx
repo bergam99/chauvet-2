@@ -37,12 +37,11 @@ export default function MobileLayout() {
             Panier
           </Link>
 
-          <Link href="/addresses" className={classes.cart}>
-            Address
-          </Link>
-
           {session && (
             <>
+              <Link href="/addresses" className={classes.cart}>
+                Address
+              </Link>
               <Link href="orders" className={classes.order}>
                 Commandes
               </Link>

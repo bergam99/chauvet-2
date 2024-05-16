@@ -1,9 +1,8 @@
-// TODO : rename => address.ts
 import { IUserAddress } from "@/types/userAddress";
 import { ObjectId } from "mongodb";
 import { create } from "zustand";
 
-type CheckoutStore = {
+type AddressStore = {
   shippingAddress: IUserAddress;
   setShippingAddress: (address: IUserAddress) => void;
   allAddresses: IUserAddress[];
@@ -37,7 +36,7 @@ export const baseAddress = {
   additionalInfo: "",
 };
 
-export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
+export const useAddressStore = create<AddressStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
   fetchTrigger: false,

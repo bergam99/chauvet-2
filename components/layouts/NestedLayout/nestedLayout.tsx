@@ -29,8 +29,6 @@ const NestedLayout = () => {
       </>
     );
   }
-
-  return null;
 };
 
 export default NestedLayout;

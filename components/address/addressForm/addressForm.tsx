@@ -3,7 +3,7 @@ import CustomInput from "../../customs/customInput/customInput";
 import CustomTextarea from "../../customs/customTextarea/customTextarea";
 import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
-import { useCheckoutStore } from "@/stores/address";
+import { useAddressStore } from "@/stores/address";
 import { useRouter } from "next/router";
 
 const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
@@ -12,7 +12,7 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     handleInputChange,
     shippingAddress,
     resetShippingAddress,
-  } = useCheckoutStore();
+  } = useAddressStore();
   const router = useRouter();
 
   async function submission(e: React.FormEvent<HTMLFormElement>) {

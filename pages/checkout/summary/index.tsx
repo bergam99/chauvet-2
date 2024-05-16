@@ -2,13 +2,13 @@ import CheckoutLayout from "@/components/layouts/checkoutLayout/checkoutLayout";
 import { useState } from "react";
 import classes from "./summary.module.css";
 import { totalPrice, useCartStore } from "@/stores/cart";
-import { useCheckoutStore } from "@/stores/address";
+import { useAddressStore } from "@/stores/address";
 import Loader from "@/components/loader/loader";
 import Link from "next/link";
 import AddressCard from "@/components/address/addressCard/addressCard";
 
 const Summary = () => {
-  const { shippingAddress } = useCheckoutStore();
+  const { shippingAddress } = useAddressStore();
   const [isLoading, setIsLoading] = useState(false);
   const { cart } = useCartStore();
   const total = totalPrice(cart);

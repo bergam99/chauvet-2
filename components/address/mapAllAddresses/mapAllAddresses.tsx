@@ -1,5 +1,5 @@
 import { IUserAddress } from "@/types/userAddress";
-import { useCheckoutStore } from "@/stores/address";
+import { useAddressStore } from "@/stores/address";
 import classes from "./mapAllAddresses.module.css";
 import { useEffect, useRef, useState } from "react";
 import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
@@ -24,7 +24,7 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     updateAddress,
     selectedAddress,
     setSelectedAddress,
-  } = useCheckoutStore();
+  } = useAddressStore();
 
   const [isLoading, setIsLoading] = useState(true);
   const dialog = useRef<ModalHandles>(null);

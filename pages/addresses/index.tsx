@@ -1,13 +1,13 @@
 import MeLayout from "@/components/layouts/meLayout/meLayout";
 import MapAllAddresses from "@/components/address/mapAllAddresses/mapAllAddresses";
 import OpenModalBtn from "@/components/openModalBtn/openModalBtn";
-import { useCheckoutStore } from "@/stores/address";
+import { useAddressStore } from "@/stores/address";
 import { useEffect, useState } from "react";
 import classes from "./addresses.module.css";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
 
 const Addresses = () => {
-  const { allAddresses, fetchAllAddresses, fetchTrigger } = useCheckoutStore();
+  const { allAddresses, fetchAllAddresses, fetchTrigger } = useAddressStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
