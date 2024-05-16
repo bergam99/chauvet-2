@@ -1,7 +1,7 @@
 import Modal, { ModalHandles } from "../modal/modal";
 import { useRef } from "react";
-import AddressForm from "../addressForm/addressForm";
-import { useCheckoutStore } from "@/stores/checkout";
+import AddressForm from "../address/addressForm/addressForm";
+import { useCheckoutStore } from "@/stores/address";
 import classes from "./openModalBtn.module.css";
 type OpenModalProps = {
   btnTxt: string;

@@ -16,7 +16,7 @@ type CheckoutStore = {
   setFetchTrigger: (value: boolean) => void;
   updateAddress: (
     id: string,
-    addressData: Partial<IUserAddress>
+    modifiedAddress: Partial<IUserAddress>
   ) => Promise<void>;
   selectedAddress: IUserAddress | null; // modify
   setSelectedAddress: (address: IUserAddress | null) => void;
@@ -84,7 +84,7 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
 
   fetchAllAddresses: async () => {
     try {
-      const response = await fetch("/api/summary", {
+      const response = await fetch("/api/getAllAddresses", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -129,26 +129,23 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
     }
   },
 
-  updateAddress: async (id, addressData) => {
+  updateAddress: async (id, modifiedAddress) => {
     const { allAddresses, setFetchTrigger } = get();
     try {
-      console.log("Updating address with ID:", id);
-      console.log("Address data:", addressData);
-
-      const response = await fetch(`/api/modifyAddress`, {
+      const response = await fetch(`/api/updateAddress`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, ...addressData }),
+        body: JSON.stringify({ id, ...modifiedAddress }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Server error response:", errorData);
-        throw new Error("Failed to update the addressData");
+        throw new Error("Failed to update the modifiedAddress");
       }
 
       const updatedAddresses = allAddresses.map((addr) =>
-        addr._id === id ? { ...addr, ...addressData } : addr
+        addr._id === id ? { ...addr, ...modifiedAddress } : addr
       );
 
       set({ allAddresses: updatedAddresses });

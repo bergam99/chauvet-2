@@ -1,7 +1,7 @@
 import MeLayout from "@/components/layouts/meLayout/meLayout";
-import MapAllAddresses from "@/components/mapAllAddresses/mapAllAddresses";
+import MapAllAddresses from "@/components/address/mapAllAddresses/mapAllAddresses";
 import OpenModalBtn from "@/components/openModalBtn/openModalBtn";
-import { useCheckoutStore } from "@/stores/checkout";
+import { useCheckoutStore } from "@/stores/address";
 import { useEffect, useState } from "react";
 import classes from "./addresses.module.css";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";

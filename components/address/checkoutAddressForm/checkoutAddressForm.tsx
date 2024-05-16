@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AddressForm from "../addressForm/addressForm";
 import AllAddresses from "../allAddresses/allAddresses";
-import { useCheckoutStore } from "@/stores/checkout";
+import { useCheckoutStore } from "@/stores/address";
 
 const CheckoutAddressForm = () => {
   const [isLoading, setIsLoading] = useState(true);

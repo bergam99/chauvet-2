@@ -15,24 +15,19 @@ export default async function handler(
     securingEndpoint(token, user_id, res);
 
     try {
-      const { id, ...addressData } = req.body;
-      console.log("Received PUT request with ID:", id);
-      console.log("Address data:", addressData);
-
+      const { id, ...modifiedAddress } = req.body;
       const objectId = new ObjectId(id as string);
 
       const db = await connectDB();
       const collection = db.collection("UserAddresses");
 
-      // Exclude _id from addressData before updating
-      const { _id, ...updateData } = addressData;
+      // Exclude _id from modifiedAddress before updating
+      const { _id, ...updateData } = modifiedAddress;
 
       const result = await collection.updateOne(
         { _id: objectId },
         { $set: updateData }
       );
-
-      // console.log("MongoDB update result:", result);
 
       if (result.matchedCount === 1) {
         res.status(200).json({ message: "Successfully updated address" });

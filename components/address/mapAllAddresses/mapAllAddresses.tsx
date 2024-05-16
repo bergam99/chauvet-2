@@ -1,11 +1,11 @@
 import { IUserAddress } from "@/types/userAddress";
-import { useCheckoutStore } from "@/stores/checkout";
+import { useCheckoutStore } from "@/stores/address";
 import classes from "./mapAllAddresses.module.css";
 import { useEffect, useRef, useState } from "react";
-import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
+import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
 import AddressCard from "../addressCard/addressCard";
-import Loader from "../loader/loader";
-import Modal, { ModalHandles } from "../modal/modal";
+import Loader from "../../loader/loader";
+import Modal, { ModalHandles } from "../../modal/modal";
 import AddressForm from "../addressForm/addressForm";
 
 type MapAllAddressesProps = {
@@ -45,8 +45,6 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
 
   const openModifyModal = (address: IUserAddress) => {
     setSelectedAddress(address);
-    setShippingAddress(address);
-
     dialog.current?.open();
     console.log("openModifyModal, selectedAddress", address?._id);
   };
@@ -55,24 +53,25 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     return <Loader />;
   }
 
-  async function modifyAddress(e: React.FormEvent<HTMLFormElement>) {
+  async function submitModifyAddress(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (selectedAddress?._id) {
       await updateAddress(selectedAddress?._id as string, shippingAddress);
+      // shippingAddress : modifiedAddress
 
       console.log("modif function execution");
       // setSelectedAddress(null);
       dialog.current?.close();
       setFetchTrigger(true);
-    } else {
-      console.log("no id");
+      // } else {
+      // console.log("no id");
     }
   }
 
   return (
     <>
       <Modal ref={dialog}>
-        <AddressForm modifyAddress={modifyAddress} />
+        <AddressForm submitModifyAddress={submitModifyAddress} />
       </Modal>
 
       <ul className={classes.ul}>
