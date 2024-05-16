@@ -26,7 +26,7 @@ const AllAddresses = () => {
   return (
     <>
       <MapAllAddresses radioBtn={true} />
-      <OpenModalBtn />
+      <OpenModalBtn btnTxt="+ ajouter une nouvelle address" />
 
       <button
         className={`${classes.btn} DefaultButtonDark`}

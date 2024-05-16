@@ -22,8 +22,7 @@ const AddressForm = ({ submitModal, modifyAddress }: CheckoutProps) => {
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
-    }
-    if (modifyAddress) {
+    } else if (modifyAddress) {
       await modifyAddress(e);
     } else {
       // first time submission (shippingAddress.length === 0)

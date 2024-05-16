@@ -73,11 +73,6 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     <>
       <Modal ref={dialog}>
         <AddressForm modifyAddress={modifyAddress} />
-        <form method="dialog">
-          <div className={`${classes.btn} DefaultButton`}>
-            <button className={classes.close}>Abandonner</button>
-          </div>
-        </form>
       </Modal>
 
       <ul className={classes.ul}>
@@ -105,8 +100,8 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
                   >
                     Modifier
                   </button>
+                  {/* TODO: use openModalBtn */}
 
-                  {/* TODO: use  openModal btn cpnt*/}
                   <button
                     onClick={() => deleteAddress(shippingAddress._id)}
                     className={classes.delete}
