@@ -102,11 +102,18 @@ export const useCheckoutStore = create<CheckoutStore>((set, get) => ({
   },
 
   deleteAddress: async (id) => {
+    // console.log("store id", id);
+
     const { allAddresses, setFetchTrigger } = get();
     try {
       const response = await fetch(`/api/deleteAddress`, {
         method: "DELETE",
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify({ id }),
       });
+      const data = await response.json();
+      console.log(data);
+
       if (!response.ok) throw new Error("Failed to delete the address");
 
       // Update local state after successful deletion
