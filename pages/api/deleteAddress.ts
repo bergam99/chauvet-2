@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
 import { securingEndpoint } from "@/utils/securingEndpoint";
 import { getToken } from "next-auth/jwt";
+import { ObjectId } from "mongodb";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,14 +11,21 @@ export default async function handler(
   const token = await getToken({ req });
   const user_id = token?.sub || undefined;
 
-  const { id } = req.query;
+  // const { id } = req.body;
+  // const objectId = new ObjectId(id as string);
+
+  // console.log({ objectId });
+  //  _id: objectId
 
   if (req.method === "DELETE") {
+    // console.log(id, "from server");
     securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();
       const collection = db.collection("UserAddresses");
-      const result = await collection.deleteOne({ id });
+      const result = await collection.deleteOne({});
+
+      console.log(result);
 
       if (result.deletedCount === 1) {
         res.status(200).json({ message: "Successfully deleted address" });

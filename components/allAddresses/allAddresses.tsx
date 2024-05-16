@@ -26,7 +26,7 @@ const AllAddresses = () => {
   return (
     <>
       <MapAllAddresses radioBtn={true} />
-      <OpenModalBtn />
+      <OpenModalBtn btnTxt="+ ajouter une nouvelle address" />
 
       <button
         className={`${classes.btn} DefaultButtonDark`}
@@ -35,7 +35,7 @@ const AllAddresses = () => {
       >
         Suivant
       </button>
-      {/* {shippingAddress.localId && `${shippingAddress.localId}`} */}
+      {shippingAddress.localId && `${shippingAddress.localId}`}
       <p className={classes.validation}>{validationError}</p>
     </>
   );
