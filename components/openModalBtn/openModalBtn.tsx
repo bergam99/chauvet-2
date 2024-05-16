@@ -1,14 +1,12 @@
 import Modal, { ModalHandles } from "../modal/modal";
-import { Dispatch, SetStateAction, useRef } from "react";
+import { useRef } from "react";
 import AddressForm from "../addressForm/addressForm";
 import { useCheckoutStore } from "@/stores/checkout";
 import classes from "./openModalBtn.module.css";
 type OpenModalProps = {
-  btnTxt?: string;
+  btnTxt: string;
 };
-const OpenModalBtn = ({
-  btnTxt = "+ ajouter une nouvelle address",
-}: OpenModalProps) => {
+const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
   const {
     shippingAddress,
     postAddress,
@@ -26,7 +24,6 @@ const OpenModalBtn = ({
     e.preventDefault();
     await postAddress(e); // post form
     dialog.current?.close(); // close modal
-    resetShippingAddress(); // prevent auto-select submitted shippingAddress
     setFetchTrigger(true); // start refresh
   }
 

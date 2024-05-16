@@ -6,6 +6,7 @@ export interface CheckoutProps {
   postAddress?: PostAddress;
   shippingAddress?: any; // temporary
   submitModal?: PostAddress;
+  modifyAddress?: PostAddress;
 }
 
 export type HandleInputChange = (

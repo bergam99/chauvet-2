@@ -20,7 +20,8 @@ const Footer = () => {
       <Modal ref={dialog}>
         <form method="dialog">
           <p className={classes.modaltxt}>
-            This is a virtual site, not commercial, created by Jiyun Park 👩🏻‍💻
+            This is a virtual site, not commercial, designed and developped by
+            Jiyun Park 👩🏻‍💻
           </p>
           <p className={classes.txt2}>
             Stacks : React Next js, Typescript, MongoDB, Zustand
@@ -32,6 +33,9 @@ const Footer = () => {
             className={classes.link}
           >
             🔗 Github
+          </a>
+          <a href="/" target="_blank" className={classes.link}>
+            🔗 Project Schema
           </a>
 
           <div className={`${classes.btn} DefaultButton`}>

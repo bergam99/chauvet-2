@@ -8,9 +8,13 @@ import classes from "./addressForm.module.css";
 import { useCheckoutStore } from "@/stores/checkout";
 import { useRouter } from "next/router";
 
-const AddressForm = ({ submitModal }: CheckoutProps) => {
-  const { postAddress, handleInputChange, shippingAddress } =
-    useCheckoutStore();
+const AddressForm = ({ submitModal, modifyAddress }: CheckoutProps) => {
+  const {
+    postAddress,
+    handleInputChange,
+    shippingAddress,
+    resetShippingAddress,
+  } = useCheckoutStore();
   const router = useRouter();
 
   async function submission(e: React.FormEvent<HTMLFormElement>) {
@@ -18,11 +22,14 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
+    } else if (modifyAddress) {
+      await modifyAddress(e);
     } else {
       // first time submission (shippingAddress.length === 0)
       await postAddress(e);
       router.push("/checkout/summary");
     }
+    resetShippingAddress();
   }
 
   return (
@@ -53,6 +60,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="firstName"
             required={true}
             onChange={handleInputChange}
+            value={shippingAddress.firstName}
           />
 
           <CustomInput
@@ -60,6 +68,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="lastName"
             onChange={handleInputChange}
             required={true}
+            value={shippingAddress.lastName}
           />
         </div>
 
@@ -69,12 +78,14 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="address"
             onChange={handleInputChange}
             required={true}
+            value={shippingAddress.address}
           />
 
           <CustomInput
             label="Adresse supplémentaire"
             name="additionalAddresse"
             onChange={handleInputChange}
+            value={shippingAddress.additionalAddresse}
           />
         </div>
 
@@ -84,6 +95,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="zipcode"
             onChange={handleInputChange}
             required={true}
+            value={shippingAddress.zipcode}
           />
 
           <CustomInput
@@ -91,6 +103,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="city"
             onChange={handleInputChange}
             required={true}
+            value={shippingAddress.city}
           />
         </div>
 
@@ -99,6 +112,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             label="État / Région"
             name="region"
             onChange={handleInputChange}
+            value={shippingAddress.region}
           />
 
           <CustomInput
@@ -106,6 +120,7 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             name="country"
             onChange={handleInputChange}
             required={true}
+            value={shippingAddress.country}
           />
         </div>
 
@@ -116,18 +131,21 @@ const AddressForm = ({ submitModal }: CheckoutProps) => {
             onChange={handleInputChange}
             required={true}
             type="tel"
+            value={shippingAddress.tel}
           />
           <CustomInput
             label="Téléphone 2"
             name="tel2"
             onChange={handleInputChange}
             type="tel"
+            value={shippingAddress.tel2}
           />
         </div>
         <CustomTextarea
           label="Information additionnelle"
           name="additionalInfo"
           onChange={handleInputChange}
+          value={shippingAddress.additionalInfo}
         />
         <div className={classes.btnContainer}>
           <button className={`${classes.btn} DefaultButtonDark`} type="submit">
