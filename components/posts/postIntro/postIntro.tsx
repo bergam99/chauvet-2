@@ -10,7 +10,7 @@ interface PostsPageProps {
 
 const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
   const main =
-    "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1711131591/wgklmn9obbtyualcincc.jpg";
+    "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1715980311/jxhklpx8avnm4iq6m1or.jpg";
   return (
     <>
       {/* intro */}

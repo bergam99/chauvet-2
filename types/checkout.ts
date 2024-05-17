@@ -1,3 +1,4 @@
+// TODO: ranger ici
 import { IUserAddress } from "./userAddress";
 
 export interface CheckoutProps {
@@ -6,7 +7,7 @@ export interface CheckoutProps {
   postAddress?: PostAddress;
   shippingAddress?: any; // temporary
   submitModal?: PostAddress;
-  modifyAddress?: PostAddress;
+  submitModifyAddress?: PostAddress;
 }
 
 export type HandleInputChange = (

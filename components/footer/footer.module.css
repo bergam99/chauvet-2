@@ -90,13 +90,14 @@
 .txt2 {
     font-family: var(--ff-body2);
     font-size: var(--fs-s);
+    margin-bottom: var(--sp-em-s);
 }
 
 .link {
     font-family: var(--ff-body2);
     font-size: var(--fs-s);
     display: inline-block;
-    margin: var(--sp-em-s) 0;
+    margin-bottom: var(--sp-em-s);
 }
 
 .link:hover {

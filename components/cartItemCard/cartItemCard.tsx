@@ -5,7 +5,7 @@ import classes from "./cartItemCard.module.css";
 
 interface CartItemCardProps {
   item: CartItem;
-  removeBtn: boolean;
+  removeBtn?: boolean;
   bgColor?: string;
 }
 

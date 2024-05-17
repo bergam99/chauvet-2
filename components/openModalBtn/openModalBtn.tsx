@@ -1,18 +1,13 @@
 import Modal, { ModalHandles } from "../modal/modal";
 import { useRef } from "react";
-import AddressForm from "../addressForm/addressForm";
-import { useCheckoutStore } from "@/stores/checkout";
+import AddressForm from "../address/addressForm/addressForm";
+import { useAddressStore } from "@/stores/address";
 import classes from "./openModalBtn.module.css";
 type OpenModalProps = {
   btnTxt: string;
 };
 const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
-  const {
-    shippingAddress,
-    postAddress,
-    resetShippingAddress,
-    setFetchTrigger,
-  } = useCheckoutStore();
+  const { postAddress, setFetchTrigger } = useAddressStore();
 
   const dialog = useRef<ModalHandles>(null);
 

@@ -1,12 +1,12 @@
 import classes from "./allAddresses.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useCheckoutStore } from "@/stores/checkout";
+import { useAddressStore } from "@/stores/address";
 import MapAllAddresses from "../mapAllAddresses/mapAllAddresses";
-import OpenModalBtn from "../openModalBtn/openModalBtn";
+import OpenModalBtn from "../../openModalBtn/openModalBtn";
 
 const AllAddresses = () => {
-  const { shippingAddress } = useCheckoutStore();
+  const { shippingAddress } = useAddressStore();
   const [validationError, setValidationError] = useState("");
   const router = useRouter();
 

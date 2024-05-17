@@ -16,10 +16,11 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
   const dialog = useRef<ModalHandles>(null);
 
-  const { add: handleAddToCart } = useCartStore();
+  const { add } = useCartStore();
 
   function openModal() {
     dialog.current?.open();
+    add(product);
   }
 
   return (
@@ -53,7 +54,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           {/* TODO: add disabled color className from global.css when 0 stock */}
           <button
             onClick={() => {
-              handleAddToCart(product);
               openModal();
             }}
             type="button"

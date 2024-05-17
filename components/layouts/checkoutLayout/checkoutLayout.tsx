@@ -40,7 +40,6 @@ const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
               <CartItemCard
                 item={item}
                 key={item._id.toString()}
-                removeBtn={false}
                 bgColor="white"
               />
             ))}
