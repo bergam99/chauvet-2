@@ -1,4 +1,3 @@
-// TODO: rename => getAllAddresses.ts
 import { IUserAddress } from "@/types/userAddress";
 import { connectDB } from "@/utils/connectDB";
 import { securingEndpoint } from "@/utils/securingEndpoint";
@@ -22,7 +21,7 @@ export default async function handler(
         .find({})
         .toArray();
 
-      res.status(200).json({ message: "api/summary:ok", userAddress });
+      res.status(200).json({ message: "api/getAllAddresses:ok", userAddress });
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }

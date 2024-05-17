@@ -1,20 +1,18 @@
-// allAddresses.length === 0
-
 import { CheckoutProps } from "@/types/checkout";
-import CustomInput from "../customs/customInput/customInput";
-import CustomTextarea from "../customs/customTextarea/customTextarea";
-import CustomRadioButton from "../customs/custumRadioButton/custumRadioButton";
+import CustomInput from "../../customs/customInput/customInput";
+import CustomTextarea from "../../customs/customTextarea/customTextarea";
+import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
 import classes from "./addressForm.module.css";
-import { useCheckoutStore } from "@/stores/checkout";
+import { useAddressStore } from "@/stores/address";
 import { useRouter } from "next/router";
 
-const AddressForm = ({ submitModal, modifyAddress }: CheckoutProps) => {
+const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
   const {
     postAddress,
     handleInputChange,
     shippingAddress,
     resetShippingAddress,
-  } = useCheckoutStore();
+  } = useAddressStore();
   const router = useRouter();
 
   async function submission(e: React.FormEvent<HTMLFormElement>) {
@@ -22,8 +20,9 @@ const AddressForm = ({ submitModal, modifyAddress }: CheckoutProps) => {
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
-    } else if (modifyAddress) {
-      await modifyAddress(e);
+    } else if (submitModifyAddress) {
+      // Modify modal mode
+      await submitModifyAddress(e);
     } else {
       // first time submission (shippingAddress.length === 0)
       await postAddress(e);

@@ -27,16 +27,24 @@ const Footer = () => {
             Stacks : React Next js, Typescript, MongoDB, Zustand
           </p>
 
-          <a
-            href="https://github.com/bergam99/chauvet-2"
-            target="_blank"
-            className={classes.link}
-          >
-            🔗 Github
-          </a>
-          <a href="/" target="_blank" className={classes.link}>
-            🔗 Project Schema
-          </a>
+          <div>
+            <a
+              className={classes.link}
+              href="https://github.com/bergam99/chauvet-2"
+              target="_blank"
+            >
+              🔗 Github
+            </a>
+          </div>
+          <div>
+            <a
+              className={classes.link}
+              href="https://res.cloudinary.com/dr2nbo0rj/image/upload/v1715873843/gj9iquqdydn8ktcvaafv.png"
+              target="_blank"
+            >
+              🔗 Project Schema
+            </a>
+          </div>
 
           <div className={`${classes.btn} DefaultButton`}>
             <button className={classes.close}>Close</button>
