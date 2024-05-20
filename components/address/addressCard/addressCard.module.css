@@ -1,3 +1,7 @@
+.addressCard{
+    flex:1;
+
+}
 .txt {
     font-size: var(--fs-xs);
     font-family: var(--ff-body2);
