@@ -21,7 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
           </div>
 
-          <div>{children}</div>
+          <div className={classes.children}>{children}</div>
         </section>
         <Footer />
       </main>
