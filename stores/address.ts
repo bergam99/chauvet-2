@@ -17,7 +17,8 @@ type AddressStore = {
     id: string,
     modifiedAddress: Partial<IUserAddress>
   ) => Promise<void>;
-  selectedAddress: IUserAddress | null; // modify
+
+  selectedAddress: IUserAddress | null;
   setSelectedAddress: (address: IUserAddress | null) => void;
 };
 
