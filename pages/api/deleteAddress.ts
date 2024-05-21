@@ -11,14 +11,17 @@ export default async function handler(
   const token = await getToken({ req });
   const user_id = token?.sub || undefined;
 
-  // const { id } = req.body;
-  // const objectId = new ObjectId(id as string);
-
-  // console.log({ objectId });
-  //  _id: objectId
-
   if (req.method === "DELETE") {
-    // console.log(id, "from server");
+    // const { id } = req.body;
+    // if (!id) {
+    //   return res.status(400).json({ message: "ID is required" });
+    // }
+
+    // const objectId = new ObjectId(id as string);
+
+    // console.log("api id : ", id);
+    // console.log("api objectId : ", objectId);
+
     securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();

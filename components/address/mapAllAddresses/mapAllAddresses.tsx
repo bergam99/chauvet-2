@@ -9,10 +9,10 @@ import Modal, { ModalHandles } from "../../modal/modal";
 import AddressForm from "../addressForm/addressForm";
 
 type MapAllAddressesProps = {
-  radioBtn?: boolean;
+  isCheckoutPage?: boolean;
 };
 
-const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
+const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
   const {
     setShippingAddress,
     shippingAddress,
@@ -78,7 +78,7 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
             className={classes.li}
             onClick={() => setShippingAddress(address)}
           >
-            {radioBtn ? (
+            {isCheckoutPage ? (
               <CustomRadioButton
                 label={<AddressCard address={address} />}
                 name="addressSelection"
@@ -96,10 +96,15 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
                   >
                     Modifier
                   </button>
-                  {/* TODO: use openModalBtn */}
-
+                  {/* use openModal component only when you want to clear form by opening modal */}
                   <button
-                    onClick={() => deleteAddress(shippingAddress._id)}
+                    onClick={() => {
+                      console.log(
+                        "shippingAddress._id before delete:",
+                        shippingAddress._id
+                      );
+                      deleteAddress(shippingAddress._id);
+                    }}
                     className={classes.delete}
                   >
                     Supprimer
