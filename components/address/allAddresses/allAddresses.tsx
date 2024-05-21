@@ -30,7 +30,7 @@ const AllAddresses = () => {
 
   return (
     <>
-      <MapAllAddresses radioBtn />
+      <MapAllAddresses isCheckoutPage />
       <OpenModalBtn btnTxt="+ ajouter une nouvelle address" />
 
       <button
