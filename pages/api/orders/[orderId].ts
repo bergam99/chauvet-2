@@ -9,9 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const {
-    query: { orderId },
-  } = req;
+  const { orderId } = req.query;
 
   if (req.method === "GET") {
     try {

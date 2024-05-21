@@ -43,8 +43,8 @@ const Cart = () => {
         </div>
         {cart.length > 0 ? (
           cart.map((item) => (
-            <>
-              <CartItemCard item={item} key={item._id.toString()} removeBtn />
+            <div key={item._id.toString()}>
+              <CartItemCard item={item} removeBtn />
               <div className={classes.totalWrapper}>
                 <p className={classes.totalPrice}> Total : {total} €</p>
               </div>
@@ -61,7 +61,7 @@ const Cart = () => {
                   Valider le paiement
                 </button>
               </div>
-            </>
+            </div>
           ))
         ) : (
           <p className={classes.noProduct}>

@@ -13,16 +13,7 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
     "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1715980311/jxhklpx8avnm4iq6m1or.jpg";
   return (
     <>
-      {/* intro */}
       <div className={classes.mainContainer}>
-        {/* <Image
-          src={posts[0].template[0]?.cards[0].url}
-          alt={posts[0].title}
-          width={727}
-          height={484} // aspect ratio
-          className={classes.img}
-          style={imageStyle}
-        /> */}
         <div className="fadeInFromBottom">
           <Image
             src={main}
@@ -34,8 +25,8 @@ const PostIntro: NextPage<PostsPageProps> = ({ posts }) => {
           />
         </div>
         <p className={classes.intro}>
-          Devenez explorateur, découvrez la grotte chauvet partout dans le monde
-          avec notre magazine Chauvet.
+          Devenez explorateur, découvrez la grotte chauvet dans le monde avec
+          notre magazine Chauvet.
         </p>
       </div>
     </>

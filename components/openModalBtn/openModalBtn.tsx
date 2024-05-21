@@ -7,11 +7,14 @@ type OpenModalProps = {
   btnTxt: string;
 };
 const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
-  const { postAddress, setFetchTrigger } = useAddressStore();
+  const { postAddress, setFetchTrigger, resetShippingAddress } =
+    useAddressStore();
 
   const dialog = useRef<ModalHandles>(null);
 
   function openModal() {
+    resetShippingAddress();
+    // console.log("reset");
     dialog.current?.open();
   }
 

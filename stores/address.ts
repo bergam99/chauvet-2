@@ -17,8 +17,6 @@ type AddressStore = {
     id: string,
     modifiedAddress: Partial<IUserAddress>
   ) => Promise<void>;
-  selectedAddress: IUserAddress | null; // modify
-  setSelectedAddress: (address: IUserAddress | null) => void;
 };
 
 export const baseAddress = {
@@ -40,8 +38,6 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
   fetchTrigger: false,
-  selectedAddress: null,
-  setSelectedAddress: (address) => set({ selectedAddress: address }),
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });

@@ -22,8 +22,6 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     fetchTrigger,
     setFetchTrigger,
     updateAddress,
-    selectedAddress,
-    setSelectedAddress,
   } = useAddressStore();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -44,9 +42,9 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
   }, [fetchTrigger]);
 
   const openModifyModal = (address: IUserAddress) => {
-    setSelectedAddress(address);
+    setShippingAddress(address);
     dialog.current?.open();
-    console.log("openModifyModal, selectedAddress", address?._id);
+    console.log("openModifyModal, shippingAddress", address?._id);
   };
 
   if (isLoading) {
@@ -55,12 +53,11 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
 
   async function submitModifyAddress(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (selectedAddress?._id) {
-      await updateAddress(selectedAddress?._id as string, shippingAddress);
+    if (shippingAddress?._id) {
+      await updateAddress(shippingAddress?._id as string, shippingAddress);
       // shippingAddress : modifiedAddress
 
       console.log("modif function execution");
-      // setSelectedAddress(null);
       dialog.current?.close();
       setFetchTrigger(true);
       // } else {
