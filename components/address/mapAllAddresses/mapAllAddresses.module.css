@@ -1,5 +1,6 @@
 .li {
-
+    display: flex;
+    flex-direction: column;
     border: .6px solid var(--color-gray);
     border-radius: var(--br-m);
     padding: var(--sp-l);

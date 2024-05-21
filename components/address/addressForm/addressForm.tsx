@@ -20,15 +20,16 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
+      resetShippingAddress();
     } else if (submitModifyAddress) {
       // Modify modal mode
       await submitModifyAddress(e);
+      resetShippingAddress();
     } else {
       // first time submission (shippingAddress.length === 0)
       await postAddress(e);
       router.push("/checkout/summary");
     }
-    resetShippingAddress();
   }
 
   return (
