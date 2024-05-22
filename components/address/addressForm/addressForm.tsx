@@ -5,6 +5,9 @@ import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton
 import classes from "./addressForm.module.css";
 import { useAddressStore } from "@/stores/address";
 import { useRouter } from "next/router";
+import * as Yup from "yup";
+import { IUserAddress } from "@/types/userAddress";
+import { schema } from "@/utils/yupFormValidation";
 
 const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
   const {
@@ -12,11 +15,63 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     handleInputChange,
     shippingAddress,
     resetShippingAddress,
+    setFormValidationErrors,
+    formValidationErrors,
+    clearFormValidationErrors,
   } = useAddressStore();
   const router = useRouter();
 
+  const yupSubmitFormValidation = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    // console.log("yupSubmitFormValidation execution");
+    try {
+      // false : verify all fields
+      await schema.validate(shippingAddress, { abortEarly: false });
+      clearFormValidationErrors(); // if no error then reset
+      return true;
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const validationErrors: Partial<IUserAddress> = {};
+        // collect all formvalidationerrors and store in validationErrors
+        err.inner.forEach((error) => {
+          validationErrors[error.path as keyof IUserAddress] = error.message;
+        });
+        setFormValidationErrors(validationErrors);
+      }
+
+      return false;
+    }
+  };
+
+  // on blur check
+  const yupBlurFormValidation = async (
+    e: React.FocusEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+    try {
+      await schema.validateAt(name, { [name]: value });
+      setFormValidationErrors((prevErrors: any) => ({
+        ...prevErrors,
+        [name]: undefined,
+      }));
+    } catch (err: any) {
+      if (err instanceof Yup.ValidationError) {
+        setFormValidationErrors((prevErrors: any) => ({
+          ...prevErrors,
+          [name]: err.message,
+        }));
+      }
+    }
+  };
+
   async function submission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const isValid = await yupSubmitFormValidation(e);
+    if (!isValid) {
+      return;
+    }
     if (submitModal) {
       // Modal mode (shippingAddress.length > 0)
       await submitModal(e);
@@ -61,14 +116,17 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             required={true}
             onChange={handleInputChange}
             value={shippingAddress.firstName}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.firstName}
           />
-
           <CustomInput
             label="Nom"
             name="lastName"
             onChange={handleInputChange}
             required={true}
             value={shippingAddress.lastName}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.lastName}
           />
         </div>
 
@@ -79,6 +137,8 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             onChange={handleInputChange}
             required={true}
             value={shippingAddress.address}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.address}
           />
 
           <CustomInput
@@ -96,6 +156,8 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             onChange={handleInputChange}
             required={true}
             value={shippingAddress.zipcode}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.zipcode}
           />
 
           <CustomInput
@@ -104,6 +166,8 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             onChange={handleInputChange}
             required={true}
             value={shippingAddress.city}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.city}
           />
         </div>
 
@@ -121,6 +185,8 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             onChange={handleInputChange}
             required={true}
             value={shippingAddress.country}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.country}
           />
         </div>
 
@@ -132,7 +198,10 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             required={true}
             type="tel"
             value={shippingAddress.tel}
+            onBlur={yupBlurFormValidation}
+            error={formValidationErrors.tel}
           />
+
           <CustomInput
             label="Téléphone 2"
             name="tel2"
@@ -152,6 +221,11 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             Enregistrer
           </button>
         </div>
+        {Object.keys(formValidationErrors).length > 0 ? (
+          <p className={classes.err}>Veuillez vérifier les champs invalids ⚠</p>
+        ) : (
+          ""
+        )}
       </form>
     </>
   );

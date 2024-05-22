@@ -17,6 +17,13 @@ type AddressStore = {
     id: string,
     modifiedAddress: Partial<IUserAddress>
   ) => Promise<void>;
+  formValidationErrors: Partial<IUserAddress>;
+  setFormValidationErrors: (
+    errors:
+      | Partial<IUserAddress>
+      | ((prevErrors: Partial<IUserAddress>) => Partial<IUserAddress>)
+  ) => void;
+  clearFormValidationErrors: () => void;
 };
 
 export const baseAddress = {
@@ -39,6 +46,16 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
   allAddresses: [{ ...baseAddress }],
   fetchTrigger: false,
 
+  formValidationErrors: {},
+  setFormValidationErrors: (errors) =>
+    set((state) => ({
+      formValidationErrors:
+        typeof errors === "function"
+          ? errors(state.formValidationErrors)
+          : errors,
+    })),
+  clearFormValidationErrors: () => set({ formValidationErrors: {} }),
+
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
   },
@@ -55,7 +72,6 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 
   setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
 
-  // resrt
   resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }), // clear _id, localId
 
   postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,13 +83,12 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
     };
     set({ shippingAddress: newShippingAddress });
 
-    const response = await fetch("/api/userAddress", {
+    const response = await fetch("/api/postUserAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newShippingAddress),
     });
     const data = await response.json();
-    // resetShippingAddress();
     console.log("address posted", data);
   },
 
