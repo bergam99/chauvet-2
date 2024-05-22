@@ -1,3 +1,6 @@
+.inputContainerWrapper {
+    width: 100%;
+}
 .inputContainer {
     position: relative;
     margin-top: var(--sp-em-m);
@@ -38,4 +41,11 @@
 .inputContainer .input:not(:placeholder-shown)+ .label {
     bottom: 30px;
     font-size: var(--fs-6rem);
+}
+
+.err{
+    color: var(--color-red);
+    font-size: .6rem;
+    font-family: var(--ff-body2);
+    margin-top: 4px;
 }
