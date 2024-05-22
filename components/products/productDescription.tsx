@@ -27,6 +27,8 @@ interface productDescriptionProps {
 const options = {
   loop: true,
   dots: false,
+  nav: true,
+  navText: ["<", ">"],
   responsive: {
     0: {
       items: 1.2,
