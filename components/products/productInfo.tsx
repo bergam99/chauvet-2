@@ -51,7 +51,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           <p className={classes.price}>{price} €</p>
           <div className={classes.gap}></div>
           <p className={classes.stock}>{stock <= 0 && "stock épuisé"}</p>
-          {/* TODO: add disabled color className from global.css when 0 stock */}
           <button
             onClick={() => {
               openModal();

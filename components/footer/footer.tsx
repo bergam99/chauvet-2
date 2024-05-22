@@ -27,7 +27,11 @@ const Footer = () => {
             Stacks : React Next js, Typescript, MongoDB, Zustand
           </p>
 
-          {/* <div> */}
+          <p className={classes.txt3}>
+            Images of magazine{" "}
+            <i className={classes.txt3}>Le mois de juillet </i> by{" "}
+            <i className={classes.txt3}>Tatyane Frankalino</i>
+          </p>
           <a
             className={classes.link}
             href="https://github.com/bergam99/chauvet-2"
@@ -35,17 +39,6 @@ const Footer = () => {
           >
             🔗 Github
           </a>
-          {/* </div> */}
-          {/* <div> */}
-          {/* <a
-              className={classes.link}
-              href="https://res.cloudinary.com/dr2nbo0rj/image/upload/v1715873843/gj9iquqdydn8ktcvaafv.png"
-              target="_blank"
-            >
-              🔗 Project Schema
-            </a> */}
-          {/* </div> */}
-
           <div className={`${classes.btn} DefaultButton`}>
             <button className={classes.close}>Close</button>
           </div>

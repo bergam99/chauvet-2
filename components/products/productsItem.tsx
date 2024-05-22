@@ -9,22 +9,24 @@ interface ProductsItemProps {
 const ProductsItem = ({ product }: ProductsItemProps) => {
   return (
     <li>
-      <div>
-        <Image
-          src={product.images[0]?.url}
-          alt={product.name}
-          width={300}
-          height={200}
-          className={classes.img}
-        />
-        <div className={classes.description}>
-          <h2 className={classes.name}>{product.name}</h2>
+      <Link href={`/products/${product._id}`}>
+        <div>
+          <Image
+            src={product.images[0]?.url}
+            alt={product.name}
+            width={300}
+            height={200}
+            className={classes.img}
+          />
+          <div className={classes.description}>
+            <h2 className={classes.name}>{product.name}</h2>
 
-          <Link href={`/products/${product._id}`} className="DefaultButton">
-            <button className={classes.detail}>Voir plus</button>
-          </Link>
+            <button className={` DefaultButton ${classes.detail}`}>
+              Voir plus
+            </button>
+          </div>
         </div>
-      </div>
+      </Link>
     </li>
   );
 };
