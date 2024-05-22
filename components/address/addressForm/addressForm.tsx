@@ -49,11 +49,10 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
   const yupBlurFormValidation = async (
     e: React.FocusEvent<HTMLInputElement>
   ) => {
-    // console.log("onBlur");
     const { name, value } = e.target;
     try {
       await schema.validateAt(name, { [name]: value });
-      setFormValidationErrors((prevErrors: Partial<IUserAddress>) => ({
+      setFormValidationErrors((prevErrors: any) => ({
         ...prevErrors,
         [name]: undefined,
       }));
