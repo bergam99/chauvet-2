@@ -25,7 +25,7 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
-    console.log("yupSubmitFormValidation execution");
+    // console.log("yupSubmitFormValidation execution");
     try {
       // false : verify all fields
       await schema.validate(shippingAddress, { abortEarly: false });
