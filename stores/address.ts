@@ -17,8 +17,13 @@ type AddressStore = {
     id: string,
     modifiedAddress: Partial<IUserAddress>
   ) => Promise<void>;
-  // formValidationErrors: Partial<IUserAddress>;
-  // setFormValidationErrors: (err: any) => void;
+  formValidationErrors: Partial<IUserAddress>;
+  setFormValidationErrors: (
+    errors:
+      | Partial<IUserAddress>
+      | ((prevErrors: Partial<IUserAddress>) => Partial<IUserAddress>)
+  ) => void;
+  clearFormValidationErrors: () => void;
 };
 
 export const baseAddress = {
@@ -40,6 +45,16 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
   fetchTrigger: false,
+
+  formValidationErrors: {},
+  setFormValidationErrors: (errors) =>
+    set((state) => ({
+      formValidationErrors:
+        typeof errors === "function"
+          ? errors(state.formValidationErrors)
+          : errors,
+    })),
+  clearFormValidationErrors: () => set({ formValidationErrors: {} }),
   // formValidationErrors: {},
 
   // setFormValidationErrors: (err: Partial<IUserAddress>) => {

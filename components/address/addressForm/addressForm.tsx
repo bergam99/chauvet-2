@@ -6,21 +6,18 @@ import classes from "./addressForm.module.css";
 import { useAddressStore } from "@/stores/address";
 import { useRouter } from "next/router";
 import * as Yup from "yup";
-import { useState } from "react";
 import { IUserAddress } from "@/types/userAddress";
 import { schema } from "@/utils/yupFormValidation";
 
 const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
-  const [formValidationErrors, setFormValidationErrors] = useState<
-    Partial<IUserAddress>
-  >({});
   const {
     postAddress,
     handleInputChange,
     shippingAddress,
     resetShippingAddress,
-    // setFormValidationErrors,
-    // formValidationErrors,
+    setFormValidationErrors,
+    formValidationErrors,
+    clearFormValidationErrors,
   } = useAddressStore();
   const router = useRouter();
 
@@ -32,7 +29,7 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     try {
       // false : verify all fields
       await schema.validate(shippingAddress, { abortEarly: false });
-      setFormValidationErrors({}); // if no error then reset
+      clearFormValidationErrors(); // if no error then reset
       return true;
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
@@ -52,12 +49,11 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
   const yupBlurFormValidation = async (
     e: React.FocusEvent<HTMLInputElement>
   ) => {
-    console.log("onBlur");
-
+    // console.log("onBlur");
     const { name, value } = e.target;
     try {
       await schema.validateAt(name, { [name]: value });
-      setFormValidationErrors((prevErrors: any) => ({
+      setFormValidationErrors((prevErrors: Partial<IUserAddress>) => ({
         ...prevErrors,
         [name]: undefined,
       }));
