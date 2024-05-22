@@ -55,11 +55,6 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
           : errors,
     })),
   clearFormValidationErrors: () => set({ formValidationErrors: {} }),
-  // formValidationErrors: {},
-
-  // setFormValidationErrors: (err: Partial<IUserAddress>) => {
-  //   set({ formValidationErrors: err });
-  // },
 
   setShippingAddress: (address: IUserAddress) => {
     set({ shippingAddress: address });
@@ -77,7 +72,6 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 
   setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
 
-  // resrt
   resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }), // clear _id, localId
 
   postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
@@ -89,13 +83,12 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
     };
     set({ shippingAddress: newShippingAddress });
 
-    const response = await fetch("/api/userAddress", {
+    const response = await fetch("/api/postUserAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newShippingAddress),
     });
     const data = await response.json();
-    // resetShippingAddress();
     console.log("address posted", data);
   },
 
