@@ -56,7 +56,7 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
         ...prevErrors,
         [name]: undefined,
       }));
-    } catch (err) {
+    } catch (err: any) {
       if (err instanceof Yup.ValidationError) {
         setFormValidationErrors((prevErrors: any) => ({
           ...prevErrors,
