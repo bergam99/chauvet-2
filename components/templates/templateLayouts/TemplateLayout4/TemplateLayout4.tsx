@@ -1,8 +1,6 @@
 import { NextPage } from "next";
-import Image from "next/image";
 import TL4a from "./TL/TL4a/TL4a";
 import TL4b from "./TL/TL4b/TL4b";
-// import classes from "./templateLayout4.module.css";
 
 interface TemplateLayout4Props {
   img: string[];

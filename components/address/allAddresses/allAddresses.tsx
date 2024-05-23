@@ -18,11 +18,9 @@ const AllAddresses = () => {
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!shippingAddress.localId) {
-      console.log("address not selected");
       setValidationError("Sélectionnez l'address de livraison ⚠");
       return;
     } else {
-      console.log("address selected", shippingAddress);
       setValidationError("");
       router.push("/checkout/summary");
     }
@@ -30,7 +28,7 @@ const AllAddresses = () => {
 
   return (
     <>
-      <MapAllAddresses radioBtn />
+      <MapAllAddresses isCheckoutPage />
       <OpenModalBtn btnTxt="+ ajouter une nouvelle address" />
 
       <button
@@ -40,7 +38,7 @@ const AllAddresses = () => {
       >
         Suivant
       </button>
-      {shippingAddress.localId && `${shippingAddress.localId}`}
+
       <p className={classes.validation}>{validationError}</p>
     </>
   );

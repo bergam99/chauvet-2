@@ -13,7 +13,7 @@ interface ProductsProps {
 
 const ProductsPage: NextPage<ProductsProps> = ({ products }) => {
   const mainProduct = getLatestProduct(products);
-  const mainPdImg = mainProduct?.images[1]?.url || "";
+  const mainPdImg = mainProduct?.images[0]?.url || "";
   const mainPdAlt = mainProduct?.name || "";
 
   return (

@@ -56,7 +56,6 @@ export default async function handler(
       if (matchIdOrder.length > 0) {
         const order = matchIdOrder[0];
         res.status(200).json({ order });
-        // console.log({ order });
       } else {
         res.status(404).json({ message: "Order not found" });
       }

@@ -1,5 +1,4 @@
 import { IOrders } from "@/types/order";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import classes from "./orderId.module.css";
@@ -32,13 +31,12 @@ const OrderDetail = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Fetching order failed:", error);
         setIsLoading(false);
+        throw new Error("Fetching order failed", error);
       });
   }, [orderId]);
 
   const {
-    localId,
     firstName,
     lastName,
     address,

@@ -30,7 +30,7 @@ const Summary = () => {
     if (response.ok) {
       window.location.href = data.url;
     } else {
-      console.error("failed to create checkout session", data.error);
+      throw new Error(`failed to create checkout session`);
     }
     setIsLoading(false);
   };
@@ -38,8 +38,6 @@ const Summary = () => {
   if (isLoading) {
     return <Loader />;
   }
-  // console.log({ shippingAddress });
-
   return (
     <>
       <Link href="/checkout/form" className={classes.livraison}>

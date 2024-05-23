@@ -26,17 +26,17 @@
     width: fit-content;
     margin-bottom: var(--sp-xl);
     padding-bottom: var(--sp-xs);
-    font-family: var(--ff-body2);
 }
 
 .des {
     font-size: var(--fs-s);
     line-height: var(--lh-m);
+    font-family: var(--ff-body2);
 }
 
 .price {
     font-family: var(--ff-body2);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-s);
     padding: var(--sp-2xl) 0;
 }
 
@@ -44,7 +44,7 @@
 .stock {
     color: var(--color-red);
     padding: var(--sp-m) 0;
-    font-family: var(--ff-heading);
+    font-family: var(--ff-body2);
     font-size: var(--fs-xs);
 }
 

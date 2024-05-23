@@ -123,7 +123,7 @@ a {
     font-family: var(--ff-link);
 }
 
-/* === custum === */
+/* === Custom === */
 .bgColor-default {
     background-color: transparent;
 }
@@ -161,7 +161,7 @@ a {
     border-bottom: .5px solid var(--color-heavy-gray);
 }
 
-.Heading{
+.Heading {
     font-family: var(--ff-heading);
     font-size: var(--fs-3xl);
 }
@@ -178,6 +178,21 @@ a {
     letter-spacing: var(--ls-m);
     color: var(--color-white);
 }
+
+.owl-nav {
+    text-align: center;
+}
+
+.owl-prev {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .owl-nav {
+        text-align: left;
+    }
+}
+
 
 /* ===== animation ===== */
 @keyframes fadeInFromBottom {

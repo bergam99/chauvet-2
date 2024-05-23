@@ -24,7 +24,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    //npm i raw-body --save
     const rawBody = await getRawBody(req);
     const signature = req.headers["stripe-signature"];
 
@@ -36,8 +35,6 @@ export default async function handler(
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object; //session from stripe checkout
-      // console.log({ session });
-
       const line_items = await stripe.checkout.sessions.listLineItems(
         event.data.object.id // id of the session
       );
@@ -56,7 +53,6 @@ export default async function handler(
           name: product.name,
           price: priceInCents,
           quantity: item.quantity,
-          //   image: product.images[0],
         });
       }
 
@@ -77,8 +73,6 @@ export default async function handler(
         orderItems: cartItems,
       };
 
-      // console.log({ orderData });
-
       const db = await connectDB();
       const orderCollection = db.collection("Orders");
       await orderCollection.insertOne(orderData);
@@ -88,7 +82,6 @@ export default async function handler(
       res.status(400).json({ message: "Unhandled event type" });
     }
   } catch (error) {
-    console.error("Error in webhook:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }

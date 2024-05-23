@@ -1,11 +1,8 @@
 import { IPosts } from "@/types/posts";
 import { NextPage } from "next";
 import TemplateLayout1 from "../templateLayouts/templateLayout1/templateLayout1";
-import TemplateLayout2 from "../templateLayouts/templateLayout2/templateLayout2";
-import classes from "./templateA.module.css";
 import TemplateLayout3 from "../templateLayouts/TemplateLayout3/TemplateLayout3";
 import TemplateLayout4 from "../templateLayouts/TemplateLayout4/TemplateLayout4";
-import TemplateLayout5 from "../templateLayouts/TemplateLayout5/TemplateLayout5";
 import TL4b from "../templateLayouts/TemplateLayout4/TL/TL4b/TL4b";
 import { extractCardProps } from "../templateA/templateA";
 import TemplateLayout6 from "../templateLayouts/TemplateLayout6/TemplateLayout6";

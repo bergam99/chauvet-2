@@ -9,10 +9,10 @@ import Modal, { ModalHandles } from "../../modal/modal";
 import AddressForm from "../addressForm/addressForm";
 
 type MapAllAddressesProps = {
-  radioBtn?: boolean;
+  isCheckoutPage?: boolean;
 };
 
-const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
+const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
   const {
     setShippingAddress,
     shippingAddress,
@@ -37,14 +37,12 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     };
     fetching();
     setFetchTrigger(false); // reset to default value aftre refreshing, this will switch when submit modal.
-    // console.log("mapAppAlldresses - useEffect =>", shippingAddress);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
   const openModifyModal = (address: IUserAddress) => {
     setShippingAddress(address);
     dialog.current?.open();
-    console.log("openModifyModal, shippingAddress", address?._id);
   };
 
   if (isLoading) {
@@ -55,13 +53,8 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
     e.preventDefault();
     if (shippingAddress?._id) {
       await updateAddress(shippingAddress?._id as string, shippingAddress);
-      // shippingAddress : modifiedAddress
-
-      console.log("modif function execution");
       dialog.current?.close();
       setFetchTrigger(true);
-      // } else {
-      // console.log("no id");
     }
   }
 
@@ -78,7 +71,7 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
             className={classes.li}
             onClick={() => setShippingAddress(address)}
           >
-            {radioBtn ? (
+            {isCheckoutPage ? (
               <CustomRadioButton
                 label={<AddressCard address={address} />}
                 name="addressSelection"
@@ -96,10 +89,11 @@ const MapAllAddresses = ({ radioBtn = false }: MapAllAddressesProps) => {
                   >
                     Modifier
                   </button>
-                  {/* TODO: use openModalBtn */}
-
+                  {/* use openModal component only when you want to clear form by opening modal */}
                   <button
-                    onClick={() => deleteAddress(shippingAddress._id)}
+                    onClick={() => {
+                      deleteAddress(address._id);
+                    }}
                     className={classes.delete}
                   >
                     Supprimer

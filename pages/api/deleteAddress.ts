@@ -11,21 +11,19 @@ export default async function handler(
   const token = await getToken({ req });
   const user_id = token?.sub || undefined;
 
-  // const { id } = req.body;
-  // const objectId = new ObjectId(id as string);
-
-  // console.log({ objectId });
-  //  _id: objectId
-
   if (req.method === "DELETE") {
-    // console.log(id, "from server");
+    const { id } = req.body;
+    if (!id) {
+      return res.status(400).json({ message: "ID is required" });
+    }
+
+    const objectId = new ObjectId(id as string);
+
     securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();
       const collection = db.collection("UserAddresses");
-      const result = await collection.deleteOne({});
-
-      console.log(result);
+      const result = await collection.deleteOne({ _id: objectId });
 
       if (result.deletedCount === 1) {
         res.status(200).json({ message: "Successfully deleted address" });

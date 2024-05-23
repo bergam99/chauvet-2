@@ -26,7 +26,6 @@ export default async function handler(
         .toArray();
 
       if (orders.length > 0) {
-        // const order = orders[0];
         res.status(200).json({ ordersCount, orders });
       } else {
         res.status(200).json({ message: "No order yet" });

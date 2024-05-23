@@ -1,4 +1,4 @@
-import { signIn, useSession, signOut } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import classes from "./me.module.css";
 import Image from "next/image";
 import facebookLogo from "@/public/icon/logo-fb.png";

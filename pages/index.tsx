@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GetServerSideProps, NextPage } from "next";
 import PostsPage from "@/components/posts/posts";
-
 import { IPosts } from "@/types/posts";
 import { getPosts } from "@/utils/extract";
 

@@ -31,7 +31,7 @@
 }
 
 .bottomTxt{
-    font-family: var(--ff-heading);
+    font-family: var(--ff-body2);
     font-size: var(--fs-2xs);
 }
 

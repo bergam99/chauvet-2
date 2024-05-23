@@ -8,7 +8,6 @@ type AddressCardProps = {
 const AddressCard = ({ address }: AddressCardProps) => {
   return (
     <div className={classes.addressCard}>
-      <p className={classes.txt}>{address.localId?.toString()}</p>
       <p className={classes.txt}>
         {address.gender} {address.firstName}
       </p>
