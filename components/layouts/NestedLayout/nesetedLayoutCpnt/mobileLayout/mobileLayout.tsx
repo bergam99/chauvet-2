@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { handleSignout } from "@/components/layouts/meLayout/meLayout";
 import Menu from "@/public/icon/menu.png";
 import Image from "next/image";
 import classes from "./mobileLayout.module.css";
-import ShopLink from "../../shopLink/shopLink";
 
 export default function MobileLayout() {
   const { data: session } = useSession();

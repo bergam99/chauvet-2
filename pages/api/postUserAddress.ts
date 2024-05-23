@@ -20,7 +20,7 @@ export default async function handler(
     const userAddressCollection = db.collection("UserAddresses");
     const { ...newUserAddress } = req.body;
 
-    // Server side validation
+    // Server side form validation
     try {
       const validatedData = await schema.validate(req.body, {
         abortEarly: true,

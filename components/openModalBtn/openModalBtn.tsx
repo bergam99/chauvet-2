@@ -19,7 +19,6 @@ const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
   function openModal() {
     clearFormValidationErrors();
     resetShippingAddress();
-    // console.log("reset");
     dialog.current?.open();
   }
 

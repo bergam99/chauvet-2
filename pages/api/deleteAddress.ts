@@ -12,23 +12,18 @@ export default async function handler(
   const user_id = token?.sub || undefined;
 
   if (req.method === "DELETE") {
-    // const { id } = req.body;
-    // if (!id) {
-    //   return res.status(400).json({ message: "ID is required" });
-    // }
+    const { id } = req.body;
+    if (!id) {
+      return res.status(400).json({ message: "ID is required" });
+    }
 
-    // const objectId = new ObjectId(id as string);
-
-    // console.log("api id : ", id);
-    // console.log("api objectId : ", objectId);
+    const objectId = new ObjectId(id as string);
 
     securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();
       const collection = db.collection("UserAddresses");
-      const result = await collection.deleteOne({});
-
-      console.log(result);
+      const result = await collection.deleteOne({ _id: objectId });
 
       if (result.deletedCount === 1) {
         res.status(200).json({ message: "Successfully deleted address" });

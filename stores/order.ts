@@ -29,11 +29,10 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ orders: sortedOrders });
         set({ totalOrderCount: data.ordersCount });
       } else {
-        console.log("No orders found or empty orders list.");
         set({ orders: [] });
       }
     } catch (error) {
-      console.error("Fetching user addresses failed:", error);
+      throw new Error("Fetching All Orders failed");
     }
   },
 }));

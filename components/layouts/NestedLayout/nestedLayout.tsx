@@ -9,7 +9,6 @@ const NestedLayout = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = useState("");
 
-  // client side useEffect
   useEffect(() => {
     setCurrentPath(router.asPath);
   }, [router.asPath]);

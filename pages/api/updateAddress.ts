@@ -35,7 +35,6 @@ export default async function handler(
         res.status(404).json({ message: "Address not found" });
       }
     } catch (error) {
-      console.error("Error updating address:", error);
       res.status(500).json({ message: "Failed to update address", error });
     }
   } else {

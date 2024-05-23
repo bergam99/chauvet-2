@@ -33,7 +33,6 @@ const CustomInput = ({
             id={name}
             name={name}
             placeholder={placeholder}
-            // required={required}
             className={classes.input}
             value={value}
             onBlur={onBlur}

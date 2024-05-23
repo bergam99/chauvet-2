@@ -37,7 +37,6 @@ const saveCartToSessionStorage = (cart: CartItem[]) => {
 };
 
 // =============================================================
-// create useCartStore. take state param & callback functions for update
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [], // load previous session storage
 

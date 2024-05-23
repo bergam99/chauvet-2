@@ -72,7 +72,7 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 
   setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
 
-  resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }), // clear _id, localId
+  resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }),
 
   postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,13 +83,11 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
     };
     set({ shippingAddress: newShippingAddress });
 
-    const response = await fetch("/api/postUserAddress", {
+    await fetch("/api/postUserAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newShippingAddress),
     });
-    const data = await response.json();
-    console.log("address posted", data);
   },
 
   fetchAllAddresses: async () => {
@@ -107,22 +105,18 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 
       set({ allAddresses: data.userAddress });
     } catch (error) {
-      console.error("Fetching user addresses failed:", error);
+      throw new Error("Failed to fetch all addresses");
     }
   },
 
   deleteAddress: async (id) => {
     const { allAddresses, setFetchTrigger } = get();
     try {
-      // console.log("store", id);
       const response = await fetch(`/api/deleteAddress`, {
         method: "DELETE",
-        // headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ id }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
       });
-
-      const data = await response.json();
-      console.log(data);
 
       if (!response.ok) throw new Error("Failed to delete the address");
 
@@ -131,10 +125,8 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
       );
       set({ allAddresses: updatedAddresses });
       setFetchTrigger(true);
-
-      console.log("address deleted");
     } catch (error) {
-      console.error("Error deleting address:", error);
+      throw new Error("Failed to delete the address");
     }
   },
 
@@ -148,8 +140,6 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Server error response:", errorData);
         throw new Error("Failed to update the modifiedAddress");
       }
 
@@ -158,14 +148,13 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
       );
 
       set({ allAddresses: updatedAddresses });
-      console.log("Updated addresses:", updatedAddresses);
       setFetchTrigger(true);
     } catch (error) {
-      console.error("Error updating address:", error);
+      throw new Error("Failed to update the modifiedAddress");
     }
   },
 }));
 
 function generateRandomID() {
-  return Math.random().toString(36).substring(2); // TODO: replace
+  return Math.random().toString(36).substring(2);
 }

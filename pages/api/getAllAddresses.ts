@@ -23,7 +23,7 @@ export default async function handler(
 
       res.status(200).json({ message: "api/getAllAddresses:ok", userAddress });
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      throw new Error("Failed to fetch Add addresses");
     }
   } else {
     res.status(405).json({ error: "Method Not Allowed" });

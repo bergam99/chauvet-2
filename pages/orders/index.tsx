@@ -1,6 +1,5 @@
 import MeLayout from "@/components/layouts/meLayout/meLayout";
 import OrderCard from "@/components/orderCard/orderCard";
-import { IOrders } from "@/types/order";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import classes from "./order.module.css";
@@ -23,8 +22,6 @@ const OrderPage = () => {
     fetching();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // console.log({ orders });
 
   return (
     <>

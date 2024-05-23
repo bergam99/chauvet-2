@@ -1,4 +1,3 @@
-import { CheckoutProps } from "@/types/checkout";
 import CustomInput from "../../customs/customInput/customInput";
 import CustomTextarea from "../../customs/customTextarea/customTextarea";
 import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
@@ -9,7 +8,15 @@ import * as Yup from "yup";
 import { IUserAddress } from "@/types/userAddress";
 import { schema } from "@/utils/yupFormValidation";
 
-const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
+type AddressFormProps = {
+  submitModal?: (e: React.FormEvent<HTMLFormElement>) => void;
+  submitModifyAddress?: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+const AddressForm = ({
+  submitModal,
+  submitModifyAddress,
+}: AddressFormProps) => {
   const {
     postAddress,
     handleInputChange,
@@ -25,7 +32,6 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
-    // console.log("yupSubmitFormValidation execution");
     try {
       // false : verify all fields
       await schema.validate(shippingAddress, { abortEarly: false });
@@ -221,11 +227,6 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             Enregistrer
           </button>
         </div>
-        {Object.keys(formValidationErrors).length > 1 ? (
-          <p className={classes.err}>Veuillez vérifier les champs invalids ⚠</p>
-        ) : (
-          ""
-        )}
       </form>
     </>
   );
