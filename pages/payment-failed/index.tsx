@@ -1,5 +1,4 @@
 import ErrorLayout from "@/components/layouts/ErrorLayout/ErrorLayout";
-import Link from "next/link";
 
 const PaymentFailed = () => {
   return (

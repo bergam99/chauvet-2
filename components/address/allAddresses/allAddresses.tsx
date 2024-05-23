@@ -18,11 +18,9 @@ const AllAddresses = () => {
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!shippingAddress.localId) {
-      console.log("address not selected");
       setValidationError("Sélectionnez l'address de livraison ⚠");
       return;
     } else {
-      console.log("address selected", shippingAddress);
       setValidationError("");
       router.push("/checkout/summary");
     }

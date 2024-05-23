@@ -37,14 +37,12 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
     };
     fetching();
     setFetchTrigger(false); // reset to default value aftre refreshing, this will switch when submit modal.
-    // console.log("mapAppAlldresses - useEffect =>", shippingAddress);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchTrigger]);
 
   const openModifyModal = (address: IUserAddress) => {
     setShippingAddress(address);
     dialog.current?.open();
-    console.log("openModifyModal, shippingAddress", address?._id);
   };
 
   if (isLoading) {
@@ -55,13 +53,8 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
     e.preventDefault();
     if (shippingAddress?._id) {
       await updateAddress(shippingAddress?._id as string, shippingAddress);
-      // shippingAddress : modifiedAddress
-
-      console.log("modif function execution");
       dialog.current?.close();
       setFetchTrigger(true);
-      // } else {
-      // console.log("no id");
     }
   }
 

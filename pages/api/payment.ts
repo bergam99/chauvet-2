@@ -24,7 +24,6 @@ export default async function handler(
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
-  // User
   const token = await getToken({ req });
   const user_id = token?.sub || undefined;
   const user_email = token?.email || undefined;
@@ -32,11 +31,6 @@ export default async function handler(
   securingEndpoint(token, user_id, res);
   // ====== creating the products from front-end (cart) ======
   const { products, shippingAddress } = req.body;
-  // const address = req.body;
-  // console.log({ shippingAddress });
-
-  // console.log(products);
-  // console.log(products[1]?.images[0]?.url);
 
   try {
     const activeProducts = await getActiveProducts(); // available products
@@ -57,12 +51,10 @@ export default async function handler(
           },
           active: true,
         });
-        // console.log("product created on stripe product catalog");
       }
     }
 
     // // ====== create payment session =====
-
     let stripeItems: any = [];
     for (const product of products) {
       const stripeProduct = activeProducts?.find(
@@ -74,14 +66,11 @@ export default async function handler(
       }
 
       // If available product push to stripeItems array to create session (price: default unit price, quantity: cart quantity)
-      // console.log(product?.images.url[0]);
-      // console.log({ product });
       if (stripeProduct) {
         stripeItems.push({
           price: stripeProduct?.default_price,
           quantity: product?.count,
         });
-        // console.log({ stripeItems });
       }
     }
 
@@ -99,9 +88,6 @@ export default async function handler(
       client_reference_id: user_id,
       metadata: { shippingAddress },
     });
-
-    // console.log(session.metadata);
-    // console.log({ session });
 
     return res.json({ url: session.url });
   } catch (error) {

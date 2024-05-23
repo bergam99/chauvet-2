@@ -156,5 +156,5 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 }));
 
 function generateRandomID() {
-  return Math.random().toString(36).substring(2); // TODO: replace
+  return Math.random().toString(36).substring(2);
 }
