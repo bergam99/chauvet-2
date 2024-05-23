@@ -221,7 +221,7 @@ const AddressForm = ({ submitModal, submitModifyAddress }: CheckoutProps) => {
             Enregistrer
           </button>
         </div>
-        {Object.keys(formValidationErrors).length > 0 ? (
+        {Object.keys(formValidationErrors).length > 1 ? (
           <p className={classes.err}>Veuillez vérifier les champs invalids ⚠</p>
         ) : (
           ""

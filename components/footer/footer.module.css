@@ -1,6 +1,6 @@
 .footer {
     background-color: var(--color-heavy-gray);
-    margin-top: 7em;
+    margin-top: 1em;
     
 }
 
@@ -105,6 +105,11 @@
     border-bottom: .6px solid var(--color-heavy-gray);
 }
 
+.txt3{
+    font-family: var(--ff-body2);
+    font-size: var(--fs-xs);
+    margin-bottom: var(--sp-em-s);
+}
 @media (max-width: 768px) {
 
     .container1 {

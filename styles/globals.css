@@ -161,7 +161,7 @@ a {
     border-bottom: .5px solid var(--color-heavy-gray);
 }
 
-.Heading{
+.Heading {
     font-family: var(--ff-heading);
     font-size: var(--fs-3xl);
 }
@@ -178,6 +178,26 @@ a {
     letter-spacing: var(--ls-m);
     color: var(--color-white);
 }
+
+.owl-nav {
+    text-align: center;
+}
+
+.owl-prev {
+    margin-right: 10px;
+}
+/* 
+   .owl-prev,
+   .owl-next {
+       font-family: 'Arial', sans-serif;
+   } */
+
+@media (max-width: 768px) {
+    .owl-nav {
+        text-align: left;
+    }
+}
+
 
 /* ===== animation ===== */
 @keyframes fadeInFromBottom {
