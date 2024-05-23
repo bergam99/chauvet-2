@@ -99,11 +99,7 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
                   {/* use openModal component only when you want to clear form by opening modal */}
                   <button
                     onClick={() => {
-                      console.log(
-                        "shippingAddress._id before delete:",
-                        shippingAddress._id
-                      );
-                      deleteAddress(shippingAddress._id);
+                      deleteAddress(address._id);
                     }}
                     className={classes.delete}
                   >
