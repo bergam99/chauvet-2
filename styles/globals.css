@@ -123,7 +123,7 @@ a {
     font-family: var(--ff-link);
 }
 
-/* === custum === */
+/* === Custom === */
 .bgColor-default {
     background-color: transparent;
 }
@@ -186,11 +186,6 @@ a {
 .owl-prev {
     margin-right: 10px;
 }
-/* 
-   .owl-prev,
-   .owl-next {
-       font-family: 'Arial', sans-serif;
-   } */
 
 @media (max-width: 768px) {
     .owl-nav {
