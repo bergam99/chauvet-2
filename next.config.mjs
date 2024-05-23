@@ -1,16 +1,5 @@
 /** @type {import('next').NextConfig} */
-import webpack from "webpack"; // const nextConfig = {
-//   reactStrictMode: true,
-//   cards: {
-//     remotePatterns: [
-//       {
-//         protocol: "https",
-//         hostname: "res.cloudinary.com",
-
-//       },
-//     ],
-//   },
-// };
+import webpack from "webpack";
 
 const nextConfig = {
   reactStrictMode: true,
