@@ -18,7 +18,7 @@ export default async function handler(
       const db = await connectDB();
       const userAddress = await db
         .collection<IUserAddress>("UserAddresses")
-        .find({})
+        .find({ user_id })
         .toArray();
 
       res.status(200).json({ message: "api/getAllAddresses:ok", userAddress });
