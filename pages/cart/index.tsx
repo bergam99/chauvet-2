@@ -41,28 +41,31 @@ const Cart = () => {
         <div className={classes.topContainer}>
           <p className={classes.panier}>Panier</p>
         </div>
+
         {cart.length > 0 ? (
-          cart.map((item) => (
-            <div key={item._id.toString()}>
-              <CartItemCard item={item} removeBtn />
-              <div className={classes.totalWrapper}>
-                <p className={classes.totalPrice}> Total : {total} €</p>
+          <>
+            {cart.map((item) => (
+              <div key={item._id.toString()}>
+                <CartItemCard item={item} removeBtn />
               </div>
-
-              <div className={classes.buttonsWrapper}>
-                <button className="DefaultButton" onClick={() => toProducts()}>
-                  Continuer mes achats
-                </button>
-
-                <button
-                  className="DefaultButtonDark"
-                  onClick={() => handleCheckout()}
-                >
-                  Valider le paiement
-                </button>
-              </div>
+            ))}
+            <div className={classes.totalWrapper}>
+              <p className={classes.totalPrice}> Total : {total} €</p>
             </div>
-          ))
+
+            <div className={classes.buttonsWrapper}>
+              <button className="DefaultButton" onClick={() => toProducts()}>
+                Continuer mes achats
+              </button>
+
+              <button
+                className="DefaultButtonDark"
+                onClick={() => handleCheckout()}
+              >
+                Valider le paiement
+              </button>
+            </div>
+          </>
         ) : (
           <p className={classes.noProduct}>
             Vous n&apos;avez pas de produit dans votre panier. Cliquez{" "}
@@ -78,3 +81,20 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// <div className={classes.totalWrapper}>
+//   <p className={classes.totalPrice}> Total : {total} €</p>
+// </div>
+
+// <div className={classes.buttonsWrapper}>
+//   <button className="DefaultButton" onClick={() => toProducts()}>
+//     Continuer mes achats
+//   </button>
+
+//   <button
+//     className="DefaultButtonDark"
+//     onClick={() => handleCheckout()}
+//   >
+//     Valider le paiement
+//   </button>
+// </div>
