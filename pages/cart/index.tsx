@@ -81,20 +81,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-// <div className={classes.totalWrapper}>
-//   <p className={classes.totalPrice}> Total : {total} €</p>
-// </div>
-
-// <div className={classes.buttonsWrapper}>
-//   <button className="DefaultButton" onClick={() => toProducts()}>
-//     Continuer mes achats
-//   </button>
-
-//   <button
-//     className="DefaultButtonDark"
-//     onClick={() => handleCheckout()}
-//   >
-//     Valider le paiement
-//   </button>
-// </div>
