@@ -25,5 +25,6 @@ export const config = {
     "/checkout/:path*",
     "/payment-failed",
     "/payment-success",
+    "/addresses",
   ],
 };
