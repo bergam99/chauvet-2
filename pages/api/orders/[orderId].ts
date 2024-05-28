@@ -37,12 +37,11 @@ export default async function handler(
           {
             $lookup: {
               from: "Users",
-              let: { userId: "$user_id" }, // Pass the user_id from Orders as a variable
               pipeline: [
                 {
                   $match: {
                     $expr: {
-                      $eq: [{ $toString: "$_id" }, "$$userId"], // Convert _id to string and compare
+                      $eq: [{ $toString: "$_id" }, user_id], // Convert _id to string and compare
                     },
                   },
                 },
