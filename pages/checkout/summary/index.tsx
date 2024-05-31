@@ -13,6 +13,7 @@ const Summary = () => {
   const { cart } = useCartStore();
   const total = totalPrice(cart);
 
+  // TODO Loader
   const payment = async () => {
     setIsLoading(true);
     const response = await fetch("/api/payment", {
@@ -56,10 +57,10 @@ const Summary = () => {
           </ul>
         )}
 
-        {!isLoading && !shippingAddress && <p>No addresse found.</p>}
+        {!shippingAddress && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
         <button onClick={payment} className="DefaultButtonDark">
-          {isLoading ? "Loading..." : "Payer"}
+          Payer
         </button>
       </CheckoutLayout>
     </>

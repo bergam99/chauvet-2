@@ -3,18 +3,20 @@ import { useOrderStore } from "@/stores/order";
 import Link from "next/link";
 import { useEffect } from "react";
 import classes from "./payment-success.module.css";
+import Loader from "@/components/loader/loader";
 const PaymentSuccess = () => {
   const { clearCart } = useCartStore();
-  const { orders, totalOrderCount, fetchAllOrders } = useOrderStore();
+  const { orders, totalOrderCount, fetchAllOrders, isLoading } =
+    useOrderStore();
 
   useEffect(() => {
-    const fetching = async () => {
-      await fetchAllOrders();
-    };
-    fetching();
+    fetchAllOrders();
     clearCart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchAllOrders, clearCart]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const currentOrder = orders[0];
 

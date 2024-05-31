@@ -41,7 +41,7 @@ export default async function handler(
                 {
                   $match: {
                     $expr: {
-                      $eq: [{ $toString: "$_id" }, user_id], // Convert _id to string and compare
+                      $eq: [{ $toString: "$_id" }, user_id], // Convert _id (ObjectId) to string and compare
                     },
                   },
                 },

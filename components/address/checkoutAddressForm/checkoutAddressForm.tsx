@@ -1,31 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AddressForm from "../addressForm/addressForm";
 import AllAddresses from "../allAddresses/allAddresses";
 import { useAddressStore } from "@/stores/address";
+import Loader from "@/components/loader/loader";
 
 const CheckoutAddressForm = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { allAddresses, fetchAllAddresses } = useAddressStore();
+  const { allAddresses, fetchAllAddresses, isLoading } = useAddressStore();
 
   useEffect(() => {
-    const fetching = async () => {
-      setIsLoading(true);
-      await fetchAllAddresses();
-      setIsLoading(false);
-    };
-    fetching();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchAllAddresses();
+  }, [fetchAllAddresses]);
 
-  return (
-    <>
-      {!isLoading && allAddresses.length > 0 ? (
-        <AllAddresses />
-      ) : (
-        <AddressForm />
-      )}
-    </>
-  );
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  return <>{allAddresses.length > 0 ? <AllAddresses /> : <AddressForm />}</>;
 };
 
 export default CheckoutAddressForm;

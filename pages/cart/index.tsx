@@ -1,6 +1,6 @@
 import CartItemCard from "@/components/cartItemCard/cartItemCard";
 import { totalPrice, useCartStore } from "@/stores/cart";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -8,8 +8,7 @@ import { useRouter } from "next/router";
 import Loader from "@/components/loader/loader";
 
 const Cart = () => {
-  const { cart, loadCart } = useCartStore();
-  const [isLoading, setIsLoading] = useState(true);
+  const { cart, loadCart, isLoading } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
   const total = totalPrice(cart);
@@ -22,13 +21,13 @@ const Cart = () => {
     }
   };
 
+  // TODO
   const toProducts = () => {
     router.push("/products");
   };
 
   useEffect(() => {
     loadCart();
-    setIsLoading(false);
   }, [loadCart]);
 
   if (isLoading) {
