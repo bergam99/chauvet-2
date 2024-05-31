@@ -13,7 +13,6 @@ const Summary = () => {
   const { cart } = useCartStore();
   const total = totalPrice(cart);
 
-  // TODO Loader
   const payment = async () => {
     setIsLoading(true);
     const response = await fetch("/api/payment", {
@@ -27,13 +26,13 @@ const Summary = () => {
       }),
     });
     const data = await response.json();
-
     if (response.ok) {
+      setIsLoading(false);
       window.location.href = data.url;
     } else {
+      setIsLoading(false);
       throw new Error(`failed to create checkout session`);
     }
-    setIsLoading(false);
   };
 
   if (isLoading) {

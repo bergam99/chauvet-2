@@ -49,7 +49,7 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
       <ul className={classes.ul}>
         {allAddresses.map((address: IUserAddress) => (
           <li
-            key={address._id?.toString()}
+            key={address.localId}
             className={classes.li}
             onClick={() => setShippingAddress(address)}
           >

@@ -21,11 +21,6 @@ const Cart = () => {
     }
   };
 
-  // TODO
-  const toProducts = () => {
-    router.push("/products");
-  };
-
   useEffect(() => {
     loadCart();
   }, [loadCart]);
@@ -53,9 +48,9 @@ const Cart = () => {
             </div>
 
             <div className={classes.buttonsWrapper}>
-              <button className="DefaultButton" onClick={() => toProducts()}>
+              <Link href="/products" className={`${classes.btn} DefaultButton`}>
                 Continuer mes achats
-              </button>
+              </Link>
 
               <button
                 className="DefaultButtonDark"

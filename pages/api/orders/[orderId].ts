@@ -1,6 +1,5 @@
 import { IOrders } from "@/types/order";
 import { connectDB } from "@/utils/connectDB";
-import { securingEndpoint } from "@/utils/securingEndpoint";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
@@ -15,11 +14,7 @@ export default async function handler(
     try {
       const token = await getToken({ req });
       const user_id = token?.sub || undefined;
-
-      securingEndpoint(token, user_id, res);
-
       const db = await connectDB();
-
       const orderObjectId = new ObjectId(orderId as string); // Convert orderId to ObjectId
 
       const matchIdOrder = await db
