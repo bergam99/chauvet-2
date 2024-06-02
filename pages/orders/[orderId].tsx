@@ -15,7 +15,7 @@ const OrderDetail = () => {
 
   useEffect(() => {
     if (!orderId) return;
-
+    setIsLoading(true);
     fetch(`/api/orders/${orderId}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -84,73 +84,71 @@ const OrderDetail = () => {
     { label: "Date", value: createdAt },
   ];
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <MeLayout>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <section className={classes.orderId}>
-              <GoBack />
-              <p className={classes.title}>Payment infos</p>
-              <div className={classes.orderTable}>
-                {paymentInfos.map((item) => (
-                  <div key={item.label} className={classes.tableRow}>
-                    <div className={classes.tableCell}>{item.label}</div>
-                    <div className={classes.tableCell}>{item.value}</div>
+        <>
+          <section className={classes.orderId}>
+            <GoBack />
+            <p className={classes.title}>Payment infos</p>
+            <div className={classes.orderTable}>
+              {paymentInfos.map((item) => (
+                <div key={item.label} className={classes.tableRow}>
+                  <div className={classes.tableCell}>{item.label}</div>
+                  <div className={classes.tableCell}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <p className={classes.title}>User</p>
+
+            <div className={classes.orderTable}>
+              {user.map((item) => (
+                <div key={item.label} className={classes.tableRow}>
+                  <div className={classes.tableCell}>{item.label}</div>
+                  <div className={classes.tableCell}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <p className={classes.title}>Livraison</p>
+            <div className={classes.orderTable}>
+              {livraison.map((item) => (
+                <div key={item.label} className={classes.tableRow}>
+                  <div className={classes.tableCell}>{item.label}</div>
+                  <div className={classes.tableCell}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <p className={classes.title}>Produits commandés</p>
+
+            <ul className={classes.orderTable}>
+              {/* Header Row */}
+              <li className={classes.tableRow}>
+                <div className={classes.tableCell}>Produit</div>
+                <div className={classes.tableCell}>Quantité</div>
+                <div className={classes.tableCell}>Prix</div>
+                <div className={classes.tableCell}>Prix total</div>
+              </li>
+              {/* Data Rows */}
+              {order?.orderItems.map((orderItem) => (
+                <li key={orderItem.product_id} className={classes.tableRow}>
+                  <div className={classes.tableCell}>{orderItem.name}</div>
+                  <div className={classes.tableCell}>{orderItem.quantity}</div>
+                  <div className={classes.tableCell}>{orderItem.price}</div>
+                  <div className={classes.tableCell}>
+                    {orderItem.price! * orderItem.quantity}
                   </div>
-                ))}
-              </div>
-
-              <p className={classes.title}>User</p>
-
-              <div className={classes.orderTable}>
-                {user.map((item) => (
-                  <div key={item.label} className={classes.tableRow}>
-                    <div className={classes.tableCell}>{item.label}</div>
-                    <div className={classes.tableCell}>{item.value}</div>
-                  </div>
-                ))}
-              </div>
-
-              <p className={classes.title}>Livraison</p>
-              <div className={classes.orderTable}>
-                {livraison.map((item) => (
-                  <div key={item.label} className={classes.tableRow}>
-                    <div className={classes.tableCell}>{item.label}</div>
-                    <div className={classes.tableCell}>{item.value}</div>
-                  </div>
-                ))}
-              </div>
-
-              <p className={classes.title}>Produits commandés</p>
-
-              <ul className={classes.orderTable}>
-                {/* Header Row */}
-                <li className={classes.tableRow}>
-                  <div className={classes.tableCell}>Produit</div>
-                  <div className={classes.tableCell}>Quantité</div>
-                  <div className={classes.tableCell}>Prix</div>
-                  <div className={classes.tableCell}>Prix total</div>
                 </li>
-                {/* Data Rows */}
-                {order?.orderItems.map((orderItem) => (
-                  <li key={orderItem.product_id} className={classes.tableRow}>
-                    <div className={classes.tableCell}>{orderItem.name}</div>
-                    <div className={classes.tableCell}>
-                      {orderItem.quantity}
-                    </div>
-                    <div className={classes.tableCell}>{orderItem.price}</div>
-                    <div className={classes.tableCell}>
-                      {orderItem.price! * orderItem.quantity}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </>
-        )}
+              ))}
+            </ul>
+          </section>
+        </>
       </MeLayout>
     </>
   );

@@ -6,6 +6,7 @@ export interface CartItem extends IProduct {
 }
 
 type CartStore = {
+  isLoading: boolean;
   cart: CartItem[];
   count: () => number;
   add: (product: IProduct) => void;
@@ -39,10 +40,13 @@ const saveCartToSessionStorage = (cart: CartItem[]) => {
 // =============================================================
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [], // load previous session storage
+  isLoading: true,
 
   loadCart: () => {
+    set({ isLoading: true });
     const cart = loadCartFromSessionStorage(); // Load the cart from sessionStorage
     set({ cart });
+    set({ isLoading: false });
   },
 
   // count total quandity

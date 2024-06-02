@@ -1,7 +1,7 @@
 import { IUserAddress } from "@/types/userAddress";
 import { useAddressStore } from "@/stores/address";
 import classes from "./mapAllAddresses.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import CustomRadioButton from "../../customs/custumRadioButton/custumRadioButton";
 import AddressCard from "../addressCard/addressCard";
 import Loader from "../../loader/loader";
@@ -18,44 +18,26 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
     shippingAddress,
     allAddresses,
     deleteAddress,
-    fetchAllAddresses,
-    fetchTrigger,
-    setFetchTrigger,
+    isLoading,
     updateAddress,
   } = useAddressStore();
-
-  const [isLoading, setIsLoading] = useState(true);
   const dialog = useRef<ModalHandles>(null);
-
-  /**
-   * triggerd first time mount & trigger = true by submitting the modal
-   */
-  useEffect(() => {
-    const fetching = async () => {
-      await fetchAllAddresses();
-      setIsLoading(false);
-    };
-    fetching();
-    setFetchTrigger(false); // reset to default value aftre refreshing, this will switch when submit modal.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchTrigger]);
 
   const openModifyModal = (address: IUserAddress) => {
     setShippingAddress(address);
     dialog.current?.open();
   };
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   async function submitModifyAddress(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (shippingAddress?._id) {
       await updateAddress(shippingAddress?._id as string, shippingAddress);
       dialog.current?.close();
-      setFetchTrigger(true);
     }
+  }
+
+  if (isLoading) {
+    return <Loader />;
   }
 
   return (
@@ -67,7 +49,7 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
       <ul className={classes.ul}>
         {allAddresses.map((address: IUserAddress) => (
           <li
-            key={address._id?.toString()}
+            key={address.localId}
             className={classes.li}
             onClick={() => setShippingAddress(address)}
           >
@@ -89,7 +71,7 @@ const MapAllAddresses = ({ isCheckoutPage = false }: MapAllAddressesProps) => {
                   >
                     Modifier
                   </button>
-                  {/* use openModal component only when you want to clear form by opening modal */}
+                  {/* use openModal component only when you want to clear the form by opening a modal */}
                   <button
                     onClick={() => {
                       deleteAddress(address._id);

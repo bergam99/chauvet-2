@@ -1,25 +1,17 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
-import { securingEndpoint } from "@/utils/securingEndpoint";
-import { getToken } from "next-auth/jwt";
 import { ObjectId } from "mongodb";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const token = await getToken({ req });
-  const user_id = token?.sub || undefined;
-
   if (req.method === "DELETE") {
     const { id } = req.body;
     if (!id) {
       return res.status(400).json({ message: "ID is required" });
     }
-
     const objectId = new ObjectId(id as string);
-
-    securingEndpoint(token, user_id, res);
     try {
       const db = await connectDB();
       const collection = db.collection("UserAddresses");

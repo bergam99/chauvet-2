@@ -1,4 +1,3 @@
-import { securingEndpoint } from "@/utils/securingEndpoint";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 import Stripe from "stripe";
@@ -28,7 +27,6 @@ export default async function handler(
   const user_id = token?.sub || undefined;
   const user_email = token?.email || undefined;
 
-  securingEndpoint(token, user_id, res);
   // ====== creating the products from front-end (cart) ======
   const { products, shippingAddress } = req.body;
 
