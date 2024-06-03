@@ -7,7 +7,10 @@ type AddressStore = {
   shippingAddress: IUserAddress;
   setShippingAddress: (address: IUserAddress) => void;
   allAddresses: IUserAddress[];
-  postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  postAddress: (
+    e: React.FormEvent<HTMLFormElement>,
+    isFirstTimeSubmission?: boolean
+  ) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
   deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
@@ -72,25 +75,30 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
 
   resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }),
 
-  postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
+  postAddress: async (
+    e: React.FormEvent<HTMLFormElement>,
+    isFirstTimeSubmission?: boolean
+  ) => {
     set({ isLoading: true });
-    const { allAddresses } = get();
     e.preventDefault();
-    const { shippingAddress } = get();
+    const { shippingAddress, allAddresses } = get();
     const newShippingAddress = {
       ...shippingAddress,
       localId: generateRandomID(),
     };
     set({ shippingAddress: newShippingAddress });
+
     await fetch("/api/postUserAddress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newShippingAddress),
     });
-    set({
-      allAddresses: [...allAddresses, newShippingAddress],
-      isLoading: false,
-    });
+    if (!isFirstTimeSubmission) {
+      set({
+        allAddresses: [...allAddresses, newShippingAddress], // re-run
+      });
+    }
+    set({ isLoading: false });
   },
 
   fetchAllAddresses: async () => {
