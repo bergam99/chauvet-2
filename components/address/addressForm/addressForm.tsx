@@ -89,7 +89,7 @@ const AddressForm = ({
       resetShippingAddress();
     } else {
       // First time submission (shippingAddress.length === 0)
-      await postAddress(e);
+      await postAddress(e, true);
       router.push("/checkout/summary");
     }
   }
