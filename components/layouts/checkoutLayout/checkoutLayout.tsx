@@ -2,7 +2,6 @@ import CartItemCard from "../../cartItemCard/cartItemCard";
 import { totalPrice, useCartStore } from "@/stores/cart";
 import classes from "./checkoutLayout.module.css";
 import { useEffect } from "react";
-import Loader from "@/components/loader/loader";
 
 type CheckoutLayoutProps = {
   title: string;
@@ -11,16 +10,12 @@ type CheckoutLayoutProps = {
 };
 
 const CheckoutLayout = ({ title, subTitle, children }: CheckoutLayoutProps) => {
-  const { cart, loadCart, isLoading } = useCartStore();
+  const { cart, loadCart } = useCartStore();
   const total = totalPrice(cart);
 
   useEffect(() => {
     loadCart();
   }, [loadCart]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <>

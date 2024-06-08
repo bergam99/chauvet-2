@@ -5,10 +5,9 @@ import classes from "./cart.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Loader from "@/components/loader/loader";
 
 const Cart = () => {
-  const { cart, loadCart, isLoading } = useCartStore();
+  const { cart, loadCart } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
   const total = totalPrice(cart);
@@ -24,10 +23,6 @@ const Cart = () => {
   useEffect(() => {
     loadCart();
   }, [loadCart]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <>
