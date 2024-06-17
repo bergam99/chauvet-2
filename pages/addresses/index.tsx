@@ -2,29 +2,27 @@ import MeLayout from "@/components/layouts/meLayout/meLayout";
 import MapAllAddresses from "@/components/address/mapAllAddresses/mapAllAddresses";
 import OpenModalBtn from "@/components/openModalBtn/openModalBtn";
 import { useAddressStore } from "@/stores/address";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import classes from "./addresses.module.css";
 import InnerMeLayout from "@/components/layouts/meLayout/innerMeLayout/innerMeLayout";
+import Loader from "@/components/loader/loader";
 
 const Addresses = () => {
-  const { allAddresses, fetchAllAddresses, fetchTrigger } = useAddressStore();
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading, allAddresses, fetchAllAddresses } = useAddressStore();
 
   useEffect(() => {
-    const fetching = async () => {
-      setIsLoading(true);
-      await fetchAllAddresses();
-      setIsLoading(false);
-    };
-    fetching();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchTrigger]);
+    fetchAllAddresses();
+  }, [fetchAllAddresses]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
       <MeLayout>
         <InnerMeLayout title="Gérer mes Addresses">
-          {!isLoading && allAddresses.length > 0 ? (
+          {allAddresses.length > 0 ? (
             <>
               <MapAllAddresses />
               <OpenModalBtn btnTxt="+ ajouter plus d'address" />

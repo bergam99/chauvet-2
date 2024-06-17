@@ -1,6 +1,5 @@
 import { IOrders } from "@/types/order";
 import { connectDB } from "@/utils/connectDB";
-import { securingEndpoint } from "@/utils/securingEndpoint";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
@@ -15,11 +14,7 @@ export default async function handler(
     try {
       const token = await getToken({ req });
       const user_id = token?.sub || undefined;
-
-      securingEndpoint(token, user_id, res);
-
       const db = await connectDB();
-
       const orderObjectId = new ObjectId(orderId as string); // Convert orderId to ObjectId
 
       const matchIdOrder = await db
@@ -37,12 +32,11 @@ export default async function handler(
           {
             $lookup: {
               from: "Users",
-              let: { userId: "$user_id" }, // Pass the user_id from Orders as a variable
               pipeline: [
                 {
                   $match: {
                     $expr: {
-                      $eq: [{ $toString: "$_id" }, "$$userId"], // Convert _id to string and compare
+                      $eq: [{ $toString: "$_id" }, user_id], // Convert _id (ObjectId) to string and compare
                     },
                   },
                 },

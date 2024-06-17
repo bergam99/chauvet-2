@@ -3,16 +3,18 @@ import { ObjectId } from "mongodb";
 import { create } from "zustand";
 
 type AddressStore = {
+  isLoading: boolean;
   shippingAddress: IUserAddress;
   setShippingAddress: (address: IUserAddress) => void;
   allAddresses: IUserAddress[];
-  postAddress: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  postAddress: (
+    e: React.FormEvent<HTMLFormElement>,
+    isFirstTimeSubmission?: boolean
+  ) => Promise<void>;
   handleInputChange: any;
   resetShippingAddress: () => void;
   deleteAddress: (id: string | ObjectId | undefined) => Promise<void>;
   fetchAllAddresses: () => Promise<void>;
-  fetchTrigger: boolean;
-  setFetchTrigger: (value: boolean) => void;
   updateAddress: (
     id: string,
     modifiedAddress: Partial<IUserAddress>
@@ -42,9 +44,9 @@ export const baseAddress = {
 };
 
 export const useAddressStore = create<AddressStore>((set, get) => ({
+  isLoading: true,
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-  fetchTrigger: false,
 
   formValidationErrors: {},
   setFormValidationErrors: (errors) =>
@@ -54,6 +56,7 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
           ? errors(state.formValidationErrors)
           : errors,
     })),
+
   clearFormValidationErrors: () => set({ formValidationErrors: {} }),
 
   setShippingAddress: (address: IUserAddress) => {
@@ -70,13 +73,15 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
     }));
   },
 
-  setFetchTrigger: (value: boolean) => set({ fetchTrigger: value }),
-
   resetShippingAddress: () => set({ shippingAddress: { ...baseAddress } }),
 
-  postAddress: async (e: React.FormEvent<HTMLFormElement>) => {
+  postAddress: async (
+    e: React.FormEvent<HTMLFormElement>,
+    isFirstTimeSubmission?: boolean
+  ) => {
+    set({ isLoading: true });
     e.preventDefault();
-    const { shippingAddress } = get();
+    const { shippingAddress, allAddresses } = get();
     const newShippingAddress = {
       ...shippingAddress,
       localId: generateRandomID(),
@@ -88,68 +93,70 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newShippingAddress),
     });
+    if (!isFirstTimeSubmission) {
+      set({
+        allAddresses: [...allAddresses, newShippingAddress], // re-run
+      });
+    }
+    set({ isLoading: false });
   },
 
   fetchAllAddresses: async () => {
+    set({ isLoading: true });
     try {
       const response = await fetch("/api/getAllAddresses", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
       const data = await response.json();
-
-      set({ allAddresses: data.userAddress });
+      set({ allAddresses: data.userAddress, isLoading: false });
     } catch (error) {
+      set({ isLoading: false });
       throw new Error("Failed to fetch all addresses");
     }
   },
 
   deleteAddress: async (id) => {
-    const { allAddresses, setFetchTrigger } = get();
+    set({ isLoading: true });
+    const { allAddresses } = get();
     try {
       const response = await fetch(`/api/deleteAddress`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       });
-
       if (!response.ok) throw new Error("Failed to delete the address");
-
       const updatedAddresses = allAddresses.filter(
         (address) => address._id !== id
       );
-      set({ allAddresses: updatedAddresses });
-      setFetchTrigger(true);
+      set({ allAddresses: updatedAddresses, isLoading: false });
     } catch (error) {
+      set({ isLoading: false });
       throw new Error("Failed to delete the address");
     }
   },
 
   updateAddress: async (id, modifiedAddress) => {
-    const { allAddresses, setFetchTrigger } = get();
+    set({ isLoading: true });
+    const { allAddresses } = get();
     try {
       const response = await fetch(`/api/updateAddress`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, ...modifiedAddress }),
       });
-
       if (!response.ok) {
         throw new Error("Failed to update the modifiedAddress");
       }
-
       const updatedAddresses = allAddresses.map((addr) =>
         addr._id === id ? { ...addr, ...modifiedAddress } : addr
       );
-
-      set({ allAddresses: updatedAddresses });
-      setFetchTrigger(true);
+      set({ allAddresses: updatedAddresses, isLoading: false });
     } catch (error) {
+      set({ isLoading: false });
       throw new Error("Failed to update the modifiedAddress");
     }
   },

@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
 import { getToken } from "next-auth/jwt";
-import { securingEndpoint } from "@/utils/securingEndpoint";
 import { schema } from "@/utils/yupFormValidation";
 import * as Yup from "yup";
 
@@ -13,8 +12,6 @@ export default async function handler(
     const token = await getToken({ req });
 
     const user_id = token?.sub;
-
-    securingEndpoint(token, user_id, res);
 
     const db = await connectDB();
     const userAddressCollection = db.collection("UserAddresses");

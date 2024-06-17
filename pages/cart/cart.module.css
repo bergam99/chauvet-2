@@ -22,9 +22,12 @@
     padding: var(--sp-2xl) 0;
     font-family: var(--ff-body2);
     font-size: var(--fs-s);
-
 }
 
+.btn{
+    display: flex;
+    align-items: center;
+}
 .link {
     border-bottom: .6px solid var(--color-heavy-gray);
     font-family: var(--ff-body);

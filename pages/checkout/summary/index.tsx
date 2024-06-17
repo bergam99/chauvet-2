@@ -26,13 +26,13 @@ const Summary = () => {
       }),
     });
     const data = await response.json();
-
     if (response.ok) {
+      setIsLoading(false);
       window.location.href = data.url;
     } else {
+      setIsLoading(false);
       throw new Error(`failed to create checkout session`);
     }
-    setIsLoading(false);
   };
 
   if (isLoading) {
@@ -56,10 +56,10 @@ const Summary = () => {
           </ul>
         )}
 
-        {!isLoading && !shippingAddress && <p>No addresse found.</p>}
+        {!shippingAddress && <p>No addresse found.</p>}
         <p className={classes.total}>Total de la commande : {total} €</p>
         <button onClick={payment} className="DefaultButtonDark">
-          {isLoading ? "Loading..." : "Payer"}
+          Payer
         </button>
       </CheckoutLayout>
     </>

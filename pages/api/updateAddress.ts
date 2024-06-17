@@ -1,19 +1,12 @@
-// pages/api/modifyAddress.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/utils/connectDB";
 import { ObjectId } from "mongodb";
-import { getToken } from "next-auth/jwt";
-import { securingEndpoint } from "@/utils/securingEndpoint";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === "PUT") {
-    const token = await getToken({ req });
-    const user_id = token?.sub || undefined;
-    securingEndpoint(token, user_id, res);
-
     try {
       const { id, ...modifiedAddress } = req.body;
       const objectId = new ObjectId(id as string);

@@ -28,6 +28,7 @@ const AddressForm = ({
   } = useAddressStore();
   const router = useRouter();
 
+  // submit check
   const yupSubmitFormValidation = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
@@ -79,7 +80,7 @@ const AddressForm = ({
       return;
     }
     if (submitModal) {
-      // Modal mode (shippingAddress.length > 0)
+      // Add modal mode (shippingAddress.length > 0)
       await submitModal(e);
       resetShippingAddress();
     } else if (submitModifyAddress) {
@@ -87,8 +88,8 @@ const AddressForm = ({
       await submitModifyAddress(e);
       resetShippingAddress();
     } else {
-      // first time submission (shippingAddress.length === 0)
-      await postAddress(e);
+      // First time submission (shippingAddress.length === 0)
+      await postAddress(e, true);
       router.push("/checkout/summary");
     }
   }
@@ -119,7 +120,7 @@ const AddressForm = ({
           <CustomInput
             label="Prénom"
             name="firstName"
-            required={true}
+            required
             onChange={handleInputChange}
             value={shippingAddress.firstName}
             onBlur={yupBlurFormValidation}
@@ -129,7 +130,7 @@ const AddressForm = ({
             label="Nom"
             name="lastName"
             onChange={handleInputChange}
-            required={true}
+            required
             value={shippingAddress.lastName}
             onBlur={yupBlurFormValidation}
             error={formValidationErrors.lastName}
@@ -141,7 +142,7 @@ const AddressForm = ({
             label="Adresse"
             name="address"
             onChange={handleInputChange}
-            required={true}
+            required
             value={shippingAddress.address}
             onBlur={yupBlurFormValidation}
             error={formValidationErrors.address}
@@ -160,7 +161,7 @@ const AddressForm = ({
             label="Code postal"
             name="zipcode"
             onChange={handleInputChange}
-            required={true}
+            required
             value={shippingAddress.zipcode}
             onBlur={yupBlurFormValidation}
             error={formValidationErrors.zipcode}
@@ -170,7 +171,7 @@ const AddressForm = ({
             label="Ville"
             name="city"
             onChange={handleInputChange}
-            required={true}
+            required
             value={shippingAddress.city}
             onBlur={yupBlurFormValidation}
             error={formValidationErrors.city}
@@ -189,7 +190,7 @@ const AddressForm = ({
             label="Pays"
             name="country"
             onChange={handleInputChange}
-            required={true}
+            required
             value={shippingAddress.country}
             onBlur={yupBlurFormValidation}
             error={formValidationErrors.country}
@@ -201,7 +202,7 @@ const AddressForm = ({
             label="Téléphone"
             name="tel"
             onChange={handleInputChange}
-            required={true}
+            required
             type="tel"
             value={shippingAddress.tel}
             onBlur={yupBlurFormValidation}

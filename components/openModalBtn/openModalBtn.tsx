@@ -7,12 +7,8 @@ type OpenModalProps = {
   btnTxt: string;
 };
 const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
-  const {
-    postAddress,
-    setFetchTrigger,
-    resetShippingAddress,
-    clearFormValidationErrors,
-  } = useAddressStore();
+  const { postAddress, resetShippingAddress, clearFormValidationErrors } =
+    useAddressStore();
 
   const dialog = useRef<ModalHandles>(null);
 
@@ -26,7 +22,6 @@ const OpenModalBtn = ({ btnTxt }: OpenModalProps) => {
     e.preventDefault();
     await postAddress(e); // post form
     dialog.current?.close(); // close modal
-    setFetchTrigger(true); // start refresh
   }
 
   return (
