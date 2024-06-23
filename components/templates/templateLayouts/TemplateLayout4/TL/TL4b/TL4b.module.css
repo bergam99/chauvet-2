@@ -1,7 +1,7 @@
 .gridContainer {
     display: grid;
     grid-template-areas: "txt img"
-        ". connectedTxt";
+                          ". connectedTxt";
     padding: var(--sp-l) 0;
 }
 

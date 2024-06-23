@@ -47,8 +47,8 @@ export const useAddressStore = create<AddressStore>((set, get) => ({
   isLoading: true,
   shippingAddress: { ...baseAddress },
   allAddresses: [{ ...baseAddress }],
-
   formValidationErrors: {},
+
   setFormValidationErrors: (errors) =>
     set((state) => ({
       formValidationErrors:
