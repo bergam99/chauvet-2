@@ -28,7 +28,11 @@ const AddressForm = ({
   } = useAddressStore();
   const router = useRouter();
 
-  // submit check
+  /**
+   * front submit validation
+   * @param e
+   * @returns
+   */
   const yupSubmitFormValidation = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
@@ -52,7 +56,10 @@ const AddressForm = ({
     }
   };
 
-  // on blur check
+  /**
+   * on blur check
+   * @param e
+   */
   const yupBlurFormValidation = async (
     e: React.FocusEvent<HTMLInputElement>
   ) => {
@@ -73,6 +80,11 @@ const AddressForm = ({
     }
   };
 
+  /**
+   * conditionnal submit execution depends on props
+   * @param e
+   * @returns
+   */
   async function submission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const isValid = await yupSubmitFormValidation(e);
