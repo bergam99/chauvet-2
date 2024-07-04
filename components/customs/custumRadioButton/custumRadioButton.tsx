@@ -8,13 +8,13 @@ interface CustomRadioButtonProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CustomRadioButton: React.FC<CustomRadioButtonProps> = ({
+const CustomRadioButton = ({
   label,
   name,
   value,
   checked,
   onChange,
-}) => {
+}: CustomRadioButtonProps) => {
   return (
     <label className={classes.radioContainer}>
       <input
