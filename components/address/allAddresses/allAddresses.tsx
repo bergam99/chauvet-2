@@ -12,8 +12,7 @@ const AllAddresses = () => {
 
   useEffect(() => {
     resetShippingAddress();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [resetShippingAddress]);
 
   const handleValidationAndClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
